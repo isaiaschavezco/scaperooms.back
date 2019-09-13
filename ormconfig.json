@@ -1,0 +1,18 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "WtSS6dpT2wwiu14f",
+    "database": "bioderma",
+    "entities": ["src/core/**/**/**.entity{.ts,.js}"],
+    "migrationsTableName": "migrations",
+    "migrations": [
+        "src/migration/**/*.ts"
+    ],
+    "extra": {
+        "max": 25,
+        "min": 1
+    },
+    "synchronize": true
+}
