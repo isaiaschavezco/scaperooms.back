@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Trade } from '../trade/trade.entity';
+import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
 
 @Entity({ schema: 'Content' })
 export class Product {
@@ -21,5 +22,8 @@ export class Product {
 
     @OneToMany(type => Trade, trade => trade.product)
     trade: Trade[];
+
+    @OneToMany(type => Pointsbyuser, pointsbyuser => pointsbyuser.product)
+    pointsbyuser: Pointsbyuser[];
 
 }

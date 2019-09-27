@@ -8,6 +8,9 @@ import { Chain } from '../chain/chain.entity';
 import { Role } from '../role/role.entity';
 import { Trade } from '../../content/trade/trade.entity';
 import { Quizz } from '../../trivia/quizz/quizz.entity';
+import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
+import { Answerbyusersection } from '../../trivia/answerbyusersection/answerbyusersection.entity';
+import { Message } from '../../content/message/message.entity';
 
 @Entity({ schema: 'Users' })
 export class User {
@@ -54,6 +57,12 @@ export class User {
     @Column()
     isActive: boolean;
 
+    @Column()
+    points: number;
+
+    @Column()
+    age: number;
+
     @ManyToOne(type => City, city => city.user)
     city: City;
 
@@ -80,5 +89,14 @@ export class User {
 
     @ManyToMany(type => Quizz, quizz => quizz.user)
     quizz: Quizz[];
+
+    @OneToMany(type => Pointsbyuser, pointsbyuser => pointsbyuser.user)
+    pointsbyuser: Pointsbyuser[];
+
+    @OneToMany(type => Answerbyusersection, answerbyusersection => answerbyusersection.user)
+    answerbyusersection: Answerbyusersection[];
+
+    @OneToMany(type => Message, message => message.user)
+    message: Message[];
 
 }

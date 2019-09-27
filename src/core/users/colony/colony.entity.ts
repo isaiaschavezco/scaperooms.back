@@ -9,7 +9,7 @@ export class Colony {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 50 })
+    @Column({ length: 150 })
     name: string;
 
     @ManyToOne(type => Delegation, delegation => delegation.colony)

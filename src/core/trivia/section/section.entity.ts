@@ -1,7 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, OneToMany } from 'typeorm';
 import { QuestionType } from '../question-type/question-type.entity';
 import { Question } from '../question/question.entity';
 import { Quizz } from '../quizz/quizz.entity';
+import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
+import { Answerbyusersection } from '../answerbyusersection/answerbyusersection.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Section {
@@ -26,5 +28,11 @@ export class Section {
 
     @ManyToMany(type => Quizz, quizz => quizz.section)
     quizz: Quizz[];
+
+    @OneToMany(type => Pointsbyuser, pointsbyuser => pointsbyuser.section)
+    pointsbyuser: Pointsbyuser[];
+
+    @OneToMany(type => Answerbyusersection, answerbyusersection => answerbyusersection.section)
+    answerbyusersection: Answerbyusersection[];
 
 }

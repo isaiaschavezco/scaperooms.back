@@ -10,7 +10,7 @@ export class Delegation {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 50 })
+    @Column({ length: 150 })
     name: string;
 
     @ManyToOne(type => City, city => city.delegation)

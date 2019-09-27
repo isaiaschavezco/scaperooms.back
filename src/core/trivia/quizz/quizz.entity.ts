@@ -1,8 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable, OneToMany } from 'typeorm';
 import { Target } from '../target/target.entity';
 import { Section } from '../section/section.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { User } from '../../users/user/user.entity';
+import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Quizz {
@@ -32,5 +33,8 @@ export class Quizz {
     @ManyToMany(type => User, user => user.quizz)
     @JoinTable({ name: "quizzesByUser" })
     user: User[];
+
+    @OneToMany(type => Pointsbyuser, pointsbyuser => pointsbyuser.quizz)
+    pointsbyuser: Pointsbyuser[];
 
 }
