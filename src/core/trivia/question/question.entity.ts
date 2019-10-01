@@ -1,5 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
-import { Section} from '../section/section.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, ManyToOne, OneToMany } from 'typeorm';
+import { Quizz } from '../quizz/quizz.entity';
+import { QuestionType } from '../question-type/question-type.entity';
+import { Answerbyusersection } from '../answerbyusersection/answerbyusersection.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Question {
@@ -13,11 +15,23 @@ export class Question {
     @Column({ type: "text" })
     answer: string;
 
+    @Column()
+    points: number;
+
+    @Column()
+    time: number;
+
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;
 
-    @ManyToMany(type => Section, section => section.question)
-    @JoinTable({ name: "questionsBySection" })
-    section: Section[];
+    @ManyToOne(type => QuestionType, questionType => questionType.question)
+    question_type: QuestionType;
+
+    @ManyToMany(type => Quizz, quizz => quizz.question)
+    @JoinTable({ name: "questionsByQuizz" })
+    quizz: Quizz[];
+
+    @OneToMany(type => Answerbyusersection, answerbyusersection => answerbyusersection.question)
+    answerbyusersection: Answerbyusersection[];
 
 }

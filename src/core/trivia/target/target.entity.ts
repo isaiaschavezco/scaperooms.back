@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany } from 'typeorm';
 import { City } from '../../users/city/city.entity';
 import { Delegation } from '../../users/delegation/delegation.entity';
 import { Colony } from '../../users/colony/colony.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Position } from '../../users/position/position.entity';
 import { Type } from '../../users/type/type.entity';
-import { Quizz } from '../quizz/quizz.entity';
+import { Campaing } from '../campaing/campaing.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Target {
@@ -40,7 +40,7 @@ export class Target {
     @ManyToOne(type => Type, tyype => tyype.target)
     type: Type;
 
-    @OneToMany(type => Quizz, quizz => quizz.target)
-    quizz: Quizz[];
+    @ManyToMany(type => Campaing, campaing => campaing.target)
+    campaing: Campaing[];
 
 }

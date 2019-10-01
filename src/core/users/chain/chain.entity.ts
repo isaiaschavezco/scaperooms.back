@@ -11,6 +11,9 @@ export class Chain {
     @Column({ length: 50 })
     name: string;
 
+    @Column()
+    isDeleted: boolean;
+
     @OneToMany(type => User, user => user.chain)
     user: User[];
 

@@ -20,7 +20,6 @@ import { ArticleModule } from './core/content/article/article.module';
 import { TradeModule } from './core/content/trade/trade.module';
 import { QuestionTypeModule } from './core/trivia/question-type/question-type.module';
 import { QuestionModule } from './core/trivia/question/question.module';
-import { SectionModule } from './core/trivia/section/section.module';
 import { TargetModule } from './core/trivia/target/target.module';
 import { CampaingModule } from './core/trivia/campaing/campaing.module';
 
@@ -45,10 +44,9 @@ import { CampaingModule } from './core/trivia/campaing/campaing.module';
     TradeModule,
     QuestionTypeModule,
     QuestionModule,
-    SectionModule,
     TargetModule,
     CampaingModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

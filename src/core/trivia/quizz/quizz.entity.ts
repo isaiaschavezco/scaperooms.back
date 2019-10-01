@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable, OneToMany } from 'typeorm';
-import { Target } from '../target/target.entity';
-import { Section } from '../section/section.entity';
+import { Question } from '../question/question.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
@@ -18,14 +17,22 @@ export class Quizz {
     createdAt: Date;
 
     @Column({ type: "timestamp without time zone" })
+    startedAt: Date;
+
+    @Column({ type: "timestamp without time zone" })
     finishedAt: Date;
 
-    @ManyToOne(type => Target, target => target.quizz)
-    target: Target;
+    @Column()
+    isActive: boolean;
 
-    @ManyToMany(type => Section, section => section.question)
-    @JoinTable({ name: "sectionsByQuizz" })
-    section: Section[];
+    @Column()
+    isDeleted: boolean;
+
+    @Column()
+    isSend: boolean;
+
+    @ManyToMany(type => Question, question => question.quizz)
+    question: Question[];
 
     @ManyToMany(type => Campaing, campaing => campaing.quizz)
     campaing: Campaing[];

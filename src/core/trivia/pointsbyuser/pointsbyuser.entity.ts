@@ -3,7 +3,6 @@ import { User } from '../../users/user/user.entity';
 import { PointsType } from '../points-type/points-type.entity';
 import { Quizz } from '../quizz/quizz.entity';
 import { Product } from '../../content/product/product.entity';
-import { Section } from '../section/section.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Pointsbyuser {
@@ -20,6 +19,9 @@ export class Pointsbyuser {
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;
 
+    @Column()
+    isDeleted: boolean;
+
     @ManyToOne(type => User, user => user.pointsbyuser)
     user: User;
 
@@ -31,8 +33,5 @@ export class Pointsbyuser {
 
     @ManyToOne(type => Product, product => product.pointsbyuser)
     product: Product;
-
-    @ManyToOne(type => Section, section => section.pointsbyuser)
-    section: Section;
 
 }

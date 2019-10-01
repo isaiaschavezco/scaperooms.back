@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
 import { User } from '../../users/user/user.entity';
-import { Section } from '../section/section.entity';
+import { Question } from '../question/question.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Answerbyusersection {
@@ -15,13 +15,13 @@ export class Answerbyusersection {
     points: number;
 
     @Column()
-    isOpened: boolean;
+    isActive: boolean;
 
     @ManyToOne(type => User, user => user.answerbyusersection)
     user: User;
 
-    @ManyToOne(type => Section, section => section.answerbyusersection)
-    section: Section;
+    @ManyToOne(type => Question, question => question.answerbyusersection)
+    question: Question;
 
 
 }
