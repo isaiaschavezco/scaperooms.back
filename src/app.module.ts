@@ -11,7 +11,6 @@ import { PositionModule } from './core/users/position/position.module';
 import { TokenModule } from './core/users/token/token.module';
 import { UserModule } from './core/users/user/user.module';
 import { RoleModule } from './core/users/role/role.module';
-import { FileModule } from './core/content/file/file.module';
 import { MenuModule } from './core/content/menu/menu.module';
 import { SubmenuModule } from './core/content/submenu/submenu.module';
 import { ProductModule } from './core/content/product/product.module';
@@ -35,7 +34,6 @@ import { CampaingModule } from './core/trivia/campaing/campaing.module';
     TokenModule,
     UserModule,
     RoleModule,
-    FileModule,
     MenuModule,
     SubmenuModule,
     ProductModule,
