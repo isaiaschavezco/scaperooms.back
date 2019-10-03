@@ -2,7 +2,7 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Submenu } from './submenu.entity';
-// import { CreateChainDTO } from './chain.dto';
+import { CreateSubmenuDTO } from './submenu.dto';
 
 @Injectable()
 export class SubmenuService {
@@ -10,11 +10,21 @@ export class SubmenuService {
     constructor(@InjectRepository(Submenu) private submenuRepository: Repository<Submenu>) { }
 
     async findByMenuId(menuId: number): Promise<Submenu[]> {
-        return await this.submenuRepository.find({ where: { menu: menuId } });
+        const submenuList = await this.submenuRepository.find({
+            where: { menu: menuId },
+            order: {
+                name: "ASC"
+            }
+        });
+        return submenuList;
     }
 
     async findSubMenuItems(menuId: number): Promise<Submenu[]> {
-        const submenuItems = await this.submenuRepository.find({ select: ["id", "name"], where: { menu: menuId } });
+        const submenuItems = await this.submenuRepository.find({
+            select: ["id", "name"], where: { menu: menuId }, order: {
+                name: "ASC"
+            }
+        });
         let submenuToReturn = [];
         submenuItems.forEach(submenu => {
             submenuToReturn.push({
@@ -23,6 +33,33 @@ export class SubmenuService {
             });
         });
         return submenuToReturn;
+    }
+
+    async create(request: CreateSubmenuDTO): Promise<number> {
+        try {
+            let status = 0;
+            const baseURl = "https://drenarm-resources.sfo2.cdn.digitaloceanspaces.com/";
+            const position = request.fileUrl.indexOf("capacitacion/");
+            let submenu = await this.submenuRepository.findOne(request.submenu);
+            if (submenu.title !== '') {
+                status = 1;
+            } else {
+                submenu.createdAt = new Date();
+                submenu.title = request.title;
+                submenu.fileName = request.fileUrl.substring(position, request.fileUrl.length);
+                submenu.url = baseURl + request.fileUrl.substring(position, request.fileUrl.length);
+                await this.submenuRepository.save(submenu);
+            }
+            return status;
+
+        } catch (err) {
+            console.log("SubmenuService - create: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating',
+            }, 500);
+        }
     }
 
     // async create(createDTO: CreateChainDTO): Promise<number> {

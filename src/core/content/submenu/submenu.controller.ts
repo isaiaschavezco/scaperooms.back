@@ -1,7 +1,7 @@
 import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
 import { SubmenuService } from './submenu.service';
 import { Submenu } from './submenu.entity';
-// import { CreateChainDTO } from './chain.dto';
+import { CreateSubmenuDTO } from './submenu.dto';
 
 @Controller('submenu')
 export class SubmenuController {
@@ -16,6 +16,11 @@ export class SubmenuController {
     @Get('items/:id')
     async findSubMenuItems(@Param('id') id): Promise<Submenu[]> {
         return await this.submenuService.findSubMenuItems(id);
+    }
+
+    @Post()
+    async create(@Body() createSubmenuDTO: CreateSubmenuDTO): Promise<number> {
+        return await this.submenuService.create(createSubmenuDTO);
     }
 
     // @Post()
