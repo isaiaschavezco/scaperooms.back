@@ -21,6 +21,7 @@ import { QuestionTypeModule } from './core/trivia/question-type/question-type.mo
 import { QuestionModule } from './core/trivia/question/question.module';
 import { TargetModule } from './core/trivia/target/target.module';
 import { CampaingModule } from './core/trivia/campaing/campaing.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -43,7 +44,8 @@ import { CampaingModule } from './core/trivia/campaing/campaing.module';
     QuestionTypeModule,
     QuestionModule,
     TargetModule,
-    CampaingModule],
+    CampaingModule,
+    UploadModule],
   controllers: [AppController],
   providers: [AppService],
 })
