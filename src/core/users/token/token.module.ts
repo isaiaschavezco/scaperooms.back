@@ -9,4 +9,4 @@ import { Token } from './token.entity';
   providers: [TokenService],
   controllers: [TokenController]
 })
-export class TokenModule {}
+export class TokenModule { }

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { HandlebarsAdapter, MailerModule } from '@nest-modules/mailer';
 import { ChainModule } from './core/users/chain/chain.module';
 import { CityModule } from './core/users/city/city.module';
 import { DelegationModule } from './core/users/delegation/delegation.module';
@@ -26,6 +27,33 @@ import { UploadModule } from './upload/upload.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
+    MailerModule.forRootAsync({
+      useFactory: () => ({
+        transport: {
+          pool: true,
+          host: "smtp.ethereal.email",
+          port: 587, // 465,
+          secure: false,// true,
+          auth: {
+            user: 'nicola.bruen@ethereal.email',
+            pass: 'a3UQAZ3E4yZMu9JG74'
+          },
+          tls: {
+            rejectUnauthorized: false
+          }
+        },
+        defaults: {
+          from: '"Invitación Bioderma" <nicola.bruen@ethereal.email>',
+        },
+        template: {
+          dir: __dirname + '/templates',
+          adapter: new HandlebarsAdapter(), // or new PugAdapter()
+          options: {
+            strict: true,
+          },
+        },
+      }),
+    }),
     ChainModule,
     CityModule,
     DelegationModule,

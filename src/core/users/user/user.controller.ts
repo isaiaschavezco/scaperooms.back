@@ -1,4 +1,15 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
+import { UserService } from './user.service';
+import { User } from './user.entity';
+import { InviteUserDTO } from './user.dto';
 
 @Controller('user')
-export class UserController {}
+export class UserController {
+    constructor(private userService: UserService) { }
+
+    @Post('invite')
+    async create(@Body() inviteUserDTO: InviteUserDTO): Promise<number> {
+        return await this.userService.create(inviteUserDTO);
+    }
+
+}
