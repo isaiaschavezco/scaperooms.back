@@ -11,6 +11,8 @@ import { Quizz } from '../../trivia/quizz/quizz.entity';
 import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
 import { Answerbyusersection } from '../../trivia/answerbyusersection/answerbyusersection.entity';
 import { Message } from '../../content/message/message.entity';
+import { Notificacion } from '../notification/notificacion.entity';
+import { Sesion } from '../sesion/sesion.entity';
 
 @Entity({ schema: 'Users' })
 export class User {
@@ -98,5 +100,11 @@ export class User {
 
     @OneToMany(type => Message, message => message.user)
     message: Message[];
+
+    @ManyToMany(type => Notificacion, notificacion => notificacion.user)
+    notificacion: Notificacion[];
+
+    @OneToMany(type => Sesion, sesion => sesion.user)
+    sesion: Sesion[];
 
 }
