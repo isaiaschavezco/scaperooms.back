@@ -23,6 +23,8 @@ import { QuestionModule } from './core/trivia/question/question.module';
 import { TargetModule } from './core/trivia/target/target.module';
 import { CampaingModule } from './core/trivia/campaing/campaing.module';
 import { UploadModule } from './upload/upload.module';
+import { NotificationModule } from './core/users/notification/notification.module';
+import { SesionModule } from './core/users/sesion/sesion.module';
 
 @Module({
   imports: [
@@ -31,12 +33,12 @@ import { UploadModule } from './upload/upload.module';
       useFactory: () => ({
         transport: {
           pool: true,
-          host: "smtp.ethereal.email",
-          port: 587, // 465,
-          secure: false,// true,
+          host: "box1128.bluehost.com", // "smtp.ethereal.email",
+          port: 465, // 587,
+          secure: true, // false,
           auth: {
-            user: 'nicola.bruen@ethereal.email',
-            pass: 'a3UQAZ3E4yZMu9JG74'
+            user: 'hector.iturbe@inmersys.com', // 'nicola.bruen@ethereal.email',
+            pass: 'Hector.Iturbe1'// 'a3UQAZ3E4yZMu9JG74'
           },
           tls: {
             rejectUnauthorized: false
@@ -73,7 +75,9 @@ import { UploadModule } from './upload/upload.module';
     QuestionModule,
     TargetModule,
     CampaingModule,
-    UploadModule],
+    UploadModule,
+    NotificationModule,
+    SesionModule],
   controllers: [AppController],
   providers: [AppService],
 })
