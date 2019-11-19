@@ -13,13 +13,13 @@ export class Target {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ nullable: true })
     initAge: number;
 
-    @Column()
+    @Column({ nullable: true })
     finalAge: number;
 
-    @Column()
+    @Column({ nullable: true })
     gender: boolean;
 
     @ManyToOne(type => City, city => city.target)

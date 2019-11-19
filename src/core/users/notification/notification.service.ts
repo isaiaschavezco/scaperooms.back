@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { OneSignalService } from 'onesignal-api-client-nest';
-import { NotificationByDeviceBuilder } from 'onesignal-api-client-core';
+import { NotificationByDeviceBuilder, NotificationBySegmentBuilder } from 'onesignal-api-client-core';
 
 @Injectable()
 export class NotificationService {
@@ -23,7 +23,13 @@ export class NotificationService {
                 .setContents({ en: 'My Message' })
                 .build();
 
-            const notificationResponse = await this.oneSignalService.createNotification(input);
+            const input2 = new NotificationBySegmentBuilder()
+                .setIncludedSegments(['Active Users', 'Inactive Users'])
+                .notification() // .email()
+                .setContents({ en: message })
+                .build();
+
+            const notificationResponse = await this.oneSignalService.createNotification(input2);
             return notificationResponse;
         } catch (err) {
             console.log('NotificationService - createNotification: ', err);
