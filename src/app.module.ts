@@ -22,6 +22,7 @@ import { QuestionTypeModule } from './core/trivia/question-type/question-type.mo
 import { QuestionModule } from './core/trivia/question/question.module';
 import { TargetModule } from './core/trivia/target/target.module';
 import { CampaingModule } from './core/trivia/campaing/campaing.module';
+import { QuizzModule } from './core/trivia/quizz/quizz.module';
 import { UploadModule } from './upload/upload.module';
 import { NotificationModule } from './core/users/notification/notification.module';
 import { SesionModule } from './core/users/sesion/sesion.module';
@@ -77,7 +78,8 @@ import { SesionModule } from './core/users/sesion/sesion.module';
     CampaingModule,
     UploadModule,
     NotificationModule,
-    SesionModule],
+    SesionModule,
+    QuizzModule],
   controllers: [AppController],
   providers: [AppService],
 })

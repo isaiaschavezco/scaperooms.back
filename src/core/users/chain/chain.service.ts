@@ -10,7 +10,12 @@ export class ChainService {
     constructor(@InjectRepository(Chain) private chainRepository: Repository<Chain>) { }
 
     async findAll(): Promise<Chain[]> {
-        return await this.chainRepository.find({ where: { isDeleted: false } });
+        return await this.chainRepository.find({
+            where: { isDeleted: false },
+            order: {
+                name: "ASC"
+            }
+        });
     }
 
     async create(createDTO: CreateChainDTO): Promise<number> {

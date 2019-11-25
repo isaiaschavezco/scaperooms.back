@@ -10,16 +10,16 @@ export class Quizz {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 50 })
+    @Column({ length: 100 })
     name: string;
 
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;
 
-    @Column({ type: "timestamp without time zone" })
+    @Column({ type: "timestamp without time zone", nullable: true })
     startedAt: Date;
 
-    @Column({ type: "timestamp without time zone" })
+    @Column({ type: "timestamp without time zone", nullable: true })
     finishedAt: Date;
 
     @Column()
@@ -34,8 +34,8 @@ export class Quizz {
     @ManyToMany(type => Question, question => question.quizz)
     question: Question[];
 
-    @ManyToMany(type => Campaing, campaing => campaing.quizz)
-    campaing: Campaing[];
+    @ManyToOne(type => Campaing, campaing => campaing.quizz)
+    campaing: Campaing;
 
     @ManyToMany(type => User, user => user.quizz)
     @JoinTable({ name: "quizzesByUser" })

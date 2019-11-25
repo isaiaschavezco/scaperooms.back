@@ -16,7 +16,7 @@ export class UserService {
         @InjectRepository(Token) private tokenRepository: Repository<Token>,
         @InjectRepository(Type) private typeRepository: Repository<Type>) { }
 
-    async  create(request: InviteUserDTO): Promise<number> {
+    async  invite(request: InviteUserDTO): Promise<number> {
         try {
 
             let status = 0;
@@ -61,4 +61,33 @@ export class UserService {
             }, 500);
         }
     }
+
+    async findAll(): Promise<User[]> {
+        try {
+            const usersList = await this.userRepository.find();
+            return usersList;
+        } catch (err) {
+            console.log("UserService - findAll: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting users',
+            }, 500);
+        }
+    }
+
+    async create(): Promise<number> {
+        try {
+            const usersList = await this.userRepository.find();
+            return 0;
+        } catch (err) {
+            console.log("UserService - findAll: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting users',
+            }, 500);
+        }
+    }
+
 }

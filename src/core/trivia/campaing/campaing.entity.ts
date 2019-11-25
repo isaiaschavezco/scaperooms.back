@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { Quizz } from '../quizz/quizz.entity';
 import { Target } from '../target/target.entity';
 
@@ -23,8 +23,10 @@ export class Campaing {
     @Column()
     isDeleted: boolean;
 
-    @ManyToMany(type => Quizz, quizz => quizz.campaing)
-    @JoinTable({ name: "quizzesByCampaing" })
+    @Column()
+    isBiodermaGame: boolean;
+
+    @OneToMany(type => Quizz, quizz => quizz.campaing)
     quizz: Quizz[];
 
     @ManyToMany(type => Target, target => target.campaing)
