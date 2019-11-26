@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { QuizzService } from './quizz.service';
 import { Quizz } from './quizz.entity';
-import { CreateQuizzDTO } from './quizz.dto';
+import { CreateQuizzDTO, SendQuizzDTO } from './quizz.dto';
 
 @Controller('quizz')
 export class QuizzController {
@@ -21,6 +21,11 @@ export class QuizzController {
     @Post()
     async createQuizz(@Body() createQuizzDTO: CreateQuizzDTO): Promise<any> {
         return await this.quizzService.create(createQuizzDTO);
+    }
+
+    @Post('send')
+    async sendQuizz(@Body() sendQuizzDTO: SendQuizzDTO): Promise<any> {
+        return await this.quizzService.send(sendQuizzDTO);
     }
 
 }

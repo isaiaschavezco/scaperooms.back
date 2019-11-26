@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
+import { Chain } from '../chain/chain.entity';
 import { InviteUserDTO, CreateUserDTO } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
@@ -15,7 +16,8 @@ export class UserService {
     constructor(@InjectRepository(User) private userRepository: Repository<User>,
         private readonly mailerService: MailerService,
         @InjectRepository(Token) private tokenRepository: Repository<Token>,
-        @InjectRepository(Type) private typeRepository: Repository<Type>) { }
+        @InjectRepository(Type) private typeRepository: Repository<Type>,
+        @InjectRepository(Chain) private chainRepository: Repository<Chain>) { }
 
     async  invite(request: InviteUserDTO): Promise<number> {
         try {
@@ -79,8 +81,14 @@ export class UserService {
 
     async create(createUserDTO: CreateUserDTO): Promise<any> {
         try {
+
+            console.log("*** Por registrar: ", createUserDTO);
+
             const userPassword = await bcrypt.hash(createUserDTO.password, 12);
             const userAge = this.getAge(createUserDTO.birthDate);
+
+            const userChain = await this.chainRepository.findOne(createUserDTO.chain);
+
             let newUser = await this.userRepository.create({
                 name: createUserDTO.name,
                 lastName: createUserDTO.lastName,
@@ -93,6 +101,7 @@ export class UserService {
                 drugstore: createUserDTO.drugStore,
                 street: createUserDTO.drugStore,
                 password: userPassword,
+                chain: userChain,
                 isActive: true,
                 points: 0,
                 age: userAge

@@ -31,7 +31,7 @@ export class Quizz {
     @Column()
     isSend: boolean;
 
-    @ManyToMany(type => Question, question => question.quizz)
+    @OneToMany(type => Question, question => question.quizz)
     question: Question[];
 
     @ManyToOne(type => Campaing, campaing => campaing.quizz)

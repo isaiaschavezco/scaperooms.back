@@ -26,6 +26,7 @@ import { QuizzModule } from './core/trivia/quizz/quizz.module';
 import { UploadModule } from './upload/upload.module';
 import { NotificationModule } from './core/users/notification/notification.module';
 import { SesionModule } from './core/users/sesion/sesion.module';
+import { ConfigModule } from './config/config.module';
 
 @Module({
   imports: [
@@ -79,7 +80,8 @@ import { SesionModule } from './core/users/sesion/sesion.module';
     UploadModule,
     NotificationModule,
     SesionModule,
-    QuizzModule],
+    QuizzModule,
+    ConfigModule],
   controllers: [AppController],
   providers: [AppService],
 })

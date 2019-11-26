@@ -27,9 +27,8 @@ export class Question {
     @ManyToOne(type => QuestionType, questionType => questionType.question)
     question_type: QuestionType;
 
-    @ManyToMany(type => Quizz, quizz => quizz.question)
-    @JoinTable({ name: "questionsByQuizz" })
-    quizz: Quizz[];
+    @ManyToOne(type => Quizz, quizz => quizz.question)
+    quizz: Quizz;
 
     @OneToMany(type => Answerbyusersection, answerbyusersection => answerbyusersection.question)
     answerbyusersection: Answerbyusersection[];

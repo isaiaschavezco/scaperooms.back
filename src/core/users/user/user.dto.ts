@@ -17,4 +17,5 @@ export class CreateUserDTO {
     readonly state: number;
     readonly city: number;
     readonly mayoralty: number;
+    readonly chain: number;
 }

@@ -26,34 +26,36 @@ export class QuestionService {
         }
     }
 
-    // async findAllByCampaing(campaingId: number): Promise<Quizz[]> {
-    //     try {
-    //         const quizzList = await this.quizzRepository.find({
-    //             where: { campaing: campaingId },
-    //             order: { createdAt: 'DESC' }
-    //         });
-    //         return quizzList;
-    //     } catch (err) {
-    //         console.log("QuizzService - findAll: ", err);
+    async findAllByQuizz(quizzId: number): Promise<Question[]> {
+        try {
+            const questionList = await this.questionRepository.find({
+                where: { quizz: quizzId },
+                relations: ["question_type"],
+                order: { createdAt: 'DESC' }
+            });
+            return questionList;
+        } catch (err) {
+            console.log("QuizzService - findAll: ", err);
 
-    //         throw new HttpException({
-    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
-    //             error: 'Error getting quizzes',
-    //         }, 500);
-    //     }
-    // }
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting quizzes',
+            }, 500);
+        }
+    }
 
     async create(createDTO: CreateQuestionDTO): Promise<any> {
         try {
-
             const questionType = await this.questionTypeRepository.findOne(createDTO.questionType);
+            const quizzId = await this.quizzRepository.findOne(createDTO.quizzId);
 
             let newQuestion = await this.questionRepository.create({
                 content: createDTO.content,
                 answer: createDTO.answer,
                 points: createDTO.points,
                 time: createDTO.time,
-                question_type: questionType
+                question_type: questionType,
+                quizz: quizzId
             });
 
             await this.questionRepository.save(newQuestion);

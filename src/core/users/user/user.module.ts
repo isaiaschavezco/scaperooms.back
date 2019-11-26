@@ -5,9 +5,15 @@ import { UserController } from './user.controller';
 import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
+import { Chain } from '../chain/chain.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]), TypeOrmModule.forFeature([Token]), TypeOrmModule.forFeature([Type])],
+  imports: [
+    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Token]),
+    TypeOrmModule.forFeature([Type]),
+    TypeOrmModule.forFeature([Chain])
+  ],
   providers: [UserService],
   controllers: [UserController]
 })
