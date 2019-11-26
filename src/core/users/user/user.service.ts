@@ -4,9 +4,10 @@ import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
-import { InviteUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -76,18 +77,49 @@ export class UserService {
         }
     }
 
-    async create(): Promise<number> {
+    async create(createUserDTO: CreateUserDTO): Promise<any> {
         try {
-            const usersList = await this.userRepository.find();
-            return 0;
+            const userPassword = await bcrypt.hash(createUserDTO.password, 12);
+            const userAge = this.getAge(createUserDTO.birthDate);
+            let newUser = await this.userRepository.create({
+                name: createUserDTO.name,
+                lastName: createUserDTO.lastName,
+                photo: createUserDTO.photo,
+                nickname: createUserDTO.nickname,
+                birthDate: createUserDTO.birthDate,
+                gender: createUserDTO.gender,
+                phone: createUserDTO.phone,
+                email: createUserDTO.email,
+                drugstore: createUserDTO.drugStore,
+                street: createUserDTO.drugStore,
+                password: userPassword,
+                isActive: true,
+                points: 0,
+                age: userAge
+            });
+
+            await this.userRepository.save(newUser);
+
+            return { status: 0 };
         } catch (err) {
-            console.log("UserService - findAll: ", err);
+            console.log("UserService - create: ", err);
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting users',
             }, 500);
         }
+    }
+
+    private getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && (today.getDate() < birthDate.getDate()))) {
+            age--;
+        }
+        return age;
     }
 
 }

@@ -6,10 +6,15 @@ export class InviteUserDTO {
 export class CreateUserDTO {
     readonly name: string;
     readonly lastName: string;
+    readonly photo: string;
+    readonly nickname: string;
     readonly birthDate: string;
     readonly gender: boolean;
-    readonly state: number;
     readonly phone: string;
     readonly email: string;
+    readonly drugStore: string;
     readonly password: string;
+    readonly state: number;
+    readonly city: number;
+    readonly mayoralty: number;
 }
