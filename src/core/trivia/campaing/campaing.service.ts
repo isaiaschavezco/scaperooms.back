@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Campaing } from './campaing.entity';
 import { Target } from '../target/target.entity';
-import { CreateCampaingDTO } from './campaing.dto';
+import { CreateCampaingDTO, GetCampaingsByUserDTO } from './campaing.dto';
 
 @Injectable()
 export class CampaingService {
@@ -35,6 +35,41 @@ export class CampaingService {
             return campaingList;
         } catch (err) {
             console.log("CampaingService - findAllActives: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting campaings',
+            }, 500);
+        }
+    }
+
+    async findTopCampaing(campaingId: number): Promise<any> {
+        try {
+            const response = await this.campaingRepository.findOne(campaingId, {
+                relations: ["quizz", "quizz.user", "quizz.user.chain"]
+            });
+            return response;
+        } catch (err) {
+            console.log("CampaingService - findTopCampaing: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting campaings',
+            }, 500);
+        }
+    }
+
+    async findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any> {
+        try {
+            const response = await this.campaingRepository.createQueryBuilder("campaing")
+                .select(["campaing.id", "campaing.name", "campaing.portrait"])
+                .innerJoin("campaing.quizz", "quizz", "quizz.isActive = :isActive", { isActive: true })
+                .innerJoin("quizz.user", "user", "user.email = :email", { email: getCampaingsByUserDTO.email })
+                .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
+                .getMany();
+            return response;
+        } catch (err) {
+            console.log("CampaingService - findTopCampaing: ", err);
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,

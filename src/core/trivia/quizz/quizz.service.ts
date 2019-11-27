@@ -4,7 +4,9 @@ import { Repository, Between } from 'typeorm';
 import { Quizz } from './quizz.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { User } from '../../users/user/user.entity';
-import { CreateQuizzDTO, SendQuizzDTO } from './quizz.dto';
+import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO } from './quizz.dto';
+import * as moment from 'moment';
 
 @Injectable()
 export class QuizzService {
@@ -26,17 +28,41 @@ export class QuizzService {
         }
     }
 
-    async findAllByCampaing(campaingId: number): Promise<Quizz[]> {
+    async findAllByCampaing(campaingId: number): Promise<QuizzListDTO[]> {
         try {
+            let listToReturn = [];
+
+            const quizzObj = new QuizzListDTO();
             const quizzList = await this.quizzRepository.find({
                 relations: ["question"],
                 where: { campaing: campaingId },
                 order: { createdAt: 'DESC' }
             });
 
-            return quizzList;
+            quizzList.forEach(tempQuizz => {
+                let pointsSum = 0;
+
+                quizzObj.quizzId = tempQuizz.id;
+                quizzObj.name = tempQuizz.name;
+                quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MMM/YYYY');
+                quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MMM/YYYY');
+                quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MMM/YYYY');
+                quizzObj.isActive = tempQuizz.isActive;
+                quizzObj.isDeleted = tempQuizz.isDeleted;
+                quizzObj.isSend = tempQuizz.isSend;
+
+                tempQuizz.question.forEach(tempQuestion => {
+                    pointsSum += tempQuestion.points;
+                });
+
+                quizzObj.points = pointsSum;
+
+                listToReturn.push(quizzObj);
+            });
+
+            return listToReturn;
         } catch (err) {
-            console.log("QuizzService - findAll: ", err);
+            console.log("QuizzService - findAllByCampaing: ", err);
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
@@ -84,6 +110,7 @@ export class QuizzService {
             quizzToSend.startedAt = new Date(sendQuizzDTO.startDate);
             quizzToSend.finishedAt = new Date(sendQuizzDTO.finishDate);
             quizzToSend.isSend = true;
+            quizzToSend.isActive = true;
 
             console.log("quizzToSend: ", quizzToSend);
             console.log("quizzCampaing: ", quizzToSend.campaing);
@@ -135,6 +162,24 @@ export class QuizzService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error sending quizz',
+            }, 500);
+        }
+    }
+
+    async findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any> {
+        try {
+            const response = await this.quizzRepository.createQueryBuilder("quizz")
+                .innerJoin("quizz.campaing", "campaing", "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId })
+                .innerJoin("quizz.user", "user", "user.email = :email", { email: getQuizzesByUserCampaingDTO.email })
+                .where("quizz.isActive = :isActive", { isActive: true, isDeleted: false })
+                .getMany();
+            return response;
+        } catch (err) {
+            console.log("QuizzService - findQuizzesByUserCampaing: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting quizzes',
             }, 500);
         }
     }

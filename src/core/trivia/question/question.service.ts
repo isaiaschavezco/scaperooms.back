@@ -26,14 +26,22 @@ export class QuestionService {
         }
     }
 
-    async findAllByQuizz(quizzId: number): Promise<Question[]> {
+    async findAllByQuizz(quizzId: number): Promise<any> {
         try {
+            let totalTime = 0;
+            let totalPoints = 0;
             const questionList = await this.questionRepository.find({
                 where: { quizz: quizzId },
                 relations: ["question_type"],
                 order: { createdAt: 'DESC' }
             });
-            return questionList;
+
+            questionList.forEach(tempQuestion => {
+                totalPoints += tempQuestion.points;
+                totalTime += tempQuestion.time;
+            });
+
+            return { totalPoints: totalPoints, totalTime: totalTime, questions: questionList };
         } catch (err) {
             console.log("QuizzService - findAll: ", err);
 

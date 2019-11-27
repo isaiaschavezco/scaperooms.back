@@ -14,7 +14,7 @@ export class QuestionController {
     }
 
     @Get(':quizzId')
-    async getAllByCampaing(@Param('quizzId') quizzId): Promise<Question[]> {
+    async getAllByCampaing(@Param('quizzId') quizzId): Promise<any> {
         return await this.questionService.findAllByQuizz(quizzId);
     }
 

@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { QuizzService } from './quizz.service';
 import { Quizz } from './quizz.entity';
-import { CreateQuizzDTO, SendQuizzDTO } from './quizz.dto';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO } from './quizz.dto';
 
 @Controller('quizz')
 export class QuizzController {
@@ -14,7 +14,7 @@ export class QuizzController {
     }
 
     @Get(':campaingId')
-    async getAllByCampaing(@Param('campaingId') campaingId): Promise<Quizz[]> {
+    async getAllByCampaing(@Param('campaingId') campaingId): Promise<QuizzListDTO[]> {
         return await this.quizzService.findAllByCampaing(campaingId);
     }
 
@@ -26,6 +26,11 @@ export class QuizzController {
     @Post('send')
     async sendQuizz(@Body() sendQuizzDTO: SendQuizzDTO): Promise<any> {
         return await this.quizzService.send(sendQuizzDTO);
+    }
+
+    @Post('user')
+    async getQuizzesByUserCampaing(@Body() getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any> {
+        return await this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
     }
 
 }

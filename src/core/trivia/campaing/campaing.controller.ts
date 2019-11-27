@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { CampaingService } from './campaing.service';
 import { Campaing } from './campaing.entity';
-import { CreateCampaingDTO } from './campaing.dto';
+import { CreateCampaingDTO, GetCampaingsByUserDTO } from './campaing.dto';
 
 @Controller('campaing')
 export class CampaingController {
@@ -17,6 +17,17 @@ export class CampaingController {
     async getAllActiveCampaings(@Param('isBioderma') isBioderma): Promise<Campaing[]> {
         return await this.campaingService.findAllActives(isBioderma);
     }
+
+    @Get(':campaingId/top')
+    async getCampaingTop(@Param('campaingId') campaingId): Promise<any> {
+        return await this.campaingService.findTopCampaing(campaingId);
+    }
+
+    @Post('user')
+    async findCampaingsByUser(@Body() getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any> {
+        return await this.campaingService.findCampaingsByUser(getCampaingsByUserDTO);
+    }
+
 
     @Post()
     async createCampaing(@Body() createCampaingDTO: CreateCampaingDTO): Promise<any> {
