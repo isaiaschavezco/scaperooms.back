@@ -3,8 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Target } from './target.entity';
 import { City } from '../../users/city/city.entity';
-import { Delegation } from '../../users/delegation/delegation.entity';
-import { Colony } from '../../users/colony/colony.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Type } from '../../users/type/type.entity';
 import { Position } from '../../users/position/position.entity';
@@ -15,8 +13,6 @@ export class TargetService {
 
     constructor(@InjectRepository(Target) private targetRepository: Repository<Target>,
         @InjectRepository(City) private cityRepository: Repository<City>,
-        @InjectRepository(Delegation) private delegationRepository: Repository<Delegation>,
-        @InjectRepository(Colony) private colonyRepository: Repository<Colony>,
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
         @InjectRepository(Position) private positionRepository: Repository<Position>) { }
@@ -41,16 +37,6 @@ export class TargetService {
             let stateTargetData = null;
             if (createDTO.state !== -1) {
                 stateTargetData = await this.cityRepository.findOne(createDTO.state);
-            }
-
-            let cityTargetData = null;
-            if (createDTO.city !== -1) {
-                cityTargetData = await this.delegationRepository.findOne(createDTO.city);
-            }
-
-            let mayolartyTargetData = null;
-            if (createDTO.mayoralty !== -1) {
-                mayolartyTargetData = await this.colonyRepository.findOne(createDTO.mayoralty);
             }
 
             let chainTargetData = null;
@@ -78,8 +64,6 @@ export class TargetService {
                 finalAge: createDTO.finalAge !== -1 ? createDTO.finalAge : null,
                 gender: genderTargetData,
                 city: stateTargetData,
-                delegation: cityTargetData,
-                colony: mayolartyTargetData,
                 chain: chainTargetData,
                 position: naosPositionTargetData,
                 type: userTypeTargetData

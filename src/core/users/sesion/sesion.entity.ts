@@ -10,7 +10,7 @@ export class Sesion {
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     loggedInAt: Date;
 
-    @Column({ length: 50 })
+    @Column({ length: 50, nullable: true })
     playerId: string;
 
     @ManyToOne(type => User, user => user.sesion)

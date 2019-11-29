@@ -28,7 +28,6 @@ export class CampaingController {
         return await this.campaingService.findCampaingsByUser(getCampaingsByUserDTO);
     }
 
-
     @Post()
     async createCampaing(@Body() createCampaingDTO: CreateCampaingDTO): Promise<any> {
         return await this.campaingService.create(createCampaingDTO);

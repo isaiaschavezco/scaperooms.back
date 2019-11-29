@@ -9,7 +9,7 @@ import { OneSignalModule } from 'onesignal-api-client-nest';
       useFactory: async () => {
         return {
           appId: '188260b3-3b62-4622-aa05-cbe0aed8499a',
-          restApiKey: 'ZjhjNGQ3OWEtYTRmMi00MjdmLWI2Y2UtMThjMTNkNzg0MjBj',
+          restApiKey: 'ZjhjNGQ3OWEtYTRmMi00MjdmLWI2Y2UtMThjMTNkNzg0MjBj'
         };
       }
       // inject: [ConfigService],

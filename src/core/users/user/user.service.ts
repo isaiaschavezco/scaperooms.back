@@ -99,7 +99,7 @@ export class UserService {
                 phone: createUserDTO.phone,
                 email: createUserDTO.email,
                 drugstore: createUserDTO.drugStore,
-                street: createUserDTO.drugStore,
+                postalCode: createUserDTO.drugStore,
                 password: userPassword,
                 chain: userChain,
                 isActive: true,

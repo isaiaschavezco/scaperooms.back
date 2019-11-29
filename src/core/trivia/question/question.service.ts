@@ -55,7 +55,7 @@ export class QuestionService {
     async create(createDTO: CreateQuestionDTO): Promise<any> {
         try {
             const questionType = await this.questionTypeRepository.findOne(createDTO.questionType);
-            const quizzId = await this.quizzRepository.findOne(createDTO.quizzId);
+            let quizz = await this.quizzRepository.findOne(createDTO.quizzId);
 
             let newQuestion = await this.questionRepository.create({
                 content: createDTO.content,
@@ -63,9 +63,13 @@ export class QuestionService {
                 points: createDTO.points,
                 time: createDTO.time,
                 question_type: questionType,
-                quizz: quizzId
+                quizz: quizz
             });
 
+            quizz.points += createDTO.points;
+            quizz.time += createDTO.time;
+
+            await this.quizzRepository.save(quizz);
             await this.questionRepository.save(newQuestion);
 
             return { status: 0 };

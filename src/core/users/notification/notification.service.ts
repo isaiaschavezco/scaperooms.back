@@ -18,9 +18,9 @@ export class NotificationService {
     async createNotification(message: string) {
         try {
             const input = new NotificationByDeviceBuilder()
-                .setIncludeExternalUserIds(['externalUserId1', 'externalUserId2'])
+                .setIncludePlayerIds(['99980eaf-0648-45f5-b70b-bb81e9c5056e'])
                 .notification() // .email()
-                .setContents({ en: 'My Message' })
+                .setContents({ en: message })
                 .build();
 
             const input2 = new NotificationBySegmentBuilder()
@@ -29,7 +29,7 @@ export class NotificationService {
                 .setContents({ en: message })
                 .build();
 
-            const notificationResponse = await this.oneSignalService.createNotification(input2);
+            const notificationResponse = await this.oneSignalService.createNotification(input);
             return notificationResponse;
         } catch (err) {
             console.log('NotificationService - createNotification: ', err);

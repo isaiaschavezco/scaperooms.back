@@ -81,6 +81,8 @@ export class QuizzService {
                 isActive: false,
                 isDeleted: false,
                 isSend: false,
+                time: 0,
+                points: 0,
                 campaing: quizzCampaing
             });
 

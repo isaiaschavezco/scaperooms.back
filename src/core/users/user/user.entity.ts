@@ -44,11 +44,11 @@ export class User {
     @Column({ length: 250 })
     email: string;
 
-    @Column({ length: 250 })
+    @Column({ length: 250, nullable: true })
     drugstore: string;
 
-    @Column({ length: 250 })
-    street: string;
+    @Column({ length: 15 })
+    postalCode: string;
 
     @Column({ length: 100 })
     password: string;

@@ -31,6 +31,12 @@ export class Quizz {
     @Column()
     isSend: boolean;
 
+    @Column()
+    points: number;
+
+    @Column()
+    time: number;
+
     @OneToMany(type => Question, question => question.quizz)
     question: Question[];
 

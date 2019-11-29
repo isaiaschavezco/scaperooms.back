@@ -13,7 +13,7 @@ export class NotificationController {
 
     @Post()
     async createNotification(): Promise<any> {
-        return await this.notificationService.createNotification('Notificacion desde API');
+        return await this.notificationService.createNotification('Notificacion desde API 4');
     }
 
 }
