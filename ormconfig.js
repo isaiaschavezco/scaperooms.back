@@ -1,10 +1,10 @@
-{
+module.exports = {
     "type": "postgres",
-    "host": "localhost",
+    "host": process.env.TYPEORM_HOST,
     "port": 5432,
-    "username": "postgres",
-    "password": "WtSS6dpT2wwiu14f",
-    "database": "bioderma",
+    "username": process.env.TYPEORM_USERNAME,
+    "password": process.env.TYPEORM_PASSWORD,
+    "database": process.env.TYPEORM_DATABASE,
     "entities": [
         "src/core/**/**/**.entity{.ts,.js}"
     ],
