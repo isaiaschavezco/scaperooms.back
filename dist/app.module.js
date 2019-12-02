@@ -35,6 +35,7 @@ const upload_module_1 = require("./upload/upload.module");
 const notification_module_1 = require("./core/users/notification/notification.module");
 const sesion_module_1 = require("./core/users/sesion/sesion.module");
 const config_module_1 = require("./config/config.module");
+const configuration_module_1 = require("./core/users/configuration/configuration.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -91,7 +92,8 @@ AppModule = __decorate([
             notification_module_1.NotificationModule,
             sesion_module_1.SesionModule,
             quizz_module_1.QuizzModule,
-            config_module_1.ConfigModule
+            config_module_1.ConfigModule,
+            configuration_module_1.ConfigutarionModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

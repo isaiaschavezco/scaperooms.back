@@ -14,6 +14,9 @@ const user_entity_1 = require("./user.entity");
 const token_entity_1 = require("../token/token.entity");
 const type_entity_1 = require("../type/type.entity");
 const chain_entity_1 = require("../chain/chain.entity");
+const position_entity_1 = require("../position/position.entity");
+const city_entity_1 = require("../city/city.entity");
+const delegation_entity_1 = require("../delegation/delegation.entity");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
@@ -22,7 +25,10 @@ UserModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
             typeorm_1.TypeOrmModule.forFeature([token_entity_1.Token]),
             typeorm_1.TypeOrmModule.forFeature([type_entity_1.Type]),
-            typeorm_1.TypeOrmModule.forFeature([chain_entity_1.Chain])
+            typeorm_1.TypeOrmModule.forFeature([chain_entity_1.Chain]),
+            typeorm_1.TypeOrmModule.forFeature([position_entity_1.Position]),
+            typeorm_1.TypeOrmModule.forFeature([city_entity_1.City]),
+            typeorm_1.TypeOrmModule.forFeature([delegation_entity_1.Delegation])
         ],
         providers: [user_service_1.UserService],
         controllers: [user_controller_1.UserController]

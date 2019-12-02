@@ -29,7 +29,7 @@ export class User {
     @Column({ length: 250 })
     photo: string;
 
-    @Column({ length: 250 })
+    @Column({ length: 250, nullable: true })
     nickname: string;
 
     @Column({ type: "timestamp without time zone" })
@@ -64,6 +64,15 @@ export class User {
 
     @Column()
     age: number;
+
+    @Column({ length: 250, nullable: true })
+    town: string;
+
+    @Column({ length: 250, nullable: true })
+    mayoralty: string;
+
+    @Column({ length: 250, nullable: true })
+    charge: string;
 
     @ManyToOne(type => City, city => city.user)
     city: City;

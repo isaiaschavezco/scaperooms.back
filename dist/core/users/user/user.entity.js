@@ -43,7 +43,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "photo", void 0);
 __decorate([
-    typeorm_1.Column({ length: 250 }),
+    typeorm_1.Column({ length: 250, nullable: true }),
     __metadata("design:type", String)
 ], User.prototype, "nickname", void 0);
 __decorate([
@@ -90,6 +90,18 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
 ], User.prototype, "age", void 0);
+__decorate([
+    typeorm_1.Column({ length: 250, nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "town", void 0);
+__decorate([
+    typeorm_1.Column({ length: 250, nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "mayoralty", void 0);
+__decorate([
+    typeorm_1.Column({ length: 250, nullable: true }),
+    __metadata("design:type", String)
+], User.prototype, "charge", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => city_entity_1.City, city => city.user),
     __metadata("design:type", city_entity_1.City)

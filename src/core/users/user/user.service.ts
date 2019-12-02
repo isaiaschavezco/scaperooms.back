@@ -5,7 +5,10 @@ import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
 import { Chain } from '../chain/chain.entity';
-import { InviteUserDTO, CreateUserDTO } from './user.dto';
+import { City } from '../city/city.entity';
+import { Delegation } from '../delegation/delegation.entity';
+import { Position } from '../position/position.entity';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from 'bcrypt';
@@ -17,7 +20,10 @@ export class UserService {
         private readonly mailerService: MailerService,
         @InjectRepository(Token) private tokenRepository: Repository<Token>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
-        @InjectRepository(Chain) private chainRepository: Repository<Chain>) { }
+        @InjectRepository(Chain) private chainRepository: Repository<Chain>,
+        @InjectRepository(Position) private positionRepository: Repository<Position>,
+        @InjectRepository(City) private stateRepository: Repository<City>,
+        @InjectRepository(Delegation) private cityRepository: Repository<Delegation>) { }
 
     async  invite(request: InviteUserDTO): Promise<number> {
         try {
@@ -82,8 +88,6 @@ export class UserService {
     async create(createUserDTO: CreateUserDTO): Promise<any> {
         try {
 
-            console.log("*** Por registrar: ", createUserDTO);
-
             const userPassword = await bcrypt.hash(createUserDTO.password, 12);
             const userAge = this.getAge(createUserDTO.birthDate);
 
@@ -116,6 +120,127 @@ export class UserService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting users',
+            }, 500);
+        }
+    }
+
+    async createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any> {
+        try {
+
+            let response = null;
+
+            const userExist = await this.userRepository.findOne({
+                where: { email: createNAOSUserDTO.email }
+            });
+
+            if (userExist) {
+
+                response = { status: 5 };
+
+            } else {
+
+                const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
+                const userAge = this.getAge(createNAOSUserDTO.birthDate);
+
+                const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
+                const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
+                const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
+                const userType = await this.typeRepository.findOne(1);
+
+                let newUser = await this.userRepository.create({
+                    name: createNAOSUserDTO.name,
+                    lastName: createNAOSUserDTO.lastName,
+                    photo: createNAOSUserDTO.photo,
+                    birthDate: createNAOSUserDTO.birthDate,
+                    gender: createNAOSUserDTO.gender,
+                    phone: createNAOSUserDTO.phone,
+                    email: createNAOSUserDTO.email,
+                    postalCode: createNAOSUserDTO.postalCode,
+                    password: userPassword,
+                    position: naosPosition,
+                    isActive: true,
+                    city: userState,
+                    delegation: userCity,
+                    points: 0,
+                    age: userAge,
+                    type: userType
+                });
+
+                await this.userRepository.save(newUser);
+
+                response = { status: 0 }
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - createNAOS: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating NAOS user',
+            }, 500);
+        }
+    }
+
+    async createDrugStore(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any> {
+        try {
+
+            let response = null;
+
+            const userExist = await this.userRepository.findOne({
+                where: { email: createDrugStoreUserDTO.email }
+            });
+
+            if (userExist) {
+
+                response = { status: 5 };
+
+            } else {
+
+                const userPassword = await bcrypt.hash(createDrugStoreUserDTO.password, 12);
+                const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
+
+                const userState = await this.stateRepository.findOne(createDrugStoreUserDTO.state);
+                const userCity = await this.cityRepository.findOne(createDrugStoreUserDTO.city);
+                const userType = await this.typeRepository.findOne(2);
+                const userChain = await this.chainRepository.findOne(createDrugStoreUserDTO.chain);
+
+                let newUser = await this.userRepository.create({
+                    name: createDrugStoreUserDTO.name,
+                    lastName: createDrugStoreUserDTO.lastName,
+                    photo: createDrugStoreUserDTO.photo,
+                    birthDate: createDrugStoreUserDTO.birthDate,
+                    gender: createDrugStoreUserDTO.gender,
+                    phone: createDrugStoreUserDTO.phone,
+                    email: createDrugStoreUserDTO.email,
+                    postalCode: createDrugStoreUserDTO.postalCode,
+                    password: userPassword,
+                    chain: userChain,
+                    isActive: true,
+                    city: userState,
+                    delegation: userCity,
+                    points: 0,
+                    age: userAge,
+                    type: userType,
+                    town: createDrugStoreUserDTO.town,
+                    charge: createDrugStoreUserDTO.charge,
+                    mayoralty: createDrugStoreUserDTO.mayoralty
+                });
+
+                await this.userRepository.save(newUser);
+
+                response = { status: 0 }
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - createDrugStore: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating NAOS user',
             }, 500);
         }
     }

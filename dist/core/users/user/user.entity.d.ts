@@ -29,6 +29,9 @@ export declare class User {
     isActive: boolean;
     points: number;
     age: number;
+    town: string;
+    mayoralty: string;
+    charge: string;
     city: City;
     delegation: Delegation;
     colony: Colony;

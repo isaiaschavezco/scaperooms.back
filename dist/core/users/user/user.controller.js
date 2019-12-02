@@ -43,6 +43,16 @@ let UserController = class UserController {
             return yield this.userService.create(createUserDTO);
         });
     }
+    createNAOSUser(createNAOSUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.createNAOS(createNAOSUserDTO);
+        });
+    }
+    createDrugStoreUser(createDrugStoreUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.createDrugStore(createDrugStoreUserDTO);
+        });
+    }
 };
 __decorate([
     common_1.Post('invite'),
@@ -64,6 +74,20 @@ __decorate([
     __metadata("design:paramtypes", [user_dto_1.CreateUserDTO]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "createUser", null);
+__decorate([
+    common_1.Post('naos'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.CreateNAOSUserDTO]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "createNAOSUser", null);
+__decorate([
+    common_1.Post('drugstore'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.CreateDrugStoreUserDTO]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "createDrugStoreUser", null);
 UserController = __decorate([
     common_1.Controller('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

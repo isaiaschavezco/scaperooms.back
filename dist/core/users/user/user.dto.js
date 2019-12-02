@@ -6,4 +6,10 @@ exports.InviteUserDTO = InviteUserDTO;
 class CreateUserDTO {
 }
 exports.CreateUserDTO = CreateUserDTO;
+class CreateNAOSUserDTO {
+}
+exports.CreateNAOSUserDTO = CreateNAOSUserDTO;
+class CreateDrugStoreUserDTO {
+}
+exports.CreateDrugStoreUserDTO = CreateDrugStoreUserDTO;
 //# sourceMappingURL=user.dto.js.map

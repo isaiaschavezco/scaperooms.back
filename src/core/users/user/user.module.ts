@@ -6,13 +6,19 @@ import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
 import { Chain } from '../chain/chain.entity';
+import { Position } from '../position/position.entity';
+import { City } from '../city/city.entity';
+import { Delegation } from '../delegation/delegation.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
     TypeOrmModule.forFeature([Token]),
     TypeOrmModule.forFeature([Type]),
-    TypeOrmModule.forFeature([Chain])
+    TypeOrmModule.forFeature([Chain]),
+    TypeOrmModule.forFeature([Position]),
+    TypeOrmModule.forFeature([City]),
+    TypeOrmModule.forFeature([Delegation])
   ],
   providers: [UserService],
   controllers: [UserController]
