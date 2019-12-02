@@ -6,11 +6,11 @@ module.exports = {
     "password": process.env.TYPEORM_PASSWORD,
     "database": process.env.TYPEORM_DATABASE,
     "entities": [
-        "src/core/**/**/**.entity{.ts,.js}"
+        "dist/core/**/**/**.entity.js"
     ],
     "migrationsTableName": "migrations",
     "migrations": [
-        "src/migration/**/*.ts"
+        "dist/migration/**/*.js"
     ],
     "extra": {
         "max": 25,
