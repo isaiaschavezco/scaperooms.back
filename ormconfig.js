@@ -5,13 +5,9 @@ module.exports = {
     "username": process.env.TYPEORM_USERNAME,
     "password": process.env.TYPEORM_PASSWORD,
     "database": process.env.TYPEORM_DATABASE,
-    "entities": [
-        "dist/core/**/**/**.entity.js"
-    ],
+    "entities": ["dist/core/**/**/**.entity{.ts,.js}"],
     "migrationsTableName": "migrations",
-    "migrations": [
-        "dist/migration/**/*.js"
-    ],
+    "migrations": ["dist/migration/**/*{.ts,.js}"],
     "extra": {
         "max": 25,
         "min": 1
