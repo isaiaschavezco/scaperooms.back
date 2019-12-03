@@ -10,7 +10,7 @@ export class ChainController {
     constructor(private chainService: ChainService) { }
 
     @Get()
-    async findAll(): Promise<Chain[]> {
+    async findAll(): Promise<any> {
         return await this.chainService.findAll();
     }
 

@@ -4,4 +4,5 @@ export declare class CityService {
     private cityRepository;
     constructor(cityRepository: Repository<City>);
     findAll(): Promise<any>;
+    findStateById(stateId: number): Promise<any>;
 }

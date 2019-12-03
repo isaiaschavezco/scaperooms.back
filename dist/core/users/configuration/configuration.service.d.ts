@@ -3,4 +3,6 @@ import { Configuration } from './configuration.entity';
 export declare class ConfigutarionService {
     private configurationRepository;
     constructor(configurationRepository: Repository<Configuration>);
+    findClubStatus(): Promise<any>;
+    findThemeColor(): Promise<any>;
 }

@@ -29,6 +29,25 @@ let DelegationService = class DelegationService {
     constructor(delegationRepository) {
         this.delegationRepository = delegationRepository;
     }
+    findAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const citiesList = yield this.delegationRepository.find({
+                    order: {
+                        name: "ASC"
+                    }
+                });
+                return { cities: citiesList };
+            }
+            catch (err) {
+                console.log("CityService - findAll: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting states',
+                }, 500);
+            }
+        });
+    }
     findByStateId(stateId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

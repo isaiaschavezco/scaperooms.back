@@ -12,13 +12,15 @@ const sesion_controller_1 = require("./sesion.controller");
 const sesion_service_1 = require("./sesion.service");
 const sesion_entity_1 = require("./sesion.entity");
 const user_entity_1 = require("../user/user.entity");
+const configuration_entity_1 = require("../configuration/configuration.entity");
 let SesionModule = class SesionModule {
 };
 SesionModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([sesion_entity_1.Sesion]),
-            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User])
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
+            typeorm_1.TypeOrmModule.forFeature([configuration_entity_1.Configuration])
         ],
         controllers: [sesion_controller_1.SesionController],
         providers: [sesion_service_1.SesionService]

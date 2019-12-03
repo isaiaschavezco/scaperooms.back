@@ -9,13 +9,24 @@ export class ChainService {
 
     constructor(@InjectRepository(Chain) private chainRepository: Repository<Chain>) { }
 
-    async findAll(): Promise<Chain[]> {
-        return await this.chainRepository.find({
-            where: { isDeleted: false },
-            order: {
-                name: "ASC"
-            }
-        });
+    async findAll(): Promise<any> {
+        try {
+            const chainsList = await this.chainRepository.find({
+                where: { isDeleted: false },
+                order: {
+                    name: "ASC"
+                }
+            });
+
+            return { chains: chainsList };
+        } catch (err) {
+            console.log("ChainService - findAll: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting chains',
+            }, 500);
+        }
     }
 
     async create(createDTO: CreateChainDTO): Promise<number> {

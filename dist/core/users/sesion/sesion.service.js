@@ -26,19 +26,21 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const sesion_entity_1 = require("./sesion.entity");
 const user_entity_1 = require("../user/user.entity");
+const configuration_entity_1 = require("../configuration/configuration.entity");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 let SesionService = class SesionService {
-    constructor(sesionRepository, userRepository) {
+    constructor(sesionRepository, userRepository, configurationRepository) {
         this.sesionRepository = sesionRepository;
         this.userRepository = userRepository;
+        this.configurationRepository = configurationRepository;
     }
     RequesLogin(requestDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
                 const user = yield this.userRepository.findOne({
-                    relations: ["type"],
+                    relations: ["type", "chain", "city", "delegation", "position"],
                     where: { email: requestDTO.email }
                 });
                 if (user) {
@@ -54,20 +56,34 @@ let SesionService = class SesionService {
                             user: user
                         });
                         const loggedUser = yield this.sesionRepository.save(sesion);
-                        console.log("user: ", user);
-                        console.log("sesion: ", loggedUser);
+                        const generalConfiguration = yield this.configurationRepository.findOne(1);
                         const completeName = user.name.split(" ")[0] + " " + user.lastName.split(" ")[0];
                         response = {
-                            token: loggedUser.id,
-                            name: completeName,
-                            nickname: user.nickname,
-                            gender: user.gender,
-                            image: user.photo,
-                            birthday: moment(new Date(user.birthDate)).format('DD-MM-YYYY'),
-                            phonenumber: user.phone,
-                            email: user.email,
-                            type: user.type.id,
-                            totalPoints: user.points
+                            profile: {
+                                token: loggedUser.id,
+                                name: completeName,
+                                nickname: user.nickname,
+                                gender: user.gender,
+                                image: user.photo,
+                                birthday: moment(new Date(user.birthDate)).format('DD-MM-YYYY'),
+                                phonenumber: user.phone,
+                                email: user.email,
+                                type: user.type.id,
+                                totalPoints: user.points,
+                                address: {
+                                    state: user.city,
+                                    city: user.delegation,
+                                    mayoralty: user.mayoralty,
+                                    suburb: user.town
+                                },
+                                workPosition: user.position,
+                                statusCart: generalConfiguration.isClubBiodermaActive,
+                                branchChain: user.chain,
+                                branchOffice: user.drugstore,
+                                postalCode: user.postalCode,
+                                charge: user.charge,
+                                isActiveCart: user.type.id === 1 ? false : true
+                            }
                         };
                     }
                     else {
@@ -88,12 +104,76 @@ let SesionService = class SesionService {
             }
         });
     }
+    SetPlayerID(updatePlayerID) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: updatePlayerID.email }
+                });
+                if (userExist) {
+                    let actualSesion = yield this.sesionRepository.findOne({
+                        where: { user: userExist }
+                    });
+                    if (actualSesion) {
+                        actualSesion.playerId = updatePlayerID.playerId;
+                        yield this.sesionRepository.save(actualSesion);
+                        response = { status: 0 };
+                    }
+                    else {
+                        response = { status: 6 };
+                    }
+                }
+                else {
+                    response = { status: 1 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("SesionService - SetPlayerID: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error setting playerId',
+                }, 500);
+            }
+        });
+    }
+    RequesLogout(reuestSesionLogOutDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                const user = yield this.userRepository.findOne({
+                    where: { email: reuestSesionLogOutDTO.email }
+                });
+                if (user) {
+                    let actualSesion = yield this.sesionRepository.findOne({
+                        where: { user: user }
+                    });
+                    yield this.sesionRepository.remove(actualSesion);
+                    response = { status: 0 };
+                }
+                else {
+                    response = { status: 1 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("SesionService - RequesLogout: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error requesting logout',
+                }, 500);
+            }
+        });
+    }
 };
 SesionService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
     __param(1, typeorm_1.InjectRepository(user_entity_1.User)),
+    __param(2, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository])
 ], SesionService);
 exports.SesionService = SesionService;

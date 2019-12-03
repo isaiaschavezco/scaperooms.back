@@ -43,7 +43,22 @@ let CityService = class CityService {
                 console.log("CityService - findAll: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting cities',
+                    error: 'Error getting states',
+                }, 500);
+            }
+        });
+    }
+    findStateById(stateId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const state = yield this.cityRepository.findOne(stateId);
+                return { state: state };
+            }
+            catch (err) {
+                console.log("CityService - findStateById: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting state',
                 }, 500);
             }
         });

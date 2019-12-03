@@ -38,17 +38,19 @@ let NotificationService = class NotificationService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
-                    .setIncludePlayerIds(['99980eaf-0648-45f5-b70b-bb81e9c5056e'])
+                    .setIncludePlayerIds(['3f207d12-e074-4fea-8d8a-5b085fabe594'])
                     .notification()
                     .setContents({ en: message })
                     .build();
-                const input2 = new onesignal_api_client_core_1.NotificationBySegmentBuilder()
-                    .setIncludedSegments(['Active Users', 'Inactive Users'])
-                    .notification()
-                    .setContents({ en: message })
-                    .build();
-                const notificationResponse = yield this.oneSignalService.createNotification(input);
-                return notificationResponse;
+                for (let index = 0; index < 20; index++) {
+                    const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
+                        .setIncludePlayerIds(['3f207d12-e074-4fea-8d8a-5b085fabe594'])
+                        .notification()
+                        .setContents({ en: 'PRUEBA ' + index })
+                        .build();
+                    const notificationResponse = yield this.oneSignalService.createNotification(input);
+                }
+                return { status: 0 };
             }
             catch (err) {
                 console.log('NotificationService - createNotification: ', err);

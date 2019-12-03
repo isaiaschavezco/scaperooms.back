@@ -31,12 +31,22 @@ let ChainService = class ChainService {
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.chainRepository.find({
-                where: { isDeleted: false },
-                order: {
-                    name: "ASC"
-                }
-            });
+            try {
+                const chainsList = yield this.chainRepository.find({
+                    where: { isDeleted: false },
+                    order: {
+                        name: "ASC"
+                    }
+                });
+                return { chains: chainsList };
+            }
+            catch (err) {
+                console.log("ChainService - findAll: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting chains',
+                }, 500);
+            }
         });
     }
     create(createDTO) {

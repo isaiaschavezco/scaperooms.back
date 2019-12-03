@@ -21,7 +21,21 @@ export class CityService {
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error getting cities',
+                error: 'Error getting states',
+            }, 500);
+        }
+    }
+
+    async findStateById(stateId: number): Promise<any> {
+        try {
+            const state = await this.cityRepository.findOne(stateId);
+            return { state: state };
+        } catch (err) {
+            console.log("CityService - findStateById: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting state',
             }, 500);
         }
     }

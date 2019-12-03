@@ -38,6 +38,11 @@ let UserController = class UserController {
             return yield this.userService.findAll();
         });
     }
+    findUserDetail(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.findUserDetail(email);
+        });
+    }
     createUser(createUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.userService.create(createUserDTO);
@@ -51,6 +56,16 @@ let UserController = class UserController {
     createDrugStoreUser(createDrugStoreUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.userService.createDrugStore(createDrugStoreUserDTO);
+        });
+    }
+    updateNAOSUser(updateNAOSUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.updateNAOS(updateNAOSUserDTO);
+        });
+    }
+    updateDrugStoreUser(updateDrugStoreUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.updateDrugStore(updateDrugStoreUserDTO);
         });
     }
 };
@@ -67,6 +82,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findAllUsers", null);
+__decorate([
+    common_1.Get(':email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "findUserDetail", null);
 __decorate([
     common_1.Post(),
     __param(0, common_1.Body()),
@@ -88,6 +110,20 @@ __decorate([
     __metadata("design:paramtypes", [user_dto_1.CreateDrugStoreUserDTO]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "createDrugStoreUser", null);
+__decorate([
+    common_1.Put('naos'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.UpdateNAOSUserDTO]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "updateNAOSUser", null);
+__decorate([
+    common_1.Put('drugstore'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.UpdateDrugStoreUserDTO]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "updateDrugStoreUser", null);
 UserController = __decorate([
     common_1.Controller('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

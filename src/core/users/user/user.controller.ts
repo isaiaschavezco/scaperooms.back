@@ -1,7 +1,7 @@
-import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
+import { Controller, Body, Get, Post, Put, Delete, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO } from './user.dto';
 
 @Controller('user')
 export class UserController {
@@ -17,6 +17,11 @@ export class UserController {
         return await this.userService.findAll();
     }
 
+    @Get(':email')
+    async findUserDetail(@Param('email') email): Promise<any> {
+        return await this.userService.findUserDetail(email);
+    }
+
     @Post()
     async createUser(@Body() createUserDTO: CreateUserDTO): Promise<any> {
         return await this.userService.create(createUserDTO);
@@ -30,6 +35,16 @@ export class UserController {
     @Post('drugstore')
     async createDrugStoreUser(@Body() createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any> {
         return await this.userService.createDrugStore(createDrugStoreUserDTO);
+    }
+
+    @Put('naos')
+    async updateNAOSUser(@Body() updateNAOSUserDTO: UpdateNAOSUserDTO): Promise<any> {
+        return await this.userService.updateNAOS(updateNAOSUserDTO);
+    }
+
+    @Put('drugstore')
+    async updateDrugStoreUser(@Body() updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any> {
+        return await this.userService.updateDrugStore(updateDrugStoreUserDTO);
     }
 
 }

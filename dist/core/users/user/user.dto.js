@@ -12,4 +12,10 @@ exports.CreateNAOSUserDTO = CreateNAOSUserDTO;
 class CreateDrugStoreUserDTO {
 }
 exports.CreateDrugStoreUserDTO = CreateDrugStoreUserDTO;
+class UpdateNAOSUserDTO {
+}
+exports.UpdateNAOSUserDTO = UpdateNAOSUserDTO;
+class UpdateDrugStoreUserDTO {
+}
+exports.UpdateDrugStoreUserDTO = UpdateDrugStoreUserDTO;
 //# sourceMappingURL=user.dto.js.map

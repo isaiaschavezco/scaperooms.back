@@ -12,4 +12,9 @@ export class CityController {
         return await this.cityService.findAll();
     }
 
+    // @Get(':id')
+    // async findStateById(@Param('id') id): Promise<any> {
+    //     return await this.cityService.findStateById(id);
+    // }
+
 }

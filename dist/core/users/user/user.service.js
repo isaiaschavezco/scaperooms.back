@@ -34,6 +34,7 @@ const position_entity_1 = require("../position/position.entity");
 const mailer_1 = require("@nest-modules/mailer");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const moment = require("moment");
 let UserService = class UserService {
     constructor(userRepository, mailerService, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository) {
         this.userRepository = userRepository;
@@ -93,6 +94,49 @@ let UserService = class UserService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting users',
+                }, 500);
+            }
+        });
+    }
+    findUserDetail(requestEmail) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield this.userRepository.findOne({
+                    relations: ["type", "chain", "city", "delegation", "position"],
+                    where: { email: requestEmail }
+                });
+                return {
+                    profile: {
+                        id: user.id,
+                        name: user.name,
+                        lastName: user.lastName,
+                        nickname: user.nickname,
+                        gender: user.gender,
+                        image: user.photo,
+                        birthday: moment(new Date(user.birthDate)).format('DD-MM-YYYY'),
+                        phonenumber: user.phone,
+                        email: user.email,
+                        type: user.type.id,
+                        totalPoints: user.points,
+                        address: {
+                            state: user.city,
+                            city: user.delegation,
+                            mayoralty: user.mayoralty,
+                            suburb: user.town
+                        },
+                        workPosition: user.position,
+                        branchChain: user.chain,
+                        branchOffice: user.drugstore,
+                        postalCode: user.postalCode,
+                        charge: user.charge
+                    }
+                };
+            }
+            catch (err) {
+                console.log("UserService - findUserDetail: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting user',
                 }, 500);
             }
         });
@@ -242,6 +286,91 @@ let UserService = class UserService {
             age--;
         }
         return age;
+    }
+    updateNAOS(updateNAOSUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                const userExist = yield this.userRepository.findOne(updateNAOSUserDTO.userId);
+                if (!userExist) {
+                    response = { status: 1 };
+                }
+                else {
+                    const userPassword = yield bcrypt.hash(updateNAOSUserDTO.password, 12);
+                    const userAge = this.getAge(updateNAOSUserDTO.birthDate);
+                    const naosPosition = yield this.positionRepository.findOne(updateNAOSUserDTO.naosPosition);
+                    const userState = yield this.stateRepository.findOne(updateNAOSUserDTO.state);
+                    const userCity = yield this.cityRepository.findOne(updateNAOSUserDTO.city);
+                    userExist.name = updateNAOSUserDTO.name;
+                    userExist.lastName = updateNAOSUserDTO.lastName;
+                    userExist.photo = updateNAOSUserDTO.photo;
+                    userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
+                    userExist.gender = updateNAOSUserDTO.gender;
+                    userExist.phone = updateNAOSUserDTO.phone;
+                    userExist.postalCode = updateNAOSUserDTO.postalCode;
+                    userExist.password = userPassword;
+                    userExist.position = naosPosition;
+                    userExist.isActive = true;
+                    userExist.city = userState;
+                    userExist.delegation = userCity;
+                    userExist.age = userAge;
+                    yield this.userRepository.save(userExist);
+                    response = { status: 0 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - updateNAOS: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error creating NAOS user',
+                }, 500);
+            }
+        });
+    }
+    updateDrugStore(updateDrugStoreUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                const userExist = yield this.userRepository.findOne(updateDrugStoreUserDTO.userId);
+                if (!userExist) {
+                    response = { status: 1 };
+                }
+                else {
+                    const userPassword = yield bcrypt.hash(updateDrugStoreUserDTO.password, 12);
+                    const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
+                    const userState = yield this.stateRepository.findOne(updateDrugStoreUserDTO.state);
+                    const userCity = yield this.cityRepository.findOne(updateDrugStoreUserDTO.city);
+                    const userChain = yield this.chainRepository.findOne(updateDrugStoreUserDTO.chain);
+                    userExist.name = updateDrugStoreUserDTO.name;
+                    userExist.lastName = updateDrugStoreUserDTO.lastName;
+                    userExist.photo = updateDrugStoreUserDTO.photo;
+                    userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
+                    userExist.gender = updateDrugStoreUserDTO.gender;
+                    userExist.phone = updateDrugStoreUserDTO.phone;
+                    userExist.postalCode = updateDrugStoreUserDTO.postalCode;
+                    userExist.password = userPassword;
+                    userExist.chain = userChain;
+                    userExist.isActive = true;
+                    userExist.city = userState;
+                    userExist.delegation = userCity;
+                    userExist.age = userAge;
+                    userExist.town = updateDrugStoreUserDTO.town;
+                    userExist.charge = updateDrugStoreUserDTO.charge;
+                    userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
+                    yield this.userRepository.save(userExist);
+                    response = { status: 0 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - updateDrugStore: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error creating NAOS user',
+                }, 500);
+            }
+        });
     }
 };
 UserService = __decorate([

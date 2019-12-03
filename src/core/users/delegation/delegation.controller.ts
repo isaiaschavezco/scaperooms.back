@@ -7,6 +7,11 @@ export class DelegationController {
 
     constructor(private cityService: DelegationService) { }
 
+    @Get()
+    async findAllCities(): Promise<any> {
+        return await this.cityService.findAll();
+    }
+
     @Get(':id')
     async findCityByState(@Param('id') stateId): Promise<any> {
         return await this.cityService.findByStateId(stateId);

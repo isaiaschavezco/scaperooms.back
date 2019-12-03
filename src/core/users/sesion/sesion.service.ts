@@ -3,7 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Sesion } from './sesion.entity';
 import { User } from '../user/user.entity';
-import { ReuestSesionDTO } from './sesion.dto';
+import { Configuration } from '../configuration/configuration.entity';
+import { ReuestSesionDTO, UpdatePlayerID, ReuestSesionLogOutDTO } from './sesion.dto';
 import * as bcrypt from 'bcrypt';
 import * as moment from 'moment';
 
@@ -11,14 +12,15 @@ import * as moment from 'moment';
 export class SesionService {
 
     constructor(@InjectRepository(Sesion) private sesionRepository: Repository<Sesion>,
-        @InjectRepository(User) private userRepository: Repository<User>) { }
+        @InjectRepository(User) private userRepository: Repository<User>,
+        @InjectRepository(Configuration) private configurationRepository: Repository<Configuration>) { }
 
     async RequesLogin(requestDTO: ReuestSesionDTO): Promise<any> {
         try {
 
             let response = null;
             const user = await this.userRepository.findOne({
-                relations: ["type"],
+                relations: ["type", "chain", "city", "delegation", "position"],
                 where: { email: requestDTO.email }
             });
 
@@ -42,22 +44,36 @@ export class SesionService {
 
                     const loggedUser = await this.sesionRepository.save(sesion);
 
-                    console.log("user: ", user);
-                    console.log("sesion: ", loggedUser);
+                    const generalConfiguration = await this.configurationRepository.findOne(1);
 
                     const completeName = user.name.split(" ")[0] + " " + user.lastName.split(" ")[0];
 
                     response = {
-                        token: loggedUser.id,
-                        name: completeName,
-                        nickname: user.nickname,
-                        gender: user.gender,
-                        image: user.photo,
-                        birthday: moment(new Date(user.birthDate)).format('DD-MM-YYYY'),
-                        phonenumber: user.phone,
-                        email: user.email,
-                        type: user.type.id,
-                        totalPoints: user.points
+                        profile: {
+                            token: loggedUser.id,
+                            name: completeName,
+                            nickname: user.nickname,
+                            gender: user.gender,
+                            image: user.photo,
+                            birthday: moment(new Date(user.birthDate)).format('DD-MM-YYYY'),
+                            phonenumber: user.phone,
+                            email: user.email,
+                            type: user.type.id,
+                            totalPoints: user.points,
+                            address: {
+                                state: user.city,
+                                city: user.delegation,
+                                mayoralty: user.mayoralty,
+                                suburb: user.town
+                            },
+                            workPosition: user.position,
+                            statusCart: generalConfiguration.isClubBiodermaActive,
+                            branchChain: user.chain,
+                            branchOffice: user.drugstore,
+                            postalCode: user.postalCode,
+                            charge: user.charge,
+                            isActiveCart: user.type.id === 1 ? false : true
+                        }
                     };
 
                 } else {
@@ -76,6 +92,81 @@ export class SesionService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error requesting login',
+            }, 500);
+        }
+    }
+
+    async SetPlayerID(updatePlayerID: UpdatePlayerID): Promise<any> {
+        try {
+
+            let response = null;
+
+            const userExist = await this.userRepository.findOne({
+                where: { email: updatePlayerID.email }
+            });
+
+            if (userExist) {
+                let actualSesion = await this.sesionRepository.findOne({
+                    where: { user: userExist }
+                });
+
+                if (actualSesion) {
+
+                    actualSesion.playerId = updatePlayerID.playerId;
+                    await this.sesionRepository.save(actualSesion);
+                    response = { status: 0 };
+
+                } else {
+                    response = { status: 6 };
+                }
+
+            } else {
+                response = { status: 1 };
+            }
+
+
+            return response;
+
+        } catch (err) {
+            console.log("SesionService - SetPlayerID: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error setting playerId',
+            }, 500);
+        }
+    }
+
+    async RequesLogout(reuestSesionLogOutDTO: ReuestSesionLogOutDTO): Promise<any> {
+        try {
+
+            let response = null;
+            const user = await this.userRepository.findOne({
+                where: { email: reuestSesionLogOutDTO.email }
+            });
+
+            if (user) {
+
+                let actualSesion = await this.sesionRepository.findOne({
+                    where: { user: user }
+                });
+
+                await this.sesionRepository.remove(actualSesion);
+
+                response = { status: 0 };
+
+            } else {
+                response = { status: 1 };
+            }
+
+            return response;
+
+        } catch (err) {
+            console.log("SesionService - RequesLogout: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error requesting logout',
             }, 500);
         }
     }

@@ -27,12 +27,23 @@ let DelegationController = class DelegationController {
     constructor(cityService) {
         this.cityService = cityService;
     }
+    findAllCities() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.cityService.findAll();
+        });
+    }
     findCityByState(stateId) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.cityService.findByStateId(stateId);
         });
     }
 };
+__decorate([
+    common_1.Get(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DelegationController.prototype, "findAllCities", null);
 __decorate([
     common_1.Get(':id'),
     __param(0, common_1.Param('id')),

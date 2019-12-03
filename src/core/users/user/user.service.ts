@@ -8,10 +8,11 @@ import { Chain } from '../chain/chain.entity';
 import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from 'bcrypt';
+import * as moment from 'moment';
 
 @Injectable()
 export class UserService {
@@ -81,6 +82,49 @@ export class UserService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting users',
+            }, 500);
+        }
+    }
+
+    async findUserDetail(requestEmail: string): Promise<any> {
+        try {
+            const user = await this.userRepository.findOne({
+                relations: ["type", "chain", "city", "delegation", "position"],
+                where: { email: requestEmail }
+            });
+
+            return {
+                profile: {
+                    id: user.id,
+                    name: user.name,
+                    lastName: user.lastName,
+                    nickname: user.nickname,
+                    gender: user.gender,
+                    image: user.photo,
+                    birthday: moment(new Date(user.birthDate)).format('DD-MM-YYYY'),
+                    phonenumber: user.phone,
+                    email: user.email,
+                    type: user.type.id,
+                    totalPoints: user.points,
+                    address: {
+                        state: user.city,
+                        city: user.delegation,
+                        mayoralty: user.mayoralty,
+                        suburb: user.town
+                    },
+                    workPosition: user.position,
+                    branchChain: user.chain,
+                    branchOffice: user.drugstore,
+                    postalCode: user.postalCode,
+                    charge: user.charge
+                }
+            };
+        } catch (err) {
+            console.log("UserService - findUserDetail: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting user',
             }, 500);
         }
     }
@@ -254,6 +298,113 @@ export class UserService {
             age--;
         }
         return age;
+    }
+
+    async updateNAOS(updateNAOSUserDTO: UpdateNAOSUserDTO): Promise<any> {
+        try {
+
+            let response = null;
+
+            const userExist = await this.userRepository.findOne(updateNAOSUserDTO.userId);
+
+            if (!userExist) {
+
+                response = { status: 1 };
+
+            } else {
+
+                const userPassword = await bcrypt.hash(updateNAOSUserDTO.password, 12);
+                const userAge = this.getAge(updateNAOSUserDTO.birthDate);
+
+                const naosPosition = await this.positionRepository.findOne(updateNAOSUserDTO.naosPosition);
+                const userState = await this.stateRepository.findOne(updateNAOSUserDTO.state);
+                const userCity = await this.cityRepository.findOne(updateNAOSUserDTO.city);
+
+                userExist.name = updateNAOSUserDTO.name;
+                userExist.lastName = updateNAOSUserDTO.lastName;
+                userExist.photo = updateNAOSUserDTO.photo;
+                userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
+                userExist.gender = updateNAOSUserDTO.gender;
+                userExist.phone = updateNAOSUserDTO.phone;
+                userExist.postalCode = updateNAOSUserDTO.postalCode;
+                userExist.password = userPassword;
+                userExist.position = naosPosition;
+                userExist.isActive = true;
+                userExist.city = userState;
+                userExist.delegation = userCity;
+                userExist.age = userAge;
+
+                await this.userRepository.save(userExist);
+
+                response = { status: 0 }
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - updateNAOS: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating NAOS user',
+            }, 500);
+        }
+    }
+
+    async updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any> {
+        try {
+
+            let response = null;
+
+            const userExist = await this.userRepository.findOne(updateDrugStoreUserDTO.userId);
+
+            if (!userExist) {
+
+                response = { status: 1 };
+
+            } else {
+
+                const userPassword = await bcrypt.hash(updateDrugStoreUserDTO.password, 12);
+                const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
+
+                const userState = await this.stateRepository.findOne(updateDrugStoreUserDTO.state);
+                const userCity = await this.cityRepository.findOne(updateDrugStoreUserDTO.city);
+                const userChain = await this.chainRepository.findOne(updateDrugStoreUserDTO.chain);
+
+
+                userExist.name = updateDrugStoreUserDTO.name;
+                userExist.lastName = updateDrugStoreUserDTO.lastName;
+                userExist.photo = updateDrugStoreUserDTO.photo;
+                userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
+                userExist.gender = updateDrugStoreUserDTO.gender;
+                userExist.phone = updateDrugStoreUserDTO.phone;
+                userExist.postalCode = updateDrugStoreUserDTO.postalCode;
+                userExist.password = userPassword;
+                userExist.chain = userChain;
+                userExist.isActive = true;
+                userExist.city = userState;
+                userExist.delegation = userCity;
+                userExist.age = userAge;
+                userExist.town = updateDrugStoreUserDTO.town;
+                userExist.charge = updateDrugStoreUserDTO.charge;
+                userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
+
+
+                await this.userRepository.save(userExist);
+
+                response = { status: 0 }
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - updateDrugStore: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating NAOS user',
+            }, 500);
+        }
     }
 
 }

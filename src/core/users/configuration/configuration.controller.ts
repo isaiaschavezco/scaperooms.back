@@ -6,9 +6,14 @@ export class ConfigutarionController {
 
     constructor(private configutarionService: ConfigutarionService) { }
 
-    // @Post()
-    // async Login(@Body() reuestSesionDTO: ReuestSesionDTO): Promise<any> {
-    //     return await this.sesionService.RequesLogin(reuestSesionDTO);
-    // }
+    @Get('club')
+    async findClubStatus(): Promise<any> {
+        return await this.configutarionService.findClubStatus();
+    }
+
+    @Get('theme')
+    async findThemeColor(): Promise<any> {
+        return await this.configutarionService.findThemeColor();
+    }
 
 }

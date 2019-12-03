@@ -33,6 +33,16 @@ let SesionController = class SesionController {
             return yield this.sesionService.RequesLogin(reuestSesionDTO);
         });
     }
+    SetPlayerId(updatePlayerID) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.sesionService.SetPlayerID(updatePlayerID);
+        });
+    }
+    Logout(requestSesionLogOutDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.sesionService.RequesLogout(requestSesionLogOutDTO);
+        });
+    }
 };
 __decorate([
     common_1.Post(),
@@ -41,6 +51,20 @@ __decorate([
     __metadata("design:paramtypes", [sesion_dto_1.ReuestSesionDTO]),
     __metadata("design:returntype", Promise)
 ], SesionController.prototype, "Login", null);
+__decorate([
+    common_1.Put('playerid'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [sesion_dto_1.UpdatePlayerID]),
+    __metadata("design:returntype", Promise)
+], SesionController.prototype, "SetPlayerId", null);
+__decorate([
+    common_1.Post('logout'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [sesion_dto_1.ReuestSesionLogOutDTO]),
+    __metadata("design:returntype", Promise)
+], SesionController.prototype, "Logout", null);
 SesionController = __decorate([
     common_1.Controller('sesion'),
     __metadata("design:paramtypes", [sesion_service_1.SesionService])

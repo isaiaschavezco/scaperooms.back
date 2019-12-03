@@ -8,19 +8,38 @@ export class ConfigutarionService {
 
     constructor(@InjectRepository(Configuration) private configurationRepository: Repository<Configuration>) { }
 
-    // async RequesLogin(requestDTO: ReuestSesionDTO): Promise<any> {
-    //     try {
+    async findClubStatus(): Promise<any> {
+        try {
 
-    //         return response;
+            const clubStatus = await this.configurationRepository.findOne(1);
 
-    //     } catch (err) {
-    //         console.log("SesionService - RequesLogin: ", err);
+            return { statusCart: clubStatus.isClubBiodermaActive };
 
-    //         throw new HttpException({
-    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
-    //             error: 'Error requesting login',
-    //         }, 500);
-    //     }
-    // }
+        } catch (err) {
+            console.log("ConfigutarionService - findClubStatus: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting club status',
+            }, 500);
+        }
+    }
+
+    async findThemeColor(): Promise<any> {
+        try {
+
+            const clubStatus = await this.configurationRepository.findOne(1);
+
+            return { seasonColors: JSON.parse(clubStatus.themes) };
+
+        } catch (err) {
+            console.log("ConfigutarionService - findThemeColor: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting theme',
+            }, 500);
+        }
+    }
 
 }
