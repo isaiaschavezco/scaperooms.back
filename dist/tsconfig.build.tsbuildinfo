@@ -2342,7 +2342,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "44e81e545c5e1cd591c9dbed0850814b2e3e3184881864366651e4d4a65f1d4e",
+        "version": "4d0a899b2d2f8ee6c0dc0a927294424a78dabdf47639a239293c8a4b3619a656",
         "signature": "885312e9f617520d023024d0303fc4853ad61ceea32e99fcf7d763d41656301a"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2506,7 +2506,7 @@
         "signature": "e2c9b985f2d698e627259c3aad3c416f2cc99b937be5aee2455dc764e967575b"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "7a68b7d49fe6541ace1d0075572a9e6343ba95bde9ff5d6308ed8ac4d17a12df",
+        "version": "f94cd23015a658431c58d8eccc976b440b672aa1d591735e13e5dd9cb849ded0",
         "signature": "c2a334265d44784cf01568d2ecbc7fd70cbdea9e62efd1356044badea086920f"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -3854,12 +3854,12 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "700f313ffd76347e1df85ef58fef702cb64538cb8218b82c25aff90aa6a8254b",
-        "signature": "ba4068f268d40c340706e352f0b763bf6c8690bfb4b56989c4ebf639823c4fc1"
+        "version": "dd8acb4534db044bed02d046aeec166f54825cd4785522c0bd05184c08651bed",
+        "signature": "60f855cdac2c0cafcc0f7478db5ba18ac60969058c4d263899725f96b51c7ec6"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
-        "version": "a37d6db10cd93182dcd752acb94e578b4357e45354f1955e61de4f1f6fb8012d",
-        "signature": "bb0f65b8871466bf8e49a90b81a5252c0b334c5ba414981d85c18f8dde69f719"
+        "version": "c01f49dca86ac241176e5388df989e17b6ca473978a8db2643e5bf357e3a1e8e",
+        "signature": "72b464e64c0c528e96f5ee9baaf68ebfc26e07da70d1b55677d7e717ad7a5a46"
       },
       "../src/core/users/sesion/sesion.module.ts": {
         "version": "9fbdff401d84a66f5adeec0dddcfde52f0d73cd4b0c8150141dc48f7e16d2107",
@@ -15181,6 +15181,13 @@
       "../src/core/content/tag/tag.entity.ts": [
         "../src/core/content/article/article.entity.ts"
       ],
+      "../src/core/content/article/article.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/article/article.entity.ts"
+      ],
+      "../src/core/content/article/article.controller.ts": [
+        "../src/core/content/article/article.service.ts"
+      ],
       "../src/core/trivia/question/question.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/trivia/question/question.entity.ts",
@@ -18330,13 +18337,6 @@
         "../node_modules/@types/superagent/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/article/article.service.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/core/content/article/article.entity.ts"
-      ],
-      "../src/core/content/article/article.controller.ts": [
-        "../src/core/content/article/article.service.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -18906,6 +18906,8 @@
       "../src/core/users/chain/chain.controller.ts",
       "../src/core/users/chain/chain.module.ts",
       "../src/core/users/city/city.service.ts",
+      "../src/core/users/city/city.controller.ts",
+      "../src/core/users/city/city.module.ts",
       "../src/core/users/delegation/delegation.service.ts",
       "../src/core/users/delegation/delegation.controller.ts",
       "../src/core/users/delegation/delegation.module.ts",
@@ -18946,6 +18948,9 @@
       "../src/core/content/article/article.entity.ts",
       "../src/core/content/tag/tag.entity.ts",
       "../src/core/content/tag/tag.module.ts",
+      "../src/core/content/article/article.service.ts",
+      "../src/core/content/article/article.controller.ts",
+      "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
       "../src/core/content/trade/trade.module.ts",
@@ -19298,7 +19303,6 @@
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/sesion/sesion.dto.ts",
-      "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
       "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
@@ -19307,6 +19311,7 @@
       "../src/core/users/configuration/configuration.service.ts",
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19367,12 +19372,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/city/city.controller.ts",
-      "../src/core/users/city/city.module.ts",
-      "../src/core/content/article/article.service.ts",
-      "../src/core/content/article/article.module.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/app.module.ts"
+      "../src/core/users/sesion/sesion.service.ts"
     ]
   },
   "version": "3.7.2"

@@ -171,4 +171,62 @@ export class SesionService {
         }
     }
 
+    async RequesLoginAdmin(requestDTO: ReuestSesionDTO): Promise<any> {
+        try {
+
+            let response = null;
+            const user = await this.userRepository.findOne({
+                where: { email: requestDTO.email }
+            });
+
+            if (user) {
+
+                const match = await bcrypt.compare(requestDTO.password, user.password);
+
+                if (match) {
+
+                    const sesionExist = await this.sesionRepository.findOne({
+                        where: { user: user }
+                    });
+
+                    if (sesionExist) {
+                        await this.sesionRepository.remove(sesionExist);
+                    }
+
+                    const sesion = this.sesionRepository.create({
+                        user: user
+                    });
+
+                    const loggedUser = await this.sesionRepository.save(sesion);
+                    const completeName = user.name.split(" ")[0] + " " + user.lastName.split(" ")[0];
+
+                    response = {
+                        profile: {
+                            token: loggedUser.id,
+                            name: completeName,
+                            image: user.photo,
+                            email: user.email
+                        }
+                    };
+
+                } else {
+                    response = { status: 2 };
+                }
+
+            } else {
+                response = { status: 1 };
+            }
+
+            return response;
+
+        } catch (err) {
+            console.log("SesionService - RequesLoginAdmin: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error requesting login',
+            }, 500);
+        }
+    }
+
 }

@@ -33,6 +33,11 @@ let SesionController = class SesionController {
             return yield this.sesionService.RequesLogin(reuestSesionDTO);
         });
     }
+    LoginAdmin(reuestSesionDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.sesionService.RequesLoginAdmin(reuestSesionDTO);
+        });
+    }
     SetPlayerId(updatePlayerID) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.sesionService.SetPlayerID(updatePlayerID);
@@ -51,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [sesion_dto_1.ReuestSesionDTO]),
     __metadata("design:returntype", Promise)
 ], SesionController.prototype, "Login", null);
+__decorate([
+    common_1.Post('admin'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [sesion_dto_1.ReuestSesionDTO]),
+    __metadata("design:returntype", Promise)
+], SesionController.prototype, "LoginAdmin", null);
 __decorate([
     common_1.Put('playerid'),
     __param(0, common_1.Body()),

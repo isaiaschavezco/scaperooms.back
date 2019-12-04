@@ -12,6 +12,11 @@ export class SesionController {
         return await this.sesionService.RequesLogin(reuestSesionDTO);
     }
 
+    @Post('admin')
+    async LoginAdmin(@Body() reuestSesionDTO: ReuestSesionDTO): Promise<any> {
+        return await this.sesionService.RequesLoginAdmin(reuestSesionDTO);
+    }
+
     @Put('playerid')
     async SetPlayerId(@Body() updatePlayerID: UpdatePlayerID): Promise<any> {
         return await this.sesionService.SetPlayerID(updatePlayerID);

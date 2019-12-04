@@ -259,6 +259,7 @@ export class UserService {
                     phone: createDrugStoreUserDTO.phone,
                     email: createDrugStoreUserDTO.email,
                     postalCode: createDrugStoreUserDTO.postalCode,
+                    drugstore: createDrugStoreUserDTO.drugStore,
                     password: userPassword,
                     chain: userChain,
                     isActive: true,
@@ -385,6 +386,7 @@ export class UserService {
                 userExist.city = userState;
                 userExist.delegation = userCity;
                 userExist.age = userAge;
+                userExist.drugstore = updateDrugStoreUserDTO.drugStore;
                 userExist.town = updateDrugStoreUserDTO.town;
                 userExist.charge = updateDrugStoreUserDTO.charge;
                 userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;

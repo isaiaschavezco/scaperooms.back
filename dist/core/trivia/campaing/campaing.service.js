@@ -94,7 +94,7 @@ let CampaingService = class CampaingService {
                 return response;
             }
             catch (err) {
-                console.log("CampaingService - findTopCampaing: ", err);
+                console.log("CampaingService - findCampaingsByUser: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting campaings',

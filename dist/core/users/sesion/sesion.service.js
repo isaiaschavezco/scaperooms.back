@@ -166,6 +166,54 @@ let SesionService = class SesionService {
             }
         });
     }
+    RequesLoginAdmin(requestDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                const user = yield this.userRepository.findOne({
+                    where: { email: requestDTO.email }
+                });
+                if (user) {
+                    const match = yield bcrypt.compare(requestDTO.password, user.password);
+                    if (match) {
+                        const sesionExist = yield this.sesionRepository.findOne({
+                            where: { user: user }
+                        });
+                        if (sesionExist) {
+                            yield this.sesionRepository.remove(sesionExist);
+                        }
+                        const sesion = this.sesionRepository.create({
+                            user: user
+                        });
+                        const loggedUser = yield this.sesionRepository.save(sesion);
+                        const completeName = user.name.split(" ")[0] + " " + user.lastName.split(" ")[0];
+                        response = {
+                            profile: {
+                                token: loggedUser.id,
+                                name: completeName,
+                                image: user.photo,
+                                email: user.email
+                            }
+                        };
+                    }
+                    else {
+                        response = { status: 2 };
+                    }
+                }
+                else {
+                    response = { status: 1 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("SesionService - RequesLoginAdmin: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error requesting login',
+                }, 500);
+            }
+        });
+    }
 };
 SesionService = __decorate([
     common_1.Injectable(),

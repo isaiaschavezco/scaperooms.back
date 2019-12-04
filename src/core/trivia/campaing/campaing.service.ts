@@ -69,7 +69,7 @@ export class CampaingService {
                 .getMany();
             return response;
         } catch (err) {
-            console.log("CampaingService - findTopCampaing: ", err);
+            console.log("CampaingService - findCampaingsByUser: ", err);
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
