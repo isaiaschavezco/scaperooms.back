@@ -13,5 +13,5 @@ export declare class TargetService {
     private positionRepository;
     constructor(targetRepository: Repository<Target>, cityRepository: Repository<City>, chainRepository: Repository<Chain>, typeRepository: Repository<Type>, positionRepository: Repository<Position>);
     findAllTargets(): Promise<Target[]>;
-    create(createDTO: CreateTargetDTO): Promise<number>;
+    create(createDTO: CreateTargetDTO): Promise<any>;
 }

@@ -2470,43 +2470,43 @@
         "signature": "d0a9126b93afaafc4a26bb2d63e113e5bbe1e3a4dda8278149cd342916bdd8eb"
       },
       "../src/core/trivia/question/question.dto.ts": {
-        "version": "45c80233cd83bd795a4d2b71587e762064606535166f01207fe8e4946dd93984",
+        "version": "656a0af0a354fa5d05aaf79d0effac6ad46ace013bf89993fa207aee9c19a88b",
         "signature": "41a85bbfe3d8f20360795838152aa4e617132cef1093b78b571bcff56a8aef44"
       },
       "../src/core/trivia/question/question.service.ts": {
-        "version": "6706f11ecfc10980a3fba99b5901cb82a8954e0c3d715f8d4ac0b26be3f05be2",
-        "signature": "1d5780548efda2ebd98b18296ecdbad5db182316aa38e28ae33dfb7b8af8ee53"
+        "version": "6d75394fe7a43889294be9e9e758618f247ce63f99b8f7acff91278fe3c71ad3",
+        "signature": "3573f341cb76558befbf9edc2932e4a3a75183d616a16cb7f802db5afecea168"
       },
       "../src/core/trivia/question/question.controller.ts": {
-        "version": "a3b3b7721a55590273880df2eb8c4638a326f3102272abf232c2bfffe41126b5",
-        "signature": "72483c06e79a17243116e5168bb45e03a5c53b68d0d9205c101999d46376ac11"
+        "version": "144197e138459401ab0e9a265a9a7c081394dba36c4544ddcdfa4febe27e38e4",
+        "signature": "641a243728098bfd7307e86eb4504194a35b0db55ea02af2dbdce1071f1ab82e"
       },
       "../src/core/trivia/question/question.module.ts": {
         "version": "055809a89d7603fd0cd873901c7c47e02aed8c306a8085805f72387c4efc5ebd",
         "signature": "c25803029ad2bba7b81a981487ef26779c727cfd0a29c4a42f8e6122cf72b5e3"
       },
       "../src/core/trivia/target/target.dto.ts": {
-        "version": "784b5d2331311fde70d8763edf181beb23809a10b10bb9004f799744f52a7593",
-        "signature": "b9a9b91b1d2ec533ecc01f748147e79e39657e36320d0ce891d8c0f6e8e2ea3b"
+        "version": "4f570e6653a487e5c7cddd8d42ed6fc374f6aa0a4250e2366fb1f9b5a7a80be0",
+        "signature": "1cc7bf8a9e741f6a0b46361e72e9a1a57f0eadef812cce4f0c720b214a2d137d"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "1809884866e934aa91540a6e1ca27a027e931df12438889ae56d707dfcea0364",
-        "signature": "ec05c31b83bf755e24d2dfa33ddfeeab2399784296948656fb0420c29bc27268"
+        "version": "7d97c05350bd050edfa63ad5d2772db36d050a80425515dcd9b054b115e663b2",
+        "signature": "cd6572f5d17331b75c59b58c08c74f049aa67fb995136f02ddd6a2b4d918c802"
       },
       "../src/core/trivia/target/target.controller.ts": {
-        "version": "d187b0e2b01d1f21c46942f9051ea45ca66a3062a22ee29bea70bd6c8414fa57",
-        "signature": "5c4bdb029457c6afb94b5cc7b764ab549357f54ce34b7c45bf7fccb44fbf8200"
+        "version": "9d82b072853b645af2898574af7236bdc61fc0657ca31af18397ef1d813a9ecf",
+        "signature": "fa09b23b78ecce50c38f632c2c7d015d828351caa404a7e86db6bf644007cb51"
       },
       "../src/core/trivia/target/target.module.ts": {
         "version": "cd5af73097e2cf27e80a80125c107efa4497da8e515163f246b68dff7b7a1102",
         "signature": "7a7e7365d97bfe93ae930d00901117c97e94d6333ae0e12111a427200f69e7d6"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
-        "version": "08bc2f3d0e8e53dfe433f4f5b664315976c5c51967148c229696878ea0232b5c",
-        "signature": "e2c9b985f2d698e627259c3aad3c416f2cc99b937be5aee2455dc764e967575b"
+        "version": "b2359efe6be31aaa1b2df635e07c119e1a023cefe932c3919b270070ece0df11",
+        "signature": "0dfc12ebb2dbe9d4ddd5e844bfaac2476b5279cc621c24608d444a9adb277455"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "f94cd23015a658431c58d8eccc976b440b672aa1d591735e13e5dd9cb849ded0",
+        "version": "291ed6d37459a31b0942d13d69ddab612036522e8aee7f2f1513f21a56708de4",
         "signature": "c2a334265d44784cf01568d2ecbc7fd70cbdea9e62efd1356044badea086920f"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -2522,7 +2522,7 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "7967c75e8cc9b1cfb31b62910203c089785d2fff392c28af6c6aa2efbc4a937e",
+        "version": "9318230f98f61d530ad1e5338483e0cc037bb506f8e5b6d1c5cc66e5ebaa2763",
         "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -3854,7 +3854,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "dd8acb4534db044bed02d046aeec166f54825cd4785522c0bd05184c08651bed",
+        "version": "d60281b38ded6af127434de915c56cac5c9f4558c10ff46b6502efd320a0d2d4",
         "signature": "60f855cdac2c0cafcc0f7478db5ba18ac60969058c4d263899725f96b51c7ec6"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -18957,7 +18957,6 @@
       "../src/core/trivia/question-type/question-type.service.ts",
       "../src/core/trivia/question-type/question-type.controller.ts",
       "../src/core/trivia/question-type/question-type.module.ts",
-      "../src/core/trivia/question/question.dto.ts",
       "../src/core/trivia/question/question.service.ts",
       "../src/core/trivia/question/question.controller.ts",
       "../src/core/trivia/question/question.module.ts",
@@ -19303,6 +19302,7 @@
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/sesion/sesion.dto.ts",
+      "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
       "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
@@ -19372,7 +19372,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/sesion/sesion.service.ts"
+      "../src/core/trivia/question/question.dto.ts"
     ]
   },
   "version": "3.7.2"

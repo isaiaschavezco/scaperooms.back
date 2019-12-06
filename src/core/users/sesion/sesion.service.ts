@@ -46,12 +46,11 @@ export class SesionService {
 
                     const generalConfiguration = await this.configurationRepository.findOne(1);
 
-                    const completeName = user.name.split(" ")[0] + " " + user.lastName.split(" ")[0];
-
                     response = {
                         profile: {
                             token: loggedUser.id,
-                            name: completeName,
+                            name: user.name,
+                            lastName: user.lastName,
                             nickname: user.nickname,
                             gender: user.gender,
                             image: user.photo,

@@ -28,6 +28,7 @@ import { NotificationModule } from './core/users/notification/notification.modul
 import { SesionModule } from './core/users/sesion/sesion.module';
 import { ConfigModule } from './config/config.module';
 import { ConfigutarionModule } from './core/users/configuration/configuration.module';
+import { AnswerbyuserquizzModule } from './core/trivia/answerbyuserquizz/answerbyuserquizz.module';
 
 @Module({
   imports: [
@@ -83,7 +84,8 @@ import { ConfigutarionModule } from './core/users/configuration/configuration.mo
     SesionModule,
     QuizzModule,
     ConfigModule,
-    ConfigutarionModule],
+    ConfigutarionModule,
+    AnswerbyuserquizzModule],
   controllers: [AppController],
   providers: [AppService],
 })

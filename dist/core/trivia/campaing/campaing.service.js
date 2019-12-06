@@ -86,12 +86,15 @@ let CampaingService = class CampaingService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const response = yield this.campaingRepository.createQueryBuilder("campaing")
-                    .select(["campaing.id", "campaing.name", "campaing.portrait"])
+                    .select("campaing.id", "id")
+                    .distinct(true)
+                    .addSelect("campaing.name", "name")
+                    .addSelect("campaing.portrait", "portrait")
+                    .addSelect("campaing.isBiodermaGame", "type")
                     .innerJoin("campaing.quizz", "quizz", "quizz.isActive = :isActive", { isActive: true })
                     .innerJoin("quizz.user", "user", "user.email = :email", { email: getCampaingsByUserDTO.email })
-                    .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
-                    .getMany();
-                return response;
+                    .getRawMany();
+                return { campaings: response };
             }
             catch (err) {
                 console.log("CampaingService - findCampaingsByUser: ", err);

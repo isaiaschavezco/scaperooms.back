@@ -31,7 +31,7 @@ export class TargetService {
         }
     }
 
-    async create(createDTO: CreateTargetDTO): Promise<number> {
+    async create(createDTO: CreateTargetDTO): Promise<any> {
         try {
 
             let stateTargetData = null;
@@ -70,7 +70,7 @@ export class TargetService {
             });
 
             const targetCreated = await this.targetRepository.save(newTarget);
-            return targetCreated.id;
+            return { targetId: targetCreated.id };
 
         } catch (err) {
             console.log("TargetService - create: ", err);

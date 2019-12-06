@@ -14,7 +14,7 @@ export class TargetController {
     }
 
     @Post()
-    async create(@Body() createDTO: CreateTargetDTO): Promise<number> {
+    async create(@Body() createDTO: CreateTargetDTO): Promise<any> {
         return await this.targetService.create(createDTO);
     }
 

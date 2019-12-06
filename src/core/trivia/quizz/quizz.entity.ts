@@ -3,6 +3,7 @@ import { Question } from '../question/question.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
+import { Answerbyuserquizz } from '../answerbyuserquizz/answerbyuserquizz.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Quizz {
@@ -49,5 +50,8 @@ export class Quizz {
 
     @OneToMany(type => Pointsbyuser, pointsbyuser => pointsbyuser.quizz)
     pointsbyuser: Pointsbyuser[];
+
+    @OneToMany(type => Answerbyuserquizz, answerbyuserquizz => answerbyuserquizz.quizz)
+    answerbyuserquizz: Answerbyuserquizz[];
 
 }

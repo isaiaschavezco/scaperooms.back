@@ -117,7 +117,7 @@ let QuizzService = class QuizzService {
             try {
                 let filterQueries = [];
                 let quizzToSend = yield this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
-                    relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.delegation", "campaing.target.colony", "campaing.target.chain", "campaing.target.position", "campaing.target.type"]
+                    relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type"]
                 });
                 quizzToSend.startedAt = new Date(sendQuizzDTO.startDate);
                 quizzToSend.finishedAt = new Date(sendQuizzDTO.finishDate);
@@ -137,6 +137,15 @@ let QuizzService = class QuizzService {
                     }
                     if (target.chain !== null) {
                         tempTargetObject['chain'] = target.chain.id;
+                    }
+                    if (target.city !== null) {
+                        tempTargetObject['city'] = target.city.id;
+                    }
+                    if (target.position !== null) {
+                        tempTargetObject['position'] = target.position.id;
+                    }
+                    if (target.type !== null) {
+                        tempTargetObject['type'] = target.type.id;
                     }
                     console.log("tempTargetObject: ", tempTargetObject);
                     if (Object.keys(tempTargetObject).length > 0) {
@@ -165,12 +174,15 @@ let QuizzService = class QuizzService {
     findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const campaingSelected = yield this.campaingRepository.findOne(getQuizzesByUserCampaingDTO.campaingId, {
+                    select: ["id", "name"]
+                });
                 const response = yield this.quizzRepository.createQueryBuilder("quizz")
                     .innerJoin("quizz.campaing", "campaing", "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId })
                     .innerJoin("quizz.user", "user", "user.email = :email", { email: getQuizzesByUserCampaingDTO.email })
                     .where("quizz.isActive = :isActive", { isActive: true, isDeleted: false })
                     .getMany();
-                return response;
+                return { campaing: campaingSelected, quizzes: response };
             }
             catch (err) {
                 console.log("QuizzService - findQuizzesByUserCampaing: ", err);

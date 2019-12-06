@@ -85,7 +85,7 @@ let TargetService = class TargetService {
                     type: userTypeTargetData
                 });
                 const targetCreated = yield this.targetRepository.save(newTarget);
-                return targetCreated.id;
+                return { targetId: targetCreated.id };
             }
             catch (err) {
                 console.log("TargetService - create: ", err);

@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, ManyToOne, OneToMany } from 'typeorm';
 import { Quizz } from '../quizz/quizz.entity';
 import { QuestionType } from '../question-type/question-type.entity';
-import { Answerbyusersection } from '../answerbyusersection/answerbyusersection.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Question {
@@ -29,8 +28,5 @@ export class Question {
 
     @ManyToOne(type => Quizz, quizz => quizz.question)
     quizz: Quizz;
-
-    @OneToMany(type => Answerbyusersection, answerbyusersection => answerbyusersection.question)
-    answerbyusersection: Answerbyusersection[];
 
 }

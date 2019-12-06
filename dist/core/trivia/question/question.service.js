@@ -51,21 +51,78 @@ let QuestionService = class QuestionService {
     findAllByQuizz(quizzId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let totalTime = 0;
-                let totalPoints = 0;
                 const questionList = yield this.questionRepository.find({
                     where: { quizz: quizzId },
                     relations: ["question_type"],
                     order: { createdAt: 'DESC' }
                 });
-                questionList.forEach(tempQuestion => {
-                    totalPoints += tempQuestion.points;
-                    totalTime += tempQuestion.time;
-                });
-                return { totalPoints: totalPoints, totalTime: totalTime, questions: questionList };
+                const quizzSelected = yield this.quizzRepository.findOne(quizzId);
+                return { totalPoints: quizzSelected.points, totalTime: quizzSelected.time, questions: questionList };
             }
             catch (err) {
-                console.log("QuizzService - findAll: ", err);
+                console.log("QuizzService - findAllByQuizz: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting quizzes',
+                }, 500);
+            }
+        });
+    }
+    findAllByUserQuizz(quizzId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let questionListToReturn = [];
+                const questionList = yield this.questionRepository.find({
+                    where: { quizz: quizzId },
+                    relations: ["question_type"],
+                    order: { createdAt: 'DESC' }
+                });
+                questionList.forEach(actualQuestion => {
+                    let tempQuestion = {};
+                    tempQuestion['id'] = actualQuestion.id;
+                    tempQuestion['type'] = actualQuestion.question_type.id;
+                    tempQuestion['points'] = actualQuestion.points;
+                    console.log("CONTENT: ", actualQuestion.content);
+                    const questionContent = JSON.parse(actualQuestion.content);
+                    const answerContent = JSON.parse(actualQuestion.answer);
+                    switch (actualQuestion.question_type.id) {
+                        case 1:
+                            tempQuestion['question'] = questionContent.question;
+                            tempQuestion['possiblesResponses'] = questionContent.possiblesResponses;
+                            tempQuestion['response'] = answerContent.response;
+                            break;
+                        case 2:
+                            tempQuestion['question'] = questionContent.question;
+                            tempQuestion['possiblesResponses'] = questionContent.possiblesResponses;
+                            tempQuestion['response'] = answerContent.response;
+                            break;
+                        case 3:
+                            tempQuestion['question'] = questionContent.question;
+                            tempQuestion['possiblesResponses'] = questionContent.possiblesResponses;
+                            tempQuestion['response'] = answerContent.response;
+                            break;
+                        case 4:
+                            tempQuestion['questions'] = questionContent.questions;
+                            tempQuestion['responses'] = answerContent.response;
+                            break;
+                        case 5:
+                            tempQuestion['unorder'] = questionContent.unorder;
+                            tempQuestion['order'] = answerContent.order;
+                            break;
+                        default:
+                            console.log("Pregunta extraña");
+                            break;
+                    }
+                    questionListToReturn.push(tempQuestion);
+                });
+                const quizzSelected = yield this.quizzRepository.findOne(quizzId);
+                return {
+                    quizz: { id: quizzSelected.id, name: quizzSelected.name, time: quizzSelected.time, points: quizzSelected.points, totalQuestions: questionList.length },
+                    questions: questionListToReturn
+                };
+            }
+            catch (err) {
+                console.log("QuizzService - findAllByUserQuizz: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting quizzes',

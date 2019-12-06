@@ -18,6 +18,11 @@ export class QuestionController {
         return await this.questionService.findAllByQuizz(quizzId);
     }
 
+    @Get('quizz/:quizzId')
+    async getAllByUserQuizz(@Param('quizzId') quizzId): Promise<any> {
+        return await this.questionService.findAllByUserQuizz(quizzId);
+    }
+
     @Post()
     async createQuizz(@Body() createQuestionDTO: CreateQuestionDTO): Promise<any> {
         return await this.questionService.create(createQuestionDTO);

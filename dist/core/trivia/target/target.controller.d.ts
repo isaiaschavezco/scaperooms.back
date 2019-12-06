@@ -5,5 +5,5 @@ export declare class TargetController {
     private targetService;
     constructor(targetService: TargetService);
     findAllTargets(): Promise<Target[]>;
-    create(createDTO: CreateTargetDTO): Promise<number>;
+    create(createDTO: CreateTargetDTO): Promise<any>;
 }

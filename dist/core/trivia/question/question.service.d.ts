@@ -10,5 +10,6 @@ export declare class QuestionService {
     constructor(questionRepository: Repository<Question>, questionTypeRepository: Repository<QuestionType>, quizzRepository: Repository<Quizz>);
     findAll(): Promise<Question[]>;
     findAllByQuizz(quizzId: number): Promise<any>;
+    findAllByUserQuizz(quizzId: number): Promise<any>;
     create(createDTO: CreateQuestionDTO): Promise<any>;
 }

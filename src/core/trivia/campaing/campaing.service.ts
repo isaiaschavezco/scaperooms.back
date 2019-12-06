@@ -62,12 +62,16 @@ export class CampaingService {
     async findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any> {
         try {
             const response = await this.campaingRepository.createQueryBuilder("campaing")
-                .select(["campaing.id", "campaing.name", "campaing.portrait"])
+                .select("campaing.id", "id")
+                .distinct(true)
+                .addSelect("campaing.name", "name")
+                .addSelect("campaing.portrait", "portrait")
+                .addSelect("campaing.isBiodermaGame", "type")
                 .innerJoin("campaing.quizz", "quizz", "quizz.isActive = :isActive", { isActive: true })
                 .innerJoin("quizz.user", "user", "user.email = :email", { email: getCampaingsByUserDTO.email })
-                .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
-                .getMany();
-            return response;
+                // .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
+                .getRawMany();
+            return { campaings: response };
         } catch (err) {
             console.log("CampaingService - findCampaingsByUser: ", err);
 

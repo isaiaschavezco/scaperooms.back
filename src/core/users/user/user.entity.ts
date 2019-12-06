@@ -9,7 +9,7 @@ import { Role } from '../role/role.entity';
 import { Trade } from '../../content/trade/trade.entity';
 import { Quizz } from '../../trivia/quizz/quizz.entity';
 import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
-import { Answerbyusersection } from '../../trivia/answerbyusersection/answerbyusersection.entity';
+import { Answerbyuserquizz } from '../../trivia/answerbyuserquizz/answerbyuserquizz.entity';
 import { Message } from '../../content/message/message.entity';
 import { Notificacion } from '../notification/notificacion.entity';
 import { Sesion } from '../sesion/sesion.entity';
@@ -104,8 +104,8 @@ export class User {
     @OneToMany(type => Pointsbyuser, pointsbyuser => pointsbyuser.user)
     pointsbyuser: Pointsbyuser[];
 
-    @OneToMany(type => Answerbyusersection, answerbyusersection => answerbyusersection.user)
-    answerbyusersection: Answerbyusersection[];
+    @OneToMany(type => Answerbyuserquizz, answerbyuserquizz => answerbyuserquizz.user)
+    answerbyuserquizz: Answerbyuserquizz[];
 
     @OneToMany(type => Message, message => message.user)
     message: Message[];
