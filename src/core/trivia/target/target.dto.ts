@@ -8,3 +8,7 @@ export class CreateTargetDTO {
     readonly finalAge: number;
     readonly gender: number;
 }
+
+export class DeleteTargetDTO {
+    readonly targetId: number;
+}

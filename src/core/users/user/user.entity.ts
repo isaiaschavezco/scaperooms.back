@@ -26,7 +26,7 @@ export class User {
     @Column({ length: 50 })
     lastName: string;
 
-    @Column({ length: 250 })
+    @Column({ type: "text" })
     photo: string;
 
     @Column({ length: 250, nullable: true })
@@ -50,7 +50,7 @@ export class User {
     @Column({ length: 15, nullable: true })
     postalCode: string;
 
-    @Column({ length: 100 })
+    @Column({ length: 100, select: false })
     password: string;
 
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })

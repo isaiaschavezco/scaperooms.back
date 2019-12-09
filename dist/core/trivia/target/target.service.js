@@ -109,6 +109,22 @@ let TargetService = class TargetService {
             }
         });
     }
+    delete(deleteDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const targetToDelete = yield this.targetRepository.findOne(deleteDTO.targetId);
+                yield this.targetRepository.remove(targetToDelete);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("TargetService - create: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error creating target',
+                }, 500);
+            }
+        });
+    }
 };
 TargetService = __decorate([
     common_1.Injectable(),

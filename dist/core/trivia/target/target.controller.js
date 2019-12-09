@@ -38,6 +38,11 @@ let TargetController = class TargetController {
             return yield this.targetService.create(createDTO);
         });
     }
+    delete(deleteDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.targetService.delete(deleteDTO);
+        });
+    }
 };
 __decorate([
     common_1.Get(),
@@ -52,6 +57,13 @@ __decorate([
     __metadata("design:paramtypes", [target_dto_1.CreateTargetDTO]),
     __metadata("design:returntype", Promise)
 ], TargetController.prototype, "create", null);
+__decorate([
+    common_1.Delete(),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [target_dto_1.DeleteTargetDTO]),
+    __metadata("design:returntype", Promise)
+], TargetController.prototype, "delete", null);
 TargetController = __decorate([
     common_1.Controller('target'),
     __metadata("design:paramtypes", [target_service_1.TargetService])

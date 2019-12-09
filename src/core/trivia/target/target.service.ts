@@ -6,7 +6,7 @@ import { City } from '../../users/city/city.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Type } from '../../users/type/type.entity';
 import { Position } from '../../users/position/position.entity';
-import { CreateTargetDTO } from './target.dto';
+import { CreateTargetDTO, DeleteTargetDTO } from './target.dto';
 
 @Injectable()
 export class TargetService {
@@ -84,6 +84,24 @@ export class TargetService {
                     allUsers: targetCreated.allUsers
                 }
             };
+
+        } catch (err) {
+            console.log("TargetService - create: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating target',
+            }, 500);
+        }
+    }
+
+    async delete(deleteDTO: DeleteTargetDTO): Promise<any> {
+        try {
+
+            const targetToDelete = await this.targetRepository.findOne(deleteDTO.targetId);
+            await this.targetRepository.remove(targetToDelete);
+
+            return { status: 0 };
 
         } catch (err) {
             console.log("TargetService - create: ", err);

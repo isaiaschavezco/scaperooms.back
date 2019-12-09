@@ -293,12 +293,14 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
-                const userExist = yield this.userRepository.findOne(updateNAOSUserDTO.userId);
+                const userExist = yield this.userRepository.findOne({
+                    relations: ["city", "delegation", "position"],
+                    where: { email: updateNAOSUserDTO.userId }
+                });
                 if (!userExist) {
                     response = { status: 1 };
                 }
                 else {
-                    const userPassword = yield bcrypt.hash(updateNAOSUserDTO.password, 12);
                     const userAge = this.getAge(updateNAOSUserDTO.birthDate);
                     const naosPosition = yield this.positionRepository.findOne(updateNAOSUserDTO.naosPosition);
                     const userState = yield this.stateRepository.findOne(updateNAOSUserDTO.state);
@@ -306,18 +308,17 @@ let UserService = class UserService {
                     userExist.name = updateNAOSUserDTO.name;
                     userExist.lastName = updateNAOSUserDTO.lastName;
                     userExist.photo = updateNAOSUserDTO.photo;
+                    userExist.nickname = updateNAOSUserDTO.nickName;
                     userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
                     userExist.gender = updateNAOSUserDTO.gender;
                     userExist.phone = updateNAOSUserDTO.phone;
-                    userExist.postalCode = updateNAOSUserDTO.postalCode;
-                    userExist.password = userPassword;
                     userExist.position = naosPosition;
                     userExist.isActive = true;
                     userExist.city = userState;
                     userExist.delegation = userCity;
                     userExist.age = userAge;
                     yield this.userRepository.save(userExist);
-                    response = { status: 0 };
+                    response = { user: userExist };
                 }
                 return response;
             }
@@ -334,12 +335,14 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
-                const userExist = yield this.userRepository.findOne(updateDrugStoreUserDTO.userId);
+                const userExist = yield this.userRepository.findOne({
+                    relations: ["city", "delegation", "chain"],
+                    where: { email: updateDrugStoreUserDTO.userId }
+                });
                 if (!userExist) {
                     response = { status: 1 };
                 }
                 else {
-                    const userPassword = yield bcrypt.hash(updateDrugStoreUserDTO.password, 12);
                     const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
                     const userState = yield this.stateRepository.findOne(updateDrugStoreUserDTO.state);
                     const userCity = yield this.cityRepository.findOne(updateDrugStoreUserDTO.city);
@@ -347,11 +350,11 @@ let UserService = class UserService {
                     userExist.name = updateDrugStoreUserDTO.name;
                     userExist.lastName = updateDrugStoreUserDTO.lastName;
                     userExist.photo = updateDrugStoreUserDTO.photo;
+                    userExist.nickname = updateDrugStoreUserDTO.nickName;
                     userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
                     userExist.gender = updateDrugStoreUserDTO.gender;
                     userExist.phone = updateDrugStoreUserDTO.phone;
                     userExist.postalCode = updateDrugStoreUserDTO.postalCode;
-                    userExist.password = userPassword;
                     userExist.chain = userChain;
                     userExist.isActive = true;
                     userExist.city = userState;
@@ -362,7 +365,7 @@ let UserService = class UserService {
                     userExist.charge = updateDrugStoreUserDTO.charge;
                     userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
                     yield this.userRepository.save(userExist);
-                    response = { status: 0 };
+                    response = { user: userExist };
                 }
                 return response;
             }

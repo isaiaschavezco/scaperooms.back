@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete } from '@nestjs/common';
 import { TargetService } from './target.service';
 import { Target } from './target.entity';
-import { CreateTargetDTO } from './target.dto';
+import { CreateTargetDTO, DeleteTargetDTO } from './target.dto';
 
 @Controller('target')
 export class TargetController {
@@ -16,6 +16,11 @@ export class TargetController {
     @Post()
     async create(@Body() createDTO: CreateTargetDTO): Promise<any> {
         return await this.targetService.create(createDTO);
+    }
+
+    @Delete()
+    async delete(@Body() deleteDTO: DeleteTargetDTO): Promise<any> {
+        return await this.targetService.delete(deleteDTO);
     }
 
     // @Get('items/:id')

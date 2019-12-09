@@ -39,7 +39,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "lastName", void 0);
 __decorate([
-    typeorm_1.Column({ length: 250 }),
+    typeorm_1.Column({ type: "text" }),
     __metadata("design:type", String)
 ], User.prototype, "photo", void 0);
 __decorate([
@@ -71,7 +71,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "postalCode", void 0);
 __decorate([
-    typeorm_1.Column({ length: 100 }),
+    typeorm_1.Column({ length: 100, select: false }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
