@@ -1,5 +1,5 @@
 export declare class CreateTargetDTO {
-    readonly allUsers: number;
+    readonly allUsers: boolean;
     readonly userType: number;
     readonly state: number;
     readonly chain: number;

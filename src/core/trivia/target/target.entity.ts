@@ -20,6 +20,9 @@ export class Target {
     @Column({ nullable: true })
     gender: boolean;
 
+    @Column({ nullable: true })
+    allUsers: boolean;
+
     @ManyToOne(type => City, city => city.target)
     city: City;
 

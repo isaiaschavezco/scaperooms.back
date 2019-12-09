@@ -2181,13 +2181,9 @@
         "version": "ff6534ba5f086c9e964e3dfac88fdf2227b78038e0b0df5c81cd3ad56fa156d7",
         "signature": "88c66c26cb3a85e7ba2fadb6369074798377ee336543dcab2d27d6b5119d5356"
       },
-      "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts": {
-        "version": "0210572484888140f97b59f852c05248bc1d357866351b61e5c2b2362e0bf2b1",
-        "signature": "9b1b79b38637d0669ffe93cea1d80f34c7abae8be9a8d5e1d458acbb9d815c5e"
-      },
       "../src/core/trivia/question/question.entity.ts": {
-        "version": "257475f2c461470b810a0d925f4e1a1da3c569910a42f92faba700b968a07d0e",
-        "signature": "e117e621ed3ece5a30b99364438678796da22f11bbbe57179399d48e79428c1f"
+        "version": "eda81acbb6e51767d9e7b4b0f2435f506d4af4d52fd0b45ae12488f4f4301529",
+        "signature": "8934f0a5378b090888f75e123f75ddcba201a79ed14a2ac61d249f55b1b884cf"
       },
       "../src/core/trivia/points-type/points-type.entity.ts": {
         "version": "f1ef2334b492a1264a303ac233d61b62d1eb4bd31f602dd7d70e02951eb70310",
@@ -2205,17 +2201,21 @@
         "version": "8bba5ac65de2011a1527a486e0eea5fbd6d3137ea0da7658f0b558f88c4de2bf",
         "signature": "6475b2344b3a19dcb98aa385ab1435301fc88ec9cc2432f6beb0053dfa8e13c6"
       },
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts": {
+        "version": "a19a97fda0b557fb2b56ef5ea6b857d9c25aef28092c7d666e59e456291bce27",
+        "signature": "de099fcae5f37603776292012e04b449c42aa62bc0b6f6e20127f9ce6bac7a59"
+      },
       "../src/core/trivia/quizz/quizz.entity.ts": {
-        "version": "b868c1b73738b8ae2f36d1ade9d7d535143c8c5aecdf1ea834916f897dad058a",
-        "signature": "5533bb6ef65509627581661d985f6d4f6f03d44d3b3f413e11d9788bbed688e1"
+        "version": "ea7b346ae2a0e007ea91728abe39caeac391c53dad126a9c7f2b5ddd6fb3a8ae",
+        "signature": "63a6a7e2f64a589c9b353ec017e385c3fe74012166b75edc9c16144ac96ae739"
       },
       "../src/core/trivia/campaing/campaing.entity.ts": {
         "version": "f27f581ae656f11f0bfbb77d8b6ef7729c988fdc1696e6136cf31af1f3de8f48",
         "signature": "4c1f5f2ea974eabe0c3ce827079d30f0662336d6cd59e453d59005aa155587f8"
       },
       "../src/core/trivia/target/target.entity.ts": {
-        "version": "929aa3f1f8b5a063ca9641d2fd143429aeeb80a3bb86db65805c0ab127734b40",
-        "signature": "2d60a04778bffd8c4542c92d1965678a12315bb3cc40abe2c675cf52ce758a1d"
+        "version": "678157caab54b2efb41e66f3f5fa75eb36e66ad2ed908f53a8738739edbd8373",
+        "signature": "237d9ed1b3b4d15b92d4955342fc589562988209ee85c948cd28e0a583ae287b"
       },
       "../src/core/users/type/type.entity.ts": {
         "version": "2e0e7787ef6583df557b96615dcc98afa0ed0ebb6622f2b01d656a42ca292251",
@@ -2238,8 +2238,8 @@
         "signature": "4d40cc01614f1c79aa7b8dcb67d96866c95ea335b838272528f5e3264fc046b3"
       },
       "../src/core/users/user/user.entity.ts": {
-        "version": "729107a7d6759bdfecfeb344079c564306caee1849a2e03989a62bf970bb44a9",
-        "signature": "2ddb74b980716ffa26ae8b51b66ee7dc5288311e9c480868eaeea8489b009ded"
+        "version": "31805beb49619b27815e7bcd888c4a6c4622254f868a0e575905a6bf61a12d0c",
+        "signature": "4ad40877b839be9eb5a53d1f7cbb51bc06f9992a11771cd3dc9bc60f17e76003"
       },
       "../src/core/users/chain/chain.entity.ts": {
         "version": "a65fec4e984e9cae80b00af5475610ee7b63ff55c7245de2fd675e20cba89804",
@@ -2334,15 +2334,15 @@
         "signature": "3d500686aa1061df45201267d57375b5f2fad19b86528626375f7fb06d715588"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "aebba763ae9b2c62857b3ba31ff59426a0c1b3226017097e0700039dbcfd5d2a",
-        "signature": "f4b3199af143769545a2a3a0ca198ba97d3fe6c468f8da39c885aa2b4292d0a8"
+        "version": "2441ddbeb88609b1a3ae359de921e576f7ff2b60b008995a9880b66e93fc1fa7",
+        "signature": "5f90141c6dbeb393383c143a4f170f650aa3f4888dbec217b7891529170822fe"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "4d0a899b2d2f8ee6c0dc0a927294424a78dabdf47639a239293c8a4b3619a656",
+        "version": "cfbcc9bda92b975baa1054d02bd40d5bacfb8e5b3845e243e428bba93448fd64",
         "signature": "885312e9f617520d023024d0303fc4853ad61ceea32e99fcf7d763d41656301a"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2486,11 +2486,11 @@
         "signature": "c25803029ad2bba7b81a981487ef26779c727cfd0a29c4a42f8e6122cf72b5e3"
       },
       "../src/core/trivia/target/target.dto.ts": {
-        "version": "4f570e6653a487e5c7cddd8d42ed6fc374f6aa0a4250e2366fb1f9b5a7a80be0",
-        "signature": "1cc7bf8a9e741f6a0b46361e72e9a1a57f0eadef812cce4f0c720b214a2d137d"
+        "version": "bc7bada63173d4c38851ea0aab6530159f3cca30b6e257159dc5397f9673bc69",
+        "signature": "f5c54d97913417ecfa569c3aec646ab8eeeb59dd9014154a31f0abf9aa0c5ba9"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "7d97c05350bd050edfa63ad5d2772db36d050a80425515dcd9b054b115e663b2",
+        "version": "58c0e220d0be3033f3a7be0ed9c4bbcae264251a2b34bd7ce6dd7604b2d78f6d",
         "signature": "cd6572f5d17331b75c59b58c08c74f049aa67fb995136f02ddd6a2b4d918c802"
       },
       "../src/core/trivia/target/target.controller.ts": {
@@ -3889,8 +3889,24 @@
         "version": "f5eac8888cd746dbdd71948e9dcac79abd6bbf6eacc54c7d21b0f1e0a026b243",
         "signature": "2d631c508278bf35c8c19284367858e10ca49f18175af57f285fed3c3a69f4b2"
       },
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts": {
+        "version": "afacd775f28977112bedba548e3d323ea8d50a886fbb2e7dc71f4118901559af",
+        "signature": "af17ec598d8edb5f80350957dd2910c8aa6dfd9b0fc10f0d520fb3c798488f2c"
+      },
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": {
+        "version": "5128ee1aba914890bb96d4a9d5afceffbaa4df0c36c5be798fd95ac41a76de67",
+        "signature": "93c0e2b10ab01aa0207c7690f91386105a6cbe9deac0fcc3f51e1a8193f1f88e"
+      },
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": {
+        "version": "af1ccc7894a8f2793984e8ca4ec23f72aaba379ea3f407bab8315d42123ffe3a",
+        "signature": "1427c53800af79ea1dc3fc3873cbcb30be99c3bbfe3c18de9d7f7dc988e1aa00"
+      },
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts": {
+        "version": "d1a7549d6187bbe23ab88e28ca41b88594721231c1d5cfd86d9fc35938900f60",
+        "signature": "931007c4634c7facf1ef2ecfbe745b00b97185c268647ec114c8be764657f5ee"
+      },
       "../src/app.module.ts": {
-        "version": "13ce22223aeeb595d089ea999263bd2df9ff30d451d90511fd6cdcf545d772ae",
+        "version": "a11b8140065e9e5e19f3e616c8dc66215e26f36bdd208a75da260d43edd689d4",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -4032,18 +4048,6 @@
       "../src/core/content/message/message.module.ts": {
         "version": "03c51ae7c4f0858bd75b6d3ac590f54079ea19da6c8b37da1e9bab88c297c839",
         "signature": "6f3ad4d6feae0a27bd7a0529297a3ebcefcfde9fd8db76261760888377768037"
-      },
-      "../src/core/trivia/answerbyusersection/answerbyusersection.controller.ts": {
-        "version": "4e58bc747515934e6292bdba6c377f96b09ee56a56abb7e8ce4b855b191a6d7d",
-        "signature": "58ba14ec6bb0cd0b7421c80f0a133415e8fff6e2d7ca56eced3a51af5d23180d"
-      },
-      "../src/core/trivia/answerbyusersection/answerbyusersection.service.ts": {
-        "version": "cd12d9ecaa80e836329f9d941e42ce0179e58245733dfab326caa47fd34c9558",
-        "signature": "0f5aae333e83128624c4b5106569dd1f4cd33c8d2785ac4d360ccb9b56e79b78"
-      },
-      "../src/core/trivia/answerbyusersection/answerbyusersection.module.ts": {
-        "version": "f8397000d30a67521f83c35ae1eeed090a5b081f647e0e1fb5b0763cd8f5bcb2",
-        "signature": "7ccf198046a11c47c279d8d98b8d9b805c4fb56eae9837e2b9139f58ebff2940"
       },
       "../src/core/trivia/points-type/points-type.controller.ts": {
         "version": "86c89d82a952a7b01c3c482569b88811b1d258d923e75dd78928e1914cbdb0dd",
@@ -7616,18 +7620,10 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/core/users/user/user.entity.ts",
-        "../src/core/trivia/question/question.entity.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../src/core/trivia/question/question.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/trivia/quizz/quizz.entity.ts",
         "../src/core/trivia/question-type/question-type.entity.ts",
-        "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -7660,12 +7656,20 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/trivia/quizz/quizz.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/trivia/question/question.entity.ts",
         "../src/core/trivia/campaing/campaing.entity.ts",
         "../src/core/users/user/user.entity.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -7730,7 +7734,7 @@
         "../src/core/content/trade/trade.entity.ts",
         "../src/core/trivia/quizz/quizz.entity.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
-        "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
         "../src/core/content/message/message.entity.ts",
         "../src/core/users/notification/notificacion.entity.ts",
         "../src/core/users/sesion/sesion.entity.ts",
@@ -11176,6 +11180,44 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/points-type/points-type.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../src/core/trivia/points-type/points-type.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -11207,6 +11249,7 @@
         "../src/core/users/sesion/sesion.module.ts",
         "../src/config/config.module.ts",
         "../src/core/users/configuration/configuration.module.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11445,23 +11488,6 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/content/message/message.service.ts",
         "../src/core/content/message/message.controller.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/trivia/answerbyusersection/answerbyusersection.controller.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/trivia/answerbyusersection/answerbyusersection.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/trivia/answerbyusersection/answerbyusersection.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../src/core/trivia/answerbyusersection/answerbyusersection.service.ts",
-        "../src/core/trivia/answerbyusersection/answerbyusersection.controller.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15028,14 +15054,9 @@
       "../src/core/trivia/question-type/question-type.entity.ts": [
         "../src/core/trivia/question/question.entity.ts"
       ],
-      "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts": [
-        "../src/core/users/user/user.entity.ts",
-        "../src/core/trivia/question/question.entity.ts"
-      ],
       "../src/core/trivia/question/question.entity.ts": [
         "../src/core/trivia/question-type/question-type.entity.ts",
-        "../src/core/trivia/quizz/quizz.entity.ts",
-        "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts"
+        "../src/core/trivia/quizz/quizz.entity.ts"
       ],
       "../src/core/trivia/points-type/points-type.entity.ts": [
         "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts"
@@ -15054,11 +15075,16 @@
         "../src/core/trivia/quizz/quizz.entity.ts",
         "../src/core/content/product/product.entity.ts"
       ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts": [
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts"
+      ],
       "../src/core/trivia/quizz/quizz.entity.ts": [
         "../src/core/trivia/question/question.entity.ts",
         "../src/core/trivia/campaing/campaing.entity.ts",
         "../src/core/users/user/user.entity.ts",
-        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts"
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts"
       ],
       "../src/core/trivia/campaing/campaing.entity.ts": [
         "../src/core/trivia/quizz/quizz.entity.ts",
@@ -15099,7 +15125,7 @@
         "../src/core/content/trade/trade.entity.ts",
         "../src/core/trivia/quizz/quizz.entity.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
-        "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
         "../src/core/content/message/message.entity.ts",
         "../src/core/users/notification/notificacion.entity.ts",
         "../src/core/users/sesion/sesion.entity.ts"
@@ -18043,6 +18069,19 @@
       "../src/core/users/configuration/configuration.controller.ts": [
         "../src/core/users/configuration/configuration.service.ts"
       ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/points-type/points-type.entity.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts"
+      ],
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": [
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
+        "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts"
+      ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
@@ -18879,58 +18918,17 @@
       "../node_modules/@nest-modules/mailer/dist/interfaces/send-mail-options.interface.d.ts",
       "../node_modules/@nest-modules/mailer/dist/mailer.service.d.ts",
       "../node_modules/@nest-modules/mailer/dist/index.d.ts",
-      "../src/core/users/token/token.entity.ts",
-      "../src/core/users/colony/colony.entity.ts",
-      "../src/core/users/delegation/delegation.entity.ts",
-      "../src/core/users/city/city.entity.ts",
-      "../src/core/users/position/position.entity.ts",
-      "../src/core/trivia/question-type/question-type.entity.ts",
-      "../src/core/trivia/answerbyusersection/answerbyusersection.entity.ts",
-      "../src/core/trivia/question/question.entity.ts",
-      "../src/core/trivia/points-type/points-type.entity.ts",
-      "../src/core/content/trade/trade.entity.ts",
-      "../src/core/content/product/product.entity.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
-      "../src/core/trivia/quizz/quizz.entity.ts",
-      "../src/core/trivia/campaing/campaing.entity.ts",
-      "../src/core/trivia/target/target.entity.ts",
-      "../src/core/users/type/type.entity.ts",
-      "../src/core/users/role/role.entity.ts",
-      "../src/core/content/message/message.entity.ts",
-      "../src/core/users/notification/notificacion.entity.ts",
-      "../src/core/users/sesion/sesion.entity.ts",
-      "../src/core/users/user/user.entity.ts",
-      "../src/core/users/chain/chain.entity.ts",
       "../src/core/users/chain/chain.dto.ts",
-      "../src/core/users/chain/chain.service.ts",
-      "../src/core/users/chain/chain.controller.ts",
-      "../src/core/users/chain/chain.module.ts",
-      "../src/core/users/city/city.service.ts",
-      "../src/core/users/city/city.controller.ts",
-      "../src/core/users/city/city.module.ts",
-      "../src/core/users/delegation/delegation.service.ts",
-      "../src/core/users/delegation/delegation.controller.ts",
-      "../src/core/users/delegation/delegation.module.ts",
       "../src/core/users/colony/colony.service.ts",
       "../src/core/users/colony/colony.controller.ts",
-      "../src/core/users/colony/colony.module.ts",
       "../src/core/users/type/type.service.ts",
       "../src/core/users/type/type.controller.ts",
-      "../src/core/users/type/type.module.ts",
-      "../src/core/users/position/position.service.ts",
-      "../src/core/users/position/position.controller.ts",
-      "../src/core/users/position/position.module.ts",
       "../src/core/users/token/token.service.ts",
       "../src/core/users/token/token.controller.ts",
-      "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
-      "../src/core/users/role/role.module.ts",
       "../src/core/content/menu/menu.service.ts",
       "../src/core/content/menu/menu.controller.ts",
       "../src/core/content/submenu/submenu.entity.ts",
@@ -18942,7 +18940,6 @@
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.service.ts",
       "../src/core/content/product/product.controller.ts",
-      "../src/core/content/product/product.module.ts",
       "../src/core/content/tag/tag.service.ts",
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/article/article.entity.ts",
@@ -18953,25 +18950,11 @@
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
-      "../src/core/content/trade/trade.module.ts",
       "../src/core/trivia/question-type/question-type.service.ts",
       "../src/core/trivia/question-type/question-type.controller.ts",
-      "../src/core/trivia/question-type/question-type.module.ts",
-      "../src/core/trivia/question/question.service.ts",
-      "../src/core/trivia/question/question.controller.ts",
-      "../src/core/trivia/question/question.module.ts",
-      "../src/core/trivia/target/target.dto.ts",
-      "../src/core/trivia/target/target.service.ts",
-      "../src/core/trivia/target/target.controller.ts",
-      "../src/core/trivia/target/target.module.ts",
+      "../src/core/trivia/question/question.dto.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
-      "../src/core/trivia/campaing/campaing.controller.ts",
-      "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
-      "../src/core/trivia/quizz/quizz.controller.ts",
-      "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/aws-sdk/lib/error.d.ts",
       "../node_modules/aws-sdk/lib/credentials.d.ts",
       "../node_modules/aws-sdk/lib/credentials/credential_provider_chain.d.ts",
@@ -19302,16 +19285,13 @@
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/sesion/sesion.dto.ts",
-      "../src/core/users/sesion/sesion.service.ts",
-      "../src/core/users/sesion/sesion.controller.ts",
-      "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
       "../src/config/config.service.ts",
       "../src/config/config.module.ts",
       "../src/core/users/configuration/configuration.service.ts",
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
-      "../src/app.module.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19347,12 +19327,8 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.service.ts",
       "../src/core/content/message/message.module.ts",
-      "../src/core/trivia/answerbyusersection/answerbyusersection.controller.ts",
-      "../src/core/trivia/answerbyusersection/answerbyusersection.service.ts",
-      "../src/core/trivia/answerbyusersection/answerbyusersection.module.ts",
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
-      "../src/core/trivia/points-type/points-type.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
@@ -19372,7 +19348,71 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/question/question.dto.ts"
+      "../src/core/trivia/target/target.entity.ts",
+      "../src/core/trivia/campaing/campaing.module.ts",
+      "../src/core/trivia/campaing/campaing.service.ts",
+      "../src/core/trivia/target/target.service.ts",
+      "../src/core/users/chain/chain.entity.ts",
+      "../src/core/users/type/type.entity.ts",
+      "../src/core/trivia/campaing/campaing.entity.ts",
+      "../src/core/users/position/position.entity.ts",
+      "../src/core/users/city/city.entity.ts",
+      "../src/core/trivia/target/target.dto.ts",
+      "../src/core/users/token/token.entity.ts",
+      "../src/core/users/colony/colony.entity.ts",
+      "../src/core/users/delegation/delegation.entity.ts",
+      "../src/core/trivia/question-type/question-type.entity.ts",
+      "../src/core/trivia/question/question.entity.ts",
+      "../src/core/trivia/points-type/points-type.entity.ts",
+      "../src/core/content/trade/trade.entity.ts",
+      "../src/core/content/product/product.entity.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
+      "../src/core/trivia/quizz/quizz.entity.ts",
+      "../src/core/users/role/role.entity.ts",
+      "../src/core/content/message/message.entity.ts",
+      "../src/core/users/notification/notificacion.entity.ts",
+      "../src/core/users/sesion/sesion.entity.ts",
+      "../src/core/users/user/user.entity.ts",
+      "../src/core/users/chain/chain.service.ts",
+      "../src/core/users/chain/chain.controller.ts",
+      "../src/core/users/chain/chain.module.ts",
+      "../src/core/users/city/city.service.ts",
+      "../src/core/users/city/city.controller.ts",
+      "../src/core/users/city/city.module.ts",
+      "../src/core/users/delegation/delegation.service.ts",
+      "../src/core/users/delegation/delegation.controller.ts",
+      "../src/core/users/delegation/delegation.module.ts",
+      "../src/core/users/colony/colony.module.ts",
+      "../src/core/users/type/type.module.ts",
+      "../src/core/users/position/position.service.ts",
+      "../src/core/users/position/position.controller.ts",
+      "../src/core/users/position/position.module.ts",
+      "../src/core/users/token/token.module.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/core/users/role/role.module.ts",
+      "../src/core/content/product/product.module.ts",
+      "../src/core/content/trade/trade.module.ts",
+      "../src/core/trivia/question-type/question-type.module.ts",
+      "../src/core/trivia/question/question.service.ts",
+      "../src/core/trivia/question/question.controller.ts",
+      "../src/core/trivia/question/question.module.ts",
+      "../src/core/trivia/target/target.controller.ts",
+      "../src/core/trivia/target/target.module.ts",
+      "../src/core/trivia/campaing/campaing.controller.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
+      "../src/core/trivia/quizz/quizz.controller.ts",
+      "../src/core/trivia/quizz/quizz.module.ts",
+      "../src/core/users/sesion/sesion.service.ts",
+      "../src/core/users/sesion/sesion.controller.ts",
+      "../src/core/users/sesion/sesion.module.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
+      "../src/app.module.ts",
+      "../src/core/trivia/points-type/points-type.module.ts"
     ]
   },
   "version": "3.7.2"

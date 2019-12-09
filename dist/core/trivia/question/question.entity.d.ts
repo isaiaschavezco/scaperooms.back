@@ -1,6 +1,5 @@
 import { Quizz } from '../quizz/quizz.entity';
 import { QuestionType } from '../question-type/question-type.entity';
-import { Answerbyusersection } from '../answerbyusersection/answerbyusersection.entity';
 export declare class Question {
     id: number;
     content: string;
@@ -10,5 +9,4 @@ export declare class Question {
     createdAt: Date;
     question_type: QuestionType;
     quizz: Quizz;
-    answerbyusersection: Answerbyusersection[];
 }

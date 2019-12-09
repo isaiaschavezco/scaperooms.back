@@ -14,6 +14,7 @@ const question_entity_1 = require("../question/question.entity");
 const campaing_entity_1 = require("../campaing/campaing.entity");
 const user_entity_1 = require("../../users/user/user.entity");
 const pointsbyuser_entity_1 = require("../pointsbyuser/pointsbyuser.entity");
+const answerbyuserquizz_entity_1 = require("../answerbyuserquizz/answerbyuserquizz.entity");
 let Quizz = class Quizz {
 };
 __decorate([
@@ -73,6 +74,10 @@ __decorate([
     typeorm_1.OneToMany(type => pointsbyuser_entity_1.Pointsbyuser, pointsbyuser => pointsbyuser.quizz),
     __metadata("design:type", Array)
 ], Quizz.prototype, "pointsbyuser", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => answerbyuserquizz_entity_1.Answerbyuserquizz, answerbyuserquizz => answerbyuserquizz.quizz),
+    __metadata("design:type", Array)
+], Quizz.prototype, "answerbyuserquizz", void 0);
 Quizz = __decorate([
     typeorm_1.Entity({ schema: 'Trivia' })
 ], Quizz);

@@ -10,44 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const user_entity_1 = require("../../users/user/user.entity");
 const quizz_entity_1 = require("../quizz/quizz.entity");
-const question_type_entity_1 = require("../question-type/question-type.entity");
-let Question = class Question {
+let Answerbyuserquizz = class Answerbyuserquizz {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
-    __metadata("design:type", Number)
-], Question.prototype, "id", void 0);
+    typeorm_1.PrimaryGeneratedColumn("uuid"),
+    __metadata("design:type", String)
+], Answerbyuserquizz.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column({ type: "text" }),
     __metadata("design:type", String)
-], Question.prototype, "content", void 0);
-__decorate([
-    typeorm_1.Column({ type: "text" }),
-    __metadata("design:type", String)
-], Question.prototype, "answer", void 0);
+], Answerbyuserquizz.prototype, "answer", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
-], Question.prototype, "points", void 0);
+], Answerbyuserquizz.prototype, "points", void 0);
 __decorate([
     typeorm_1.Column(),
-    __metadata("design:type", Number)
-], Question.prototype, "time", void 0);
+    __metadata("design:type", Boolean)
+], Answerbyuserquizz.prototype, "isActive", void 0);
 __decorate([
-    typeorm_1.Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" }),
-    __metadata("design:type", Date)
-], Question.prototype, "createdAt", void 0);
+    typeorm_1.ManyToOne(type => user_entity_1.User, user => user.answerbyuserquizz),
+    __metadata("design:type", user_entity_1.User)
+], Answerbyuserquizz.prototype, "user", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => question_type_entity_1.QuestionType, questionType => questionType.question),
-    __metadata("design:type", question_type_entity_1.QuestionType)
-], Question.prototype, "question_type", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => quizz_entity_1.Quizz, quizz => quizz.question),
+    typeorm_1.ManyToOne(type => quizz_entity_1.Quizz, quizz => quizz.answerbyuserquizz),
     __metadata("design:type", quizz_entity_1.Quizz)
-], Question.prototype, "quizz", void 0);
-Question = __decorate([
+], Answerbyuserquizz.prototype, "quizz", void 0);
+Answerbyuserquizz = __decorate([
     typeorm_1.Entity({ schema: 'Trivia' })
-], Question);
-exports.Question = Question;
-//# sourceMappingURL=question.entity.js.map
+], Answerbyuserquizz);
+exports.Answerbyuserquizz = Answerbyuserquizz;
+//# sourceMappingURL=answerbyuserquizz.entity.js.map

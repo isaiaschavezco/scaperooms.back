@@ -76,6 +76,7 @@ let TargetService = class TargetService {
                     genderTargetData = createDTO.gender === 0 ? false : true;
                 }
                 let newTarget = this.targetRepository.create({
+                    allUsers: createDTO.allUsers,
                     initAge: createDTO.initAge !== -1 ? createDTO.initAge : null,
                     finalAge: createDTO.finalAge !== -1 ? createDTO.finalAge : null,
                     gender: genderTargetData,
@@ -85,7 +86,19 @@ let TargetService = class TargetService {
                     type: userTypeTargetData
                 });
                 const targetCreated = yield this.targetRepository.save(newTarget);
-                return { targetId: targetCreated.id };
+                return {
+                    target: {
+                        id: targetCreated.id,
+                        initAge: targetCreated.initAge,
+                        finalAge: targetCreated.finalAge,
+                        gender: targetCreated.gender,
+                        city: targetCreated.city ? targetCreated.city.name : null,
+                        chain: targetCreated.chain ? targetCreated.chain.name : null,
+                        position: targetCreated.position ? targetCreated.position.name : null,
+                        type: targetCreated.type ? targetCreated.type.name : null,
+                        allUsers: targetCreated.allUsers
+                    }
+                };
             }
             catch (err) {
                 console.log("TargetService - create: ", err);

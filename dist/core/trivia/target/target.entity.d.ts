@@ -8,6 +8,7 @@ export declare class Target {
     initAge: number;
     finalAge: number;
     gender: boolean;
+    allUsers: boolean;
     city: City;
     chain: Chain;
     position: Position;

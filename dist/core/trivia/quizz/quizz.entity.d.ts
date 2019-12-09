@@ -2,6 +2,7 @@ import { Question } from '../question/question.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
+import { Answerbyuserquizz } from '../answerbyuserquizz/answerbyuserquizz.entity';
 export declare class Quizz {
     id: number;
     name: string;
@@ -17,4 +18,5 @@ export declare class Quizz {
     campaing: Campaing;
     user: User[];
     pointsbyuser: Pointsbyuser[];
+    answerbyuserquizz: Answerbyuserquizz[];
 }

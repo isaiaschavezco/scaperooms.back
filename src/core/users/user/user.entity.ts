@@ -47,7 +47,7 @@ export class User {
     @Column({ length: 250, nullable: true })
     drugstore: string;
 
-    @Column({ length: 15 })
+    @Column({ length: 15, nullable: true })
     postalCode: string;
 
     @Column({ length: 100 })

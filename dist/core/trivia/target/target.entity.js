@@ -34,6 +34,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Target.prototype, "gender", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", Boolean)
+], Target.prototype, "allUsers", void 0);
+__decorate([
     typeorm_1.ManyToOne(type => city_entity_1.City, city => city.target),
     __metadata("design:type", city_entity_1.City)
 ], Target.prototype, "city", void 0);

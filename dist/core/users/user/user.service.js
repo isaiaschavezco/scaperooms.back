@@ -201,7 +201,7 @@ let UserService = class UserService {
                         gender: createNAOSUserDTO.gender,
                         phone: createNAOSUserDTO.phone,
                         email: createNAOSUserDTO.email,
-                        postalCode: createNAOSUserDTO.postalCode,
+                        nickname: createNAOSUserDTO.nickName,
                         password: userPassword,
                         position: naosPosition,
                         isActive: true,
@@ -245,6 +245,7 @@ let UserService = class UserService {
                     let newUser = yield this.userRepository.create({
                         name: createDrugStoreUserDTO.name,
                         lastName: createDrugStoreUserDTO.lastName,
+                        nickname: createDrugStoreUserDTO.nickName,
                         photo: createDrugStoreUserDTO.photo,
                         birthDate: createDrugStoreUserDTO.birthDate,
                         gender: createDrugStoreUserDTO.gender,

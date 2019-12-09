@@ -20,7 +20,7 @@ const role_entity_1 = require("../role/role.entity");
 const trade_entity_1 = require("../../content/trade/trade.entity");
 const quizz_entity_1 = require("../../trivia/quizz/quizz.entity");
 const pointsbyuser_entity_1 = require("../../trivia/pointsbyuser/pointsbyuser.entity");
-const answerbyusersection_entity_1 = require("../../trivia/answerbyusersection/answerbyusersection.entity");
+const answerbyuserquizz_entity_1 = require("../../trivia/answerbyuserquizz/answerbyuserquizz.entity");
 const message_entity_1 = require("../../content/message/message.entity");
 const notificacion_entity_1 = require("../notification/notificacion.entity");
 const sesion_entity_1 = require("../sesion/sesion.entity");
@@ -67,7 +67,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "drugstore", void 0);
 __decorate([
-    typeorm_1.Column({ length: 15 }),
+    typeorm_1.Column({ length: 15, nullable: true }),
     __metadata("design:type", String)
 ], User.prototype, "postalCode", void 0);
 __decorate([
@@ -143,9 +143,9 @@ __decorate([
     __metadata("design:type", Array)
 ], User.prototype, "pointsbyuser", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => answerbyusersection_entity_1.Answerbyusersection, answerbyusersection => answerbyusersection.user),
+    typeorm_1.OneToMany(type => answerbyuserquizz_entity_1.Answerbyuserquizz, answerbyuserquizz => answerbyuserquizz.user),
     __metadata("design:type", Array)
-], User.prototype, "answerbyusersection", void 0);
+], User.prototype, "answerbyuserquizz", void 0);
 __decorate([
     typeorm_1.OneToMany(type => message_entity_1.Message, message => message.user),
     __metadata("design:type", Array)

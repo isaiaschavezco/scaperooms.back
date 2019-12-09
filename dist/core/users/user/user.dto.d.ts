@@ -21,13 +21,13 @@ export declare class CreateUserDTO {
 export declare class CreateNAOSUserDTO {
     readonly name: string;
     readonly lastName: string;
+    readonly nickName: string;
     readonly photo: string;
     readonly birthDate: string;
     readonly gender: boolean;
     readonly phone: string;
     readonly email: string;
     readonly password: string;
-    readonly postalCode: string;
     readonly state: number;
     readonly city: number;
     readonly naosPosition: number;
@@ -35,6 +35,7 @@ export declare class CreateNAOSUserDTO {
 export declare class CreateDrugStoreUserDTO {
     readonly name: string;
     readonly lastName: string;
+    readonly nickName: string;
     readonly photo: string;
     readonly birthDate: string;
     readonly gender: boolean;
