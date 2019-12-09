@@ -12,10 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const config_service_1 = require("./config/config.service");
+const bodyParser = require("body-parser");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function* () {
         const config = new config_service_1.ConfigService();
         const app = yield core_1.NestFactory.create(app_module_1.AppModule);
+        app.use(bodyParser.json({ limit: '10mb' }));
+        app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
         app.enableCors();
         yield app.listen(config.get('PORT'));
     });
