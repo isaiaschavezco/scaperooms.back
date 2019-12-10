@@ -71,7 +71,7 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "postalCode", void 0);
 __decorate([
-    typeorm_1.Column({ length: 100, select: false }),
+    typeorm_1.Column({ length: 100 }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([

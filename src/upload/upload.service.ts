@@ -3,10 +3,10 @@ import * as multer from 'multer';
 import * as AWS from 'aws-sdk';
 import * as multerS3 from 'multer-s3';
 
-const AWS_S3_BUCKET_NAME = 'drenarm-resources'; // process.env.AWS_S3_BUCKET_NAME;
+const AWS_S3_BUCKET_NAME = 'bioderma-space'; // process.env.AWS_S3_BUCKET_NAME;
 const s3 = new AWS.S3({
-    endpoint: 'sfo2.digitaloceanspaces.com', accessKeyId: 'KRHTNE6L56ZL5O3I3CAC', //process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: 'PTw9+eyo2S0uhADjllA/omEtq4UmDUMqtdWcKepShBk' //process.env.AWS_SECRET_ACCESS_KEY, 
+    endpoint: 'sfo2.digitaloceanspaces.com', accessKeyId: 'ZSBKUIMMILMJDX65O7UX', //process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: 'eK1JtgpKaFgCYUU7H3/aiRf0eNfJ+ijUrZCfTuwGdn0' //process.env.AWS_SECRET_ACCESS_KEY, 
 });
 
 @Injectable()

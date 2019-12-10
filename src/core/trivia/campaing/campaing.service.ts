@@ -13,7 +13,9 @@ export class CampaingService {
 
     async findAll(): Promise<Campaing[]> {
         try {
-            const campaingList = await this.campaingRepository.find();
+            const campaingList = await this.campaingRepository.find({
+                relations: ["target", "target.city", "target.chain", "target.position", "target.type"]
+            });
             return campaingList;
         } catch (err) {
             console.log("CampaingService - findAll: ", err);
@@ -30,7 +32,7 @@ export class CampaingService {
             const campaingList = await this.campaingRepository.find({
                 where: { isDeleted: false, isBiodermaGame: isBioderma },
                 order: { createdAt: 'DESC' },
-                relations: ["target", "target.city", "target.delegation", "target.colony", "target.chain", "target.position", "target.type"]
+                relations: ["target", "target.city", "target.chain", "target.position", "target.type"]
             });
             return campaingList;
         } catch (err) {
@@ -69,7 +71,7 @@ export class CampaingService {
                 .addSelect("campaing.isBiodermaGame", "type")
                 .innerJoin("campaing.quizz", "quizz", "quizz.isActive = :isActive", { isActive: true })
                 .innerJoin("quizz.user", "user", "user.email = :email", { email: getCampaingsByUserDTO.email })
-                // .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
+                .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
                 .getRawMany();
             return { campaings: response };
         } catch (err) {

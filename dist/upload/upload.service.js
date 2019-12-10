@@ -25,10 +25,10 @@ const common_1 = require("@nestjs/common");
 const multer = require("multer");
 const AWS = require("aws-sdk");
 const multerS3 = require("multer-s3");
-const AWS_S3_BUCKET_NAME = 'drenarm-resources';
+const AWS_S3_BUCKET_NAME = 'bioderma-space';
 const s3 = new AWS.S3({
-    endpoint: 'sfo2.digitaloceanspaces.com', accessKeyId: 'KRHTNE6L56ZL5O3I3CAC',
-    secretAccessKey: 'PTw9+eyo2S0uhADjllA/omEtq4UmDUMqtdWcKepShBk'
+    endpoint: 'sfo2.digitaloceanspaces.com', accessKeyId: 'ZSBKUIMMILMJDX65O7UX',
+    secretAccessKey: 'eK1JtgpKaFgCYUU7H3/aiRf0eNfJ+ijUrZCfTuwGdn0'
 });
 let UploadService = class UploadService {
     constructor() {

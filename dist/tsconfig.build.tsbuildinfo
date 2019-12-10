@@ -478,8 +478,8 @@
         "signature": "a314a39426700ba2b5a76c01bab321bbe79cfef898dae996e930b017fc2b0af9"
       },
       "../node_modules/@nestjs/common/services/logger.service.d.ts": {
-        "version": "6c680043e924f47137eb6ec882a5e2056477b725c6c2cadfcce28ba02bb976fe",
-        "signature": "6c680043e924f47137eb6ec882a5e2056477b725c6c2cadfcce28ba02bb976fe"
+        "version": "496099f47b498947af649c4df5c8033f27bff1cd9fdba9992869b83e6afaf0c9",
+        "signature": "496099f47b498947af649c4df5c8033f27bff1cd9fdba9992869b83e6afaf0c9"
       },
       "../node_modules/@nestjs/common/interfaces/nest-application-context-options.interface.d.ts": {
         "version": "1b5f001bd6eee399244c342334057fd50efee96d07aec84159954aa131960759",
@@ -534,8 +534,8 @@
         "signature": "9ddf8e9069327faa75d20135cab675779844f66590249769c3d35dd2a38c2ba9"
       },
       "../node_modules/@nestjs/common/interfaces/modules/dynamic-module.interface.d.ts": {
-        "version": "5b79109c70cebf17aee6ccf0a5f490a871e67a17debb5e46f4048103a255d422",
-        "signature": "5b79109c70cebf17aee6ccf0a5f490a871e67a17debb5e46f4048103a255d422"
+        "version": "51104f5a20cf7eaebb6ec405c2936504c04e1323c71cd8c3a37b794b7e828cbb",
+        "signature": "51104f5a20cf7eaebb6ec405c2936504c04e1323c71cd8c3a37b794b7e828cbb"
       },
       "../node_modules/@nestjs/common/interfaces/modules/nest-module.interface.d.ts": {
         "version": "69196fa55fab9cd52c4eecba6051902bd5adff63ecf65e0546cb484b5a279fb1",
@@ -574,8 +574,8 @@
         "signature": "fe892fea1e75a442fffb4a604d7eeb451e858787a9f2f01c4e83bf12a3b5048d"
       },
       "../node_modules/@types/node/child_process.d.ts": {
-        "version": "186ec66cb4796226a3780508aa27ed183921723c0dbe8082a117d45d3a86af47",
-        "signature": "186ec66cb4796226a3780508aa27ed183921723c0dbe8082a117d45d3a86af47"
+        "version": "3814f4b4c648f278aefda68889f8912ef9928ba6fc12bf6dd85a6a680b660e00",
+        "signature": "3814f4b4c648f278aefda68889f8912ef9928ba6fc12bf6dd85a6a680b660e00"
       },
       "../node_modules/@types/node/cluster.d.ts": {
         "version": "fcd718b2feb2820a9844536a1a2fbc77a3da90820e02894d40f879a789f46560",
@@ -662,8 +662,8 @@
         "signature": "8969e0b4d22ca77ad011c8fc4a25ec5d515bdfae4ecbd22608ed0d5c38829c1e"
       },
       "../node_modules/@types/node/readline.d.ts": {
-        "version": "544728a999d35afc7b9e6d7420fb10046c16fcc5cb54fef21d2f5de78bf98830",
-        "signature": "544728a999d35afc7b9e6d7420fb10046c16fcc5cb54fef21d2f5de78bf98830"
+        "version": "bc685c3a778cabed3842c235b9427ad1082b90343fb886625fe3b876e908c1ca",
+        "signature": "bc685c3a778cabed3842c235b9427ad1082b90343fb886625fe3b876e908c1ca"
       },
       "../node_modules/@types/node/repl.d.ts": {
         "version": "d0b0b533dc34ff7ffd019665fdc2b2aeae717bc1347e17a5bdc4d6572b5c109a",
@@ -878,8 +878,8 @@
         "signature": "9fb3fe423ca51ae490335e478f672be983ce33567e4f8b581763dabd809877fb"
       },
       "../node_modules/@nestjs/common/decorators/core/apply-decorators.d.ts": {
-        "version": "501657605edd6851825adeaf71162afb6ca86cf06b9e95a83488f61df5e33519",
-        "signature": "501657605edd6851825adeaf71162afb6ca86cf06b9e95a83488f61df5e33519"
+        "version": "a222ec12297684e70e8d1225df0a02a9111f5fbcdbd9eb857426f6c514049681",
+        "signature": "a222ec12297684e70e8d1225df0a02a9111f5fbcdbd9eb857426f6c514049681"
       },
       "../node_modules/@nestjs/common/decorators/core/index.d.ts": {
         "version": "2b658513ca9181d8dbfc756dfbe24cb5f6a70b7c49f87854a8452e9a8b362b74",
@@ -1034,8 +1034,8 @@
         "signature": "cec8d5d5253889b3a0c7426a38b937d3ea0b1df9e7231ae5e836fb6f74f2ca3e"
       },
       "../node_modules/@nestjs/common/http/http.service.d.ts": {
-        "version": "3294be93b792cb90eac607261ed797411d8ccb1f5323e206d8643440945fd9a0",
-        "signature": "3294be93b792cb90eac607261ed797411d8ccb1f5323e206d8643440945fd9a0"
+        "version": "43ce4287ace56bc8fc9d25f89e158fd0bcdb2e71221d2806c3c5b792ab45823a",
+        "signature": "43ce4287ace56bc8fc9d25f89e158fd0bcdb2e71221d2806c3c5b792ab45823a"
       },
       "../node_modules/@nestjs/common/http/index.d.ts": {
         "version": "3a93e73ecbb7a89241c58fcf30ecfbf788c3e98d01f5eab4573ce0f8635b6506",
@@ -1222,8 +1222,8 @@
         "signature": "548ef4a7ba09bdd5a03e3be32ecfd4efac910d86691444f80f56d95bd65d6d9d"
       },
       "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts": {
-        "version": "78c8137d8d1323e2231294c282e2f96c44a4dbce36c3d4b9ed6392e5eb1c88c5",
-        "signature": "78c8137d8d1323e2231294c282e2f96c44a4dbce36c3d4b9ed6392e5eb1c88c5"
+        "version": "a9e35a8b9c81f6d03140ade6a8859ed1e2c089ae69315db7c63b975d655bf940",
+        "signature": "a9e35a8b9c81f6d03140ade6a8859ed1e2c089ae69315db7c63b975d655bf940"
       },
       "../node_modules/typeorm/query-builder/brackets.d.ts": {
         "version": "6469c21248f776364ab445effc4d1fe989d267315d4659a55a889e217c64f579",
@@ -1278,8 +1278,8 @@
         "signature": "5b0d5f788545cd13eeec2d15e2527ed5de2e262b522d3d700a858d5886bae6d7"
       },
       "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts": {
-        "version": "d8a8e36baf245d63f1f178ca5cd4d078507bfd84ae89a6af6e881a85bad9928b",
-        "signature": "d8a8e36baf245d63f1f178ca5cd4d078507bfd84ae89a6af6e881a85bad9928b"
+        "version": "57d63fc6d2a6bd85ab1bf2582873c9e4f3eefd79f2049f59b3302115169e54f0",
+        "signature": "57d63fc6d2a6bd85ab1bf2582873c9e4f3eefd79f2049f59b3302115169e54f0"
       },
       "../node_modules/typeorm/metadata-args/relationidmetadataargs.d.ts": {
         "version": "91464e0beb8309e6694eb09b58777bd1d86a058b69a5752d4600e1550fc5b22c",
@@ -1442,12 +1442,12 @@
         "signature": "ce45ffa1579ab800e3b64ad4cd3faf87d2ae6a5134def0ae18583b330e067209"
       },
       "../node_modules/typeorm/repository/removeoptions.d.ts": {
-        "version": "6c20939c1fdfbf435b598e08e1de648994158b923fd54593a79995d2822b83d5",
-        "signature": "6c20939c1fdfbf435b598e08e1de648994158b923fd54593a79995d2822b83d5"
+        "version": "174a3381f98fc78c451528cb1aa1baaa37a51852ec6fa90d42efd876301537c1",
+        "signature": "174a3381f98fc78c451528cb1aa1baaa37a51852ec6fa90d42efd876301537c1"
       },
       "../node_modules/typeorm/repository/saveoptions.d.ts": {
-        "version": "50f71156a412956297277d90eb8a2506ba3e29b9c32b64375b74781cc444be46",
-        "signature": "50f71156a412956297277d90eb8a2506ba3e29b9c32b64375b74781cc444be46"
+        "version": "a922657bd3f40e024868ac59f5a197b8008087c624e8b8c56265af79f88f2017",
+        "signature": "a922657bd3f40e024868ac59f5a197b8008087c624e8b8c56265af79f88f2017"
       },
       "../node_modules/typeorm/driver/mongodb/typings.d.ts": {
         "version": "7a097f6ea82785c0f9556d0af6ce50393a72645626cd791eb347af28f8a9d748",
@@ -1602,8 +1602,8 @@
         "signature": "9fa8e2892e6218ef6509eb2f7c97adab9518c07594acde96c697a6e3f63ad11b"
       },
       "../node_modules/typeorm/connection/baseconnectionoptions.d.ts": {
-        "version": "bbf652c1895d2ca78244afc3bf2985043a1099ac6b3e1401a1c7de257638fd92",
-        "signature": "bbf652c1895d2ca78244afc3bf2985043a1099ac6b3e1401a1c7de257638fd92"
+        "version": "de1a216f9a1ad9ff13382c643653ae361848ef3c67b26e6800404d2b40afa9f6",
+        "signature": "de1a216f9a1ad9ff13382c643653ae361848ef3c67b26e6800404d2b40afa9f6"
       },
       "../node_modules/typeorm/driver/driver.d.ts": {
         "version": "c794abb14a54676e0eabe99ab29a3161f6a23760f1118ff5dca0bfaeb3e45e1d",
@@ -1630,8 +1630,8 @@
         "signature": "7633171474267efa7aee90dffdfac797e2c6b2c5589260231e114cf98d37e1dc"
       },
       "../node_modules/typeorm/driver/mysql/mysqlconnectionoptions.d.ts": {
-        "version": "61c90cb90d2419fe795580c3f52dc7a473dcb809202aeb6e5bba5facf059e7de",
-        "signature": "61c90cb90d2419fe795580c3f52dc7a473dcb809202aeb6e5bba5facf059e7de"
+        "version": "c5f040a3f96cb9e644fe69e77a017f69833c891d9943dfb75f7b9707337e7cc2",
+        "signature": "c5f040a3f96cb9e644fe69e77a017f69833c891d9943dfb75f7b9707337e7cc2"
       },
       "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts": {
         "version": "1f1c63cc03e86f753a12a3a68797bc92e490f4a47b94b997a09b7ebc48129931",
@@ -1690,8 +1690,8 @@
         "signature": "b2efafe67c811e8e2d8d35f7597cf42bf2b3aea2b9541efbaadf082c3c5a9cf5"
       },
       "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectionoptions.d.ts": {
-        "version": "f778c3f6505a4e80986accd52e5aa1536ae7d5109f6c5a5eef9007bd0aedac2e",
-        "signature": "f778c3f6505a4e80986accd52e5aa1536ae7d5109f6c5a5eef9007bd0aedac2e"
+        "version": "43d1916056479da180ddacdbc5af79121712f1ce1ed21c7de170900eedb2e44f",
+        "signature": "43d1916056479da180ddacdbc5af79121712f1ce1ed21c7de170900eedb2e44f"
       },
       "../node_modules/typeorm/connection/connectionoptions.d.ts": {
         "version": "1fc589e63ad4843e4e48ed2a4819d8ab5185e62173b5e26b61dfbb792f6aef65",
@@ -2073,6 +2073,10 @@
         "version": "599247bc6d7918bf1f03eacec2e84956435b9c35b427e22d489663f95f4d4279",
         "signature": "599247bc6d7918bf1f03eacec2e84956435b9c35b427e22d489663f95f4d4279"
       },
+      "../node_modules/typeorm/migration/migrationexecutor.d.ts": {
+        "version": "3adea9938c543eb49bf983cb2ff26192802d04e2a73e2c01110c813fc8c03146",
+        "signature": "3adea9938c543eb49bf983cb2ff26192802d04e2a73e2c01110c813fc8c03146"
+      },
       "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts": {
         "version": "30e2ef3512f3c1c9886b63ac92c4ac1737c65c7ef30168d23c1e101b52e90b3c",
         "signature": "30e2ef3512f3c1c9886b63ac92c4ac1737c65c7ef30168d23c1e101b52e90b3c"
@@ -2082,8 +2086,8 @@
         "signature": "10f4c6f167d66d6f26c399e05dcfbaba2913d3d72249474359c9a99305097861"
       },
       "../node_modules/typeorm/index.d.ts": {
-        "version": "e91e7a20eef0975cf87762cd8d1981c0acf25ec47a30603fac8fa3346764d00b",
-        "signature": "e91e7a20eef0975cf87762cd8d1981c0acf25ec47a30603fac8fa3346764d00b"
+        "version": "c22b4c00503c6c77dbad4efeb054b7d2a606c8e30b22377a701cf4045a522c5c",
+        "signature": "c22b4c00503c6c77dbad4efeb054b7d2a606c8e30b22377a701cf4045a522c5c"
       },
       "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts": {
         "version": "41070599270ea1295c8855556f36c89af04d02c41c50f602870fd55dd988c83d",
@@ -2238,7 +2242,7 @@
         "signature": "4d40cc01614f1c79aa7b8dcb67d96866c95ea335b838272528f5e3264fc046b3"
       },
       "../src/core/users/user/user.entity.ts": {
-        "version": "fca04a9d7edcc6ca43f3ecbfc33ee0968f1e21ab92581b1ad938c5bd1e294198",
+        "version": "035dde6a8f204ee36cdf16da3d27dfb583f6b7a0d5b3754f1dbc7eb8c991cbc1",
         "signature": "4ad40877b839be9eb5a53d1f7cbb51bc06f9992a11771cd3dc9bc60f17e76003"
       },
       "../src/core/users/chain/chain.entity.ts": {
@@ -2502,11 +2506,11 @@
         "signature": "7a7e7365d97bfe93ae930d00901117c97e94d6333ae0e12111a427200f69e7d6"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
-        "version": "b2359efe6be31aaa1b2df635e07c119e1a023cefe932c3919b270070ece0df11",
-        "signature": "0dfc12ebb2dbe9d4ddd5e844bfaac2476b5279cc621c24608d444a9adb277455"
+        "version": "08bc2f3d0e8e53dfe433f4f5b664315976c5c51967148c229696878ea0232b5c",
+        "signature": "e2c9b985f2d698e627259c3aad3c416f2cc99b937be5aee2455dc764e967575b"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "291ed6d37459a31b0942d13d69ddab612036522e8aee7f2f1513f21a56708de4",
+        "version": "dc39d7903cdb347a6a56b22e49f18dddcba1815cd253ae3dc8a56fe36521508e",
         "signature": "c2a334265d44784cf01568d2ecbc7fd70cbdea9e62efd1356044badea086920f"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -2578,8 +2582,8 @@
         "signature": "c0395f76cfb67a35f524a9e61bfd9951bcfef58e759a9059549c7a8c5a753e05"
       },
       "../node_modules/aws-sdk/clients/applicationautoscaling.d.ts": {
-        "version": "16676ef370b5bbec94e7c5dd50c1d316fa16e371b2bf92373c47e19bf5a7102d",
-        "signature": "16676ef370b5bbec94e7c5dd50c1d316fa16e371b2bf92373c47e19bf5a7102d"
+        "version": "5dd9ecb7b8bd9299739d8ebe77cdce97267477c30f8b93d9a48de6a1f0050e04",
+        "signature": "5dd9ecb7b8bd9299739d8ebe77cdce97267477c30f8b93d9a48de6a1f0050e04"
       },
       "../node_modules/aws-sdk/clients/appstream.d.ts": {
         "version": "8fd49faa0dfbdabd1901a86b1ff0ca17545880a5664b98ea323e852982b231d8",
@@ -2726,16 +2730,16 @@
         "signature": "6d428fb09b0eace63bf00cf0d57363cac0b7fad533b61ebdfdab0c26abc92a38"
       },
       "../node_modules/aws-sdk/clients/ec2.d.ts": {
-        "version": "64e810e951e66ecd8be9459f1487cd759dca9b123a440f3f12bcde59d0f25108",
-        "signature": "64e810e951e66ecd8be9459f1487cd759dca9b123a440f3f12bcde59d0f25108"
+        "version": "f74da20c40efdc0421189c1af05c624a651efdb7486978d67e88174aca899df7",
+        "signature": "f74da20c40efdc0421189c1af05c624a651efdb7486978d67e88174aca899df7"
       },
       "../node_modules/aws-sdk/clients/ecr.d.ts": {
         "version": "05eca01e76f57f90f46872e1fe97eee16ff6a60a991644e6374d1ab8a90c13ac",
         "signature": "05eca01e76f57f90f46872e1fe97eee16ff6a60a991644e6374d1ab8a90c13ac"
       },
       "../node_modules/aws-sdk/clients/ecs.d.ts": {
-        "version": "a1ce82c29f609484971efe79e4623d15a0b590b7280d163692813884ecabc926",
-        "signature": "a1ce82c29f609484971efe79e4623d15a0b590b7280d163692813884ecabc926"
+        "version": "b1ff5a59e946f325069e438da66ca4cbbaa64801e8eeefdb3d70c58c4eefa12e",
+        "signature": "b1ff5a59e946f325069e438da66ca4cbbaa64801e8eeefdb3d70c58c4eefa12e"
       },
       "../node_modules/aws-sdk/clients/efs.d.ts": {
         "version": "1b9c2648f7aacc84e851fa4e6e1facda173bcd2d0fc5ed9b4771bdaad7d19f80",
@@ -2762,8 +2766,8 @@
         "signature": "862d02b9528cec41e5d04681d427e4d90b2c173f53683a59c242c85cf26baedc"
       },
       "../node_modules/aws-sdk/clients/es.d.ts": {
-        "version": "a77ebfc4afdc2c70107f68601378d0b73e4c8a111205de73e0fcbdb06109821c",
-        "signature": "a77ebfc4afdc2c70107f68601378d0b73e4c8a111205de73e0fcbdb06109821c"
+        "version": "c765ca029f80e4be5a714cdfe60675094f910c1f448e40c7d79c1618cf892296",
+        "signature": "c765ca029f80e4be5a714cdfe60675094f910c1f448e40c7d79c1618cf892296"
       },
       "../node_modules/aws-sdk/clients/elastictranscoder.d.ts": {
         "version": "3462c3bbdd6b3fd8e16b56a6bbbf681d967095220be4183735b18d377b1711f3",
@@ -2818,12 +2822,12 @@
         "signature": "ca25aeefab5cd889888fb322557f42559be4c7af35738f4647009e7ec4e2832a"
       },
       "../node_modules/aws-sdk/clients/kms.d.ts": {
-        "version": "d6fef4f4cd32e36db9297f7fb9fbf025663f4f3ce5cf8981e6d8bf22cbc90325",
-        "signature": "d6fef4f4cd32e36db9297f7fb9fbf025663f4f3ce5cf8981e6d8bf22cbc90325"
+        "version": "0ea9aad548a658a938351fac68f7ac76cfcc4b73bc0223b308f8a1d88a8c4cff",
+        "signature": "0ea9aad548a658a938351fac68f7ac76cfcc4b73bc0223b308f8a1d88a8c4cff"
       },
       "../node_modules/aws-sdk/clients/lambda.d.ts": {
-        "version": "e665eae4750ae440ecaa3ef9650bf79143ad9e2406ed22227b15d58c2b4d660d",
-        "signature": "e665eae4750ae440ecaa3ef9650bf79143ad9e2406ed22227b15d58c2b4d660d"
+        "version": "5fde88f6c3049544115101ea5d24593a7722979311f5f04a7fdc6cda66e6b4b5",
+        "signature": "5fde88f6c3049544115101ea5d24593a7722979311f5f04a7fdc6cda66e6b4b5"
       },
       "../node_modules/aws-sdk/clients/lexruntime.d.ts": {
         "version": "2b25d428a1c30e4837bfba9ceeee7fa03267a7edfb42988eaabee2039171e56b",
@@ -2886,16 +2890,16 @@
         "signature": "a38e96069cfbbc3e8c362678f2c71171d1e736c0825e11bd67679029f6e3d433"
       },
       "../node_modules/aws-sdk/clients/rds.d.ts": {
-        "version": "3f3f9a72e3a2a138767595ca2b0aabea1116357b03f4f1b0da3ff12a7b7db76f",
-        "signature": "3f3f9a72e3a2a138767595ca2b0aabea1116357b03f4f1b0da3ff12a7b7db76f"
+        "version": "0b75a131f5bbe7f6c50de25bc3037550e1e0ec676d69a5806463f7f6790cf403",
+        "signature": "0b75a131f5bbe7f6c50de25bc3037550e1e0ec676d69a5806463f7f6790cf403"
       },
       "../node_modules/aws-sdk/clients/redshift.d.ts": {
         "version": "ac3a17025122e97cf379139ab4ee06d40321fb08ef2609e77326b1160c38886f",
         "signature": "ac3a17025122e97cf379139ab4ee06d40321fb08ef2609e77326b1160c38886f"
       },
       "../node_modules/aws-sdk/clients/rekognition.d.ts": {
-        "version": "36305a3564588e3237559446665356aa7ffae827f180fdef456fcdb93f727395",
-        "signature": "36305a3564588e3237559446665356aa7ffae827f180fdef456fcdb93f727395"
+        "version": "0f7265e2f49c228e8d39d9bd7da62eab0917310c5b991903167f236f2ed959c7",
+        "signature": "0f7265e2f49c228e8d39d9bd7da62eab0917310c5b991903167f236f2ed959c7"
       },
       "../node_modules/aws-sdk/clients/resourcegroupstaggingapi.d.ts": {
         "version": "34fb1360b684b084632c7ab8eccf97e0902f872b31492098a145318f5c474714",
@@ -2930,12 +2934,12 @@
         "signature": "31f961b612086e5bb1b8771f01360a97daf199f300b9dfe9ee5d685573f19152"
       },
       "../node_modules/aws-sdk/clients/s3.d.ts": {
-        "version": "6857c34aa6cfe5f72f00d796f8c893d73f6d52fb0f610d5066df9417dbf03cb4",
-        "signature": "6857c34aa6cfe5f72f00d796f8c893d73f6d52fb0f610d5066df9417dbf03cb4"
+        "version": "f35351da022b63141f5911e2ed64bc41d20bcde9f03ccaf8e726386f285c7439",
+        "signature": "f35351da022b63141f5911e2ed64bc41d20bcde9f03ccaf8e726386f285c7439"
       },
       "../node_modules/aws-sdk/clients/s3control.d.ts": {
-        "version": "872d164917209a55f12745d8d124a75fd72f8ff2e4e619c3c1467f8f418dfcfb",
-        "signature": "872d164917209a55f12745d8d124a75fd72f8ff2e4e619c3c1467f8f418dfcfb"
+        "version": "862c1b92ed701f646335eab7f6bd9ac3e16d01228ea546e83c1464ba94c25862",
+        "signature": "862c1b92ed701f646335eab7f6bd9ac3e16d01228ea546e83c1464ba94c25862"
       },
       "../node_modules/aws-sdk/clients/servicecatalog.d.ts": {
         "version": "31c6f125641ab8b913c2870063d72814eef646626a000220a19920936477c394",
@@ -2970,16 +2974,16 @@
         "signature": "1eb84b5bf33832e169b7b1fe4e45074b3ad2602d1800ebaabc3f19418670dcea"
       },
       "../node_modules/aws-sdk/clients/ssm.d.ts": {
-        "version": "377d358879b4bbeae4e0a35b6bfd1e501225592903c6cc0536b597ee4524f4c6",
-        "signature": "377d358879b4bbeae4e0a35b6bfd1e501225592903c6cc0536b597ee4524f4c6"
+        "version": "00d4f12a7a00dec3d9e809d2fcf211fb73e1b3bca59f40846f833e6c5b6d0cca",
+        "signature": "00d4f12a7a00dec3d9e809d2fcf211fb73e1b3bca59f40846f833e6c5b6d0cca"
       },
       "../node_modules/aws-sdk/clients/storagegateway.d.ts": {
         "version": "5c613d8d9aebe3b26b42c21a04fddf556a29894b8b68c82e362564e6d131492a",
         "signature": "5c613d8d9aebe3b26b42c21a04fddf556a29894b8b68c82e362564e6d131492a"
       },
       "../node_modules/aws-sdk/clients/stepfunctions.d.ts": {
-        "version": "4c1dc55b66c8570339c327403d5a6fd3e2ccee07ecbcdc6e4ff211a52458c5e7",
-        "signature": "4c1dc55b66c8570339c327403d5a6fd3e2ccee07ecbcdc6e4ff211a52458c5e7"
+        "version": "195769adc58b58db31a8fda5d77d1826fe97c107aca400d2c7d0de599e5f99c8",
+        "signature": "195769adc58b58db31a8fda5d77d1826fe97c107aca400d2c7d0de599e5f99c8"
       },
       "../node_modules/aws-sdk/clients/sts.d.ts": {
         "version": "d39c66bf21493e0aaf6c852bc7cd143b6b227c84b424d1c657a4f940e5e36431",
@@ -3110,16 +3114,16 @@
         "signature": "bfd6df3bc22d1a1304cff636493092c69f9696411c3e844a1385cac81a075281"
       },
       "../node_modules/aws-sdk/clients/kinesisvideo.d.ts": {
-        "version": "23d64a08eb2e8e21b3d0b4da806e94d404ba078959538d239fd81f65fa493c31",
-        "signature": "23d64a08eb2e8e21b3d0b4da806e94d404ba078959538d239fd81f65fa493c31"
+        "version": "921e66d023701f47f1d2c3157de1d78e5a7c40dc50dcd7bef46961f6af54e0ae",
+        "signature": "921e66d023701f47f1d2c3157de1d78e5a7c40dc50dcd7bef46961f6af54e0ae"
       },
       "../node_modules/aws-sdk/clients/sagemakerruntime.d.ts": {
         "version": "277d27b7f14bf556e5da913cdca37a49f5e52eb0be6e9c3b685445abdc0bd9e5",
         "signature": "277d27b7f14bf556e5da913cdca37a49f5e52eb0be6e9c3b685445abdc0bd9e5"
       },
       "../node_modules/aws-sdk/clients/sagemaker.d.ts": {
-        "version": "8fb192b79219f016b36025f46945a3d40bca4fd24633b64d1e005f13e81f5128",
-        "signature": "8fb192b79219f016b36025f46945a3d40bca4fd24633b64d1e005f13e81f5128"
+        "version": "d0f809fe7377e3fc96e2e4215af4c4dc38401e938532c9c7dc7016eb51916c99",
+        "signature": "d0f809fe7377e3fc96e2e4215af4c4dc38401e938532c9c7dc7016eb51916c99"
       },
       "../node_modules/aws-sdk/clients/translate.d.ts": {
         "version": "af6976cf404355b49f67c234d8f1adc8c7c52de9b44a51805be69c87049ba897",
@@ -3198,8 +3202,8 @@
         "signature": "40609c16787ddccd524d32fe5e1da852373b77d129e5ac4bac0a326bd6da51e8"
       },
       "../node_modules/aws-sdk/clients/eks.d.ts": {
-        "version": "c12a9cac61fc115250ee1452d07976b5f2586bafebd22526e2a5e505d2264448",
-        "signature": "c12a9cac61fc115250ee1452d07976b5f2586bafebd22526e2a5e505d2264448"
+        "version": "ce059cdf6c2d841791b9eac14b4c53d53d16c330081d429d1a8335914064ad3c",
+        "signature": "ce059cdf6c2d841791b9eac14b4c53d53d16c330081d429d1a8335914064ad3c"
       },
       "../node_modules/aws-sdk/clients/macie.d.ts": {
         "version": "3a2d5600c89c93d687b1711453368c4f4122ddc8f8bc8c16cdbfcb42264be14a",
@@ -3234,8 +3238,8 @@
         "signature": "ad84a7a252bc66b60530d7e7ee4da5d2dcada6af98ee20a73ca7739cedae9f01"
       },
       "../node_modules/aws-sdk/clients/quicksight.d.ts": {
-        "version": "5b83cf8da152ab92550d4233bbb9565eaa8a90c9f6ac235cb4499ccc62aa913f",
-        "signature": "5b83cf8da152ab92550d4233bbb9565eaa8a90c9f6ac235cb4499ccc62aa913f"
+        "version": "15abe89bac35388af274926180235b7a55a77d6c1a5b34d8f9af0fa07a84dd9a",
+        "signature": "15abe89bac35388af274926180235b7a55a77d6c1a5b34d8f9af0fa07a84dd9a"
       },
       "../node_modules/aws-sdk/clients/rdsdataservice.d.ts": {
         "version": "6e8028df67ea7754fb3a108c0eb1032fe182157cc07b1f1bcdca7447bd2c7bcb",
@@ -3290,16 +3294,16 @@
         "signature": "17fba4af10abc742a3e5cb821c38466fb07377b6204e6bfa7e3e8e86016d6e49"
       },
       "../node_modules/aws-sdk/clients/kafka.d.ts": {
-        "version": "7e56502eb92c89e929f4f0b3e2425d50ab3ce00612f540d7a07156f2ac803cff",
-        "signature": "7e56502eb92c89e929f4f0b3e2425d50ab3ce00612f540d7a07156f2ac803cff"
+        "version": "a224019ca5747b6b082a0977761999df76e8188bc488290c7a394cb2d5015ce1",
+        "signature": "a224019ca5747b6b082a0977761999df76e8188bc488290c7a394cb2d5015ce1"
       },
       "../node_modules/aws-sdk/clients/apigatewaymanagementapi.d.ts": {
         "version": "538ccc5c89793e955e899edc76aca598a128e299562cecf109ccf881f5f147dd",
         "signature": "538ccc5c89793e955e899edc76aca598a128e299562cecf109ccf881f5f147dd"
       },
       "../node_modules/aws-sdk/clients/apigatewayv2.d.ts": {
-        "version": "1f257606c411e601c4c851dab6fc24e53654e216e5e6b3f766b41d66f774edfd",
-        "signature": "1f257606c411e601c4c851dab6fc24e53654e216e5e6b3f766b41d66f774edfd"
+        "version": "2a4c4c8faad0a66db8bfb2f7b7414545356f46aaed6c7129957119a5f567025b",
+        "signature": "2a4c4c8faad0a66db8bfb2f7b7414545356f46aaed6c7129957119a5f567025b"
       },
       "../node_modules/aws-sdk/clients/docdb.d.ts": {
         "version": "8b04333b5bfb3ff2c05051d91792bc0b830ceb8df2cd27a3e6da224707bc810c",
@@ -3314,8 +3318,8 @@
         "signature": "0d3ecd9e054a9f2af1f2c3062d3bc89498b185a5de15e0dbf523587dc05fbe54"
       },
       "../node_modules/aws-sdk/clients/textract.d.ts": {
-        "version": "aece55134ca2bf4076b7d3aff400b3ad73776e7449b4a02ecdda4ece0c3e0259",
-        "signature": "aece55134ca2bf4076b7d3aff400b3ad73776e7449b4a02ecdda4ece0c3e0259"
+        "version": "bfa2a76bb4dee6111239045f021d11ef3577ffcd40d92629c9d27f2b6aba7405",
+        "signature": "bfa2a76bb4dee6111239045f021d11ef3577ffcd40d92629c9d27f2b6aba7405"
       },
       "../node_modules/aws-sdk/clients/managedblockchain.d.ts": {
         "version": "cd1f04de29c2a2323a4936978c587c73f5f2f465512210c541b7eaf645b9195f",
@@ -3453,17 +3457,61 @@
         "version": "517b5ef18fd889fa0ba68b0725f373b6c6ecf6a3eeb79f6af8aa526cb4f2626a",
         "signature": "517b5ef18fd889fa0ba68b0725f373b6c6ecf6a3eeb79f6af8aa526cb4f2626a"
       },
+      "../node_modules/aws-sdk/clients/accessanalyzer.d.ts": {
+        "version": "814db8f998294b8dd45c669af8603d18ea0e4ae177d4b7d9c61feb51956c266e",
+        "signature": "814db8f998294b8dd45c669af8603d18ea0e4ae177d4b7d9c61feb51956c266e"
+      },
+      "../node_modules/aws-sdk/clients/codegurureviewer.d.ts": {
+        "version": "54f975100c1dc385e0b6e427a8b9054f2ad2de7a651bdad71e2206a5553cb33d",
+        "signature": "54f975100c1dc385e0b6e427a8b9054f2ad2de7a651bdad71e2206a5553cb33d"
+      },
+      "../node_modules/aws-sdk/clients/codeguruprofiler.d.ts": {
+        "version": "d1395330a84f338ca867f016e6b02c885133fa1ccb1e09b8b3c03505f0420d96",
+        "signature": "d1395330a84f338ca867f016e6b02c885133fa1ccb1e09b8b3c03505f0420d96"
+      },
+      "../node_modules/aws-sdk/clients/computeoptimizer.d.ts": {
+        "version": "407bccfb7b2a214dae606a4c48e9da33ec7b12f7ec9280f4ca0b164646749d9d",
+        "signature": "407bccfb7b2a214dae606a4c48e9da33ec7b12f7ec9280f4ca0b164646749d9d"
+      },
+      "../node_modules/aws-sdk/clients/frauddetector.d.ts": {
+        "version": "01284cadd7e8d3932d6ee759c762b458e79b0af7789a9f5a9f7413c9d0327eac",
+        "signature": "01284cadd7e8d3932d6ee759c762b458e79b0af7789a9f5a9f7413c9d0327eac"
+      },
+      "../node_modules/aws-sdk/clients/kendra.d.ts": {
+        "version": "6ea421b792d4fed0c55bf7917bc1cfbd05ef9d44ee7e615fcefbf40f5b04d790",
+        "signature": "6ea421b792d4fed0c55bf7917bc1cfbd05ef9d44ee7e615fcefbf40f5b04d790"
+      },
+      "../node_modules/aws-sdk/clients/networkmanager.d.ts": {
+        "version": "e7060b8353d0d9365cb66ca74a1b314c29fd462158fe5a741b4834f008242fe0",
+        "signature": "e7060b8353d0d9365cb66ca74a1b314c29fd462158fe5a741b4834f008242fe0"
+      },
+      "../node_modules/aws-sdk/clients/outposts.d.ts": {
+        "version": "090dd16efd1f680051a6bdc5e008532d1fd78de81d6e5d2ffc498ad565e476b9",
+        "signature": "090dd16efd1f680051a6bdc5e008532d1fd78de81d6e5d2ffc498ad565e476b9"
+      },
+      "../node_modules/aws-sdk/clients/augmentedairuntime.d.ts": {
+        "version": "fade4c136dfc597d52e1eae914c2f80fe46bda68a3877cde6feb096f16f41af9",
+        "signature": "fade4c136dfc597d52e1eae914c2f80fe46bda68a3877cde6feb096f16f41af9"
+      },
+      "../node_modules/aws-sdk/clients/ebs.d.ts": {
+        "version": "3ba8a1939861d1d14c2287747250d581ce3e619daf570afc6fb4e50947a3ba67",
+        "signature": "3ba8a1939861d1d14c2287747250d581ce3e619daf570afc6fb4e50947a3ba67"
+      },
+      "../node_modules/aws-sdk/clients/kinesisvideosignalingchannels.d.ts": {
+        "version": "212928c8c5fd8a4539ebf78bfae5a1ee8d20bcd7e6125fe6a9667ee4e39ce3d3",
+        "signature": "212928c8c5fd8a4539ebf78bfae5a1ee8d20bcd7e6125fe6a9667ee4e39ce3d3"
+      },
       "../node_modules/aws-sdk/clients/all.d.ts": {
-        "version": "eada67ebb733d6d8aa382da0b54c2bd101c911f1f47e855945a1f5569cbad783",
-        "signature": "eada67ebb733d6d8aa382da0b54c2bd101c911f1f47e855945a1f5569cbad783"
+        "version": "2e307c10ed2e6f7864d1abc9788a4c975d4fc49678872a7322aa4adb6640b832",
+        "signature": "2e307c10ed2e6f7864d1abc9788a4c975d4fc49678872a7322aa4adb6640b832"
       },
       "../node_modules/aws-sdk/lib/config_service_placeholders.d.ts": {
-        "version": "3cead13d17bb1c8555e36157d3ab9693ff1c0ea6065e02878e50bdb71d9d0f70",
-        "signature": "3cead13d17bb1c8555e36157d3ab9693ff1c0ea6065e02878e50bdb71d9d0f70"
+        "version": "7b17319ddf5ef7000721a88d308b5fda1f77efc44017644db94f29c0afb785e5",
+        "signature": "7b17319ddf5ef7000721a88d308b5fda1f77efc44017644db94f29c0afb785e5"
       },
       "../node_modules/aws-sdk/lib/config.d.ts": {
-        "version": "5cb2e0b950f60fdb75124ce0dcb253845d296f017e361ce8efcab04bc5707afd",
-        "signature": "5cb2e0b950f60fdb75124ce0dcb253845d296f017e361ce8efcab04bc5707afd"
+        "version": "fd621ea165b97750a81c3bdd21de055996c024a028a56d1eb7b03c3e62d345dd",
+        "signature": "fd621ea165b97750a81c3bdd21de055996c024a028a56d1eb7b03c3e62d345dd"
       },
       "../node_modules/aws-sdk/lib/credentials/cognito_identity_credentials.d.ts": {
         "version": "f575f1f4c48f490b4cd4d056e1ffc7d9e20519023ff8e39ae1bc1fe34c253a1c",
@@ -3534,7 +3582,7 @@
         "signature": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f"
       },
       "../src/upload/upload.service.ts": {
-        "version": "86650cace70497b61ad634748b195f57e9609166f61abbf0e5aa0150bfbd864a",
+        "version": "8825080221808282380445e627e769b7cb3f392cbaa838aae4e4acdd3ccbfe50",
         "signature": "987947f6022446dcb9dc56cae04e35870fb7141104525f1637f3d527adcbb511"
       },
       "../src/upload/upload.controller.ts": {
@@ -3854,7 +3902,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "d60281b38ded6af127434de915c56cac5c9f4558c10ff46b6502efd320a0d2d4",
+        "version": "e319f71a4b812de91a6a1c4df2bc1494a911d5d1f69c492b7d60c5625f4f73b1",
         "signature": "60f855cdac2c0cafcc0f7478db5ba18ac60969058c4d263899725f96b51c7ec6"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -3925,29 +3973,33 @@
         "version": "620eaa2096c69dff36875f086e8a63c326fccda643360b7d7cd580b403753488",
         "signature": "620eaa2096c69dff36875f086e8a63c326fccda643360b7d7cd580b403753488"
       },
+      "../node_modules/@nestjs/core/injector/module-token-factory.d.ts": {
+        "version": "fb56039cf07558b8d5802d74e7b6b0a5550610a83541e8bc69cda190c24addd7",
+        "signature": "fb56039cf07558b8d5802d74e7b6b0a5550610a83541e8bc69cda190c24addd7"
+      },
       "../node_modules/@nestjs/core/injector/modules-container.d.ts": {
         "version": "c1c60dd235d2ce756231cec4bfec763980de6913efcfc3fb459938fee9ea26a5",
         "signature": "c1c60dd235d2ce756231cec4bfec763980de6913efcfc3fb459938fee9ea26a5"
       },
       "../node_modules/@nestjs/core/injector/container.d.ts": {
-        "version": "9b6efda0b73b22faba66bc78363736dd7bb5602e05f8c16ef69532ac2ef10bcb",
-        "signature": "9b6efda0b73b22faba66bc78363736dd7bb5602e05f8c16ef69532ac2ef10bcb"
+        "version": "fc80bfd173a0f134369f0ba7dc40dd0a02af6843eefe549f5541ced69cf0dd50",
+        "signature": "fc80bfd173a0f134369f0ba7dc40dd0a02af6843eefe549f5541ced69cf0dd50"
       },
       "../node_modules/@nestjs/core/injector/module.d.ts": {
-        "version": "05c12cc03cfad11e55937d2830157fea7e56bd30a4bbc0bee45e9b87bcf5f225",
-        "signature": "05c12cc03cfad11e55937d2830157fea7e56bd30a4bbc0bee45e9b87bcf5f225"
+        "version": "b59c3f0303b9a724e122cc9b184f52094577cc5c5b78319766d02df01ae3ee06",
+        "signature": "b59c3f0303b9a724e122cc9b184f52094577cc5c5b78319766d02df01ae3ee06"
       },
       "../node_modules/@nestjs/core/injector/instance-wrapper.d.ts": {
-        "version": "fcafc29133a797fac0ff5d29301f6a81648ff55a952d48e6d38e072981ea2175",
-        "signature": "fcafc29133a797fac0ff5d29301f6a81648ff55a952d48e6d38e072981ea2175"
+        "version": "21f8bd63d8f855cec25565f9a86ed13ab365a756e606fe3a56a356674b6f1453",
+        "signature": "21f8bd63d8f855cec25565f9a86ed13ab365a756e606fe3a56a356674b6f1453"
       },
       "../node_modules/@nestjs/core/helpers/context-id-factory.d.ts": {
         "version": "8d1f947ba0a7c5203fff0ef7c56f7062a753672dc2fa0f5b0f752fa01fb96ffb",
         "signature": "8d1f947ba0a7c5203fff0ef7c56f7062a753672dc2fa0f5b0f752fa01fb96ffb"
       },
       "../node_modules/@nestjs/core/helpers/http-adapter-host.d.ts": {
-        "version": "26a2479f6411e2caa6317f54ea17f7df0f6e5f4be53a87ba830787888dad7243",
-        "signature": "26a2479f6411e2caa6317f54ea17f7df0f6e5f4be53a87ba830787888dad7243"
+        "version": "d2d58166965f631fa203f405f3713b0f86f1f8b80755e9daea43057a25311e16",
+        "signature": "d2d58166965f631fa203f405f3713b0f86f1f8b80755e9daea43057a25311e16"
       },
       "../node_modules/@nestjs/core/helpers/index.d.ts": {
         "version": "0256d60785ede7860b5262f504f139aa68f74db44ba9f03807b752864580772c",
@@ -3994,8 +4046,8 @@
         "signature": "c7b1893a4943a9efa5dab7566465a1a2a68d400cc826de6517b750280cec90e0"
       },
       "../node_modules/@nestjs/core/nest-application-context.d.ts": {
-        "version": "9fc26231818f9a9f8b09702070ae5c29ed58cfcff55f372af9f41780bfbeb0c5",
-        "signature": "9fc26231818f9a9f8b09702070ae5c29ed58cfcff55f372af9f41780bfbeb0c5"
+        "version": "ce5f5fe0137c315339eb7361641c892bfb574329f9f29021a36792d1f1309245",
+        "signature": "ce5f5fe0137c315339eb7361641c892bfb574329f9f29021a36792d1f1309245"
       },
       "../node_modules/@nestjs/core/nest-application.d.ts": {
         "version": "f2c4e8c2c593da54ce98c3ae9e7ff4b537d7321f8408512867c6e22dadbfba8a",
@@ -4042,7 +4094,7 @@
         "signature": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768"
       },
       "../src/main.ts": {
-        "version": "efad35dbdbad2b653901df781ce4ed118f5313d931ea103436cad38cb7c67782",
+        "version": "bf6f103ee525f06c8f66abbd1a423660edd7a4211d6c1e8595429a162164e198",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
       "../src/core/content/message/message.controller.ts": {
@@ -4917,8 +4969,8 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@nestjs/common/interfaces/modules/dynamic-module.interface.d.ts": [
-        "../node_modules/@nestjs/common/interfaces/modules/module-metadata.interface.d.ts",
         "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
+        "../node_modules/@nestjs/common/interfaces/modules/module-metadata.interface.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -7322,6 +7374,13 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/typeorm/migration/migrationexecutor.d.ts": [
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/migration/migration.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts": [
         "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts",
         "../node_modules/typeorm/schema-builder/table/table.d.ts",
@@ -7451,6 +7510,8 @@
         "../node_modules/typeorm/query-builder/result/updateresult.d.ts",
         "../node_modules/typeorm/query-builder/result/deleteresult.d.ts",
         "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/migration/migration.d.ts",
+        "../node_modules/typeorm/migration/migrationexecutor.d.ts",
         "../node_modules/typeorm/migration/migrationinterface.d.ts",
         "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts",
         "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts",
@@ -10304,6 +10365,106 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/aws-sdk/clients/accessanalyzer.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/codegurureviewer.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/codeguruprofiler.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/computeoptimizer.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/frauddetector.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/kendra.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/networkmanager.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/outposts.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/augmentedairuntime.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/ebs.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/kinesisvideosignalingchannels.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/aws-sdk/clients/all.d.ts": [
         "../node_modules/aws-sdk/clients/acm.d.ts",
         "../node_modules/aws-sdk/clients/apigateway.d.ts",
@@ -10512,6 +10673,17 @@
         "../node_modules/aws-sdk/clients/elasticinference.d.ts",
         "../node_modules/aws-sdk/clients/imagebuilder.d.ts",
         "../node_modules/aws-sdk/clients/schemas.d.ts",
+        "../node_modules/aws-sdk/clients/accessanalyzer.d.ts",
+        "../node_modules/aws-sdk/clients/codegurureviewer.d.ts",
+        "../node_modules/aws-sdk/clients/codeguruprofiler.d.ts",
+        "../node_modules/aws-sdk/clients/computeoptimizer.d.ts",
+        "../node_modules/aws-sdk/clients/frauddetector.d.ts",
+        "../node_modules/aws-sdk/clients/kendra.d.ts",
+        "../node_modules/aws-sdk/clients/networkmanager.d.ts",
+        "../node_modules/aws-sdk/clients/outposts.d.ts",
+        "../node_modules/aws-sdk/clients/augmentedairuntime.d.ts",
+        "../node_modules/aws-sdk/clients/ebs.d.ts",
+        "../node_modules/aws-sdk/clients/kinesisvideosignalingchannels.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11276,6 +11448,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@nestjs/core/injector/module-token-factory.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/@nestjs/core/injector/modules-container.d.ts": [
         "../node_modules/@nestjs/core/injector/module.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -11287,6 +11465,7 @@
         "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
         "../node_modules/@nestjs/core/application-config.d.ts",
         "../node_modules/@nestjs/core/injector/module.d.ts",
+        "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
         "../node_modules/@nestjs/core/injector/modules-container.d.ts",
         "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -12378,8 +12557,8 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@nestjs/common/interfaces/modules/dynamic-module.interface.d.ts": [
-        "../node_modules/@nestjs/common/interfaces/modules/module-metadata.interface.d.ts",
         "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
+        "../node_modules/@nestjs/common/interfaces/modules/module-metadata.interface.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -14775,6 +14954,13 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/typeorm/migration/migrationexecutor.d.ts": [
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/migration/migration.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts": [
         "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts",
         "../node_modules/typeorm/schema-builder/table/table.d.ts",
@@ -14904,6 +15090,8 @@
         "../node_modules/typeorm/query-builder/result/updateresult.d.ts",
         "../node_modules/typeorm/query-builder/result/deleteresult.d.ts",
         "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/migration/migration.d.ts",
+        "../node_modules/typeorm/migration/migrationexecutor.d.ts",
         "../node_modules/typeorm/migration/migrationinterface.d.ts",
         "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts",
         "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts",
@@ -17281,6 +17469,106 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/aws-sdk/clients/accessanalyzer.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/codegurureviewer.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/codeguruprofiler.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/computeoptimizer.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/frauddetector.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/kendra.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/networkmanager.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/outposts.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/augmentedairuntime.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/ebs.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/aws-sdk/clients/kinesisvideosignalingchannels.d.ts": [
+        "../node_modules/aws-sdk/lib/request.d.ts",
+        "../node_modules/aws-sdk/lib/response.d.ts",
+        "../node_modules/aws-sdk/lib/error.d.ts",
+        "../node_modules/aws-sdk/lib/service.d.ts",
+        "../node_modules/aws-sdk/lib/config.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/aws-sdk/clients/all.d.ts": [
         "../node_modules/aws-sdk/clients/acm.d.ts",
         "../node_modules/aws-sdk/clients/apigateway.d.ts",
@@ -17489,6 +17777,17 @@
         "../node_modules/aws-sdk/clients/elasticinference.d.ts",
         "../node_modules/aws-sdk/clients/imagebuilder.d.ts",
         "../node_modules/aws-sdk/clients/schemas.d.ts",
+        "../node_modules/aws-sdk/clients/accessanalyzer.d.ts",
+        "../node_modules/aws-sdk/clients/codegurureviewer.d.ts",
+        "../node_modules/aws-sdk/clients/codeguruprofiler.d.ts",
+        "../node_modules/aws-sdk/clients/computeoptimizer.d.ts",
+        "../node_modules/aws-sdk/clients/frauddetector.d.ts",
+        "../node_modules/aws-sdk/clients/kendra.d.ts",
+        "../node_modules/aws-sdk/clients/networkmanager.d.ts",
+        "../node_modules/aws-sdk/clients/outposts.d.ts",
+        "../node_modules/aws-sdk/clients/augmentedairuntime.d.ts",
+        "../node_modules/aws-sdk/clients/ebs.d.ts",
+        "../node_modules/aws-sdk/clients/kinesisvideosignalingchannels.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -18106,6 +18405,12 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@nestjs/core/injector/module-token-factory.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../node_modules/@nestjs/core/injector/modules-container.d.ts": [
         "../node_modules/@nestjs/core/injector/module.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -18117,6 +18422,7 @@
         "../node_modules/@nestjs/common/interfaces/type.interface.d.ts",
         "../node_modules/@nestjs/core/application-config.d.ts",
         "../node_modules/@nestjs/core/injector/module.d.ts",
+        "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
         "../node_modules/@nestjs/core/injector/modules-container.d.ts",
         "../node_modules/@nestjs/core/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -18898,6 +19204,7 @@
       "../node_modules/typeorm/repository/baseentity.d.ts",
       "../node_modules/typeorm/driver/sqlserver/mssqlparameter.d.ts",
       "../node_modules/typeorm/connection/connectionoptionsreader.d.ts",
+      "../node_modules/typeorm/migration/migrationexecutor.d.ts",
       "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts",
       "../node_modules/typeorm/util/promiseutils.d.ts",
       "../node_modules/typeorm/index.d.ts",
@@ -19006,7 +19313,6 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
@@ -19243,6 +19549,17 @@
       "../node_modules/aws-sdk/clients/elasticinference.d.ts",
       "../node_modules/aws-sdk/clients/imagebuilder.d.ts",
       "../node_modules/aws-sdk/clients/schemas.d.ts",
+      "../node_modules/aws-sdk/clients/accessanalyzer.d.ts",
+      "../node_modules/aws-sdk/clients/codegurureviewer.d.ts",
+      "../node_modules/aws-sdk/clients/codeguruprofiler.d.ts",
+      "../node_modules/aws-sdk/clients/computeoptimizer.d.ts",
+      "../node_modules/aws-sdk/clients/frauddetector.d.ts",
+      "../node_modules/aws-sdk/clients/kendra.d.ts",
+      "../node_modules/aws-sdk/clients/networkmanager.d.ts",
+      "../node_modules/aws-sdk/clients/outposts.d.ts",
+      "../node_modules/aws-sdk/clients/augmentedairuntime.d.ts",
+      "../node_modules/aws-sdk/clients/ebs.d.ts",
+      "../node_modules/aws-sdk/clients/kinesisvideosignalingchannels.d.ts",
       "../node_modules/aws-sdk/clients/all.d.ts",
       "../node_modules/aws-sdk/lib/config_service_placeholders.d.ts",
       "../node_modules/aws-sdk/lib/config.d.ts",
@@ -19361,6 +19678,7 @@
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
       "../node_modules/@nestjs/core/application-config.d.ts",
+      "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
       "../node_modules/@nestjs/core/injector/modules-container.d.ts",
       "../node_modules/@nestjs/core/injector/container.d.ts",
       "../node_modules/@nestjs/core/injector/module.d.ts",
@@ -19390,6 +19708,7 @@
       "../node_modules/@nestjs/core/index.d.ts",
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/body-parser/index.d.ts",
+      "../src/main.ts",
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.service.ts",
       "../src/core/content/message/message.module.ts",
@@ -19413,7 +19732,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/main.ts"
+      "../src/core/trivia/campaing/campaing.service.ts"
     ]
   },
   "version": "3.7.2"

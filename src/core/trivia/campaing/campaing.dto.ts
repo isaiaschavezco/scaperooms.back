@@ -7,4 +7,5 @@ export class CreateCampaingDTO {
 
 export class GetCampaingsByUserDTO {
     readonly email: string;
+    readonly isBiodermaGame: boolean;
 }

@@ -26,6 +26,8 @@ export class SesionService {
 
             if (user) {
 
+                console.log("requestDTO.password: ", requestDTO.password);
+
                 const match = await bcrypt.compare(requestDTO.password, user.password);
 
                 if (match) {

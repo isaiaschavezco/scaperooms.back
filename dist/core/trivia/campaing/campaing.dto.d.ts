@@ -6,4 +6,5 @@ export declare class CreateCampaingDTO {
 }
 export declare class GetCampaingsByUserDTO {
     readonly email: string;
+    readonly isBiodermaGame: boolean;
 }

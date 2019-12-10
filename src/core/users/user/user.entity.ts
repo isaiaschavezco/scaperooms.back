@@ -50,7 +50,7 @@ export class User {
     @Column({ length: 15, nullable: true })
     postalCode: string;
 
-    @Column({ length: 100, select: false })
+    @Column({ length: 100 })
     password: string;
 
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })

@@ -44,6 +44,7 @@ let SesionService = class SesionService {
                     where: { email: requestDTO.email }
                 });
                 if (user) {
+                    console.log("requestDTO.password: ", requestDTO.password);
                     const match = yield bcrypt.compare(requestDTO.password, user.password);
                     if (match) {
                         const sesionExist = yield this.sesionRepository.findOne({
