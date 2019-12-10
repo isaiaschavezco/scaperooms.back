@@ -35,6 +35,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Product.prototype, "points", void 0);
 __decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], Product.prototype, "isActive", void 0);
+__decorate([
     typeorm_1.OneToMany(type => trade_entity_1.Trade, trade => trade.product),
     __metadata("design:type", Array)
 ], Product.prototype, "trade", void 0);

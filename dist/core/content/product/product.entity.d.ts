@@ -6,6 +6,7 @@ export declare class Product {
     image: string;
     description: string;
     points: number;
+    isActive: boolean;
     trade: Trade[];
     pointsbyuser: Pointsbyuser[];
 }

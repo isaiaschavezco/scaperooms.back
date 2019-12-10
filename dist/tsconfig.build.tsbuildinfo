@@ -2198,8 +2198,8 @@
         "signature": "549abca0471a4b100ebbcd0496d8e979380c22a3a2139f4fc285af88e58d1eee"
       },
       "../src/core/content/product/product.entity.ts": {
-        "version": "7c6c00f0f39721b2f2e4326bc79fc6ea7795617aadb28ee6f78d95ca7cdbacaf",
-        "signature": "12b75d97f4fa4881fe560551dbc09aa3d853e6f68c5d6b55274b0fea4d5f79af"
+        "version": "182364127d44f553b27926320d41f99d91fe16bdd33e0d06ae8b1616b99659f1",
+        "signature": "0afe11af61bfaa2f28f3c41355b9bf9d5aa656b27fc0afec13dc79f9edd92ddd"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts": {
         "version": "8bba5ac65de2011a1527a486e0eea5fbd6d3137ea0da7658f0b558f88c4de2bf",
@@ -2405,13 +2405,17 @@
         "version": "cf88846350dd0af4e8905d5ea70d946c557ab0065bf71abe612dc492c82c746b",
         "signature": "e2acd47cabbba4729c40b20f04d61ab290eeb1c8a36fd8dfe8c806c1e66be4a2"
       },
+      "../src/core/content/product/product.dto.ts": {
+        "version": "d28cf79598a1bc70a06c9d59284443595b6e7aa17bc18b177330cee67d9dabe6",
+        "signature": "9437d15a062748d396c47a91852a1dd8859df013ae8b14ae1ff319c13b5aa93d"
+      },
       "../src/core/content/product/product.service.ts": {
-        "version": "5138e046bc26c89b7e5d6aa5b32e5b9af596a2bb876774a2ab4c8eb8847cd0c0",
-        "signature": "33d6b528be23a6ff960a059ce22ee1965f719e0d06b64de10607638ace4fb779"
+        "version": "4ccc5b62815a2eb92319a4c76ed5d6827514421c8008b07980a03966af8889ce",
+        "signature": "f9ab3e178a463fa40fd555149c44a5e930bc26af54d49bc1eea90d381a2eae73"
       },
       "../src/core/content/product/product.controller.ts": {
-        "version": "6f0ca5b736c0b49c78fd5bd9e13ebbfe2b2de5c91c9859284313ff97a62b9750",
-        "signature": "ce62838fc5b014fffa63563f6780bdd1e40b716ec237f6f8737b2ff65e41efe0"
+        "version": "622b2af29aa16550c77e2a4ad273deedb15174c23e6c947236efdb3504ded5b0",
+        "signature": "3a5f93ec773bedc6212ce00d61a020f180e4f790eacf57c9bada16c2ba9e3742"
       },
       "../src/core/content/product/product.module.ts": {
         "version": "f5bafe28483ef6f0714e65c81e63345b8d4ffee7783561d4f8d1e3769ae26ac9",
@@ -8096,13 +8100,24 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/content/product/product.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/content/product/product.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/product/product.entity.ts",
+        "../src/core/content/product/product.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/core/content/product/product.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/content/product/product.service.ts",
+        "../src/core/content/product/product.entity.ts",
+        "../src/core/content/product/product.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15390,6 +15405,15 @@
         "../src/core/content/submenu/submenu.entity.ts",
         "../src/core/content/submenu/submenu.dto.ts"
       ],
+      "../src/core/content/product/product.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/product/product.entity.ts",
+        "../src/core/content/product/product.dto.ts"
+      ],
+      "../src/core/content/product/product.controller.ts": [
+        "../src/core/content/product/product.service.ts",
+        "../src/core/content/product/product.dto.ts"
+      ],
       "../src/core/content/article/article.entity.ts": [
         "../src/core/content/tag/tag.entity.ts"
       ],
@@ -19287,7 +19311,7 @@
       "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
-      "../src/core/content/product/product.service.ts",
+      "../src/core/content/product/product.dto.ts",
       "../src/core/content/product/product.controller.ts",
       "../src/core/content/product/product.module.ts",
       "../src/core/content/tag/tag.service.ts",
@@ -19313,6 +19337,7 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
+      "../src/core/trivia/campaing/campaing.service.ts",
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
@@ -19732,7 +19757,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/campaing/campaing.service.ts"
+      "../src/core/content/product/product.service.ts"
     ]
   },
   "version": "3.7.2"

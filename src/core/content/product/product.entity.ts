@@ -20,6 +20,9 @@ export class Product {
     @Column({ type: "smallint" })
     points: number;
 
+    @Column()
+    isActive: boolean;
+
     @OneToMany(type => Trade, trade => trade.product)
     trade: Trade[];
 
