@@ -61,7 +61,7 @@ let SubmenuService = class SubmenuService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let status = 0;
-                const baseURl = "https://drenarm-resources.sfo2.cdn.digitaloceanspaces.com/";
+                const baseURl = "https://bioderma-space.sfo2.cdn.digitaloceanspaces.com/";
                 const position = request.fileUrl.indexOf("capacitacion/");
                 let submenu = yield this.submenuRepository.findOne(request.submenu);
                 if (submenu.title !== '') {

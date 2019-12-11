@@ -61,7 +61,6 @@ let QuizzService = class QuizzService {
                     order: { createdAt: 'DESC' }
                 });
                 quizzList.forEach(tempQuizz => {
-                    let pointsSum = 0;
                     quizzObj.quizzId = tempQuizz.id;
                     quizzObj.name = tempQuizz.name;
                     quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MMM/YYYY');
@@ -70,10 +69,7 @@ let QuizzService = class QuizzService {
                     quizzObj.isActive = tempQuizz.isActive;
                     quizzObj.isDeleted = tempQuizz.isDeleted;
                     quizzObj.isSend = tempQuizz.isSend;
-                    tempQuizz.question.forEach(tempQuestion => {
-                        pointsSum += tempQuestion.points;
-                    });
-                    quizzObj.points = pointsSum;
+                    quizzObj.points = tempQuizz.points;
                     listToReturn.push(quizzObj);
                 });
                 return listToReturn;

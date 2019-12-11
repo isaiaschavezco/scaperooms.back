@@ -38,7 +38,7 @@ export class SubmenuService {
     async create(request: CreateSubmenuDTO): Promise<number> {
         try {
             let status = 0;
-            const baseURl = "https://drenarm-resources.sfo2.cdn.digitaloceanspaces.com/";
+            const baseURl = "https://bioderma-space.sfo2.cdn.digitaloceanspaces.com/";
             const position = request.fileUrl.indexOf("capacitacion/");
             let submenu = await this.submenuRepository.findOne(request.submenu);
             if (submenu.title !== '') {

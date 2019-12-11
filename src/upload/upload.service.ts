@@ -21,6 +21,24 @@ export class UploadService {
                     this.upload(req, res, function (error) {
                         if (error) {
                             console.log(error);
+                            return res.status(404).json(`Failed to upload pdf file: ${error}`);
+                        }
+                        return res.status(201).json(req.files[0].location);
+                    });
+                    break;
+                case '2':
+                    this.uploadProduct(req, res, function (error) {
+                        if (error) {
+                            console.log(error);
+                            return res.status(404).json(`Failed to upload image file: ${error}`);
+                        }
+                        return res.status(201).json(req.files[0].location);
+                    });
+                    break;
+                case '3':
+                    this.uploadCampaing(req, res, function (error) {
+                        if (error) {
+                            console.log(error);
                             return res.status(404).json(`Failed to upload image file: ${error}`);
                         }
                         return res.status(201).json(req.files[0].location);
@@ -45,6 +63,30 @@ export class UploadService {
             acl: 'public-read',
             key: function (request, file, cb) {
                 cb(null, `capacitacion/${Date.now().toString()}-${file.originalname.replace(/\s+/g, '')}`);
+            },
+        }),
+    }).array('upload', 1);
+
+    uploadProduct = multer({
+        storage: multerS3({
+            s3: s3,
+            bucket: AWS_S3_BUCKET_NAME,
+            contentType: multerS3.AUTO_CONTENT_TYPE,
+            acl: 'public-read',
+            key: function (request, file, cb) {
+                cb(null, `productos/${Date.now().toString()}-${file.originalname.replace(/\s+/g, '')}`);
+            },
+        }),
+    }).array('upload', 1);
+
+    uploadCampaing = multer({
+        storage: multerS3({
+            s3: s3,
+            bucket: AWS_S3_BUCKET_NAME,
+            contentType: multerS3.AUTO_CONTENT_TYPE,
+            acl: 'public-read',
+            key: function (request, file, cb) {
+                cb(null, `campanas/${Date.now().toString()}-${file.originalname.replace(/\s+/g, '')}`);
             },
         }),
     }).array('upload', 1);
