@@ -2421,14 +2421,6 @@
         "version": "f5bafe28483ef6f0714e65c81e63345b8d4ffee7783561d4f8d1e3769ae26ac9",
         "signature": "7f8b34d3314e0b7048eab6a82a4f0bf423213dfd64d60f0c5e178bde34c23841"
       },
-      "../src/core/content/tag/tag.service.ts": {
-        "version": "39b5f8581480eefaf2f2b4049562bb1d51cba6ee656724681bf6d1e0fa279c72",
-        "signature": "973fa35ed2ed630826d2592dd72d2aca674ac60f0957911738041551be8ee077"
-      },
-      "../src/core/content/tag/tag.controller.ts": {
-        "version": "dad672287a5b0d1c501dcb5a8edbdc9f04554cf5cdb7f5ca8a4cc276debfb5b9",
-        "signature": "366a83925f5437e18b70f6b135125f409c488ff7b0bb2aed536b167d8567b9c2"
-      },
       "../src/core/content/article/article.entity.ts": {
         "version": "59df22f66b8a506c4618ca9ae26f81c0c046bacf2f02917ed4c133138112a0e7",
         "signature": "9063c0984430c87087c5303cddca737e615e3cec1d9a56f043e41201200bacf2"
@@ -2436,6 +2428,18 @@
       "../src/core/content/tag/tag.entity.ts": {
         "version": "a66a654880405efce2a631ef701e60d8fcec5beef421a30f796b0ccb725efb2a",
         "signature": "fc447e6bc5e187a3b5abe702fda96510b23fd26af0b605572cbb7f6dabfc2060"
+      },
+      "../src/core/content/tag/tag.dto.ts": {
+        "version": "1dfdccc8e6ae03d3b0db1774ca7284d91fdb163add5b44f36a029022547e5b1d",
+        "signature": "3c9bd9014dc84183e167d8d931a8df2cc4a61e33c22d619d23005c08ad0c2663"
+      },
+      "../src/core/content/tag/tag.service.ts": {
+        "version": "b613a34ecde8fa5f5a7b2d70a8c933153d028bdf1110ef0e9fc27b2da78ed31d",
+        "signature": "64e377f79c871956cd4900ddcd8ce0387d228dd98bd6533fb4e1090efdff0d38"
+      },
+      "../src/core/content/tag/tag.controller.ts": {
+        "version": "bbb3773787d21951085a15b5d63bd245e9750eb342ca6b6ff1a8292afb8e4ec8",
+        "signature": "842d559c636fb22313c8f2df1e2d4d515a30b6a64c328cc337f62032b1d274a4"
       },
       "../src/core/content/tag/tag.module.ts": {
         "version": "ff7e5be8228befea0e7c8f46f74cbab947e3877dc9892af1973b29891a4bde3b",
@@ -8130,16 +8134,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/core/content/tag/tag.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/tag/tag.controller.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../src/core/content/article/article.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/tag/tag.entity.ts",
@@ -8149,6 +8143,25 @@
       "../src/core/content/tag/tag.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/article/article.entity.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/tag/tag.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/tag/tag.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/tag/tag.entity.ts",
+        "../src/core/content/tag/tag.dto.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/tag/tag.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/content/tag/tag.service.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15420,6 +15433,14 @@
       "../src/core/content/tag/tag.entity.ts": [
         "../src/core/content/article/article.entity.ts"
       ],
+      "../src/core/content/tag/tag.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/tag/tag.entity.ts",
+        "../src/core/content/tag/tag.dto.ts"
+      ],
+      "../src/core/content/tag/tag.controller.ts": [
+        "../src/core/content/tag/tag.service.ts"
+      ],
       "../src/core/content/article/article.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/article/article.entity.ts"
@@ -19315,11 +19336,10 @@
       "../src/core/content/product/product.service.ts",
       "../src/core/content/product/product.controller.ts",
       "../src/core/content/product/product.module.ts",
-      "../src/core/content/tag/tag.service.ts",
-      "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/article/article.entity.ts",
       "../src/core/content/tag/tag.entity.ts",
-      "../src/core/content/tag/tag.module.ts",
+      "../src/core/content/tag/tag.dto.ts",
+      "../src/core/content/tag/tag.service.ts",
       "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
@@ -19342,6 +19362,7 @@
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/aws-sdk/lib/error.d.ts",
@@ -19757,7 +19778,8 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/quizz/quizz.service.ts"
+      "../src/core/content/tag/tag.controller.ts",
+      "../src/core/content/tag/tag.module.ts"
     ]
   },
   "version": "3.7.2"
