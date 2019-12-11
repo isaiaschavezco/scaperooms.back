@@ -32,7 +32,7 @@ export class QuizzService {
         try {
             let listToReturn = [];
 
-            const quizzObj = new QuizzListDTO();
+
             const quizzList = await this.quizzRepository.find({
                 relations: ["question"],
                 where: { campaing: campaingId },
@@ -40,6 +40,7 @@ export class QuizzService {
             });
 
             quizzList.forEach(tempQuizz => {
+                let quizzObj = new QuizzListDTO();
                 quizzObj.quizzId = tempQuizz.id;
                 quizzObj.name = tempQuizz.name;
                 quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MMM/YYYY');

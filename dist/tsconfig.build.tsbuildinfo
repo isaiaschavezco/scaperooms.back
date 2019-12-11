@@ -2530,7 +2530,7 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "b316711fb6e0daff338c2e8ea876c7110c90aeca448a40f8b346de5f9aae5698",
+        "version": "403ffeb0625aae5ba71a660887c886f4c9c91dd17104feb27de9bc1caa06e305",
         "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -3586,8 +3586,8 @@
         "signature": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f"
       },
       "../src/upload/upload.service.ts": {
-        "version": "6a3ef8388425ea0d32feb1de94b6631249204e94245d9aebad069ca5f2806c71",
-        "signature": "141d5ed0947032f083cbf3ae271e4fdc0043c71fe42d6c5ceb5930f50f505a75"
+        "version": "306c522c88e3e63266d5b9184bf2582595d970aab64ad6478e41ea58df922472",
+        "signature": "fcf2c92f6e1cf4f558d22b3dffb154db175ba307f37b77fab5d1ca4fdc504b02"
       },
       "../src/upload/upload.controller.ts": {
         "version": "51dd1a1e564b54560cc72db3aa518fe32f50d3236a0ed77c34ec930699221ca7",
@@ -19342,7 +19342,6 @@
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/aws-sdk/lib/error.d.ts",
@@ -19606,6 +19605,7 @@
       "../node_modules/aws-sdk/lib/shared-ini/ini-loader.d.ts",
       "../node_modules/aws-sdk/lib/core.d.ts",
       "../node_modules/aws-sdk/index.d.ts",
+      "../src/upload/upload.service.ts",
       "../src/upload/upload.controller.ts",
       "../src/upload/upload.module.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
@@ -19757,7 +19757,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/upload/upload.service.ts"
+      "../src/core/trivia/quizz/quizz.service.ts"
     ]
   },
   "version": "3.7.2"

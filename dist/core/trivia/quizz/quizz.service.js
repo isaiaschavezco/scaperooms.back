@@ -54,13 +54,13 @@ let QuizzService = class QuizzService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let listToReturn = [];
-                const quizzObj = new quizz_dto_1.QuizzListDTO();
                 const quizzList = yield this.quizzRepository.find({
                     relations: ["question"],
                     where: { campaing: campaingId },
                     order: { createdAt: 'DESC' }
                 });
                 quizzList.forEach(tempQuizz => {
+                    let quizzObj = new quizz_dto_1.QuizzListDTO();
                     quizzObj.quizzId = tempQuizz.id;
                     quizzObj.name = tempQuizz.name;
                     quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MMM/YYYY');

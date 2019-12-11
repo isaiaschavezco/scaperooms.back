@@ -4,4 +4,5 @@ export declare class UploadService {
     upload: any;
     uploadProduct: any;
     uploadCampaing: any;
+    uploadBlog: any;
 }
