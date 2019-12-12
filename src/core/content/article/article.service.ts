@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Article } from './article.entity';
 import { Tag } from '../tag/tag.entity';
 import { CreateArticleDTO } from './article.dto';
+import * as moment from 'moment';
 
 @Injectable()
 export class ArticleService {
@@ -29,8 +30,42 @@ export class ArticleService {
         }
     }
 
+    async findListArticles(isBiodermaGame: boolean): Promise<any> {
+        try {
+            let listToReturn = [];
+
+            const articlesList = await this.articleRepository.find({
+                relations: ["tag"],
+                where: { isBiodermaGame: isBiodermaGame },
+                order: {
+                    createdAt: "DESC"
+                }
+            });
+
+            articlesList.forEach(article => {
+                listToReturn.push({
+                    id: article.id,
+                    title: article.title,
+                    createdAt: moment(article.createdAt).format('DD/MMM/YYYY'),
+                    tags: article.tag
+                });
+            });
+
+            return { blogs: listToReturn };
+        } catch (err) {
+            console.log("ArticleService - findListArticles: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting articles',
+            }, 500);
+        }
+    }
+
     async createArticle(createDTO: CreateArticleDTO): Promise<any> {
         try {
+
+            console.log("createDTO: ", createDTO);
 
             const articleTags = await this.tagRepository.findByIds(createDTO.tags);
 
@@ -39,6 +74,7 @@ export class ArticleService {
                 image: createDTO.image,
                 content: createDTO.content,
                 subtitle: createDTO.subtitle,
+                galery: createDTO.galery,
                 isBiodermaGame: createDTO.isBiodermaGame,
                 tag: articleTags
             });

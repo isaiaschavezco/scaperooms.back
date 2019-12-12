@@ -2422,23 +2422,23 @@
         "signature": "7f8b34d3314e0b7048eab6a82a4f0bf423213dfd64d60f0c5e178bde34c23841"
       },
       "../src/core/content/article/article.entity.ts": {
-        "version": "bcc3021243188307ddb8344783454352a28a2c78f21f1e6a6806bcdb60dcf9a0",
-        "signature": "777af6ea982f556ebb7fa5ce838eb3b7b1c77194fc70c74b62a74550ae0ac700"
+        "version": "5f62f4d588c5b6ee04ab7c9320e1198c815380d96f0b1910d867755a28f2e148",
+        "signature": "717201d489de6ea2966806ea3c223993f123cf02049184c21064d3aa9b6dd7d6"
       },
       "../src/core/content/tag/tag.entity.ts": {
         "version": "a66a654880405efce2a631ef701e60d8fcec5beef421a30f796b0ccb725efb2a",
         "signature": "fc447e6bc5e187a3b5abe702fda96510b23fd26af0b605572cbb7f6dabfc2060"
       },
       "../src/core/content/tag/tag.dto.ts": {
-        "version": "1dfdccc8e6ae03d3b0db1774ca7284d91fdb163add5b44f36a029022547e5b1d",
-        "signature": "3c9bd9014dc84183e167d8d931a8df2cc4a61e33c22d619d23005c08ad0c2663"
+        "version": "13f6524db43b13f052d5080c3b1274fca51d7a8b93313749827ac0a37b1a52a8",
+        "signature": "244561c4c7f2941199bff0016e3328aad1d0c1ecf2f2b00c842cd21fe48eadab"
       },
       "../src/core/content/tag/tag.service.ts": {
-        "version": "b613a34ecde8fa5f5a7b2d70a8c933153d028bdf1110ef0e9fc27b2da78ed31d",
+        "version": "43b9554dd99e86caa94787da5d5857346626d908f242e35d0a82368fd5693c51",
         "signature": "64e377f79c871956cd4900ddcd8ce0387d228dd98bd6533fb4e1090efdff0d38"
       },
       "../src/core/content/tag/tag.controller.ts": {
-        "version": "34b3cd257c420864db3f92e520cc74ec3acf575145b54c553cf74342ff4625c1",
+        "version": "635a52114c6b8387b78a36ec82bf2e51bfc07510b10c8a5b1a280cdc138bb52e",
         "signature": "5aee324ccb69300566bbd6f1cc00808247945651da77282ac57ccfbfb29207b4"
       },
       "../src/core/content/tag/tag.module.ts": {
@@ -2446,16 +2446,16 @@
         "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "4efc13384aa051d11966f378cc2854c810eaa0d222b1104813fdae6e290dc200",
-        "signature": "127d6dbccb4cc13a348282d1aabc77e91a67912aace7a5044f0b7775ce8aef31"
+        "version": "34e581d9df50794f06f15a3eaa0e6c8b6083c2b4e42f84d67a6e8289fa801ce6",
+        "signature": "b17923815699377943d0e41caa60050a50d1fb6e117a4ecc269f03459a99b5c2"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "4e096c2c60676faa3ad94131c8719313dd172362b263a7c8b15b84d4651af158",
-        "signature": "6592f5335697aa1cd27dd788bff907244a3995c2b65631d374807d6b279f81b7"
+        "version": "07495194eba99ace6782678a5ce107727748cb60bacf3655d93bbc2525c19de4",
+        "signature": "d4061d5cba70308b80d21acf7595f270ef2c1fd5021e0b0b65dee2d7787ef304"
       },
       "../src/core/content/article/article.controller.ts": {
-        "version": "1249baecfd805de6f369f99ea017b209327006e2787ef0a60314cb63c473c8f7",
-        "signature": "5d545e7f3fb4c4a24b7830dffe704a96bcedffda1f48b0831e1fe0230054a823"
+        "version": "515f1a713b3339b0a42f0037875dba11983f977b9d5792b865cee181164bdf57",
+        "signature": "505edee229ad28abd390f68aaf25a845b9b94c8eb3539e20d95eafa2f5f4e2bc"
       },
       "../src/core/content/article/article.module.ts": {
         "version": "7016c588ff41f9c6e7d9705a66dfa3768ff51bede58a5a87bf99141b1595c3e3",
@@ -8190,6 +8190,7 @@
         "../src/core/content/article/article.entity.ts",
         "../src/core/content/tag/tag.entity.ts",
         "../src/core/content/article/article.dto.ts",
+        "../node_modules/moment/moment.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -19334,6 +19335,7 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19359,7 +19361,6 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
@@ -19797,7 +19798,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      "../src/core/content/article/article.service.ts"
     ]
   },
   "version": "3.7.2"

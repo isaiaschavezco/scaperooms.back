@@ -32,6 +32,10 @@ __decorate([
 __decorate([
     typeorm_1.Column({ type: "text" }),
     __metadata("design:type", String)
+], Article.prototype, "galery", void 0);
+__decorate([
+    typeorm_1.Column({ type: "text" }),
+    __metadata("design:type", String)
 ], Article.prototype, "content", void 0);
 __decorate([
     typeorm_1.Column(),

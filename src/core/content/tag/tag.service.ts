@@ -30,8 +30,10 @@ export class TagService {
     async createTag(createDTO: CreateTagDTO): Promise<any> {
         try {
 
+            console.log("createDTO: ", createDTO);
+
             let newTag = await this.tagRepository.create({
-                name: createDTO.name
+                name: createDTO.tagName
             });
 
             const tagRegistered = await this.tagRepository.save(newTag);

@@ -13,8 +13,13 @@ export class ArticleController {
         return await this.articleService.findAll();
     }
 
+    @Get('list/:isBiodermaGame')
+    async findArticlesList(@Param('isBiodermaGame') isBiodermaGame): Promise<any> {
+        return await this.articleService.findListArticles(isBiodermaGame);
+    }
+
     @Post()
-    async createArticle(createArticleDTO: CreateArticleDTO): Promise<any> {
+    async createArticle(@Body() createArticleDTO: CreateArticleDTO): Promise<any> {
         return await this.articleService.createArticle(createArticleDTO);
     }
 

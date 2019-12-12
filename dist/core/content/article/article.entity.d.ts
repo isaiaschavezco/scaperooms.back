@@ -4,6 +4,7 @@ export declare class Article {
     title: string;
     image: string;
     subtitle: string;
+    galery: string;
     content: string;
     isBiodermaGame: boolean;
     createdAt: Date;

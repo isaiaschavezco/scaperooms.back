@@ -7,5 +7,6 @@ export declare class ArticleService {
     private tagRepository;
     constructor(articleRepository: Repository<Article>, tagRepository: Repository<Tag>);
     findAll(): Promise<any>;
+    findListArticles(isBiodermaGame: boolean): Promise<any>;
     createArticle(createDTO: CreateArticleDTO): Promise<any>;
 }

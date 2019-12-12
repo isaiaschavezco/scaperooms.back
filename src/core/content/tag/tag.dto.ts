@@ -1,3 +1,3 @@
 export class CreateTagDTO {
-    readonly name: string;
+    readonly tagName: string;
 }

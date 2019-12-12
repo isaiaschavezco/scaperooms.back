@@ -17,6 +17,9 @@ export class Article {
     subtitle: string;
 
     @Column({ type: "text" })
+    galery: string;
+
+    @Column({ type: "text" })
     content: string;
 
     @Column()

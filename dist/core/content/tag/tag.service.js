@@ -51,8 +51,9 @@ let TagService = class TagService {
     createTag(createDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log("createDTO: ", createDTO);
                 let newTag = yield this.tagRepository.create({
-                    name: createDTO.name
+                    name: createDTO.tagName
                 });
                 const tagRegistered = yield this.tagRepository.save(newTag);
                 return { tag: tagRegistered };

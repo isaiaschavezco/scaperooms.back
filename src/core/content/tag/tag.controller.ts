@@ -13,7 +13,7 @@ export class TagController {
     }
 
     @Post()
-    async createTag(createDTO: CreateTagDTO): Promise<any> {
+    async createTag(@Body() createDTO: CreateTagDTO): Promise<any> {
         return await this.tagService.createTag(createDTO);
     }
 

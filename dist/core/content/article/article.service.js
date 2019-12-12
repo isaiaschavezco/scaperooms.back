@@ -26,6 +26,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const article_entity_1 = require("./article.entity");
 const tag_entity_1 = require("../tag/tag.entity");
+const moment = require("moment");
 let ArticleService = class ArticleService {
     constructor(articleRepository, tagRepository) {
         this.articleRepository = articleRepository;
@@ -50,15 +51,47 @@ let ArticleService = class ArticleService {
             }
         });
     }
+    findListArticles(isBiodermaGame) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let listToReturn = [];
+                const articlesList = yield this.articleRepository.find({
+                    relations: ["tag"],
+                    where: { isBiodermaGame: isBiodermaGame },
+                    order: {
+                        createdAt: "DESC"
+                    }
+                });
+                articlesList.forEach(article => {
+                    listToReturn.push({
+                        id: article.id,
+                        title: article.title,
+                        createdAt: moment(article.createdAt).format('DD/MMM/YYYY'),
+                        tags: article.tag
+                    });
+                });
+                return { blogs: listToReturn };
+            }
+            catch (err) {
+                console.log("ArticleService - findListArticles: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting articles',
+                }, 500);
+            }
+        });
+    }
     createArticle(createDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log("createDTO: ", createDTO);
                 const articleTags = yield this.tagRepository.findByIds(createDTO.tags);
                 let newArticle = this.articleRepository.create({
                     title: createDTO.title,
                     image: createDTO.image,
                     content: createDTO.content,
                     subtitle: createDTO.subtitle,
+                    galery: createDTO.galery,
                     isBiodermaGame: createDTO.isBiodermaGame,
                     tag: articleTags
                 });
