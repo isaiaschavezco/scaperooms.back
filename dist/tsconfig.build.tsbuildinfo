@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "915d3550323facd8ecd7121a0584e6139cf7a453ce284a1a0c779e0070c6ec4c",
+        "version": "283ab5ea6bdc5b33b490d89d46f8d1685a13a3030b407bf4d0e9405fef4fec60",
         "signature": "885312e9f617520d023024d0303fc4853ad61ceea32e99fcf7d763d41656301a"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2422,8 +2422,8 @@
         "signature": "7f8b34d3314e0b7048eab6a82a4f0bf423213dfd64d60f0c5e178bde34c23841"
       },
       "../src/core/content/article/article.entity.ts": {
-        "version": "59df22f66b8a506c4618ca9ae26f81c0c046bacf2f02917ed4c133138112a0e7",
-        "signature": "9063c0984430c87087c5303cddca737e615e3cec1d9a56f043e41201200bacf2"
+        "version": "bcc3021243188307ddb8344783454352a28a2c78f21f1e6a6806bcdb60dcf9a0",
+        "signature": "777af6ea982f556ebb7fa5ce838eb3b7b1c77194fc70c74b62a74550ae0ac700"
       },
       "../src/core/content/tag/tag.entity.ts": {
         "version": "a66a654880405efce2a631ef701e60d8fcec5beef421a30f796b0ccb725efb2a",
@@ -2438,23 +2438,27 @@
         "signature": "64e377f79c871956cd4900ddcd8ce0387d228dd98bd6533fb4e1090efdff0d38"
       },
       "../src/core/content/tag/tag.controller.ts": {
-        "version": "bbb3773787d21951085a15b5d63bd245e9750eb342ca6b6ff1a8292afb8e4ec8",
-        "signature": "842d559c636fb22313c8f2df1e2d4d515a30b6a64c328cc337f62032b1d274a4"
+        "version": "34b3cd257c420864db3f92e520cc74ec3acf575145b54c553cf74342ff4625c1",
+        "signature": "5aee324ccb69300566bbd6f1cc00808247945651da77282ac57ccfbfb29207b4"
       },
       "../src/core/content/tag/tag.module.ts": {
         "version": "ff7e5be8228befea0e7c8f46f74cbab947e3877dc9892af1973b29891a4bde3b",
         "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
+      "../src/core/content/article/article.dto.ts": {
+        "version": "4efc13384aa051d11966f378cc2854c810eaa0d222b1104813fdae6e290dc200",
+        "signature": "127d6dbccb4cc13a348282d1aabc77e91a67912aace7a5044f0b7775ce8aef31"
+      },
       "../src/core/content/article/article.service.ts": {
-        "version": "076b8763f65e8d296c60e61f2017c3a328c3d47993fc57e081db0fa0537c0912",
-        "signature": "551b6be7fc8769eed28992e4ee6fbedf4aef7577514637a50eee5d5f4bad1ce9"
+        "version": "4e096c2c60676faa3ad94131c8719313dd172362b263a7c8b15b84d4651af158",
+        "signature": "6592f5335697aa1cd27dd788bff907244a3995c2b65631d374807d6b279f81b7"
       },
       "../src/core/content/article/article.controller.ts": {
-        "version": "8a02b956d4f925409336d34bc644390e7e63f5c70bd58f67a547a927d3f4c3cb",
-        "signature": "a06ccfae14027b3b9154c774517680f5c7807ce1c0808c35b12e3c8550c5bc93"
+        "version": "1249baecfd805de6f369f99ea017b209327006e2787ef0a60314cb63c473c8f7",
+        "signature": "5d545e7f3fb4c4a24b7830dffe704a96bcedffda1f48b0831e1fe0230054a823"
       },
       "../src/core/content/article/article.module.ts": {
-        "version": "8f53c795a1ad54e2972c7b6e90a43d72477e023f484c59dbd45d0ee6845202d9",
+        "version": "7016c588ff41f9c6e7d9705a66dfa3768ff51bede58a5a87bf99141b1595c3e3",
         "signature": "05e9ac66e118c99ad657229f14b117a21eac7f64512ec69ecd450ba205b8739e"
       },
       "../src/core/content/trade/trade.service.ts": {
@@ -8162,6 +8166,7 @@
       "../src/core/content/tag/tag.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/content/tag/tag.service.ts",
+        "../src/core/content/tag/tag.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -8174,11 +8179,17 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/content/article/article.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/content/article/article.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/article/article.entity.ts",
+        "../src/core/content/tag/tag.entity.ts",
+        "../src/core/content/article/article.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -8186,6 +8197,7 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/content/article/article.service.ts",
         "../src/core/content/article/article.entity.ts",
+        "../src/core/content/article/article.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -8195,6 +8207,7 @@
         "../src/core/content/article/article.service.ts",
         "../src/core/content/article/article.controller.ts",
         "../src/core/content/article/article.entity.ts",
+        "../src/core/content/tag/tag.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15439,14 +15452,18 @@
         "../src/core/content/tag/tag.dto.ts"
       ],
       "../src/core/content/tag/tag.controller.ts": [
-        "../src/core/content/tag/tag.service.ts"
+        "../src/core/content/tag/tag.service.ts",
+        "../src/core/content/tag/tag.dto.ts"
       ],
       "../src/core/content/article/article.service.ts": [
         "../node_modules/typeorm/index.d.ts",
-        "../src/core/content/article/article.entity.ts"
+        "../src/core/content/article/article.entity.ts",
+        "../src/core/content/tag/tag.entity.ts",
+        "../src/core/content/article/article.dto.ts"
       ],
       "../src/core/content/article/article.controller.ts": [
-        "../src/core/content/article/article.service.ts"
+        "../src/core/content/article/article.service.ts",
+        "../src/core/content/article/article.dto.ts"
       ],
       "../src/core/trivia/question/question.service.ts": [
         "../node_modules/typeorm/index.d.ts",
@@ -19317,7 +19334,6 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19340,6 +19356,9 @@
       "../src/core/content/tag/tag.entity.ts",
       "../src/core/content/tag/tag.dto.ts",
       "../src/core/content/tag/tag.service.ts",
+      "../src/core/content/tag/tag.controller.ts",
+      "../src/core/content/tag/tag.module.ts",
+      "../src/core/content/article/article.dto.ts",
       "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
@@ -19778,8 +19797,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/tag/tag.controller.ts",
-      "../src/core/content/tag/tag.module.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

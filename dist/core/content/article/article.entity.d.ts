@@ -3,8 +3,9 @@ export declare class Article {
     id: number;
     title: string;
     image: string;
-    description: string;
+    subtitle: string;
     content: string;
+    isBiodermaGame: boolean;
     createdAt: Date;
     tag: Tag[];
 }

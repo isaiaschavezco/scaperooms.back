@@ -25,9 +25,11 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const article_entity_1 = require("./article.entity");
+const tag_entity_1 = require("../tag/tag.entity");
 let ArticleService = class ArticleService {
-    constructor(articleRepository) {
+    constructor(articleRepository, tagRepository) {
         this.articleRepository = articleRepository;
+        this.tagRepository = tagRepository;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -48,11 +50,37 @@ let ArticleService = class ArticleService {
             }
         });
     }
+    createArticle(createDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const articleTags = yield this.tagRepository.findByIds(createDTO.tags);
+                let newArticle = this.articleRepository.create({
+                    title: createDTO.title,
+                    image: createDTO.image,
+                    content: createDTO.content,
+                    subtitle: createDTO.subtitle,
+                    isBiodermaGame: createDTO.isBiodermaGame,
+                    tag: articleTags
+                });
+                yield this.articleRepository.save(newArticle);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ArticleService - createArticle: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error creating articles',
+                }, 500);
+            }
+        });
+    }
 };
 ArticleService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(article_entity_1.Article)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, typeorm_1.InjectRepository(tag_entity_1.Tag)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], ArticleService);
 exports.ArticleService = ArticleService;
 //# sourceMappingURL=article.service.js.map

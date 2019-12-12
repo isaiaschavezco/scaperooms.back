@@ -7,17 +7,20 @@ export class Article {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 50 })
+    @Column({ length: 100 })
     title: string;
 
     @Column({ length: 250 })
     image: string;
 
-    @Column({ type: "text" })
-    description: string;
+    @Column({ length: 100 })
+    subtitle: string;
 
     @Column({ type: "text" })
     content: string;
+
+    @Column()
+    isBiodermaGame: boolean;
 
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;

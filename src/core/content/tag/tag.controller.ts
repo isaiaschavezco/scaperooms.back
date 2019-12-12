@@ -1,5 +1,6 @@
 import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
 import { TagService } from './tag.service';
+import { CreateTagDTO } from './tag.dto';
 
 @Controller('tag')
 export class TagController {
@@ -12,8 +13,8 @@ export class TagController {
     }
 
     @Post()
-    async createTag(): Promise<any> {
-        return await this.tagService.findAll();
+    async createTag(createDTO: CreateTagDTO): Promise<any> {
+        return await this.tagService.createTag(createDTO);
     }
 
     // @Get(':id')

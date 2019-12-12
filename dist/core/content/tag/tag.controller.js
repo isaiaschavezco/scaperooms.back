@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const tag_service_1 = require("./tag.service");
+const tag_dto_1 = require("./tag.dto");
 let TagController = class TagController {
     constructor(tagService) {
         this.tagService = tagService;
@@ -29,9 +30,9 @@ let TagController = class TagController {
             return yield this.tagService.findAll();
         });
     }
-    createTag() {
+    createTag(createDTO) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.tagService.findAll();
+            return yield this.tagService.createTag(createDTO);
         });
     }
 };
@@ -44,7 +45,7 @@ __decorate([
 __decorate([
     common_1.Post(),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [tag_dto_1.CreateTagDTO]),
     __metadata("design:returntype", Promise)
 ], TagController.prototype, "createTag", null);
 TagController = __decorate([

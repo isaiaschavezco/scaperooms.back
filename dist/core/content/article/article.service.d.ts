@@ -1,7 +1,11 @@
 import { Repository } from 'typeorm';
 import { Article } from './article.entity';
+import { Tag } from '../tag/tag.entity';
+import { CreateArticleDTO } from './article.dto';
 export declare class ArticleService {
     private articleRepository;
-    constructor(articleRepository: Repository<Article>);
+    private tagRepository;
+    constructor(articleRepository: Repository<Article>, tagRepository: Repository<Tag>);
     findAll(): Promise<any>;
+    createArticle(createDTO: CreateArticleDTO): Promise<any>;
 }

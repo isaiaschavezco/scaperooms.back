@@ -18,7 +18,7 @@ __decorate([
     __metadata("design:type", Number)
 ], Article.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ length: 50 }),
+    typeorm_1.Column({ length: 100 }),
     __metadata("design:type", String)
 ], Article.prototype, "title", void 0);
 __decorate([
@@ -26,13 +26,17 @@ __decorate([
     __metadata("design:type", String)
 ], Article.prototype, "image", void 0);
 __decorate([
-    typeorm_1.Column({ type: "text" }),
+    typeorm_1.Column({ length: 100 }),
     __metadata("design:type", String)
-], Article.prototype, "description", void 0);
+], Article.prototype, "subtitle", void 0);
 __decorate([
     typeorm_1.Column({ type: "text" }),
     __metadata("design:type", String)
 ], Article.prototype, "content", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], Article.prototype, "isBiodermaGame", void 0);
 __decorate([
     typeorm_1.Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" }),
     __metadata("design:type", Date)

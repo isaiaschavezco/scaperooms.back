@@ -78,7 +78,7 @@ let UserService = class UserService {
                 console.log("UserService - invite: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error creating',
+                    error: 'Error invitins user',
                 }, 500);
             }
         });
@@ -274,7 +274,7 @@ let UserService = class UserService {
                 console.log("UserService - createDrugStore: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error creating NAOS user',
+                    error: 'Error creating Drugstore user',
                 }, 500);
             }
         });
@@ -301,24 +301,44 @@ let UserService = class UserService {
                     response = { status: 1 };
                 }
                 else {
-                    const userAge = this.getAge(updateNAOSUserDTO.birthDate);
-                    const naosPosition = yield this.positionRepository.findOne(updateNAOSUserDTO.naosPosition);
-                    const userState = yield this.stateRepository.findOne(updateNAOSUserDTO.state);
-                    const userCity = yield this.cityRepository.findOne(updateNAOSUserDTO.city);
-                    userExist.name = updateNAOSUserDTO.name;
-                    userExist.lastName = updateNAOSUserDTO.lastName;
-                    userExist.photo = updateNAOSUserDTO.photo;
-                    userExist.nickname = updateNAOSUserDTO.nickName;
-                    userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
-                    userExist.gender = updateNAOSUserDTO.gender;
-                    userExist.phone = updateNAOSUserDTO.phone;
-                    userExist.position = naosPosition;
+                    if (updateNAOSUserDTO.name) {
+                        userExist.name = updateNAOSUserDTO.name;
+                    }
+                    if (updateNAOSUserDTO.lastName) {
+                        userExist.lastName = updateNAOSUserDTO.lastName;
+                    }
+                    if (updateNAOSUserDTO.photo) {
+                        userExist.photo = updateNAOSUserDTO.photo;
+                    }
+                    if (updateNAOSUserDTO.nickName) {
+                        userExist.nickname = updateNAOSUserDTO.nickName;
+                    }
+                    if (updateNAOSUserDTO.birthDate) {
+                        userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
+                        const userAge = this.getAge(updateNAOSUserDTO.birthDate);
+                        userExist.age = userAge;
+                    }
+                    if (updateNAOSUserDTO.gender) {
+                        userExist.gender = updateNAOSUserDTO.gender;
+                    }
+                    if (updateNAOSUserDTO.phone) {
+                        userExist.phone = updateNAOSUserDTO.phone;
+                    }
+                    if (updateNAOSUserDTO.naosPosition) {
+                        const naosPosition = yield this.positionRepository.findOne(updateNAOSUserDTO.naosPosition);
+                        userExist.position = naosPosition;
+                    }
+                    if (updateNAOSUserDTO.state) {
+                        const userState = yield this.stateRepository.findOne(updateNAOSUserDTO.state);
+                        userExist.city = userState;
+                    }
+                    if (updateNAOSUserDTO.city) {
+                        const userCity = yield this.cityRepository.findOne(updateNAOSUserDTO.city);
+                        userExist.delegation = userCity;
+                    }
                     userExist.isActive = true;
-                    userExist.city = userState;
-                    userExist.delegation = userCity;
-                    userExist.age = userAge;
-                    yield this.userRepository.save(userExist);
-                    response = { user: userExist };
+                    const registeredUser = yield this.userRepository.save(userExist);
+                    response = { user: registeredUser };
                 }
                 return response;
             }
@@ -326,7 +346,7 @@ let UserService = class UserService {
                 console.log("UserService - updateNAOS: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error creating NAOS user',
+                    error: 'Error updating NAOS user',
                 }, 500);
             }
         });
@@ -343,27 +363,57 @@ let UserService = class UserService {
                     response = { status: 1 };
                 }
                 else {
-                    const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
-                    const userState = yield this.stateRepository.findOne(updateDrugStoreUserDTO.state);
-                    const userCity = yield this.cityRepository.findOne(updateDrugStoreUserDTO.city);
-                    const userChain = yield this.chainRepository.findOne(updateDrugStoreUserDTO.chain);
-                    userExist.name = updateDrugStoreUserDTO.name;
-                    userExist.lastName = updateDrugStoreUserDTO.lastName;
-                    userExist.photo = updateDrugStoreUserDTO.photo;
-                    userExist.nickname = updateDrugStoreUserDTO.nickName;
-                    userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
-                    userExist.gender = updateDrugStoreUserDTO.gender;
-                    userExist.phone = updateDrugStoreUserDTO.phone;
-                    userExist.postalCode = updateDrugStoreUserDTO.postalCode;
-                    userExist.chain = userChain;
+                    if (updateDrugStoreUserDTO.name) {
+                        userExist.name = updateDrugStoreUserDTO.name;
+                    }
+                    if (updateDrugStoreUserDTO.lastName) {
+                        userExist.lastName = updateDrugStoreUserDTO.lastName;
+                    }
+                    if (updateDrugStoreUserDTO.photo) {
+                        userExist.photo = updateDrugStoreUserDTO.photo;
+                    }
+                    if (updateDrugStoreUserDTO.nickName) {
+                        userExist.nickname = updateDrugStoreUserDTO.nickName;
+                    }
+                    if (updateDrugStoreUserDTO.birthDate) {
+                        const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
+                        userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
+                        userExist.age = userAge;
+                    }
+                    if (updateDrugStoreUserDTO.gender) {
+                        userExist.gender = updateDrugStoreUserDTO.gender;
+                    }
+                    if (updateDrugStoreUserDTO.phone) {
+                        userExist.phone = updateDrugStoreUserDTO.phone;
+                    }
+                    if (updateDrugStoreUserDTO.postalCode) {
+                        userExist.postalCode = updateDrugStoreUserDTO.postalCode;
+                    }
+                    if (updateDrugStoreUserDTO.chain) {
+                        const userChain = yield this.chainRepository.findOne(updateDrugStoreUserDTO.chain);
+                        userExist.chain = userChain;
+                    }
+                    if (updateDrugStoreUserDTO.state) {
+                        const userState = yield this.stateRepository.findOne(updateDrugStoreUserDTO.state);
+                        userExist.city = userState;
+                    }
+                    if (updateDrugStoreUserDTO.city) {
+                        const userCity = yield this.cityRepository.findOne(updateDrugStoreUserDTO.city);
+                        userExist.delegation = userCity;
+                    }
+                    if (updateDrugStoreUserDTO.drugStore) {
+                        userExist.drugstore = updateDrugStoreUserDTO.drugStore;
+                    }
+                    if (updateDrugStoreUserDTO.town) {
+                        userExist.town = updateDrugStoreUserDTO.town;
+                    }
+                    if (updateDrugStoreUserDTO.charge) {
+                        userExist.charge = updateDrugStoreUserDTO.charge;
+                    }
+                    if (updateDrugStoreUserDTO.mayoralty) {
+                        userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
+                    }
                     userExist.isActive = true;
-                    userExist.city = userState;
-                    userExist.delegation = userCity;
-                    userExist.age = userAge;
-                    userExist.drugstore = updateDrugStoreUserDTO.drugStore;
-                    userExist.town = updateDrugStoreUserDTO.town;
-                    userExist.charge = updateDrugStoreUserDTO.charge;
-                    userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
                     yield this.userRepository.save(userExist);
                     response = { user: userExist };
                 }
@@ -373,7 +423,7 @@ let UserService = class UserService {
                 console.log("UserService - updateDrugStore: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error creating NAOS user',
+                    error: 'Error updating Drugstore user',
                 }, 500);
             }
         });

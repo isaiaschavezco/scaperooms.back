@@ -2,11 +2,14 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Article } from './article.entity';
+import { Tag } from '../tag/tag.entity';
+import { CreateArticleDTO } from './article.dto';
 
 @Injectable()
 export class ArticleService {
 
-    constructor(@InjectRepository(Article) private articleRepository: Repository<Article>) { }
+    constructor(@InjectRepository(Article) private articleRepository: Repository<Article>,
+        @InjectRepository(Tag) private tagRepository: Repository<Tag>) { }
 
     async findAll(): Promise<any> {
         try {
@@ -22,6 +25,33 @@ export class ArticleService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting articles',
+            }, 500);
+        }
+    }
+
+    async createArticle(createDTO: CreateArticleDTO): Promise<any> {
+        try {
+
+            const articleTags = await this.tagRepository.findByIds(createDTO.tags);
+
+            let newArticle = this.articleRepository.create({
+                title: createDTO.title,
+                image: createDTO.image,
+                content: createDTO.content,
+                subtitle: createDTO.subtitle,
+                isBiodermaGame: createDTO.isBiodermaGame,
+                tag: articleTags
+            });
+
+            await this.articleRepository.save(newArticle);
+
+            return { status: 0 };
+        } catch (err) {
+            console.log("ArticleService - createArticle: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating articles',
             }, 500);
         }
     }

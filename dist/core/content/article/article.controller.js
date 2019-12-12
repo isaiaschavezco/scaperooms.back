@@ -20,6 +20,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const article_service_1 = require("./article.service");
+const article_dto_1 = require("./article.dto");
 let ArticleController = class ArticleController {
     constructor(articleService) {
         this.articleService = articleService;
@@ -29,6 +30,11 @@ let ArticleController = class ArticleController {
             return yield this.articleService.findAll();
         });
     }
+    createArticle(createArticleDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.articleService.createArticle(createArticleDTO);
+        });
+    }
 };
 __decorate([
     common_1.Get(),
@@ -36,6 +42,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "findAllArticles", null);
+__decorate([
+    common_1.Post(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [article_dto_1.CreateArticleDTO]),
+    __metadata("design:returntype", Promise)
+], ArticleController.prototype, "createArticle", null);
 ArticleController = __decorate([
     common_1.Controller('article'),
     __metadata("design:paramtypes", [article_service_1.ArticleService])
