@@ -63,6 +63,7 @@ export class CampaingService {
 
     async findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any> {
         try {
+            console.log("getCampaingsByUserDTO: ", getCampaingsByUserDTO);
             const response = await this.campaingRepository.createQueryBuilder("campaing")
                 .select("campaing.id", "id")
                 .distinct(true)

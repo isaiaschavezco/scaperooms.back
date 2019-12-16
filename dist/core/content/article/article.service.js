@@ -107,6 +107,40 @@ let ArticleService = class ArticleService {
             }
         });
     }
+    searchForArticlesList(getArticleList) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let listToReturn = [];
+                let query;
+                if (getArticleList.filter) {
+                    const tagId = yield this.tagRepository.findOne({
+                        where: { name: getArticleList.filter.toUpperCase() }
+                    });
+                    console.log("tagId", tagId);
+                    if (!tagId) {
+                        query = { isBiodermaGame: getArticleList.isBiodermaGame, title: typeorm_2.Like(`%${getArticleList.filter}%`) };
+                    }
+                    else {
+                        query = [
+                            { isBiodermaGame: getArticleList.isBiodermaGame, title: typeorm_2.Like(`%${getArticleList.filter}%`) },
+                            { isBiodermaGame: getArticleList.isBiodermaGame, tag: { name: typeorm_2.Like(`%${getArticleList.filter}%`) } }
+                        ];
+                    }
+                }
+                else {
+                    query = { isBiodermaGame: getArticleList.isBiodermaGame };
+                }
+                return { blogs: listToReturn };
+            }
+            catch (err) {
+                console.log("ArticleService - searchForArticlesList: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting articles',
+                }, 500);
+            }
+        });
+    }
 };
 ArticleService = __decorate([
     common_1.Injectable(),

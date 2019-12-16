@@ -87,6 +87,7 @@ let CampaingService = class CampaingService {
     findCampaingsByUser(getCampaingsByUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log("getCampaingsByUserDTO: ", getCampaingsByUserDTO);
                 const response = yield this.campaingRepository.createQueryBuilder("campaing")
                     .select("campaing.id", "id")
                     .distinct(true)

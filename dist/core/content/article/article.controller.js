@@ -43,6 +43,11 @@ let ArticleController = class ArticleController {
             return yield this.articleService.createArticle(createArticleDTO);
         });
     }
+    getArticlesByUser(getArticleList) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.articleService.searchForArticlesList(getArticleList);
+        });
+    }
 };
 __decorate([
     common_1.Get(),
@@ -64,6 +69,13 @@ __decorate([
     __metadata("design:paramtypes", [article_dto_1.CreateArticleDTO]),
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "createArticle", null);
+__decorate([
+    common_1.Post('user'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [article_dto_1.GetArticleList]),
+    __metadata("design:returntype", Promise)
+], ArticleController.prototype, "getArticlesByUser", null);
 ArticleController = __decorate([
     common_1.Controller('article'),
     __metadata("design:paramtypes", [article_service_1.ArticleService])

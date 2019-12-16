@@ -1,9 +1,9 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, Like, In } from 'typeorm';
 import { Article } from './article.entity';
 import { Tag } from '../tag/tag.entity';
-import { CreateArticleDTO } from './article.dto';
+import { CreateArticleDTO, GetArticleList } from './article.dto';
 import * as moment from 'moment';
 
 @Injectable()
@@ -88,6 +88,77 @@ export class ArticleService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error creating articles',
+            }, 500);
+        }
+    }
+
+    async searchForArticlesList(getArticleList: GetArticleList): Promise<any> {
+        try {
+            let listToReturn = [];
+            let query;
+
+            if (getArticleList.filter) {
+
+                const tagId = await this.tagRepository.findOne({
+                    where: { name: getArticleList.filter.toUpperCase() }
+                });
+
+                console.log("tagId", tagId);
+
+                if (!tagId) {
+
+                    query = { isBiodermaGame: getArticleList.isBiodermaGame, title: Like(`%${getArticleList.filter}%`) };
+
+                } else {
+
+                    query = [
+                        { isBiodermaGame: getArticleList.isBiodermaGame, title: Like(`%${getArticleList.filter}%`) },
+                        { isBiodermaGame: getArticleList.isBiodermaGame, tag: { name: Like(`%${getArticleList.filter}%`) } }
+                    ];
+
+                }
+
+            } else {
+                query = { isBiodermaGame: getArticleList.isBiodermaGame };
+            }
+
+            // const articlesList = await this.articleRepository.find({
+            //     relations: ["tag"],
+            //     where: query,
+            //     order: {
+            //         createdAt: "DESC"
+            //     },
+            //     take: 15,
+            //     skip: (getArticleList.page * 15)
+            // });
+
+            // const articleList2 = await this.articleRepository.createQueryBuilder("art")
+            //     .distinct(true)
+            //     .select(["art.id", "art.title", "art.tag"])
+            //     .innerJoin("art.tag", "tag")// , "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId }
+            //     .where("(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )", { isBiodermaGame: getArticleList.isBiodermaGame, filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%' })
+            //     .skip(getArticleList.page * 15)
+            //     .take(15)
+            //     .getMany();
+
+            // articleList2.forEach(article => {
+            //     listToReturn.push({
+            //         id: article.id,
+            //         title: article.title,
+            //         subtitle: article.subtitle,
+            //         date: moment(article.createdAt).format('DD/MMM/YYYY'),
+            //         imageURL: article.image,
+            //         tags: article.tag
+            //     });
+            // });
+
+            return { blogs: listToReturn };
+        } catch (err) {
+            console.log("ArticleService - searchForArticlesList: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting articles',
             }, 500);
         }
     }

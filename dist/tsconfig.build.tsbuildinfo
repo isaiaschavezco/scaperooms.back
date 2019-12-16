@@ -2446,16 +2446,16 @@
         "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "34e581d9df50794f06f15a3eaa0e6c8b6083c2b4e42f84d67a6e8289fa801ce6",
-        "signature": "b17923815699377943d0e41caa60050a50d1fb6e117a4ecc269f03459a99b5c2"
+        "version": "a50280f63d247c2b8bf1ad6b0916e36b7f2f1d6d20bdb2436542869329dbec3f",
+        "signature": "5c97e0c66f6da75b8829a40c08c493b8fc1931ae1a8ff4a952d7ec5e454947d3"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "07495194eba99ace6782678a5ce107727748cb60bacf3655d93bbc2525c19de4",
-        "signature": "d4061d5cba70308b80d21acf7595f270ef2c1fd5021e0b0b65dee2d7787ef304"
+        "version": "73081ec7b2e2dd0eadf0a16d7231cf3ab8cddf3d9ddf1af01e5dd790c5f1dd31",
+        "signature": "5d6cb010b11340b71265fb1d89751e9a3670d7d04b1b73703b9509b828b8c2a8"
       },
       "../src/core/content/article/article.controller.ts": {
-        "version": "515f1a713b3339b0a42f0037875dba11983f977b9d5792b865cee181164bdf57",
-        "signature": "505edee229ad28abd390f68aaf25a845b9b94c8eb3539e20d95eafa2f5f4e2bc"
+        "version": "3fc04e1ffd616d4860087557223400212855f9207becb39d54443bbe60f539c0",
+        "signature": "94e30752c3d598d13adbdda42010b5713b72c7ae503acc0cd7f559fb68f6a03e"
       },
       "../src/core/content/article/article.module.ts": {
         "version": "7016c588ff41f9c6e7d9705a66dfa3768ff51bede58a5a87bf99141b1595c3e3",
@@ -2522,7 +2522,7 @@
         "signature": "e2c9b985f2d698e627259c3aad3c416f2cc99b937be5aee2455dc764e967575b"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "dc39d7903cdb347a6a56b22e49f18dddcba1815cd253ae3dc8a56fe36521508e",
+        "version": "01a1eccbc8eb4fc1997b51394bcfc33fbe4253960271036538283284e43c0173",
         "signature": "c2a334265d44784cf01568d2ecbc7fd70cbdea9e62efd1356044badea086920f"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -19361,6 +19361,7 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
+      "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
@@ -19378,7 +19379,6 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
@@ -19798,7 +19798,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.service.ts"
+      "../src/core/trivia/campaing/campaing.service.ts"
     ]
   },
   "version": "3.7.2"

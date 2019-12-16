@@ -1,7 +1,7 @@
 import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { Article } from './article.entity';
-import { CreateArticleDTO } from './article.dto';
+import { CreateArticleDTO, GetArticleList } from './article.dto';
 
 @Controller('article')
 export class ArticleController {
@@ -21,6 +21,11 @@ export class ArticleController {
     @Post()
     async createArticle(@Body() createArticleDTO: CreateArticleDTO): Promise<any> {
         return await this.articleService.createArticle(createArticleDTO);
+    }
+
+    @Post('user')
+    async getArticlesByUser(@Body() getArticleList: GetArticleList): Promise<any> {
+        return await this.articleService.searchForArticlesList(getArticleList);
     }
 
     // @Get(':id')

@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { Article } from './article.entity';
 import { Tag } from '../tag/tag.entity';
-import { CreateArticleDTO } from './article.dto';
+import { CreateArticleDTO, GetArticleList } from './article.dto';
 export declare class ArticleService {
     private articleRepository;
     private tagRepository;
@@ -9,4 +9,5 @@ export declare class ArticleService {
     findAll(): Promise<any>;
     findListArticles(isBiodermaGame: boolean): Promise<any>;
     createArticle(createDTO: CreateArticleDTO): Promise<any>;
+    searchForArticlesList(getArticleList: GetArticleList): Promise<any>;
 }
