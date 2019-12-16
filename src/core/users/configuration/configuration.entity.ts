@@ -9,7 +9,13 @@ export class Configuration {
     @Column()
     isClubBiodermaActive: boolean;
 
+    @Column()
+    themes: number;
+
+    @Column()
+    isBiodermaGameActive: boolean;
+
     @Column({ type: "text" })
-    themes: string;
+    biodermaGameImage: string;
 
 }
