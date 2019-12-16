@@ -13,6 +13,11 @@ export class ArticleController {
         return await this.articleService.findAll();
     }
 
+    @Get(':id')
+    async findArticleById(@Param('id') id): Promise<any> {
+        return await this.articleService.findById(id);
+    }
+
     @Get('list/:isBiodermaGame')
     async findArticlesList(@Param('isBiodermaGame') isBiodermaGame): Promise<any> {
         return await this.articleService.findListArticles(isBiodermaGame);

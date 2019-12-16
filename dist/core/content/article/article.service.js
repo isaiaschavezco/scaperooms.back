@@ -51,6 +51,36 @@ let ArticleService = class ArticleService {
             }
         });
     }
+    findById(articleId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = {};
+                const articleToReturn = yield this.articleRepository.findOne(articleId, {
+                    relations: ["tag"]
+                });
+                if (articleToReturn) {
+                    response = {
+                        title: articleToReturn.title,
+                        subtitle: articleToReturn.subtitle,
+                        date: moment(articleToReturn.createdAt).format('DD/MMM/YYYY'),
+                        tags: articleToReturn.tag,
+                        images: JSON.parse(articleToReturn.galery),
+                        description: articleToReturn.content
+                    };
+                }
+                return {
+                    blogs: response
+                };
+            }
+            catch (err) {
+                console.log("ArticleService - findById: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting articles',
+                }, 500);
+            }
+        });
+    }
     findListArticles(isBiodermaGame) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -111,25 +141,24 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let listToReturn = [];
-                let query;
-                if (getArticleList.filter) {
-                    const tagId = yield this.tagRepository.findOne({
-                        where: { name: getArticleList.filter.toUpperCase() }
+                const articleList2 = yield this.articleRepository.createQueryBuilder("art")
+                    .distinct(true)
+                    .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
+                    .innerJoinAndSelect("art.tag", "tag")
+                    .where("(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )", { isBiodermaGame: getArticleList.isBiodermaGame, filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%' })
+                    .skip(getArticleList.page * 10)
+                    .take(10)
+                    .getMany();
+                articleList2.forEach(article => {
+                    listToReturn.push({
+                        id: article.id,
+                        title: article.title,
+                        subtitle: article.subtitle,
+                        date: moment(article.createdAt).format('DD/MMM/YYYY'),
+                        imageURL: article.image,
+                        tags: article.tag
                     });
-                    console.log("tagId", tagId);
-                    if (!tagId) {
-                        query = { isBiodermaGame: getArticleList.isBiodermaGame, title: typeorm_2.Like(`%${getArticleList.filter}%`) };
-                    }
-                    else {
-                        query = [
-                            { isBiodermaGame: getArticleList.isBiodermaGame, title: typeorm_2.Like(`%${getArticleList.filter}%`) },
-                            { isBiodermaGame: getArticleList.isBiodermaGame, tag: { name: typeorm_2.Like(`%${getArticleList.filter}%`) } }
-                        ];
-                    }
-                }
-                else {
-                    query = { isBiodermaGame: getArticleList.isBiodermaGame };
-                }
+                });
                 return { blogs: listToReturn };
             }
             catch (err) {

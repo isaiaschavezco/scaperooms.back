@@ -33,6 +33,11 @@ let ArticleController = class ArticleController {
             return yield this.articleService.findAll();
         });
     }
+    findArticleById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.articleService.findById(id);
+        });
+    }
     findArticlesList(isBiodermaGame) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.articleService.findListArticles(isBiodermaGame);
@@ -55,6 +60,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "findAllArticles", null);
+__decorate([
+    common_1.Get(':id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ArticleController.prototype, "findArticleById", null);
 __decorate([
     common_1.Get('list/:isBiodermaGame'),
     __param(0, common_1.Param('isBiodermaGame')),
