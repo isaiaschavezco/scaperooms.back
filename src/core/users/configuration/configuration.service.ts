@@ -99,7 +99,7 @@ export class ConfigutarionService {
 
             const clubStatus = await this.configurationRepository.findOne(1);
 
-            return { statusCart: clubStatus.isBiodermaGameActive };
+            return { statusBioderma: clubStatus.isBiodermaGameActive };
 
         } catch (err) {
             console.log("ConfigutarionService - findBiodermaGameStatus: ", err);
@@ -116,7 +116,7 @@ export class ConfigutarionService {
 
             const clubStatus = await this.configurationRepository.findOne(1);
 
-            return { statusCart: clubStatus.biodermaGameImage };
+            return { biodermaImage: clubStatus.biodermaGameImage };
 
         } catch (err) {
             console.log("ConfigutarionService - findBiodermaGameImage: ", err);
