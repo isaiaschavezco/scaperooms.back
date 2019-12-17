@@ -72,7 +72,7 @@ export class AnswerbyuserquizzService {
                 relations: ["campaing"]
             });
 
-            const userResponse = setUserAnswersByQuestion.userResponse;
+            const userResponse = JSON.parse(setUserAnswersByQuestion.userResponse);
 
             // Se realiza registro inicial
             if (setUserAnswersByQuestion.isFirstQuestion) {

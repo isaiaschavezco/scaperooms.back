@@ -188,13 +188,26 @@ export class QuizzService {
 
             const response = await this.quizzRepository.createQueryBuilder("quizz")
                 // .innerJoin("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user.id })
-                .innerJoinAndSelect("quizz.answerbyuserquizz", "answ")
+                .leftJoinAndSelect("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user.id })
                 .innerJoin("quizz.campaing", "campaing", "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId })
                 .innerJoin("quizz.user", "user", "user.email = :email", { email: getQuizzesByUserCampaingDTO.email })
-                .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted", { isActive: true, isSend: true, isDeleted: false })
+                .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })
                 .getMany();
 
-            return { campaing: campaingSelected, quizzes: response };
+            let quizzListToReturn = [];
+
+            response.forEach(tempQuizz => {
+                let quizzFormat = {};
+                quizzFormat["id"] = tempQuizz.id;
+                quizzFormat["name"] = tempQuizz.name;
+                quizzFormat["finishedAt"] = moment(tempQuizz.finishedAt).format('DD/MMM/YYYY');
+                quizzFormat["time"] = tempQuizz.time;
+                quizzFormat["quizzPoints"] = tempQuizz.points;
+                quizzFormat["userPoints"] = tempQuizz.answerbyuserquizz.length > 0 ? tempQuizz.answerbyuserquizz[0].points : 0;
+                quizzListToReturn.push(quizzFormat);
+            });
+
+            return { campaing: campaingSelected, quizzes: quizzListToReturn };
         } catch (err) {
             console.log("QuizzService - findQuizzesByUserCampaing: ", err);
 

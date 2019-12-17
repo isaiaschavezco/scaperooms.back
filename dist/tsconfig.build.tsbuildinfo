@@ -2538,7 +2538,7 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "da04dad2d24cc9c22f1b54c50ef5dd25fd14af1df979cd1613a64c72daca6421",
+        "version": "43c1f9209585e48c1691812b33bcf3b3175e522434f0fe191a3d51b477a1acf0",
         "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -3958,7 +3958,7 @@
         "signature": "aa57d9e6196c3e5a96d56eacd9e6b999c53d393eaa1cf964f88888d17280ed21"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": {
-        "version": "4f0b5ae7a827a895f4992e5419f4750658b9349089b0329800e56d88c717d686",
+        "version": "faf14a24968b45f934ed2a84a9081dfdb2c7007f1412c0732393083982f11ed5",
         "signature": "3242fa56dee2965e9dc3f0d315ad1719f09b632c28da7973b95f1989d524c838"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": {
@@ -19395,6 +19395,7 @@
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/aws-sdk/lib/error.d.ts",
@@ -19749,7 +19750,6 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/app.module.ts",
@@ -19811,7 +19811,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/quizz/quizz.service.ts"
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts"
     ]
   },
   "version": "3.7.2"

@@ -83,7 +83,7 @@ let AnswerbyuserquizzService = class AnswerbyuserquizzService {
                 const quizzAnswering = yield this.quizzRepository.findOne(setUserAnswersByQuestion.quizzId, {
                     relations: ["campaing"]
                 });
-                const userResponse = setUserAnswersByQuestion.userResponse;
+                const userResponse = JSON.parse(setUserAnswersByQuestion.userResponse);
                 if (setUserAnswersByQuestion.isFirstQuestion) {
                     let newAnswerByUser = this.answerbyuserquizzRepository.create({
                         answer: JSON.stringify([{
