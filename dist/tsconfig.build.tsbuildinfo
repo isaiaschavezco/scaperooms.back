@@ -2490,7 +2490,7 @@
         "signature": "41a85bbfe3d8f20360795838152aa4e617132cef1093b78b571bcff56a8aef44"
       },
       "../src/core/trivia/question/question.service.ts": {
-        "version": "6d75394fe7a43889294be9e9e758618f247ce63f99b8f7acff91278fe3c71ad3",
+        "version": "33b03bd423b58aa21a6a6ef36846345cb504bdae3eb1e28e6bb96409dc81486e",
         "signature": "3573f341cb76558befbf9edc2932e4a3a75183d616a16cb7f802db5afecea168"
       },
       "../src/core/trivia/question/question.controller.ts": {
@@ -3906,8 +3906,8 @@
         "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e"
       },
       "../src/core/users/configuration/configuration.entity.ts": {
-        "version": "6fbab0353f03e5ae87d65bcf950a53aa112eed2fefb9e26f89b1840b6d652a28",
-        "signature": "f1f5bd82915278c298bbed643dd82d0d0c84fb16a07702bc46805e8c60a90718"
+        "version": "84506b458ff697214ad73364d06eac379d99191e7529ab441eb178f28b31aab2",
+        "signature": "914724d1e41bfad6fcf81a55ae5d735275ed9f6915e9448a86cc60a800395b30"
       },
       "../src/core/users/sesion/sesion.dto.ts": {
         "version": "3fe71e94cb92e9b287ecd84d414157386743dd7ee049ad5c45389db6dfac9107",
@@ -3937,13 +3937,17 @@
         "version": "f406693fe37e0c66c3a661c88c2ecf694e9608c45b68bdfa63093a9059df767b",
         "signature": "57875529e29eaf2f3fc6bbd50d92f271595480ba5962575d809d84a3c6ddcb6b"
       },
+      "../src/core/users/configuration/configuration.dto.ts": {
+        "version": "f7b2ca12ff0381197e349d57702403f5d665d093d72e8ce2afbf0a69e22b03ef",
+        "signature": "4b4fdd77b47e30732479bd5ebcaca57ea732a30db16d54a5659b763bfbd96831"
+      },
       "../src/core/users/configuration/configuration.service.ts": {
-        "version": "f51c9968b70808f83eabb0ca1637e0d272bc749adea64f8e5651989ab752e58d",
-        "signature": "3bbda2b4a908263430344a9f3eadc418db202ae9af8ba332779cde728f379a2f"
+        "version": "e09a97a6e5b98fe0401154fd2322ed1710af1e55901c2827ae31f38f43c6aeea",
+        "signature": "29bdf9f0f245fe209a09681d55020e3b18fbff8592859284aecbd4c70b6357b8"
       },
       "../src/core/users/configuration/configuration.controller.ts": {
-        "version": "76e5e064bb064cb393296b267775b340aacccc0100593197b88c1cc034155942",
-        "signature": "702292110a8c91e86c12a20d31e0b652a9077bd712bfc2d020a0713aa8ae2f04"
+        "version": "c8e772e30328a9bf9ec1ce8021bcbc1241ae77baf8b65e41888e24b991be409a",
+        "signature": "05d7f18b27cb8196aa5ca82b5e493590474581da39bad99ffec05a5aaa6b8180"
       },
       "../src/core/users/configuration/configuration.module.ts": {
         "version": "f5eac8888cd746dbdd71948e9dcac79abd6bbf6eacc54c7d21b0f1e0a026b243",
@@ -11371,17 +11375,23 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/users/configuration/configuration.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/users/configuration/configuration.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/configuration/configuration.entity.ts",
+        "../src/core/users/configuration/configuration.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/core/users/configuration/configuration.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/users/configuration/configuration.service.ts",
+        "../src/core/users/configuration/configuration.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -18427,10 +18437,12 @@
       ],
       "../src/core/users/configuration/configuration.service.ts": [
         "../node_modules/typeorm/index.d.ts",
-        "../src/core/users/configuration/configuration.entity.ts"
+        "../src/core/users/configuration/configuration.entity.ts",
+        "../src/core/users/configuration/configuration.dto.ts"
       ],
       "../src/core/users/configuration/configuration.controller.ts": [
-        "../src/core/users/configuration/configuration.service.ts"
+        "../src/core/users/configuration/configuration.service.ts",
+        "../src/core/users/configuration/configuration.dto.ts"
       ],
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": [
         "../node_modules/typeorm/index.d.ts",
@@ -19361,6 +19373,7 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
+      "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
@@ -19370,7 +19383,6 @@
       "../src/core/trivia/question-type/question-type.controller.ts",
       "../src/core/trivia/question-type/question-type.module.ts",
       "../src/core/trivia/question/question.dto.ts",
-      "../src/core/trivia/question/question.service.ts",
       "../src/core/trivia/question/question.controller.ts",
       "../src/core/trivia/question/question.module.ts",
       "../src/core/trivia/target/target.dto.ts",
@@ -19732,6 +19744,7 @@
       "../node_modules/dotenv/types/index.d.ts",
       "../src/config/config.service.ts",
       "../src/config/config.module.ts",
+      "../src/core/users/configuration/configuration.dto.ts",
       "../src/core/users/configuration/configuration.service.ts",
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
@@ -19798,7 +19811,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.service.ts"
+      "../src/core/trivia/question/question.service.ts"
     ]
   },
   "version": "3.7.2"

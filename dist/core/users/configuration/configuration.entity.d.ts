@@ -1,5 +1,7 @@
 export declare class Configuration {
     id: number;
     isClubBiodermaActive: boolean;
-    themes: string;
+    themes: number;
+    isBiodermaGameActive: boolean;
+    biodermaGameImage: string;
 }

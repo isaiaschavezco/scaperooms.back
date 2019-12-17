@@ -102,12 +102,12 @@ let QuestionService = class QuestionService {
                             tempQuestion['response'] = answerContent.response;
                             break;
                         case 4:
-                            tempQuestion['questions'] = questionContent.questions;
-                            tempQuestion['responses'] = answerContent.response;
-                            break;
-                        case 5:
                             tempQuestion['unorder'] = questionContent.unorder;
                             tempQuestion['order'] = answerContent.order;
+                            break;
+                        case 5:
+                            tempQuestion['questions'] = questionContent.questions;
+                            tempQuestion['responses'] = answerContent.response;
                             break;
                         default:
                             console.log("Pregunta extraña");

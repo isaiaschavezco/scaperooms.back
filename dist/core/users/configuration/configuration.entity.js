@@ -21,9 +21,17 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Configuration.prototype, "isClubBiodermaActive", void 0);
 __decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Configuration.prototype, "themes", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], Configuration.prototype, "isBiodermaGameActive", void 0);
+__decorate([
     typeorm_1.Column({ type: "text" }),
     __metadata("design:type", String)
-], Configuration.prototype, "themes", void 0);
+], Configuration.prototype, "biodermaGameImage", void 0);
 Configuration = __decorate([
     typeorm_1.Entity({ schema: 'Users' })
 ], Configuration);

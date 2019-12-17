@@ -29,6 +29,21 @@ let ConfigutarionService = class ConfigutarionService {
     constructor(configurationRepository) {
         this.configurationRepository = configurationRepository;
     }
+    findGeneralConfiguration() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const generalConfiguration = yield this.configurationRepository.findOne(1);
+                return { general: generalConfiguration };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - findGeneralConfiguration: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting general status',
+                }, 500);
+            }
+        });
+    }
     findClubStatus() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -48,10 +63,137 @@ let ConfigutarionService = class ConfigutarionService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const clubStatus = yield this.configurationRepository.findOne(1);
-                return { seasonColors: JSON.parse(clubStatus.themes) };
+                let seasonColor = [];
+                switch (clubStatus.themes) {
+                    case 1:
+                        seasonColor = [
+                            '#449c44', '#f1f9f1', '#95db95', '#449c44', '#1c541c',
+                            '#C8E8C8', '#F1F9F1'
+                        ];
+                        break;
+                    case 2:
+                        seasonColor = [
+                            '#F99F28', '#FDFAF6', '#F99F28', '#AF6B11', '#734810',
+                            '#FFDDB1', '#FDFAF6'
+                        ];
+                        break;
+                    case 3:
+                        seasonColor = [
+                            '#D18E95', '#FAF6F7', '#D6717D', '#A31A29', '#7e101c',
+                            '#EED0D3', '#FAF6F7'
+                        ];
+                        break;
+                    case 4:
+                        seasonColor = [
+                            '#526987', '#EEF7FB', '#8AC6E1', '#009DE0', '#005980',
+                            '#D0EDF9', '#EEF7FB'
+                        ];
+                        break;
+                    default:
+                        break;
+                }
+                return { seasonColors: seasonColor };
             }
             catch (err) {
                 console.log("ConfigutarionService - findThemeColor: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting theme',
+                }, 500);
+            }
+        });
+    }
+    findBiodermaGameStatus() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const clubStatus = yield this.configurationRepository.findOne(1);
+                return { statusBioderma: clubStatus.isBiodermaGameActive };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - findBiodermaGameStatus: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting biodermagame status',
+                }, 500);
+            }
+        });
+    }
+    findBiodermaGameImage() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const clubStatus = yield this.configurationRepository.findOne(1);
+                return { biodermaImage: clubStatus.biodermaGameImage };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - findBiodermaGameImage: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting biodermagame image',
+                }, 500);
+            }
+        });
+    }
+    updateClub(updateClubStatusDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let configToUpdate = yield this.configurationRepository.findOne(1);
+                configToUpdate.isClubBiodermaActive = updateClubStatusDTO.isClubBiodermaActive;
+                yield this.configurationRepository.save(configToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - updateClub: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting theme',
+                }, 500);
+            }
+        });
+    }
+    updateTheme(updateThemeDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let configToUpdate = yield this.configurationRepository.findOne(1);
+                configToUpdate.themes = updateThemeDTO.theme;
+                yield this.configurationRepository.save(configToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - updateTheme: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting theme',
+                }, 500);
+            }
+        });
+    }
+    updateBiodermaGame(updateBiodermaGameStatusDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let configToUpdate = yield this.configurationRepository.findOne(1);
+                configToUpdate.isBiodermaGameActive = updateBiodermaGameStatusDTO.isBiodermaGameActive;
+                yield this.configurationRepository.save(configToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - updateBiodermaGame: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting theme',
+                }, 500);
+            }
+        });
+    }
+    updateBiodermaGameImage(updateBiodermaGameImageDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let configToUpdate = yield this.configurationRepository.findOne(1);
+                configToUpdate.biodermaGameImage = updateBiodermaGameImageDTO.biodermaGameImage;
+                yield this.configurationRepository.save(configToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - updateBiodermaGameImage: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting theme',
