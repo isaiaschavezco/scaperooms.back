@@ -6,7 +6,7 @@ import { Quizz } from '../quizz/quizz.entity';
 import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
 import { User } from '../../users/user/user.entity';
 import { PointsType } from '../points-type/points-type.entity';
-import { SetUserAnswers } from './answerbyuserquizz.dto';
+import { SetUserAnswers, SetUserAnswersByQuestion } from './answerbyuserquizz.dto';
 
 @Injectable()
 export class AnswerbyuserquizzService {
@@ -52,6 +52,104 @@ export class AnswerbyuserquizzService {
 
         } catch (err) {
             console.log("AnswerbyuserquizzService - setUserAnswer: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error setting user answer',
+            }, 500);
+        }
+    }
+
+    async setUserAnswerByquestion(setUserAnswersByQuestion: SetUserAnswersByQuestion): Promise<any> {
+        try {
+
+            const userAnswering = await this.userRepository.findOne({
+                where: { email: setUserAnswersByQuestion.email }
+            });
+
+            const quizzAnswering = await this.quizzRepository.findOne(setUserAnswersByQuestion.quizzId, {
+                relations: ["campaing"]
+            });
+
+            const userResponse = setUserAnswersByQuestion.userResponse;
+
+            // Se realia registro inicial
+            if (setUserAnswersByQuestion.isFirstQuestion) {
+
+                let newAnswerByUser = this.answerbyuserquizzRepository.create({
+                    answer: JSON.stringify([{
+                        questionId: setUserAnswersByQuestion.questionId,
+                        response: userResponse
+                    }]),
+                    points: setUserAnswersByQuestion.points,
+                    isActive: true,
+                    user: userAnswering,
+                    quizz: quizzAnswering
+                });
+
+                await this.answerbyuserquizzRepository.save(newAnswerByUser);
+
+            }
+
+            // Se registran preguntas intermedias
+            if (setUserAnswersByQuestion.isFirstQuestion === false && setUserAnswersByQuestion.isLastQuestion === false) {
+
+                let answerByUserToUpdate = await this.answerbyuserquizzRepository.findOne({
+                    where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
+                });
+
+                answerByUserToUpdate.points += setUserAnswersByQuestion.points;
+
+                let userResponseToUpdate = JSON.parse(answerByUserToUpdate.answer);
+                userResponseToUpdate.push({
+                    questionId: setUserAnswersByQuestion.questionId,
+                    response: userResponse
+                });
+
+                answerByUserToUpdate.answer = JSON.stringify(userResponseToUpdate);
+
+                await this.answerbyuserquizzRepository.save(answerByUserToUpdate);
+
+            }
+
+            if (setUserAnswersByQuestion.isLastQuestion === true) {
+
+                let answerByUserToUpdate = await this.answerbyuserquizzRepository.findOne({
+                    where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
+                });
+
+                answerByUserToUpdate.points += setUserAnswersByQuestion.points;
+
+                let userResponseToUpdate = JSON.parse(answerByUserToUpdate.answer);
+                userResponseToUpdate.push({
+                    questionId: setUserAnswersByQuestion.questionId,
+                    response: userResponse
+                });
+
+                answerByUserToUpdate.answer = JSON.stringify(userResponseToUpdate);
+
+                answerByUserToUpdate.isActive = false;
+
+                const newUserAnswer = await this.answerbyuserquizzRepository.save(answerByUserToUpdate);
+                const quizzPointsType = await this.pointsTypeRepository.findOne(quizzAnswering.campaing.isBiodermaGame ? 2 : 1);
+
+                const newPointsByUSer = this.pointsbyuserRepository.create({
+                    points: newUserAnswer.points,
+                    isAdded: true,
+                    isDeleted: false,
+                    user: userAnswering,
+                    quizz: quizzAnswering,
+                    pointsType: quizzPointsType
+                });
+
+                await this.pointsbyuserRepository.save(newPointsByUSer);
+
+            }
+
+            return { status: 0 };
+
+        } catch (err) {
+            console.log("AnswerbyuserquizzService - setUserAnswerByquestion: ", err);
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
