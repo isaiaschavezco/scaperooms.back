@@ -63,6 +63,7 @@ export class AnswerbyuserquizzService {
     async setUserAnswerByquestion(setUserAnswersByQuestion: SetUserAnswersByQuestion): Promise<any> {
         try {
 
+            // Init values
             const userAnswering = await this.userRepository.findOne({
                 where: { email: setUserAnswersByQuestion.email }
             });
@@ -73,7 +74,7 @@ export class AnswerbyuserquizzService {
 
             const userResponse = setUserAnswersByQuestion.userResponse;
 
-            // Se realia registro inicial
+            // Se realiza registro inicial
             if (setUserAnswersByQuestion.isFirstQuestion) {
 
                 let newAnswerByUser = this.answerbyuserquizzRepository.create({

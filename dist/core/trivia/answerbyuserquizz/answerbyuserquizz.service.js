@@ -74,6 +74,77 @@ let AnswerbyuserquizzService = class AnswerbyuserquizzService {
             }
         });
     }
+    setUserAnswerByquestion(setUserAnswersByQuestion) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userAnswering = yield this.userRepository.findOne({
+                    where: { email: setUserAnswersByQuestion.email }
+                });
+                const quizzAnswering = yield this.quizzRepository.findOne(setUserAnswersByQuestion.quizzId, {
+                    relations: ["campaing"]
+                });
+                const userResponse = setUserAnswersByQuestion.userResponse;
+                if (setUserAnswersByQuestion.isFirstQuestion) {
+                    let newAnswerByUser = this.answerbyuserquizzRepository.create({
+                        answer: JSON.stringify([{
+                                questionId: setUserAnswersByQuestion.questionId,
+                                response: userResponse
+                            }]),
+                        points: setUserAnswersByQuestion.points,
+                        isActive: true,
+                        user: userAnswering,
+                        quizz: quizzAnswering
+                    });
+                    yield this.answerbyuserquizzRepository.save(newAnswerByUser);
+                }
+                if (setUserAnswersByQuestion.isFirstQuestion === false && setUserAnswersByQuestion.isLastQuestion === false) {
+                    let answerByUserToUpdate = yield this.answerbyuserquizzRepository.findOne({
+                        where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
+                    });
+                    answerByUserToUpdate.points += setUserAnswersByQuestion.points;
+                    let userResponseToUpdate = JSON.parse(answerByUserToUpdate.answer);
+                    userResponseToUpdate.push({
+                        questionId: setUserAnswersByQuestion.questionId,
+                        response: userResponse
+                    });
+                    answerByUserToUpdate.answer = JSON.stringify(userResponseToUpdate);
+                    yield this.answerbyuserquizzRepository.save(answerByUserToUpdate);
+                }
+                if (setUserAnswersByQuestion.isLastQuestion === true) {
+                    let answerByUserToUpdate = yield this.answerbyuserquizzRepository.findOne({
+                        where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
+                    });
+                    answerByUserToUpdate.points += setUserAnswersByQuestion.points;
+                    let userResponseToUpdate = JSON.parse(answerByUserToUpdate.answer);
+                    userResponseToUpdate.push({
+                        questionId: setUserAnswersByQuestion.questionId,
+                        response: userResponse
+                    });
+                    answerByUserToUpdate.answer = JSON.stringify(userResponseToUpdate);
+                    answerByUserToUpdate.isActive = false;
+                    const newUserAnswer = yield this.answerbyuserquizzRepository.save(answerByUserToUpdate);
+                    const quizzPointsType = yield this.pointsTypeRepository.findOne(quizzAnswering.campaing.isBiodermaGame ? 2 : 1);
+                    const newPointsByUSer = this.pointsbyuserRepository.create({
+                        points: newUserAnswer.points,
+                        isAdded: true,
+                        isDeleted: false,
+                        user: userAnswering,
+                        quizz: quizzAnswering,
+                        pointsType: quizzPointsType
+                    });
+                    yield this.pointsbyuserRepository.save(newPointsByUSer);
+                }
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("AnswerbyuserquizzService - setUserAnswerByquestion: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error setting user answer',
+                }, 500);
+            }
+        });
+    }
 };
 AnswerbyuserquizzService = __decorate([
     common_1.Injectable(),

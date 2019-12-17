@@ -180,12 +180,18 @@ export class QuizzService {
 
             const campaingSelected = await this.campaingRepository.findOne(getQuizzesByUserCampaingDTO.campaingId, {
                 select: ["id", "name"]
-            })
+            });
+
+            const user = await this.userRepository.findOne({
+                where: { email: getQuizzesByUserCampaingDTO.email }
+            });
 
             const response = await this.quizzRepository.createQueryBuilder("quizz")
+                // .innerJoin("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user.id })
+                .innerJoinAndSelect("quizz.answerbyuserquizz", "answ")
                 .innerJoin("quizz.campaing", "campaing", "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId })
                 .innerJoin("quizz.user", "user", "user.email = :email", { email: getQuizzesByUserCampaingDTO.email })
-                .where("quizz.isActive = :isActive", { isActive: true, isDeleted: false })
+                .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted", { isActive: true, isSend: true, isDeleted: false })
                 .getMany();
 
             return { campaing: campaingSelected, quizzes: response };

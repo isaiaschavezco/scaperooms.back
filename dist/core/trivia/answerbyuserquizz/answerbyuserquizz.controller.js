@@ -33,6 +33,11 @@ let AnswerbyuserquizzController = class AnswerbyuserquizzController {
             return yield this.AnswerbyuserquizzService.setUserAnswer(setUserAnswers);
         });
     }
+    setUserAnswersByquestion(setUserAnswersByQuestion) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.AnswerbyuserquizzService.setUserAnswerByquestion(setUserAnswersByQuestion);
+        });
+    }
 };
 __decorate([
     common_1.Post(),
@@ -41,6 +46,13 @@ __decorate([
     __metadata("design:paramtypes", [answerbyuserquizz_dto_1.SetUserAnswers]),
     __metadata("design:returntype", Promise)
 ], AnswerbyuserquizzController.prototype, "setUserAnswers", null);
+__decorate([
+    common_1.Post('question'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [answerbyuserquizz_dto_1.SetUserAnswersByQuestion]),
+    __metadata("design:returntype", Promise)
+], AnswerbyuserquizzController.prototype, "setUserAnswersByquestion", null);
 AnswerbyuserquizzController = __decorate([
     common_1.Controller('answerbyuserquizz'),
     __metadata("design:paramtypes", [answerbyuserquizz_service_1.AnswerbyuserquizzService])
