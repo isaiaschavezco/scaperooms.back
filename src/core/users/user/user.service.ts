@@ -72,13 +72,13 @@ export class UserService {
         }
     }
 
-    async findAll(): Promise<User[]> {
+    async findAll(): Promise<any> {
         try {
             const usersList = await this.userRepository.find({
                 select: ["id", "name", "email", "points"],
                 relations: ["position", "type"]
             });
-            return usersList;
+            return { users: usersList };
         } catch (err) {
             console.log("UserService - findAll: ", err);
 
