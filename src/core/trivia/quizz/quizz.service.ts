@@ -109,12 +109,6 @@ export class QuizzService {
             quizzToSend.isSend = true;
             quizzToSend.isActive = true;
 
-            console.log("quizzToSend: ", quizzToSend);
-            console.log("quizzCampaing: ", quizzToSend.campaing);
-            console.log("quizzCampaingTarget: ", quizzToSend.campaing.target);
-
-            console.log(" ******** ******** ******** ********");
-
             quizzToSend.campaing.target.forEach(target => {
 
                 let tempTargetObject = {};
@@ -143,21 +137,15 @@ export class QuizzService {
                     tempTargetObject['type'] = target.type.id;
                 }
 
-                console.log("tempTargetObject: ", tempTargetObject);
-
                 if (Object.keys(tempTargetObject).length > 0) {
                     filterQueries.push(tempTargetObject);
                 }
             });
 
-            console.log("filterQueries: ", filterQueries);
-
             const users = await this.userRepository.find({
                 select: ["id"],
                 where: filterQueries
             });
-
-            console.log("users: ", users);
 
             // Se hace relación de trivias con usuarios
             quizzToSend.user = users;

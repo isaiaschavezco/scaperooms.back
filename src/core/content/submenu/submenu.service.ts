@@ -19,6 +19,71 @@ export class SubmenuService {
         return submenuList;
     }
 
+    async findFilesByMenu(menuId: number): Promise<any> {
+
+        let productList = [];
+
+        if (menuId == 1) {
+            productList = await this.submenuRepository.find({
+                where: { menu: 2 },
+                order: {
+                    name: "ASC"
+                }
+            });
+        }
+
+        const submenuList = await this.submenuRepository.find({
+            where: { menu: menuId },
+            order: {
+                name: "ASC"
+            }
+        });
+
+        let listToReturn = [];
+
+        submenuList.forEach(tempFile => {
+
+            let tempPDF = '';
+
+            if (menuId == 1) {
+                switch (tempFile.id) {
+                    case 2:
+                        tempPDF = productList[6].url;
+                        break;
+                    case 3:
+                        tempPDF = productList[5].url;
+                        break;
+                    case 4:
+                        tempPDF = productList[2].url;
+                        break;
+                    case 5:
+                        tempPDF = productList[4].url;
+                        break;
+                    case 6:
+                        tempPDF = productList[3].url;
+                        break;
+                    case 7:
+                        tempPDF = productList[0].url;
+                        break;
+                    case 8:
+                        tempPDF = productList[1].url;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            listToReturn.push({
+                id: tempFile.id,
+                name: tempFile.name,
+                pdf: tempFile.url,
+                product: tempPDF
+            });
+        });
+
+        return { files: listToReturn };
+    }
+
     async findSubMenuItems(menuId: number): Promise<Submenu[]> {
         const submenuItems = await this.submenuRepository.find({
             select: ["id", "name"], where: { menu: menuId }, order: {

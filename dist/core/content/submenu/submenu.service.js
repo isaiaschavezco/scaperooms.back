@@ -40,6 +40,63 @@ let SubmenuService = class SubmenuService {
             return submenuList;
         });
     }
+    findFilesByMenu(menuId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let productList = [];
+            if (menuId == 1) {
+                productList = yield this.submenuRepository.find({
+                    where: { menu: 2 },
+                    order: {
+                        name: "ASC"
+                    }
+                });
+            }
+            const submenuList = yield this.submenuRepository.find({
+                where: { menu: menuId },
+                order: {
+                    name: "ASC"
+                }
+            });
+            let listToReturn = [];
+            submenuList.forEach(tempFile => {
+                let tempPDF = '';
+                if (menuId == 1) {
+                    switch (tempFile.id) {
+                        case 2:
+                            tempPDF = productList[6].url;
+                            break;
+                        case 3:
+                            tempPDF = productList[5].url;
+                            break;
+                        case 4:
+                            tempPDF = productList[2].url;
+                            break;
+                        case 5:
+                            tempPDF = productList[4].url;
+                            break;
+                        case 6:
+                            tempPDF = productList[3].url;
+                            break;
+                        case 7:
+                            tempPDF = productList[0].url;
+                            break;
+                        case 8:
+                            tempPDF = productList[1].url;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                listToReturn.push({
+                    id: tempFile.id,
+                    name: tempFile.name,
+                    pdf: tempFile.url,
+                    product: tempPDF
+                });
+            });
+            return { files: listToReturn };
+        });
+    }
     findSubMenuItems(menuId) {
         return __awaiter(this, void 0, void 0, function* () {
             const submenuItems = yield this.submenuRepository.find({

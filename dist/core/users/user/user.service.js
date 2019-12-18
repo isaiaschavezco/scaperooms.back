@@ -86,7 +86,10 @@ let UserService = class UserService {
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const usersList = yield this.userRepository.find();
+                const usersList = yield this.userRepository.find({
+                    select: ["id", "name", "email", "points"],
+                    relations: ["position", "type"]
+                });
                 return usersList;
             }
             catch (err) {

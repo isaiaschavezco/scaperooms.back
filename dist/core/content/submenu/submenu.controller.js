@@ -33,6 +33,11 @@ let SubmenuController = class SubmenuController {
             return yield this.submenuService.findByMenuId(id);
         });
     }
+    findFilesByMenu(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.submenuService.findFilesByMenu(id);
+        });
+    }
     findSubMenuItems(id) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.submenuService.findSubMenuItems(id);
@@ -51,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], SubmenuController.prototype, "findByMenuId", null);
+__decorate([
+    common_1.Get('app/:id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], SubmenuController.prototype, "findFilesByMenu", null);
 __decorate([
     common_1.Get('items/:id'),
     __param(0, common_1.Param('id')),

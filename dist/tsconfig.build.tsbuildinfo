@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "283ab5ea6bdc5b33b490d89d46f8d1685a13a3030b407bf4d0e9405fef4fec60",
+        "version": "72e2e437fb298d0e8400f0fb4f3e00292eaf62ba28d70ea7911d57723a18d70f",
         "signature": "885312e9f617520d023024d0303fc4853ad61ceea32e99fcf7d763d41656301a"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2394,12 +2394,12 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "33874519803ca4c5af2e6ac80cf220d76a79c970370d10a71d0202cad3bfd7ce",
-        "signature": "a6a13b51c1511f8d848fe55e631a5309b139d65568c45eb305aef100267db5f3"
+        "version": "40caeac4ede411b10c8b593aa533e1b7e24f73a4bca39267d6c4728f057517f3",
+        "signature": "7af8b8329e70f6762b5ab05f16c300f73e33adbe8fa3ba49158f603135fd038d"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
-        "version": "fcfc87e236aff3e43b2f43d8542cb2e06b8307b36ba8944252d95ca83f646126",
-        "signature": "f141e6f8b7f48edd5495876a30a78f31967de1effc76dcc3f23561aef915690d"
+        "version": "ec2ed80e814f5d3d618c9436a24faee06e93ffaaa3b2852cb252851476b483ac",
+        "signature": "f3cfb692d354913b96d95dfb79d5d279e1eba6793dcd9ae9cb58d42bb5b44839"
       },
       "../src/core/content/submenu/submenu.module.ts": {
         "version": "cf88846350dd0af4e8905d5ea70d946c557ab0065bf71abe612dc492c82c746b",
@@ -2538,7 +2538,7 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "43c1f9209585e48c1691812b33bcf3b3175e522434f0fe191a3d51b477a1acf0",
+        "version": "ec5ce310f0398f0d007ff94809776edd9f37d697a2d9f8c9d15cc4806e4e9fee",
         "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -3914,7 +3914,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "e319f71a4b812de91a6a1c4df2bc1494a911d5d1f69c492b7d60c5625f4f73b1",
+        "version": "121f4d1deb1026571db0cd73bc84122bf0f19690a78d089620117745e6c4d40b",
         "signature": "60f855cdac2c0cafcc0f7478db5ba18ac60969058c4d263899725f96b51c7ec6"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -19347,7 +19347,6 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19750,6 +19749,7 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/app.module.ts",
@@ -19811,7 +19811,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

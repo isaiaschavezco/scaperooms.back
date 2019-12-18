@@ -73,7 +73,8 @@ export class SesionService {
                             branchOffice: user.drugstore,
                             postalCode: user.postalCode,
                             charge: user.charge,
-                            isActiveCart: user.type.id === 1 ? false : true
+                            isActiveCart: user.type.id === 1 ? false : true,
+                            countNotifications: 3
                         }
                     };
 

@@ -119,10 +119,6 @@ let QuizzService = class QuizzService {
                 quizzToSend.finishedAt = new Date(sendQuizzDTO.finishDate);
                 quizzToSend.isSend = true;
                 quizzToSend.isActive = true;
-                console.log("quizzToSend: ", quizzToSend);
-                console.log("quizzCampaing: ", quizzToSend.campaing);
-                console.log("quizzCampaingTarget: ", quizzToSend.campaing.target);
-                console.log(" ******** ******** ******** ********");
                 quizzToSend.campaing.target.forEach(target => {
                     let tempTargetObject = {};
                     if (target.initAge !== null) {
@@ -143,17 +139,14 @@ let QuizzService = class QuizzService {
                     if (target.type !== null) {
                         tempTargetObject['type'] = target.type.id;
                     }
-                    console.log("tempTargetObject: ", tempTargetObject);
                     if (Object.keys(tempTargetObject).length > 0) {
                         filterQueries.push(tempTargetObject);
                     }
                 });
-                console.log("filterQueries: ", filterQueries);
                 const users = yield this.userRepository.find({
                     select: ["id"],
                     where: filterQueries
                 });
-                console.log("users: ", users);
                 quizzToSend.user = users;
                 yield this.quizzRepository.save(quizzToSend);
                 return users;

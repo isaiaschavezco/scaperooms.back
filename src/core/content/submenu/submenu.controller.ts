@@ -13,6 +13,11 @@ export class SubmenuController {
         return await this.submenuService.findByMenuId(id);
     }
 
+    @Get('app/:id')
+    async findFilesByMenu(@Param('id') id): Promise<any> {
+        return await this.submenuService.findFilesByMenu(id);
+    }
+
     @Get('items/:id')
     async findSubMenuItems(@Param('id') id): Promise<Submenu[]> {
         return await this.submenuService.findSubMenuItems(id);
