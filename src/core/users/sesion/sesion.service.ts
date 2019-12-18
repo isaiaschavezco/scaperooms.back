@@ -74,7 +74,8 @@ export class SesionService {
                             postalCode: user.postalCode,
                             charge: user.charge,
                             isActiveCart: user.type.id === 1 ? false : true,
-                            countNotifications: 3
+                            countNotifications: 3,
+                            totalBiodermaGames: 0
                         }
                     };
 
