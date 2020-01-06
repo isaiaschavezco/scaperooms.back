@@ -19,7 +19,7 @@ export declare class UserService {
     private cityRepository;
     constructor(userRepository: Repository<User>, mailerService: MailerService, tokenRepository: Repository<Token>, typeRepository: Repository<Type>, chainRepository: Repository<Chain>, positionRepository: Repository<Position>, stateRepository: Repository<City>, cityRepository: Repository<Delegation>);
     invite(request: InviteUserDTO): Promise<number>;
-    findAll(): Promise<User[]>;
+    findAll(): Promise<any>;
     findUserDetail(requestEmail: string): Promise<any>;
     create(createUserDTO: CreateUserDTO): Promise<any>;
     createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any>;

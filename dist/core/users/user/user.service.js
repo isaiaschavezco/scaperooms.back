@@ -90,7 +90,7 @@ let UserService = class UserService {
                     select: ["id", "name", "email", "points"],
                     relations: ["position", "type"]
                 });
-                return usersList;
+                return { users: usersList };
             }
             catch (err) {
                 console.log("UserService - findAll: ", err);

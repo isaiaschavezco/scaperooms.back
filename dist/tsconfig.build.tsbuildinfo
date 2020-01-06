@@ -2346,12 +2346,12 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "72e2e437fb298d0e8400f0fb4f3e00292eaf62ba28d70ea7911d57723a18d70f",
-        "signature": "885312e9f617520d023024d0303fc4853ad61ceea32e99fcf7d763d41656301a"
+        "version": "160daaff9b710866a36eaa57137ed6e099c13dc3139f4e0f0b446f45fe3f9f04",
+        "signature": "5ce5ca4ff346021052502dbcb91da24160e4624270aaa4c82e19c7bb7dc3c430"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "b44f4a3eb3dc23a425e57c09472b73b41cdb0d8b9f0eb975e175b878a0806d78",
-        "signature": "099c474d96f1d066bd651e3a14f8185d58ec16fa64380b751244b6605e212442"
+        "version": "3d0dcf0efcc6dc351fe210ae305c1eff12e2fb8e99fd2b2afc5e02af1b99fd8f",
+        "signature": "902d0904ed222bc89a8226358b6345b84c5140cb2491ed0f3c0455dea8467075"
       },
       "../src/core/users/user/user.module.ts": {
         "version": "910f3ce679c4ce2892e28dfe58dcff642d6ca68276e2cfa4461fad494814eb07",
@@ -3914,7 +3914,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "121f4d1deb1026571db0cd73bc84122bf0f19690a78d089620117745e6c4d40b",
+        "version": "d634a36a4dc17e4b819581fc80cc998815f32a0e34eee0692505661da31280aa",
         "signature": "60f855cdac2c0cafcc0f7478db5ba18ac60969058c4d263899725f96b51c7ec6"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -4113,13 +4113,17 @@
         "version": "bf6f103ee525f06c8f66abbd1a423660edd7a4211d6c1e8595429a162164e198",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
-      "../src/core/content/message/message.controller.ts": {
-        "version": "00135f156ee42460bf8fcdbb0ffced6b9276db6e09eaa0a54acdc13d3d5391f3",
-        "signature": "e50c9b878fd8afa7510dec67585e4ba9e6c42b3dc4a0b485b129a2ef08f0a1cb"
-      },
       "../src/core/content/message/message.service.ts": {
-        "version": "eb17b21ff65f5cc743ed03b1cd29badbebf3cf862f462867bc4d5f45b1b88535",
-        "signature": "4c91398aa7bcc38329c36c9339ac1051c5ad488b4997103f6c4b80dd68fad3d9"
+        "version": "fa0bbc882013bb85a10c63ec7937087cda01ab3e355d0728f08222aae810bf62",
+        "signature": "3f4a208f0c42d994b3194152df851d03bba96044763b1d638e8a6bc350a33f00"
+      },
+      "../src/core/content/message/message.dto.ts": {
+        "version": "709c6ae07938697e2803520a19e36aa835ab5e96877a5dc82c925eab2866ee6a",
+        "signature": "eafcab7e059626cbd5d74abac3c18ee2bc43d0e70a3c8c812c5b0b3b067b7f2f"
+      },
+      "../src/core/content/message/message.controller.ts": {
+        "version": "b5980272c71e19822f83288ee9efc3e3c44b75a9e7cbdf875fcbd9659aaed3e8",
+        "signature": "92b2025f3bee09f668be259457290af237d8dc28296af80b02cd3ae575aa7b30"
       },
       "../src/core/content/message/message.module.ts": {
         "version": "03c51ae7c4f0858bd75b6d3ac590f54079ea19da6c8b37da1e9bab88c297c839",
@@ -11719,13 +11723,21 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/core/content/message/message.controller.ts": [
+      "../src/core/content/message/message.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/core/content/message/message.service.ts": [
+      "../src/core/content/message/message.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/message/message.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/content/message/message.service.ts",
+        "../src/core/content/message/message.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15423,8 +15435,7 @@
       ],
       "../src/core/users/user/user.controller.ts": [
         "../src/core/users/user/user.service.ts",
-        "../src/core/users/user/user.dto.ts",
-        "../src/core/users/user/user.entity.ts"
+        "../src/core/users/user/user.dto.ts"
       ],
       "../src/core/content/submenu/submenu.entity.ts": [
         "../src/core/content/menu/menu.entity.ts"
@@ -18691,6 +18702,9 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/content/message/message.controller.ts": [
+        "../src/core/content/message/message.service.ts"
+      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -18758,6 +18772,9 @@
         "../node_modules/@types/superagent/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/message/message.service.ts": [
+        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -19347,6 +19364,7 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19788,9 +19806,7 @@
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/body-parser/index.d.ts",
       "../src/main.ts",
-      "../src/core/content/message/message.controller.ts",
-      "../src/core/content/message/message.service.ts",
-      "../src/core/content/message/message.module.ts",
+      "../src/core/content/message/message.dto.ts",
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
@@ -19811,7 +19827,49 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      [
+        "../src/core/content/message/message.service.ts",
+        [
+          {
+            "file": "../src/core/content/message/message.service.ts",
+            "start": 186,
+            "length": 18,
+            "messageText": "Cannot find module './submenu.entity'.",
+            "category": 1,
+            "code": 2307
+          },
+          {
+            "file": "../src/core/content/message/message.service.ts",
+            "start": 239,
+            "length": 15,
+            "messageText": "Cannot find module './submenu.dto'.",
+            "category": 1,
+            "code": 2307
+          }
+        ]
+      ],
+      "../src/core/content/message/message.module.ts",
+      [
+        "../src/core/content/message/message.controller.ts",
+        [
+          {
+            "file": "../src/core/content/message/message.controller.ts",
+            "start": 375,
+            "length": 14,
+            "messageText": "Cannot find name 'SetUserAnswers'.",
+            "category": 1,
+            "code": 2304
+          },
+          {
+            "file": "../src/core/content/message/message.controller.ts",
+            "start": 433,
+            "length": 24,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'AnswerbyuserquizzService' does not exist on type 'MessageController'."
+          }
+        ]
+      ]
     ]
   },
   "version": "3.7.2"
