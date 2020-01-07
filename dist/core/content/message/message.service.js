@@ -24,120 +24,221 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-const submenu_entity_1 = require("./submenu.entity");
+const message_entity_1 = require("./message.entity");
+const user_entity_1 = require("../../users/user/user.entity");
+const moment = require("moment");
 let MessageService = class MessageService {
-    constructor(submenuRepository) {
-        this.submenuRepository = submenuRepository;
+    constructor(messageRepository, userRepository) {
+        this.messageRepository = messageRepository;
+        this.userRepository = userRepository;
     }
-    findByMenuId(menuId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const submenuList = yield this.submenuRepository.find({
-                where: { menu: menuId },
-                order: {
-                    name: "ASC"
-                }
-            });
-            return submenuList;
-        });
-    }
-    findFilesByMenu(menuId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            let productList = [];
-            if (menuId == 1) {
-                productList = yield this.submenuRepository.find({
-                    where: { menu: 2 },
-                    order: {
-                        name: "ASC"
-                    }
-                });
-            }
-            const submenuList = yield this.submenuRepository.find({
-                where: { menu: menuId },
-                order: {
-                    name: "ASC"
-                }
-            });
-            let listToReturn = [];
-            submenuList.forEach(tempFile => {
-                let tempPDF = '';
-                if (menuId == 1) {
-                    switch (tempFile.id) {
-                        case 2:
-                            tempPDF = productList[6].url;
-                            break;
-                        case 3:
-                            tempPDF = productList[5].url;
-                            break;
-                        case 4:
-                            tempPDF = productList[2].url;
-                            break;
-                        case 5:
-                            tempPDF = productList[4].url;
-                            break;
-                        case 6:
-                            tempPDF = productList[3].url;
-                            break;
-                        case 7:
-                            tempPDF = productList[0].url;
-                            break;
-                        case 8:
-                            tempPDF = productList[1].url;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                listToReturn.push({
-                    id: tempFile.id,
-                    name: tempFile.name,
-                    pdf: tempFile.url,
-                    product: tempPDF
-                });
-            });
-            return { files: listToReturn };
-        });
-    }
-    findSubMenuItems(menuId) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const submenuItems = yield this.submenuRepository.find({
-                select: ["id", "name"], where: { menu: menuId }, order: {
-                    name: "ASC"
-                }
-            });
-            let submenuToReturn = [];
-            submenuItems.forEach(submenu => {
-                submenuToReturn.push({
-                    value: submenu.id,
-                    label: submenu.name.toUpperCase()
-                });
-            });
-            return submenuToReturn;
-        });
-    }
-    create(request) {
+    startConversation(startRequest) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let status = 0;
-                const baseURl = "https://bioderma-space.sfo2.cdn.digitaloceanspaces.com/";
-                const position = request.fileUrl.indexOf("capacitacion/");
-                let submenu = yield this.submenuRepository.findOne(request.submenu);
-                if (submenu.title !== '') {
-                    status = 1;
-                }
-                else {
-                    submenu.createdAt = new Date();
-                    submenu.title = request.title;
-                    submenu.fileName = request.fileUrl.substring(position, request.fileUrl.length);
-                    submenu.url = baseURl + request.fileUrl.substring(position, request.fileUrl.length);
-                    yield this.submenuRepository.save(submenu);
-                }
-                return status;
+                let messageListToReturn = [];
+                const userConversation = yield this.userRepository.findOne({
+                    where: { email: startRequest.email }
+                });
+                let newMessage = yield this.messageRepository.create({
+                    content: 'Buen día, ¿En qué puedo ayudarle?',
+                    createdAt: new Date(),
+                    isAdmin: true,
+                    user: userConversation
+                });
+                const registeredMessage = yield this.messageRepository.save(newMessage);
+                let tempMessage = {};
+                tempMessage["id"] = registeredMessage.id;
+                tempMessage["type"] = registeredMessage.isAdmin ? 'Adviser' : 'client';
+                tempMessage["data"] = {
+                    name: registeredMessage.isAdmin ? 'Asesor' : null,
+                    date: moment(registeredMessage.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    msn: registeredMessage.content
+                };
+                messageListToReturn.push(tempMessage);
+                return { session: messageListToReturn };
             }
             catch (err) {
-                console.log("SubmenuService - create: ", err);
+                console.log("MessageService - startConversation: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error creating',
+                    error: 'Error starting conversation',
+                }, 500);
+            }
+        });
+    }
+    createMessage(createRequest) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let messageListToReturn = [];
+                const userConversation = yield this.userRepository.findOne({
+                    relations: ["role"],
+                    where: { email: createRequest.email }
+                });
+                let newMessage = yield this.messageRepository.create({
+                    content: createRequest.data,
+                    createdAt: new Date(),
+                    isAdmin: false,
+                    user: userConversation
+                });
+                yield this.messageRepository.save(newMessage);
+                const messageList = yield this.messageRepository.find({
+                    where: { user: userConversation },
+                    order: {
+                        createdAt: "ASC"
+                    }
+                });
+                messageList.forEach(message => {
+                    let tempMessage = {};
+                    tempMessage["id"] = message.id;
+                    tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
+                    tempMessage["data"] = {
+                        name: message.isAdmin ? 'Asesor' : null,
+                        date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                        msn: message.content
+                    };
+                    messageListToReturn.push(tempMessage);
+                });
+                return { session: messageListToReturn };
+            }
+            catch (err) {
+                console.log("MessageService - createMessage: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error sending message',
+                }, 500);
+            }
+        });
+    }
+    createAdminMessage(createRequest) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let messageListToReturn = [];
+                const userConversation = yield this.userRepository.findOne({
+                    relations: ["role"],
+                    where: { email: createRequest.userEmail }
+                });
+                let newMessage = yield this.messageRepository.create({
+                    content: createRequest.data,
+                    createdAt: new Date(),
+                    isAdmin: true,
+                    user: userConversation
+                });
+                yield this.messageRepository.save(newMessage);
+                const messageList = yield this.messageRepository.find({
+                    where: { user: userConversation },
+                    order: {
+                        createdAt: "ASC"
+                    }
+                });
+                messageList.forEach(message => {
+                    let tempMessage = {};
+                    tempMessage["id"] = message.id;
+                    tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
+                    tempMessage["data"] = {
+                        name: message.isAdmin ? 'Asesor' : null,
+                        date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                        msn: message.content
+                    };
+                    messageListToReturn.push(tempMessage);
+                });
+                return { session: messageListToReturn };
+            }
+            catch (err) {
+                console.log("MessageService - createAdminMessage: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error sending message',
+                }, 500);
+            }
+        });
+    }
+    getConversation(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let messageListToReturn = [];
+                const userConversation = yield this.userRepository.findOne({
+                    relations: ["role"],
+                    where: { email }
+                });
+                const messageList = yield this.messageRepository.find({
+                    where: { user: userConversation },
+                    order: {
+                        createdAt: "ASC"
+                    }
+                });
+                messageList.forEach(message => {
+                    let tempMessage = {};
+                    tempMessage["id"] = message.id;
+                    tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
+                    tempMessage["data"] = {
+                        name: message.isAdmin ? 'Asesor' : null,
+                        date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                        msn: message.content
+                    };
+                    messageListToReturn.push(tempMessage);
+                });
+                return { session: messageListToReturn };
+            }
+            catch (err) {
+                console.log("MessageService - getConversation: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting conversation',
+                }, 500);
+            }
+        });
+    }
+    getActiveConversations() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let messageListToReturn = [];
+                const userConversation = yield this.userRepository.findOne({
+                    relations: ["role"],
+                    where: { role: 1 }
+                });
+                const messageList = yield this.messageRepository.find({
+                    where: { user: userConversation },
+                    order: {
+                        createdAt: "ASC"
+                    }
+                });
+                const activeConversations = yield this.messageRepository.createQueryBuilder("msn")
+                    .distinctOn(["msn.user"])
+                    .select(["msn.id", "user.name", "user.lastName", "user.email"])
+                    .innerJoin("msn.user", "user")
+                    .getMany();
+                return { conversations: activeConversations };
+            }
+            catch (err) {
+                console.log("MessageService - getActiveConversations: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting conversations',
+                }, 500);
+            }
+        });
+    }
+    closeConversation(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const userConversation = yield this.userRepository.findOne({
+                    relations: ["role"],
+                    where: { email }
+                });
+                const messageList = yield this.messageRepository.find({
+                    where: { user: userConversation },
+                    order: {
+                        createdAt: "ASC"
+                    }
+                });
+                yield this.messageRepository.remove(messageList);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("MessageService - closeConversation: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error closing conversation',
                 }, 500);
             }
         });
@@ -145,8 +246,10 @@ let MessageService = class MessageService {
 };
 MessageService = __decorate([
     common_1.Injectable(),
-    __param(0, typeorm_1.InjectRepository(submenu_entity_1.Submenu)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(0, typeorm_1.InjectRepository(message_entity_1.Message)),
+    __param(1, typeorm_1.InjectRepository(user_entity_1.User)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], MessageService);
 exports.MessageService = MessageService;
 //# sourceMappingURL=message.service.js.map

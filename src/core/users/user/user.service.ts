@@ -8,6 +8,7 @@ import { Chain } from '../chain/chain.entity';
 import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
+import { Role } from '../role/role.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
@@ -24,7 +25,8 @@ export class UserService {
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
         @InjectRepository(Position) private positionRepository: Repository<Position>,
         @InjectRepository(City) private stateRepository: Repository<City>,
-        @InjectRepository(Delegation) private cityRepository: Repository<Delegation>) { }
+        @InjectRepository(Delegation) private cityRepository: Repository<Delegation>,
+        @InjectRepository(Role) private roleRepository: Repository<Role>) { }
 
     async  invite(request: InviteUserDTO): Promise<number> {
         try {
@@ -193,6 +195,7 @@ export class UserService {
                 const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
                 const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
                 const userType = await this.typeRepository.findOne(1);
+                const userRole = await this.roleRepository.findOne(2);
 
                 let newUser = await this.userRepository.create({
                     name: createNAOSUserDTO.name,
@@ -210,7 +213,8 @@ export class UserService {
                     delegation: userCity,
                     points: 0,
                     age: userAge,
-                    type: userType
+                    type: userType,
+                    role: userRole
                 });
 
                 await this.userRepository.save(newUser);
@@ -252,6 +256,7 @@ export class UserService {
                 const userCity = await this.cityRepository.findOne(createDrugStoreUserDTO.city);
                 const userType = await this.typeRepository.findOne(2);
                 const userChain = await this.chainRepository.findOne(createDrugStoreUserDTO.chain);
+                const userRole = await this.roleRepository.findOne(2);
 
                 let newUser = await this.userRepository.create({
                     name: createDrugStoreUserDTO.name,
@@ -274,7 +279,8 @@ export class UserService {
                     type: userType,
                     town: createDrugStoreUserDTO.town,
                     charge: createDrugStoreUserDTO.charge,
-                    mayoralty: createDrugStoreUserDTO.mayoralty
+                    mayoralty: createDrugStoreUserDTO.mayoralty,
+                    role: userRole
                 });
 
                 await this.userRepository.save(newUser);

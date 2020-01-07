@@ -1,171 +1,277 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Submenu } from './submenu.entity';
-import { CreateSubmenuDTO } from './submenu.dto';
+import { Message } from './message.entity';
+import { User } from '../../users/user/user.entity';
+import { StartConversationDTO, CreateMessageDTO, CreateAdminMessageDTO } from './message.dto';
+import * as moment from 'moment';
 
 @Injectable()
 export class MessageService {
 
-    constructor(@InjectRepository(Submenu) private submenuRepository: Repository<Submenu>) { }
+    constructor(@InjectRepository(Message) private messageRepository: Repository<Message>,
+        @InjectRepository(User) private userRepository: Repository<User>) { }
 
-    async findByMenuId(menuId: number): Promise<Submenu[]> {
-        const submenuList = await this.submenuRepository.find({
-            where: { menu: menuId },
-            order: {
-                name: "ASC"
-            }
-        });
-        return submenuList;
-    }
+    async startConversation(startRequest: StartConversationDTO): Promise<any> {
 
-    async findFilesByMenu(menuId: number): Promise<any> {
-
-        let productList = [];
-
-        if (menuId == 1) {
-            productList = await this.submenuRepository.find({
-                where: { menu: 2 },
-                order: {
-                    name: "ASC"
-                }
-            });
-        }
-
-        const submenuList = await this.submenuRepository.find({
-            where: { menu: menuId },
-            order: {
-                name: "ASC"
-            }
-        });
-
-        let listToReturn = [];
-
-        submenuList.forEach(tempFile => {
-
-            let tempPDF = '';
-
-            if (menuId == 1) {
-                switch (tempFile.id) {
-                    case 2:
-                        tempPDF = productList[6].url;
-                        break;
-                    case 3:
-                        tempPDF = productList[5].url;
-                        break;
-                    case 4:
-                        tempPDF = productList[2].url;
-                        break;
-                    case 5:
-                        tempPDF = productList[4].url;
-                        break;
-                    case 6:
-                        tempPDF = productList[3].url;
-                        break;
-                    case 7:
-                        tempPDF = productList[0].url;
-                        break;
-                    case 8:
-                        tempPDF = productList[1].url;
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            listToReturn.push({
-                id: tempFile.id,
-                name: tempFile.name,
-                pdf: tempFile.url,
-                product: tempPDF
-            });
-        });
-
-        return { files: listToReturn };
-    }
-
-    async findSubMenuItems(menuId: number): Promise<Submenu[]> {
-        const submenuItems = await this.submenuRepository.find({
-            select: ["id", "name"], where: { menu: menuId }, order: {
-                name: "ASC"
-            }
-        });
-        let submenuToReturn = [];
-        submenuItems.forEach(submenu => {
-            submenuToReturn.push({
-                value: submenu.id,
-                label: submenu.name.toUpperCase()
-            });
-        });
-        return submenuToReturn;
-    }
-
-    async create(request: CreateSubmenuDTO): Promise<number> {
         try {
-            let status = 0;
-            const baseURl = "https://bioderma-space.sfo2.cdn.digitaloceanspaces.com/";
-            const position = request.fileUrl.indexOf("capacitacion/");
-            let submenu = await this.submenuRepository.findOne(request.submenu);
-            if (submenu.title !== '') {
-                status = 1;
-            } else {
-                submenu.createdAt = new Date();
-                submenu.title = request.title;
-                submenu.fileName = request.fileUrl.substring(position, request.fileUrl.length);
-                submenu.url = baseURl + request.fileUrl.substring(position, request.fileUrl.length);
-                await this.submenuRepository.save(submenu);
-            }
-            return status;
+
+            let messageListToReturn = [];
+
+            const userConversation = await this.userRepository.findOne({
+                where: { email: startRequest.email }
+            });
+
+            let newMessage = await this.messageRepository.create({
+                content: 'Buen día, ¿En qué puedo ayudarle?',
+                createdAt: new Date(),
+                isAdmin: true,
+                user: userConversation
+            });
+
+            const registeredMessage = await this.messageRepository.save(newMessage);
+
+            // const messageList = await this.messageRepository.find({
+            //     where: { user: userConversation },
+            //     order: {
+            //         createdAt: "DESC"
+            //     }
+            // });
+
+            // messageList.forEach(message => {
+            let tempMessage = {};
+            tempMessage["id"] = registeredMessage.id;
+            tempMessage["type"] = registeredMessage.isAdmin ? 'Adviser' : 'client';
+            tempMessage["data"] = {
+                name: registeredMessage.isAdmin ? 'Asesor' : null,
+                date: moment(registeredMessage.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                msn: registeredMessage.content
+            };
+            messageListToReturn.push(tempMessage);
+            // });
+
+            return { session: messageListToReturn };
 
         } catch (err) {
-            console.log("SubmenuService - create: ", err);
+            console.log("MessageService - startConversation: ", err);
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error creating',
+                error: 'Error starting conversation',
             }, 500);
         }
     }
 
-    // async create(createDTO: CreateChainDTO): Promise<number> {
-    //     try {
-    //         let status = 0;
-    //         let chain = await this.chainRepository.findOne({ where: { name: createDTO.name, isDeleted: false } });
-    //         if (chain) {
-    //             status = 2;
-    //         } else {
-    //             let newChain = this.chainRepository.create({
-    //                 name: createDTO.name,
-    //                 isDeleted: createDTO.isDeleted
-    //             });
-    //             await this.chainRepository.save(newChain);
-    //             status = 1;
-    //         }
-    //         return status;
-    //     } catch (err) {
-    //         console.log("ChainService - create: ", err);
+    async createMessage(createRequest: CreateMessageDTO): Promise<any> {
 
-    //         throw new HttpException({
-    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
-    //             error: 'Error verifying token',
-    //         }, 500);
-    //     }
-    // }
+        try {
 
-    // async delete(chainId: number): Promise<number> {
-    //     try {
-    //         let chainToUpdate = await this.chainRepository.findOne(chainId);
-    //         chainToUpdate.isDeleted = true;
-    //         await this.chainRepository.save(chainToUpdate);
+            let messageListToReturn = [];
 
-    //         return 1;
-    //     } catch (err) {
-    //         console.log("ChainService - delete: ", err);
+            const userConversation = await this.userRepository.findOne({
+                relations: ["role"],
+                where: { email: createRequest.email }
+            });
 
-    //         throw new HttpException({
-    //             status: HttpStatus.INTERNAL_SERVER_ERROR,
-    //             error: 'Error verifying token',
-    //         }, 500);
-    //     }
-    // }
+            let newMessage = await this.messageRepository.create({
+                content: createRequest.data,
+                createdAt: new Date(),
+                isAdmin: false,
+                user: userConversation
+            });
+
+            await this.messageRepository.save(newMessage);
+
+            const messageList = await this.messageRepository.find({
+                where: { user: userConversation },
+                order: {
+                    createdAt: "ASC"
+                }
+            });
+
+            messageList.forEach(message => {
+                let tempMessage = {};
+                tempMessage["id"] = message.id;
+                tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
+                tempMessage["data"] = {
+                    name: message.isAdmin ? 'Asesor' : null,
+                    date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    msn: message.content
+                };
+                messageListToReturn.push(tempMessage);
+            });
+
+            return { session: messageListToReturn };
+
+        } catch (err) {
+            console.log("MessageService - createMessage: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error sending message',
+            }, 500);
+        }
+    }
+
+    async createAdminMessage(createRequest: CreateAdminMessageDTO): Promise<any> {
+
+        try {
+
+            let messageListToReturn = [];
+
+            const userConversation = await this.userRepository.findOne({
+                relations: ["role"],
+                where: { email: createRequest.userEmail }
+            });
+
+            let newMessage = await this.messageRepository.create({
+                content: createRequest.data,
+                createdAt: new Date(),
+                isAdmin: true,
+                user: userConversation
+            });
+
+            await this.messageRepository.save(newMessage);
+
+            const messageList = await this.messageRepository.find({
+                where: { user: userConversation },
+                order: {
+                    createdAt: "ASC"
+                }
+            });
+
+            messageList.forEach(message => {
+                let tempMessage = {};
+                tempMessage["id"] = message.id;
+                tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
+                tempMessage["data"] = {
+                    name: message.isAdmin ? 'Asesor' : null,
+                    date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    msn: message.content
+                };
+                messageListToReturn.push(tempMessage);
+            });
+
+            return { session: messageListToReturn };
+
+        } catch (err) {
+            console.log("MessageService - createAdminMessage: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error sending message',
+            }, 500);
+        }
+    }
+
+    async getConversation(email: string): Promise<any> {
+
+        try {
+
+            let messageListToReturn = [];
+
+            const userConversation = await this.userRepository.findOne({
+                relations: ["role"],
+                where: { email }
+            });
+
+            const messageList = await this.messageRepository.find({
+                where: { user: userConversation },
+                order: {
+                    createdAt: "ASC"
+                }
+            });
+
+            messageList.forEach(message => {
+                let tempMessage = {};
+                tempMessage["id"] = message.id;
+                tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
+                tempMessage["data"] = {
+                    name: message.isAdmin ? 'Asesor' : null,
+                    date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    msn: message.content
+                };
+                messageListToReturn.push(tempMessage);
+            });
+
+            return { session: messageListToReturn };
+
+        } catch (err) {
+            console.log("MessageService - getConversation: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting conversation',
+            }, 500);
+        }
+    }
+
+    async getActiveConversations(): Promise<any> {
+
+        try {
+
+            let messageListToReturn = [];
+
+            const userConversation = await this.userRepository.findOne({
+                relations: ["role"],
+                where: { role: 1 }
+            });
+
+            const messageList = await this.messageRepository.find({
+                where: { user: userConversation },
+                order: {
+                    createdAt: "ASC"
+                }
+            });
+
+            const activeConversations = await this.messageRepository.createQueryBuilder("msn")
+                .distinctOn(["msn.user"])
+                // .distinct(true)
+                .select(["msn.id", "user.name", "user.lastName", "user.email"])
+                .innerJoin("msn.user", "user")
+                // .orderBy("msn.createdAt", "ASC")
+                .getMany();
+
+            return { conversations: activeConversations };
+
+        } catch (err) {
+            console.log("MessageService - getActiveConversations: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting conversations',
+            }, 500);
+        }
+    }
+
+    async closeConversation(email: string): Promise<any> {
+
+        try {
+
+            const userConversation = await this.userRepository.findOne({
+                relations: ["role"],
+                where: { email }
+            });
+
+            const messageList = await this.messageRepository.find({
+                where: { user: userConversation },
+                order: {
+                    createdAt: "ASC"
+                }
+            });
+
+            await this.messageRepository.remove(messageList);
+
+            return { status: 0 };
+
+        } catch (err) {
+            console.log("MessageService - closeConversation: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error closing conversation',
+            }, 500);
+        }
+    }
+
 }

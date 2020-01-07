@@ -31,12 +31,13 @@ const chain_entity_1 = require("../chain/chain.entity");
 const city_entity_1 = require("../city/city.entity");
 const delegation_entity_1 = require("../delegation/delegation.entity");
 const position_entity_1 = require("../position/position.entity");
+const role_entity_1 = require("../role/role.entity");
 const mailer_1 = require("@nest-modules/mailer");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 let UserService = class UserService {
-    constructor(userRepository, mailerService, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository) {
+    constructor(userRepository, mailerService, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository, roleRepository) {
         this.userRepository = userRepository;
         this.mailerService = mailerService;
         this.tokenRepository = tokenRepository;
@@ -45,6 +46,7 @@ let UserService = class UserService {
         this.positionRepository = positionRepository;
         this.stateRepository = stateRepository;
         this.cityRepository = cityRepository;
+        this.roleRepository = roleRepository;
     }
     invite(request) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -196,6 +198,7 @@ let UserService = class UserService {
                     const userState = yield this.stateRepository.findOne(createNAOSUserDTO.state);
                     const userCity = yield this.cityRepository.findOne(createNAOSUserDTO.city);
                     const userType = yield this.typeRepository.findOne(1);
+                    const userRole = yield this.roleRepository.findOne(2);
                     let newUser = yield this.userRepository.create({
                         name: createNAOSUserDTO.name,
                         lastName: createNAOSUserDTO.lastName,
@@ -212,7 +215,8 @@ let UserService = class UserService {
                         delegation: userCity,
                         points: 0,
                         age: userAge,
-                        type: userType
+                        type: userType,
+                        role: userRole
                     });
                     yield this.userRepository.save(newUser);
                     response = { status: 0 };
@@ -245,6 +249,7 @@ let UserService = class UserService {
                     const userCity = yield this.cityRepository.findOne(createDrugStoreUserDTO.city);
                     const userType = yield this.typeRepository.findOne(2);
                     const userChain = yield this.chainRepository.findOne(createDrugStoreUserDTO.chain);
+                    const userRole = yield this.roleRepository.findOne(2);
                     let newUser = yield this.userRepository.create({
                         name: createDrugStoreUserDTO.name,
                         lastName: createDrugStoreUserDTO.lastName,
@@ -266,7 +271,8 @@ let UserService = class UserService {
                         type: userType,
                         town: createDrugStoreUserDTO.town,
                         charge: createDrugStoreUserDTO.charge,
-                        mayoralty: createDrugStoreUserDTO.mayoralty
+                        mayoralty: createDrugStoreUserDTO.mayoralty,
+                        role: userRole
                     });
                     yield this.userRepository.save(newUser);
                     response = { status: 0 };
@@ -441,8 +447,10 @@ UserService = __decorate([
     __param(5, typeorm_1.InjectRepository(position_entity_1.Position)),
     __param(6, typeorm_1.InjectRepository(city_entity_1.City)),
     __param(7, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
+    __param(8, typeorm_1.InjectRepository(role_entity_1.Role)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         mailer_1.MailerService,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

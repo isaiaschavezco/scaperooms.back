@@ -20,17 +20,42 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const message_service_1 = require("./message.service");
+const message_dto_1 = require("./message.dto");
 let MessageController = class MessageController {
     constructor(messageService) {
         this.messageService = messageService;
     }
-    setUserAnswers(setUserAnswers) {
+    startConversation(startConversationDTO) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.AnswerbyuserquizzService.setUserAnswer(setUserAnswers);
+            return yield this.messageService.startConversation(startConversationDTO);
+        });
+    }
+    sendMessage(createMessageDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.messageService.createMessage(createMessageDTO);
+        });
+    }
+    sendAdminMessage(createAdminMessageDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.messageService.createAdminMessage(createAdminMessageDTO);
+        });
+    }
+    getConversation(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.messageService.getConversation(email);
+        });
+    }
+    getActiveConversations() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.messageService.getActiveConversations();
+        });
+    }
+    closeConversation(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.messageService.closeConversation(email);
         });
     }
 };
@@ -38,9 +63,43 @@ __decorate([
     common_1.Post('user/start'),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_a = typeof SetUserAnswers !== "undefined" && SetUserAnswers) === "function" ? _a : Object]),
+    __metadata("design:paramtypes", [message_dto_1.StartConversationDTO]),
     __metadata("design:returntype", Promise)
-], MessageController.prototype, "setUserAnswers", null);
+], MessageController.prototype, "startConversation", null);
+__decorate([
+    common_1.Post('user'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [message_dto_1.CreateMessageDTO]),
+    __metadata("design:returntype", Promise)
+], MessageController.prototype, "sendMessage", null);
+__decorate([
+    common_1.Post('admin'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [message_dto_1.CreateAdminMessageDTO]),
+    __metadata("design:returntype", Promise)
+], MessageController.prototype, "sendAdminMessage", null);
+__decorate([
+    common_1.Get('user/:email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], MessageController.prototype, "getConversation", null);
+__decorate([
+    common_1.Get('list'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], MessageController.prototype, "getActiveConversations", null);
+__decorate([
+    common_1.Delete('user/:email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], MessageController.prototype, "closeConversation", null);
 MessageController = __decorate([
     common_1.Controller('message'),
     __metadata("design:paramtypes", [message_service_1.MessageService])

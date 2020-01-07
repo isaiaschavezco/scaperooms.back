@@ -2346,15 +2346,15 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "160daaff9b710866a36eaa57137ed6e099c13dc3139f4e0f0b446f45fe3f9f04",
-        "signature": "5ce5ca4ff346021052502dbcb91da24160e4624270aaa4c82e19c7bb7dc3c430"
+        "version": "bc0d110d3c38cf72a07c4c5a3ede8e3d5789458dc984d98383998a7c5f7e196a",
+        "signature": "4e1d96abe6474a78b5731af66fde4cc4c5f40aeed41f2e581ee1e7bacba534a0"
       },
       "../src/core/users/user/user.controller.ts": {
         "version": "3d0dcf0efcc6dc351fe210ae305c1eff12e2fb8e99fd2b2afc5e02af1b99fd8f",
         "signature": "902d0904ed222bc89a8226358b6345b84c5140cb2491ed0f3c0455dea8467075"
       },
       "../src/core/users/user/user.module.ts": {
-        "version": "910f3ce679c4ce2892e28dfe58dcff642d6ca68276e2cfa4461fad494814eb07",
+        "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",
         "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329"
       },
       "../src/core/users/role/role.service.ts": {
@@ -3969,8 +3969,24 @@
         "version": "d1a7549d6187bbe23ab88e28ca41b88594721231c1d5cfd86d9fc35938900f60",
         "signature": "931007c4634c7facf1ef2ecfbe745b00b97185c268647ec114c8be764657f5ee"
       },
+      "../src/core/content/message/message.dto.ts": {
+        "version": "d74f17164eb0687e8a6c84a6efdc162367a4b87078b21579dca148fe4e224347",
+        "signature": "1af3f99da4d5ddd84e618fd09cb355cc522dc18093aaeb6c23cb3523174d816e"
+      },
+      "../src/core/content/message/message.service.ts": {
+        "version": "9f7dc46262a977a31573e411ed4fed86a3ad5920ec4f1686e70880fe15d97f66",
+        "signature": "bab7335e6c32c35dfeede21d1999dd1405e58dfc720a730c50db755ff12472a4"
+      },
+      "../src/core/content/message/message.controller.ts": {
+        "version": "8fc7a16aa2a4f82229df6b4a7667e375cd70c208445b4a32083c8d3a3fd2e6ac",
+        "signature": "e7947354a6d21b700f5e29a3ea1a2006869ef39e7006222c1b8d817bea925dd3"
+      },
+      "../src/core/content/message/message.module.ts": {
+        "version": "c789f94d7cc853fb903cd2fbd8e60dc51e768fdee72ed7d821b70d17f3dc1afa",
+        "signature": "6f3ad4d6feae0a27bd7a0529297a3ebcefcfde9fd8db76261760888377768037"
+      },
       "../src/app.module.ts": {
-        "version": "a11b8140065e9e5e19f3e616c8dc66215e26f36bdd208a75da260d43edd689d4",
+        "version": "1dec3edf351938c7974a629879412a11b2ebf206f466e0c7adfab41388e389de",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -4112,22 +4128,6 @@
       "../src/main.ts": {
         "version": "bf6f103ee525f06c8f66abbd1a423660edd7a4211d6c1e8595429a162164e198",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
-      },
-      "../src/core/content/message/message.service.ts": {
-        "version": "fa0bbc882013bb85a10c63ec7937087cda01ab3e355d0728f08222aae810bf62",
-        "signature": "3f4a208f0c42d994b3194152df851d03bba96044763b1d638e8a6bc350a33f00"
-      },
-      "../src/core/content/message/message.dto.ts": {
-        "version": "709c6ae07938697e2803520a19e36aa835ab5e96877a5dc82c925eab2866ee6a",
-        "signature": "eafcab7e059626cbd5d74abac3c18ee2bc43d0e70a3c8c812c5b0b3b067b7f2f"
-      },
-      "../src/core/content/message/message.controller.ts": {
-        "version": "b5980272c71e19822f83288ee9efc3e3c44b75a9e7cbdf875fcbd9659aaed3e8",
-        "signature": "92b2025f3bee09f668be259457290af237d8dc28296af80b02cd3ae575aa7b30"
-      },
-      "../src/core/content/message/message.module.ts": {
-        "version": "03c51ae7c4f0858bd75b6d3ac590f54079ea19da6c8b37da1e9bab88c297c839",
-        "signature": "6f3ad4d6feae0a27bd7a0529297a3ebcefcfde9fd8db76261760888377768037"
       },
       "../src/core/trivia/points-type/points-type.controller.ts": {
         "version": "86c89d82a952a7b01c3c482569b88811b1d258d923e75dd78928e1914cbdb0dd",
@@ -8007,6 +8007,7 @@
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/position/position.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../src/core/users/user/user.dto.ts",
         "../node_modules/@nest-modules/mailer/dist/index.d.ts",
         "../node_modules/moment/moment.d.ts",
@@ -8033,6 +8034,7 @@
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11446,6 +11448,38 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/content/message/message.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/message/message.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/message/message.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/content/message/message.dto.ts",
+        "../node_modules/moment/moment.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/message/message.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/content/message/message.service.ts",
+        "../src/core/content/message/message.dto.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/content/message/message.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../src/core/content/message/message.service.ts",
+        "../src/core/content/message/message.controller.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/content/message/message.entity.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -11478,6 +11512,7 @@
         "../src/config/config.module.ts",
         "../src/core/users/configuration/configuration.module.ts",
         "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
+        "../src/core/content/message/message.module.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11720,31 +11755,6 @@
         "../src/app.module.ts",
         "../src/config/config.service.ts",
         "../node_modules/@types/body-parser/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/message/message.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/typeorm/index.d.ts",
-        "../node_modules/typeorm/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/message/message.dto.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/message/message.controller.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../src/core/content/message/message.service.ts",
-        "../src/core/content/message/message.dto.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/message/message.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../src/core/content/message/message.service.ts",
-        "../src/core/content/message/message.controller.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15431,6 +15441,7 @@
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../src/core/users/user/user.dto.ts"
       ],
       "../src/core/users/user/user.controller.ts": [
@@ -18468,6 +18479,16 @@
         "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
         "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts"
       ],
+      "../src/core/content/message/message.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/message/message.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/content/message/message.dto.ts"
+      ],
+      "../src/core/content/message/message.controller.ts": [
+        "../src/core/content/message/message.service.ts",
+        "../src/core/content/message/message.dto.ts"
+      ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
@@ -18702,9 +18723,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/core/content/message/message.controller.ts": [
-        "../src/core/content/message/message.service.ts"
-      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -18772,9 +18790,6 @@
         "../node_modules/@types/superagent/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/content/message/message.service.ts": [
-        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -19770,6 +19785,9 @@
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
+      "../src/core/content/message/message.dto.ts",
+      "../src/core/content/message/message.controller.ts",
+      "../src/core/content/message/message.module.ts",
       "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
@@ -19806,7 +19824,6 @@
       "../node_modules/@types/connect/index.d.ts",
       "../node_modules/@types/body-parser/index.d.ts",
       "../src/main.ts",
-      "../src/core/content/message/message.dto.ts",
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
@@ -19827,49 +19844,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      [
-        "../src/core/content/message/message.service.ts",
-        [
-          {
-            "file": "../src/core/content/message/message.service.ts",
-            "start": 186,
-            "length": 18,
-            "messageText": "Cannot find module './submenu.entity'.",
-            "category": 1,
-            "code": 2307
-          },
-          {
-            "file": "../src/core/content/message/message.service.ts",
-            "start": 239,
-            "length": 15,
-            "messageText": "Cannot find module './submenu.dto'.",
-            "category": 1,
-            "code": 2307
-          }
-        ]
-      ],
-      "../src/core/content/message/message.module.ts",
-      [
-        "../src/core/content/message/message.controller.ts",
-        [
-          {
-            "file": "../src/core/content/message/message.controller.ts",
-            "start": 375,
-            "length": 14,
-            "messageText": "Cannot find name 'SetUserAnswers'.",
-            "category": 1,
-            "code": 2304
-          },
-          {
-            "file": "../src/core/content/message/message.controller.ts",
-            "start": 433,
-            "length": 24,
-            "code": 2339,
-            "category": 1,
-            "messageText": "Property 'AnswerbyuserquizzService' does not exist on type 'MessageController'."
-          }
-        ]
-      ]
+      "../src/core/content/message/message.service.ts"
     ]
   },
   "version": "3.7.2"

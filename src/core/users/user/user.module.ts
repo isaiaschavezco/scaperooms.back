@@ -9,6 +9,7 @@ import { Chain } from '../chain/chain.entity';
 import { Position } from '../position/position.entity';
 import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
+import { Role } from '../role/role.entity';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { Delegation } from '../delegation/delegation.entity';
     TypeOrmModule.forFeature([Chain]),
     TypeOrmModule.forFeature([Position]),
     TypeOrmModule.forFeature([City]),
-    TypeOrmModule.forFeature([Delegation])
+    TypeOrmModule.forFeature([Delegation]),
+    TypeOrmModule.forFeature([Role])
   ],
   providers: [UserService],
   controllers: [UserController]

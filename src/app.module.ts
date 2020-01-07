@@ -29,6 +29,7 @@ import { SesionModule } from './core/users/sesion/sesion.module';
 import { ConfigModule } from './config/config.module';
 import { ConfigutarionModule } from './core/users/configuration/configuration.module';
 import { AnswerbyuserquizzModule } from './core/trivia/answerbyuserquizz/answerbyuserquizz.module';
+import { MessageModule } from './core/content/message/message.module';
 
 @Module({
   imports: [
@@ -85,7 +86,8 @@ import { AnswerbyuserquizzModule } from './core/trivia/answerbyuserquizz/answerb
     QuizzModule,
     ConfigModule,
     ConfigutarionModule,
-    AnswerbyuserquizzModule],
+    AnswerbyuserquizzModule,
+    MessageModule],
   controllers: [AppController],
   providers: [AppService],
 })
