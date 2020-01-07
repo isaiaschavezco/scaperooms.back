@@ -3893,16 +3893,20 @@
         "version": "9ad98983f52f7d10e86b8bdcc8cefa46fad862710ba8c20cae5a7ac6bfaecedf",
         "signature": "9ad98983f52f7d10e86b8bdcc8cefa46fad862710ba8c20cae5a7ac6bfaecedf"
       },
+      "../src/core/users/notification/notification.dto.ts": {
+        "version": "69fd768de2c8ed4d0fdf33b6ad9890f46cc4481711f1389657517f1f42df27d4",
+        "signature": "cc446f196a5511168f28ff030bd2e7f645d02dfa59b575220ea60c00d4f97a2c"
+      },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "88f638037b436c9584382619aa7e332231565292be80f8200b3ea876eb7db9aa",
-        "signature": "f31afa6d9af89432a470fb5f4cdaec7db3b7fe05539d53d88fb6cffec623979d"
+        "version": "dc24cbac387e9401370868f7d065d8c2507ead1a45c15ec09e791b10b8d73111",
+        "signature": "80cae38a343b1995c5dd85d893ec865d71d0862ecbf3804d6a4c9019e830a3e3"
       },
       "../src/core/users/notification/notification.controller.ts": {
-        "version": "5d10294d23d0d2508dccaa3cf89b00e7a955170edc993d4c8fc5fb6b99ba2185",
-        "signature": "fb29e6f72ba0b8d55e493124c5e65919acfc74d811f5da9c81e78f84ac2a48dd"
+        "version": "303425c6c1a4f415f36a28e9e29045ca8b2c68d7d03a4a5d3aee666d87148215",
+        "signature": "89ba59c59f65880a75fd5bf08450b020c0e6f1c04bd230bed24ea22ccc37d719"
       },
       "../src/core/users/notification/notification.module.ts": {
-        "version": "843122d6a5b3f2ec4b52df70b1e374735e02126b8b83062641e0a460c5ec5bcb",
+        "version": "d94aea1b4d11cec73e7211d51401da406995e09b46f2b7efd7e2583653dd610c",
         "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e"
       },
       "../src/core/users/configuration/configuration.entity.ts": {
@@ -4152,10 +4156,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
         "version": "e229aaeb8f35fcf943fa62e76863ffa0bf15cc21f52527cad3827394bcdbdace",
         "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
-      },
-      "../src/core/users/notification/notification.dto.ts": {
-        "version": "941c1c9bc48186cf95e59936a9498da23bfca03c6d9b0063a8f9ac0edb0f5496",
-        "signature": "c99f89be4bb62013afa8d46b3342f552804e506208b24d18f57ab35d0ef26ae2"
       },
       "../node_modules/@types/babel-types/index.d.ts": {
         "version": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27",
@@ -11303,24 +11303,42 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/users/notification/notification.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/users/notification/notification.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
         "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
         "../node_modules/onesignal-api-client-core/lib/index.d.ts",
+        "../src/core/users/notification/notificacion.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/users/sesion/sesion.entity.ts",
+        "../src/core/users/notification/notification.dto.ts",
+        "../node_modules/moment/moment.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/core/users/notification/notification.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/users/notification/notification.service.ts",
+        "../src/core/users/notification/notification.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../src/core/users/notification/notification.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/core/users/notification/notification.controller.ts",
         "../src/core/users/notification/notification.service.ts",
         "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
+        "../src/core/trivia/target/target.entity.ts",
+        "../src/core/users/notification/notificacion.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/users/sesion/sesion.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11791,10 +11809,6 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/users/notification/notification.dto.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -18436,10 +18450,17 @@
       ],
       "../src/core/users/notification/notification.service.ts": [
         "../node_modules/onesignal-api-client-core/lib/index.d.ts",
-        "../node_modules/onesignal-api-client-nest/lib/index.d.ts"
+        "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/users/notification/notificacion.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/users/sesion/sesion.entity.ts",
+        "../src/core/users/notification/notification.dto.ts"
       ],
       "../src/core/users/notification/notification.controller.ts": [
-        "../src/core/users/notification/notification.service.ts"
+        "../src/core/users/notification/notification.service.ts",
+        "../src/core/users/notification/notification.dto.ts"
       ],
       "../src/core/users/sesion/sesion.service.ts": [
         "../node_modules/typeorm/index.d.ts",
@@ -19766,7 +19787,7 @@
       "../node_modules/onesignal-api-client-core/lib/index.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
-      "../src/core/users/notification/notification.service.ts",
+      "../src/core/users/notification/notification.dto.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
@@ -19786,6 +19807,7 @@
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
+      "../src/core/content/message/message.service.ts",
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/app.module.ts",
@@ -19830,7 +19852,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/core/users/notification/notification.dto.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
       "../node_modules/@types/color-name/index.d.ts",
@@ -19844,7 +19865,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/message/message.service.ts"
+      "../src/core/users/notification/notification.service.ts"
     ]
   },
   "version": "3.7.2"

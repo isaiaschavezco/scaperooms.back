@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -19,11 +22,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
+const typeorm_2 = require("typeorm");
 const onesignal_api_client_nest_1 = require("onesignal-api-client-nest");
 const onesignal_api_client_core_1 = require("onesignal-api-client-core");
+const notificacion_entity_1 = require("./notificacion.entity");
+const target_entity_1 = require("../../trivia/target/target.entity");
+const user_entity_1 = require("../user/user.entity");
+const sesion_entity_1 = require("../sesion/sesion.entity");
+const moment = require("moment");
 let NotificationService = class NotificationService {
-    constructor(oneSignalService) {
+    constructor(oneSignalService, notificationRepository, targetRepository, userRepository, sesionRepository) {
         this.oneSignalService = oneSignalService;
+        this.notificationRepository = notificationRepository;
+        this.targetRepository = targetRepository;
+        this.userRepository = userRepository;
+        this.sesionRepository = sesionRepository;
     }
     viewNotifications() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -57,10 +71,121 @@ let NotificationService = class NotificationService {
             }
         });
     }
+    getNotificationList() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let notificationToReturn = [];
+                const notificationList = yield this.notificationRepository.find({
+                    take: 10,
+                    order: {
+                        createdAt: "DESC"
+                    }
+                });
+                notificationList.forEach(notification => {
+                    notificationToReturn.push({
+                        id: notification.id,
+                        header: notification.header,
+                        content: notification.content,
+                        createdAt: moment(notification.createdAt).format('DD/MMM/YYYY')
+                    });
+                });
+                return { notificacions: notificationToReturn };
+            }
+            catch (err) {
+                console.log("NotificationService - getNotificationList: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting notifications',
+                }, 500);
+            }
+        });
+    }
+    send(sendRequest) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let filterQueries = [];
+                let userIds = [];
+                let playerIds = [];
+                let newNotification = yield this.notificationRepository.create({
+                    content: sendRequest.content,
+                    header: sendRequest.title,
+                    createdAt: new Date()
+                });
+                const notificationTargets = yield this.targetRepository.findByIds(sendRequest.targets, {
+                    relations: ["city", "chain", "position", "type"]
+                });
+                notificationTargets.forEach(target => {
+                    let tempTargetObject = {};
+                    if (target.initAge !== null) {
+                        tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
+                    }
+                    if (target.gender !== null) {
+                        tempTargetObject['gender'] = target.gender;
+                    }
+                    if (target.chain !== null) {
+                        tempTargetObject['chain'] = target.chain.id;
+                    }
+                    if (target.city !== null) {
+                        tempTargetObject['city'] = target.city.id;
+                    }
+                    if (target.position !== null) {
+                        tempTargetObject['position'] = target.position.id;
+                    }
+                    if (target.type !== null) {
+                        tempTargetObject['type'] = target.type.id;
+                    }
+                    if (Object.keys(tempTargetObject).length > 0) {
+                        filterQueries.push(tempTargetObject);
+                    }
+                });
+                const usersToSend = yield this.userRepository.find({
+                    select: ["id"],
+                    where: filterQueries
+                });
+                newNotification.user = usersToSend;
+                yield this.notificationRepository.save(newNotification);
+                usersToSend.forEach(user => {
+                    userIds.push(user.id);
+                });
+                console.log("userIds: ", userIds);
+                const activeSessions = yield this.sesionRepository.find({
+                    user: typeorm_2.In(userIds)
+                });
+                activeSessions.forEach(sesion => {
+                    if (sesion.playerId) {
+                        playerIds.push(sesion.playerId);
+                    }
+                });
+                const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
+                    .setIncludePlayerIds(playerIds)
+                    .notification()
+                    .setHeadings({ en: sendRequest.title })
+                    .setContents({ en: sendRequest.content })
+                    .build();
+                yield this.oneSignalService.createNotification(input);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("NotificationService - send: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error sending notification',
+                }, 500);
+            }
+        });
+    }
 };
 NotificationService = __decorate([
     common_1.Injectable(),
-    __metadata("design:paramtypes", [onesignal_api_client_nest_1.OneSignalService])
+    __param(1, typeorm_1.InjectRepository(notificacion_entity_1.Notificacion)),
+    __param(2, typeorm_1.InjectRepository(target_entity_1.Target)),
+    __param(3, typeorm_1.InjectRepository(user_entity_1.User)),
+    __param(4, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
+    __metadata("design:paramtypes", [onesignal_api_client_nest_1.OneSignalService,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], NotificationService);
 exports.NotificationService = NotificationService;
 //# sourceMappingURL=notification.service.js.map

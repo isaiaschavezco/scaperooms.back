@@ -16,9 +16,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const typeorm_1 = require("@nestjs/typeorm");
 const notification_controller_1 = require("./notification.controller");
 const notification_service_1 = require("./notification.service");
 const onesignal_api_client_nest_1 = require("onesignal-api-client-nest");
+const target_entity_1 = require("../../trivia/target/target.entity");
+const notificacion_entity_1 = require("./notificacion.entity");
+const user_entity_1 = require("../user/user.entity");
+const sesion_entity_1 = require("../sesion/sesion.entity");
 let NotificationModule = class NotificationModule {
 };
 NotificationModule = __decorate([
@@ -32,6 +37,10 @@ NotificationModule = __decorate([
                     };
                 })
             }),
+            typeorm_1.TypeOrmModule.forFeature([notificacion_entity_1.Notificacion]),
+            typeorm_1.TypeOrmModule.forFeature([target_entity_1.Target]),
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
+            typeorm_1.TypeOrmModule.forFeature([sesion_entity_1.Sesion])
         ],
         controllers: [notification_controller_1.NotificationController],
         providers: [notification_service_1.NotificationService]

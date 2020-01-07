@@ -1,4 +1,5 @@
 export class CreateNotificationDTO {
-    readonly initAge: number;
-    readonly finalAge: number;
+    readonly title: string;
+    readonly content: string;
+    readonly targets: number[];
 }

@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { NotificationController } from './notification.controller';
 import { NotificationService } from './notification.service';
 import { OneSignalModule } from 'onesignal-api-client-nest';
+import { Target } from '../../trivia/target/target.entity';
+import { Notificacion } from './notificacion.entity';
+import { User } from '../user/user.entity';
+import { Sesion } from '../sesion/sesion.entity';
 
 @Module({
   imports: [
@@ -14,6 +19,10 @@ import { OneSignalModule } from 'onesignal-api-client-nest';
       }
       // inject: [ConfigService],
     }),
+    TypeOrmModule.forFeature([Notificacion]),
+    TypeOrmModule.forFeature([Target]),
+    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Sesion])
   ],
   controllers: [NotificationController],
   providers: [NotificationService]
