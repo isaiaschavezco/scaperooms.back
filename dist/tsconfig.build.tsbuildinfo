@@ -3926,7 +3926,7 @@
         "signature": "72b464e64c0c528e96f5ee9baaf68ebfc26e07da70d1b55677d7e717ad7a5a46"
       },
       "../src/core/users/sesion/sesion.module.ts": {
-        "version": "9fbdff401d84a66f5adeec0dddcfde52f0d73cd4b0c8150141dc48f7e16d2107",
+        "version": "f4209afbcfba3dc13542eaf79df059fc0d245395a0fc4e8535c8dece3f7eb910",
         "signature": "d5df43fd1c2452f3ab45975fad5d1d8bd29a6e648705db45ea65ad80fa256b60"
       },
       "../node_modules/dotenv/types/index.d.ts": {
@@ -11377,6 +11377,7 @@
         "../src/core/users/sesion/sesion.service.ts",
         "../src/core/users/sesion/sesion.entity.ts",
         "../src/core/users/user/user.entity.ts",
+        "../src/core/users/notification/notificacion.entity.ts",
         "../src/core/users/configuration/configuration.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -19788,13 +19789,13 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
+      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/sesion/sesion.dto.ts",
       "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
-      "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
       "../src/config/config.service.ts",
       "../src/config/config.module.ts",
@@ -19865,7 +19866,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/notification/notification.service.ts"
+      "../src/core/users/sesion/sesion.module.ts"
     ]
   },
   "version": "3.7.2"
