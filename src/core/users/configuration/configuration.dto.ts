@@ -13,3 +13,11 @@ export class UpdateBiodermaGameStatusDTO {
 export class UpdateBiodermaGameImageDTO {
     readonly biodermaGameImage: string;
 }
+
+export class UpdateBiodermaGameCampaingImageDTO {
+    readonly biodermaGameCampaingImage: string;
+}
+
+export class UpdateBiodermaGameBlogImageDTO {
+    readonly biodermaGameBlogImage: string;
+}

@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { ConfigutarionService } from './configuration.service';
-import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO } from './configuration.dto';
+import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO, UpdateBiodermaGameCampaingImageDTO, UpdateBiodermaGameBlogImageDTO } from './configuration.dto';
 
 @Controller('configutarion')
 export class ConfigutarionController {
@@ -50,6 +50,16 @@ export class ConfigutarionController {
     @Post('image')
     async updateBiodermaImage(@Body() updateBiodermaGameImageDTO: UpdateBiodermaGameImageDTO): Promise<any> {
         return await this.configutarionService.updateBiodermaGameImage(updateBiodermaGameImageDTO);
+    }
+
+    @Post('campaingimage')
+    async updateBiodermaCampaignImage(@Body() updateBiodermaGameCampaingImageDTO: UpdateBiodermaGameCampaingImageDTO): Promise<any> {
+        return await this.configutarionService.updateBiodermaGameCampaingImage(updateBiodermaGameCampaingImageDTO);
+    }
+
+    @Post('blogimage')
+    async updateBiodermaBlogImage(@Body() updateBiodermaGameBlogImageDTO: UpdateBiodermaGameBlogImageDTO): Promise<any> {
+        return await this.configutarionService.updateBiodermaGameBlogImage(updateBiodermaGameBlogImageDTO);
     }
 
 }

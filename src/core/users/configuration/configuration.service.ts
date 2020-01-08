@@ -2,7 +2,7 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Configuration } from './configuration.entity';
-import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO } from './configuration.dto';
+import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO, UpdateBiodermaGameCampaingImageDTO, UpdateBiodermaGameBlogImageDTO } from './configuration.dto';
 
 @Injectable()
 export class ConfigutarionService {
@@ -207,7 +207,49 @@ export class ConfigutarionService {
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error getting theme',
+                error: 'Error setting image',
+            }, 500);
+        }
+    }
+
+    async updateBiodermaGameCampaingImage(imageRequest: UpdateBiodermaGameCampaingImageDTO): Promise<any> {
+        try {
+
+            let configToUpdate = await this.configurationRepository.findOne(1);
+
+            configToUpdate.biodermaGameCampaingImage = imageRequest.biodermaGameCampaingImage;
+
+            await this.configurationRepository.save(configToUpdate);
+
+            return { status: 0 };
+
+        } catch (err) {
+            console.log("ConfigutarionService - updateBiodermaGameCampaingImage: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error setting image',
+            }, 500);
+        }
+    }
+
+    async updateBiodermaGameBlogImage(imageRequest: UpdateBiodermaGameBlogImageDTO): Promise<any> {
+        try {
+
+            let configToUpdate = await this.configurationRepository.findOne(1);
+
+            configToUpdate.biodermaGameBlogImage = imageRequest.biodermaGameBlogImage;
+
+            await this.configurationRepository.save(configToUpdate);
+
+            return { status: 0 };
+
+        } catch (err) {
+            console.log("ConfigutarionService - updateBiodermaGameBlogImage: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error setting image',
             }, 500);
         }
     }

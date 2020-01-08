@@ -71,7 +71,7 @@ export class NotificationService {
                     id: notification.id,
                     header: notification.header,
                     content: notification.content,
-                    createdAt: moment(notification.createdAt).format('DD/MMM/YYYY')
+                    createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
                 });
             });
 

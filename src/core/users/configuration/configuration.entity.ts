@@ -15,7 +15,13 @@ export class Configuration {
     @Column()
     isBiodermaGameActive: boolean;
 
-    @Column({ type: "text" })
+    @Column({ type: "text", nullable: true })
     biodermaGameImage: string;
+
+    @Column({ type: "text", nullable: true })
+    biodermaGameCampaingImage: string;
+
+    @Column({ type: "text", nullable: true })
+    biodermaGameBlogImage: string;
 
 }
