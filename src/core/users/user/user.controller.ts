@@ -47,4 +47,9 @@ export class UserController {
         return await this.userService.updateDrugStore(updateDrugStoreUserDTO);
     }
 
+    @Delete(':email')
+    async deleteUser(@Param('email') email): Promise<any> {
+        return await this.userService.deleteUser(email);
+    }
+
 }

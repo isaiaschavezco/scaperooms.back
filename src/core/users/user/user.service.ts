@@ -494,4 +494,25 @@ export class UserService {
         }
     }
 
+    async deleteUser(requestEmail: string): Promise<any> {
+        try {
+            let userToDelete = await this.userRepository.findOne({
+                where: { email: requestEmail }
+            });
+
+            userToDelete.isActive = false;
+
+            await this.userRepository.save(userToDelete);
+
+            return { status: 0 }
+        } catch (err) {
+            console.log("UserService - deleteUser: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error deleting user',
+            }, 500);
+        }
+    }
+
 }

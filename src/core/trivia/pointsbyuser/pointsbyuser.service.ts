@@ -21,7 +21,7 @@ export class PointsbyuserService {
                 .innerJoinAndSelect("pobyus.pointsType", "poty")
                 .leftJoin("pobyus.quizz", "quizz")
                 .leftJoin("pobyus.product", "product")
-                .where("user.email = :userEmail", { userEmail: requestDTO.email })
+                .where("user.email = :userEmail AND pobyus.isDeleted = :isDeleted", { userEmail: requestDTO.email, isDeleted: false })
                 .skip(requestDTO.page * 20)
                 .take(20)
                 .getMany();
