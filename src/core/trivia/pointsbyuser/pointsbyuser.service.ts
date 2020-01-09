@@ -38,7 +38,7 @@ export class PointsbyuserService {
                 });
             });
 
-            return { pointsByUser: pointsByUserToReturn };
+            return { points: pointsByUserToReturn };
 
         } catch (err) {
             console.log("PointsbyuserService - getUserPointsHistory: ", err);
