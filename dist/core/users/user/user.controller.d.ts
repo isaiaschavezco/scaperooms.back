@@ -11,4 +11,6 @@ export declare class UserController {
     createDrugStoreUser(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any>;
     updateNAOSUser(updateNAOSUserDTO: UpdateNAOSUserDTO): Promise<any>;
     updateDrugStoreUser(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any>;
+    deleteUser(email: any): Promise<any>;
+    resetUserPoints(): Promise<any>;
 }

@@ -29,4 +29,6 @@ export declare class UserService {
     private getAge;
     updateNAOS(updateNAOSUserDTO: UpdateNAOSUserDTO): Promise<any>;
     updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any>;
+    deleteUser(requestEmail: string): Promise<any>;
+    resetUserPoints(): Promise<any>;
 }

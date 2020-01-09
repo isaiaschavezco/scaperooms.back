@@ -68,6 +68,16 @@ let UserController = class UserController {
             return yield this.userService.updateDrugStore(updateDrugStoreUserDTO);
         });
     }
+    deleteUser(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.deleteUser(email);
+        });
+    }
+    resetUserPoints() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.resetUserPoints();
+        });
+    }
 };
 __decorate([
     common_1.Post('invite'),
@@ -124,6 +134,19 @@ __decorate([
     __metadata("design:paramtypes", [user_dto_1.UpdateDrugStoreUserDTO]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "updateDrugStoreUser", null);
+__decorate([
+    common_1.Delete(':email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "deleteUser", null);
+__decorate([
+    common_1.Put('reset'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "resetUserPoints", null);
 UserController = __decorate([
     common_1.Controller('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

@@ -515,4 +515,28 @@ export class UserService {
         }
     }
 
+    async resetUserPoints(): Promise<any> {
+        try {
+            let usersToReset = await this.userRepository.find({
+                where: { isActive: true }
+            });
+
+            usersToReset.forEach(tempUser => {
+                tempUser.points = 0;
+                tempUser.biodermaGamePoints = 0;
+            });
+
+            await this.userRepository.save(usersToReset);
+
+            return { status: 0 }
+        } catch (err) {
+            console.log("UserService - resetUserPoints: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error resetting user points',
+            }, 500);
+        }
+    }
+
 }

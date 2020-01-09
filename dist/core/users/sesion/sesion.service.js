@@ -43,7 +43,7 @@ let SesionService = class SesionService {
                 let response = null;
                 const user = yield this.userRepository.findOne({
                     relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
-                    where: { email: requestDTO.email }
+                    where: { email: requestDTO.email, isActive: true }
                 });
                 if (user) {
                     console.log("requestDTO.password: ", requestDTO.password);

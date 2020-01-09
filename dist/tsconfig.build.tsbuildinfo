@@ -2346,12 +2346,12 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "949ea5e0393f08b2baaf5bb656c9c7a30c475bf894c7a8fb7176ba16f7120a14",
-        "signature": "4e1d96abe6474a78b5731af66fde4cc4c5f40aeed41f2e581ee1e7bacba534a0"
+        "version": "33430f45f432a2cb4734cad582133ee759d34453cbc4b50a8327559f6e5e922c",
+        "signature": "3b94262dbbea120660605ee3490918ced7824d5022cdf98441c1e84981a8ceed"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "3d0dcf0efcc6dc351fe210ae305c1eff12e2fb8e99fd2b2afc5e02af1b99fd8f",
-        "signature": "902d0904ed222bc89a8226358b6345b84c5140cb2491ed0f3c0455dea8467075"
+        "version": "873a4dab1337c826fe9f9441fb8874f76ba2e4f7c9a4ecd33da0ef187d413398",
+        "signature": "42290dc061f14f97d9c2141a2fac5a5290d87a12e2b38a2fb69fe6425a79a98c"
       },
       "../src/core/users/user/user.module.ts": {
         "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",
@@ -3918,7 +3918,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "cdbd14b93e33f08275bcd2437fc36d1d2338acdeaf22ca193aaf055ad2e172c3",
+        "version": "9e09eb25af4ca8a71c34c14179eea7fdad3a9a26af3cf85e24028d2f8fae6473",
         "signature": "994c93da56b46f19ea549d8e5de9a693950a0f88056fab425799e7258d547dfe"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -3994,7 +3994,7 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "49c74ba4b837fde19b7c5d007f3d9561b924e1b326cfa12dc7c879a239672d94",
+        "version": "9537b5993351119323288226d357407fcdb5bccec01dd65bf4da50989050aa90",
         "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
@@ -19430,9 +19430,6 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19442,6 +19439,7 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19822,7 +19820,6 @@
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/sesion/sesion.dto.ts",
-      "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
       "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
@@ -19841,10 +19838,8 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19896,7 +19891,12 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/submenu/submenu.service.ts"
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/sesion/sesion.service.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

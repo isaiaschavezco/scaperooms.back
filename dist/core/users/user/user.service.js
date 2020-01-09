@@ -439,6 +439,47 @@ let UserService = class UserService {
             }
         });
     }
+    deleteUser(requestEmail) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let userToDelete = yield this.userRepository.findOne({
+                    where: { email: requestEmail }
+                });
+                userToDelete.isActive = false;
+                yield this.userRepository.save(userToDelete);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("UserService - deleteUser: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error deleting user',
+                }, 500);
+            }
+        });
+    }
+    resetUserPoints() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let usersToReset = yield this.userRepository.find({
+                    where: { isActive: true }
+                });
+                usersToReset.forEach(tempUser => {
+                    tempUser.points = 0;
+                    tempUser.biodermaGamePoints = 0;
+                });
+                yield this.userRepository.save(usersToReset);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("UserService - resetUserPoints: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error resetting user points',
+                }, 500);
+            }
+        });
+    }
 };
 UserService = __decorate([
     common_1.Injectable(),

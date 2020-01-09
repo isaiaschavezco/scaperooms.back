@@ -52,4 +52,9 @@ export class UserController {
         return await this.userService.deleteUser(email);
     }
 
+    @Put('reset')
+    async resetUserPoints(): Promise<any> {
+        return await this.userService.resetUserPoints();
+    }
+
 }
