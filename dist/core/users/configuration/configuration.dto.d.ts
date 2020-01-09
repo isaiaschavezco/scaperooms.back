@@ -10,3 +10,9 @@ export declare class UpdateBiodermaGameStatusDTO {
 export declare class UpdateBiodermaGameImageDTO {
     readonly biodermaGameImage: string;
 }
+export declare class UpdateBiodermaGameCampaingImageDTO {
+    readonly biodermaGameCampaingImage: string;
+}
+export declare class UpdateBiodermaGameBlogImageDTO {
+    readonly biodermaGameBlogImage: string;
+}

@@ -43,6 +43,11 @@ let NotificationController = class NotificationController {
             return yield this.notificationService.getNotificationList();
         });
     }
+    getListNotificationByUser(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.notificationService.getNotificationListByUser(email);
+        });
+    }
     sendNotification(createNotificationDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.notificationService.send(createNotificationDTO);
@@ -67,6 +72,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], NotificationController.prototype, "getListNotification", null);
+__decorate([
+    common_1.Get('user/list/:email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], NotificationController.prototype, "getListNotificationByUser", null);
 __decorate([
     common_1.Post('send'),
     __param(0, common_1.Body()),

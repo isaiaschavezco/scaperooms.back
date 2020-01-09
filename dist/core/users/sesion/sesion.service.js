@@ -27,20 +27,22 @@ const typeorm_2 = require("typeorm");
 const sesion_entity_1 = require("./sesion.entity");
 const user_entity_1 = require("../user/user.entity");
 const configuration_entity_1 = require("../configuration/configuration.entity");
+const notificacion_entity_1 = require("../notification/notificacion.entity");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 let SesionService = class SesionService {
-    constructor(sesionRepository, userRepository, configurationRepository) {
+    constructor(sesionRepository, userRepository, configurationRepository, notificationRepository) {
         this.sesionRepository = sesionRepository;
         this.userRepository = userRepository;
         this.configurationRepository = configurationRepository;
+        this.notificationRepository = notificationRepository;
     }
     RequesLogin(requestDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
                 const user = yield this.userRepository.findOne({
-                    relations: ["type", "chain", "city", "delegation", "position"],
+                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
                     where: { email: requestDTO.email }
                 });
                 if (user) {
@@ -84,8 +86,8 @@ let SesionService = class SesionService {
                                 postalCode: user.postalCode,
                                 charge: user.charge,
                                 isActiveCart: user.type.id === 1 ? false : true,
-                                countNotifications: 3,
-                                totalBiodermaGames: 0
+                                countNotifications: user.notificacion ? user.notificacion.length : 0,
+                                totalBiodermaGames: user.biodermaGamePoints ? user.biodermaGamePoints : 0
                             }
                         };
                     }
@@ -223,7 +225,9 @@ SesionService = __decorate([
     __param(0, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
     __param(1, typeorm_1.InjectRepository(user_entity_1.User)),
     __param(2, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
+    __param(3, typeorm_1.InjectRepository(notificacion_entity_1.Notificacion)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])
 ], SesionService);

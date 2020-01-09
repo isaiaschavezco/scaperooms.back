@@ -73,6 +73,16 @@ let ConfigutarionController = class ConfigutarionController {
             return yield this.configutarionService.updateBiodermaGameImage(updateBiodermaGameImageDTO);
         });
     }
+    updateBiodermaCampaignImage(updateBiodermaGameCampaingImageDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.configutarionService.updateBiodermaGameCampaingImage(updateBiodermaGameCampaingImageDTO);
+        });
+    }
+    updateBiodermaBlogImage(updateBiodermaGameBlogImageDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.configutarionService.updateBiodermaGameBlogImage(updateBiodermaGameBlogImageDTO);
+        });
+    }
 };
 __decorate([
     common_1.Get('general'),
@@ -132,6 +142,20 @@ __decorate([
     __metadata("design:paramtypes", [configuration_dto_1.UpdateBiodermaGameImageDTO]),
     __metadata("design:returntype", Promise)
 ], ConfigutarionController.prototype, "updateBiodermaImage", null);
+__decorate([
+    common_1.Post('campaingimage'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [configuration_dto_1.UpdateBiodermaGameCampaingImageDTO]),
+    __metadata("design:returntype", Promise)
+], ConfigutarionController.prototype, "updateBiodermaCampaignImage", null);
+__decorate([
+    common_1.Post('blogimage'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [configuration_dto_1.UpdateBiodermaGameBlogImageDTO]),
+    __metadata("design:returntype", Promise)
+], ConfigutarionController.prototype, "updateBiodermaBlogImage", null);
 ConfigutarionController = __decorate([
     common_1.Controller('configutarion'),
     __metadata("design:paramtypes", [configuration_service_1.ConfigutarionService])

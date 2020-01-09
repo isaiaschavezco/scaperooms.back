@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { NotificationService } from './notification.service';
 import { CreateNotificationDTO } from '../../users/notification/notification.dto';
 
@@ -20,6 +20,11 @@ export class NotificationController {
     @Get('list')
     async getListNotification(): Promise<any> {
         return await this.notificationService.getNotificationList();
+    }
+
+    @Get('user/list/:email')
+    async getListNotificationByUser(@Param('email') email): Promise<any> {
+        return await this.notificationService.getNotificationListByUser(email);
     }
 
     @Post('send')

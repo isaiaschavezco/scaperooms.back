@@ -87,6 +87,10 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "points", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", Number)
+], User.prototype, "biodermaGamePoints", void 0);
+__decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
 ], User.prototype, "age", void 0);

@@ -87,6 +87,40 @@ export class NotificationService {
         }
     }
 
+    async getNotificationListByUser(email: string) {
+        try {
+
+            let notificationToReturn = [];
+
+            const notificationList = await this.notificationRepository.createQueryBuilder("not")
+                .select(["not.id", "not.header", "not.content", "not.createdAt"])
+                .innerJoin("not.user", "user")
+                .where("user.email = :userEmail", { userEmail: email })
+                .orderBy("not.createdAt", "DESC")
+                .take(10)
+                .getMany();
+
+            notificationList.forEach(notification => {
+                notificationToReturn.push({
+                    id: notification.id,
+                    header: notification.header,
+                    content: notification.content,
+                    createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
+                });
+            });
+
+            return { notificacions: notificationToReturn };
+
+        } catch (err) {
+            console.log("NotificationService - getNotificationListByUser: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting notifications',
+            }, 500);
+        }
+    }
+
     async send(sendRequest: CreateNotificationDTO) {
         try {
 

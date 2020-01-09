@@ -12,4 +12,10 @@ exports.UpdateBiodermaGameStatusDTO = UpdateBiodermaGameStatusDTO;
 class UpdateBiodermaGameImageDTO {
 }
 exports.UpdateBiodermaGameImageDTO = UpdateBiodermaGameImageDTO;
+class UpdateBiodermaGameCampaingImageDTO {
+}
+exports.UpdateBiodermaGameCampaingImageDTO = UpdateBiodermaGameCampaingImageDTO;
+class UpdateBiodermaGameBlogImageDTO {
+}
+exports.UpdateBiodermaGameBlogImageDTO = UpdateBiodermaGameBlogImageDTO;
 //# sourceMappingURL=configuration.dto.js.map

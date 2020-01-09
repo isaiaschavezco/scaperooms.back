@@ -122,7 +122,11 @@ let ConfigutarionService = class ConfigutarionService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const clubStatus = yield this.configurationRepository.findOne(1);
-                return { biodermaImage: clubStatus.biodermaGameImage };
+                return {
+                    biodermaImage: clubStatus.biodermaGameImage,
+                    biodermaGameCampaingImage: clubStatus.biodermaGameCampaingImage,
+                    biodermaGameBlogImage: clubStatus.biodermaGameBlogImage
+                };
             }
             catch (err) {
                 console.log("ConfigutarionService - findBiodermaGameImage: ", err);
@@ -196,7 +200,41 @@ let ConfigutarionService = class ConfigutarionService {
                 console.log("ConfigutarionService - updateBiodermaGameImage: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting theme',
+                    error: 'Error setting image',
+                }, 500);
+            }
+        });
+    }
+    updateBiodermaGameCampaingImage(imageRequest) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let configToUpdate = yield this.configurationRepository.findOne(1);
+                configToUpdate.biodermaGameCampaingImage = imageRequest.biodermaGameCampaingImage;
+                yield this.configurationRepository.save(configToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - updateBiodermaGameCampaingImage: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error setting image',
+                }, 500);
+            }
+        });
+    }
+    updateBiodermaGameBlogImage(imageRequest) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let configToUpdate = yield this.configurationRepository.findOne(1);
+                configToUpdate.biodermaGameBlogImage = imageRequest.biodermaGameBlogImage;
+                yield this.configurationRepository.save(configToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ConfigutarionService - updateBiodermaGameBlogImage: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error setting image',
                 }, 500);
             }
         });

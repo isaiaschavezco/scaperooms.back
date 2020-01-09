@@ -62,6 +62,9 @@ export class User {
     @Column()
     points: number;
 
+    @Column({ nullable: true })
+    biodermaGamePoints: number;
+
     @Column()
     age: number;
 

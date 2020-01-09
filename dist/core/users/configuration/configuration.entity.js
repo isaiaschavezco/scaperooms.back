@@ -29,9 +29,17 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Configuration.prototype, "isBiodermaGameActive", void 0);
 __decorate([
-    typeorm_1.Column({ type: "text" }),
+    typeorm_1.Column({ type: "text", nullable: true }),
     __metadata("design:type", String)
 ], Configuration.prototype, "biodermaGameImage", void 0);
+__decorate([
+    typeorm_1.Column({ type: "text", nullable: true }),
+    __metadata("design:type", String)
+], Configuration.prototype, "biodermaGameCampaingImage", void 0);
+__decorate([
+    typeorm_1.Column({ type: "text", nullable: true }),
+    __metadata("design:type", String)
+], Configuration.prototype, "biodermaGameBlogImage", void 0);
 Configuration = __decorate([
     typeorm_1.Entity({ schema: 'Users' })
 ], Configuration);

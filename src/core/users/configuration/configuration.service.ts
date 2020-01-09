@@ -116,7 +116,11 @@ export class ConfigutarionService {
 
             const clubStatus = await this.configurationRepository.findOne(1);
 
-            return { biodermaImage: clubStatus.biodermaGameImage };
+            return {
+                biodermaImage: clubStatus.biodermaGameImage,
+                biodermaGameCampaingImage: clubStatus.biodermaGameCampaingImage,
+                biodermaGameBlogImage: clubStatus.biodermaGameBlogImage
+            };
 
         } catch (err) {
             console.log("ConfigutarionService - findBiodermaGameImage: ", err);

@@ -28,6 +28,7 @@ export declare class User {
     createdAt: Date;
     isActive: boolean;
     points: number;
+    biodermaGamePoints: number;
     age: number;
     town: string;
     mayoralty: string;

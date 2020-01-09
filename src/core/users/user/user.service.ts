@@ -212,6 +212,7 @@ export class UserService {
                     city: userState,
                     delegation: userCity,
                     points: 0,
+                    biodermaGamePoints: 0,
                     age: userAge,
                     type: userType,
                     role: userRole
@@ -275,6 +276,7 @@ export class UserService {
                     city: userState,
                     delegation: userCity,
                     points: 0,
+                    biodermaGamePoints: 0,
                     age: userAge,
                     type: userType,
                     town: createDrugStoreUserDTO.town,

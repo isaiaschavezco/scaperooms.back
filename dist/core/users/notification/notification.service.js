@@ -86,13 +86,43 @@ let NotificationService = class NotificationService {
                         id: notification.id,
                         header: notification.header,
                         content: notification.content,
-                        createdAt: moment(notification.createdAt).format('DD/MMM/YYYY')
+                        createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
                     });
                 });
                 return { notificacions: notificationToReturn };
             }
             catch (err) {
                 console.log("NotificationService - getNotificationList: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting notifications',
+                }, 500);
+            }
+        });
+    }
+    getNotificationListByUser(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let notificationToReturn = [];
+                const notificationList = yield this.notificationRepository.createQueryBuilder("not")
+                    .select(["not.id", "not.header", "not.content", "not.createdAt"])
+                    .innerJoin("not.user", "user")
+                    .where("user.email = :userEmail", { userEmail: email })
+                    .orderBy("not.createdAt", "DESC")
+                    .take(10)
+                    .getMany();
+                notificationList.forEach(notification => {
+                    notificationToReturn.push({
+                        id: notification.id,
+                        header: notification.header,
+                        content: notification.content,
+                        createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
+                    });
+                });
+                return { notificacions: notificationToReturn };
+            }
+            catch (err) {
+                console.log("NotificationService - getNotificationListByUser: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting notifications',

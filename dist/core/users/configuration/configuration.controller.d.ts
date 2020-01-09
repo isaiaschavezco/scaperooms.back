@@ -1,5 +1,5 @@
 import { ConfigutarionService } from './configuration.service';
-import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO } from './configuration.dto';
+import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO, UpdateBiodermaGameCampaingImageDTO, UpdateBiodermaGameBlogImageDTO } from './configuration.dto';
 export declare class ConfigutarionController {
     private configutarionService;
     constructor(configutarionService: ConfigutarionService);
@@ -12,4 +12,6 @@ export declare class ConfigutarionController {
     updateBiodermaStatus(updateBiodermaGameStatusDTO: UpdateBiodermaGameStatusDTO): Promise<any>;
     findBiodermaGameImage(): Promise<any>;
     updateBiodermaImage(updateBiodermaGameImageDTO: UpdateBiodermaGameImageDTO): Promise<any>;
+    updateBiodermaCampaignImage(updateBiodermaGameCampaingImageDTO: UpdateBiodermaGameCampaingImageDTO): Promise<any>;
+    updateBiodermaBlogImage(updateBiodermaGameBlogImageDTO: UpdateBiodermaGameBlogImageDTO): Promise<any>;
 }

@@ -6,5 +6,6 @@ export declare class NotificationController {
     getAllNotification(): Promise<any>;
     createNotification(): Promise<any>;
     getListNotification(): Promise<any>;
+    getListNotificationByUser(email: any): Promise<any>;
     sendNotification(createNotificationDTO: CreateNotificationDTO): Promise<any>;
 }

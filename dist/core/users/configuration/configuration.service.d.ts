@@ -1,6 +1,6 @@
 import { Repository } from 'typeorm';
 import { Configuration } from './configuration.entity';
-import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO } from './configuration.dto';
+import { UpdateClubStatusDTO, UpdateThemeDTO, UpdateBiodermaGameStatusDTO, UpdateBiodermaGameImageDTO, UpdateBiodermaGameCampaingImageDTO, UpdateBiodermaGameBlogImageDTO } from './configuration.dto';
 export declare class ConfigutarionService {
     private configurationRepository;
     constructor(configurationRepository: Repository<Configuration>);
@@ -13,4 +13,6 @@ export declare class ConfigutarionService {
     updateTheme(updateThemeDTO: UpdateThemeDTO): Promise<any>;
     updateBiodermaGame(updateBiodermaGameStatusDTO: UpdateBiodermaGameStatusDTO): Promise<any>;
     updateBiodermaGameImage(updateBiodermaGameImageDTO: UpdateBiodermaGameImageDTO): Promise<any>;
+    updateBiodermaGameCampaingImage(imageRequest: UpdateBiodermaGameCampaingImageDTO): Promise<any>;
+    updateBiodermaGameBlogImage(imageRequest: UpdateBiodermaGameBlogImageDTO): Promise<any>;
 }

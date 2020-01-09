@@ -4,4 +4,6 @@ export declare class Configuration {
     themes: number;
     isBiodermaGameActive: boolean;
     biodermaGameImage: string;
+    biodermaGameCampaingImage: string;
+    biodermaGameBlogImage: string;
 }

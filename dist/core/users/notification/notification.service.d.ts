@@ -19,6 +19,9 @@ export declare class NotificationService {
     getNotificationList(): Promise<{
         notificacions: any[];
     }>;
+    getNotificationListByUser(email: string): Promise<{
+        notificacions: any[];
+    }>;
     send(sendRequest: CreateNotificationDTO): Promise<{
         status: number;
     }>;

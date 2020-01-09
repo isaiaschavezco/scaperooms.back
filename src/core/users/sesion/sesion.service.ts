@@ -5,6 +5,7 @@ import { Sesion } from './sesion.entity';
 import { User } from '../user/user.entity';
 import { Configuration } from '../configuration/configuration.entity';
 import { ReuestSesionDTO, UpdatePlayerID, ReuestSesionLogOutDTO } from './sesion.dto';
+import { Notificacion } from '../notification/notificacion.entity';
 import * as bcrypt from 'bcrypt';
 import * as moment from 'moment';
 
@@ -13,14 +14,15 @@ export class SesionService {
 
     constructor(@InjectRepository(Sesion) private sesionRepository: Repository<Sesion>,
         @InjectRepository(User) private userRepository: Repository<User>,
-        @InjectRepository(Configuration) private configurationRepository: Repository<Configuration>) { }
+        @InjectRepository(Configuration) private configurationRepository: Repository<Configuration>,
+        @InjectRepository(Notificacion) private notificationRepository: Repository<Notificacion>) { }
 
     async RequesLogin(requestDTO: ReuestSesionDTO): Promise<any> {
         try {
 
             let response = null;
             const user = await this.userRepository.findOne({
-                relations: ["type", "chain", "city", "delegation", "position"],
+                relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
                 where: { email: requestDTO.email }
             });
 
@@ -74,8 +76,8 @@ export class SesionService {
                             postalCode: user.postalCode,
                             charge: user.charge,
                             isActiveCart: user.type.id === 1 ? false : true,
-                            countNotifications: 3,
-                            totalBiodermaGames: 0
+                            countNotifications: user.notificacion ? user.notificacion.length : 0,
+                            totalBiodermaGames: user.biodermaGamePoints ? user.biodermaGamePoints : 0
                         }
                     };
 
