@@ -30,6 +30,7 @@ import { ConfigModule } from './config/config.module';
 import { ConfigutarionModule } from './core/users/configuration/configuration.module';
 import { AnswerbyuserquizzModule } from './core/trivia/answerbyuserquizz/answerbyuserquizz.module';
 import { MessageModule } from './core/content/message/message.module';
+import { PointsbyuserModule } from './core/trivia/pointsbyuser/pointsbyuser.module';
 
 @Module({
   imports: [
@@ -87,7 +88,8 @@ import { MessageModule } from './core/content/message/message.module';
     ConfigModule,
     ConfigutarionModule,
     AnswerbyuserquizzModule,
-    MessageModule],
+    MessageModule,
+    PointsbyuserModule],
   controllers: [AppController],
   providers: [AppService],
 })

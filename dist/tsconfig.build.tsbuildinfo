@@ -3989,8 +3989,24 @@
         "version": "c789f94d7cc853fb903cd2fbd8e60dc51e768fdee72ed7d821b70d17f3dc1afa",
         "signature": "6f3ad4d6feae0a27bd7a0529297a3ebcefcfde9fd8db76261760888377768037"
       },
+      "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts": {
+        "version": "baf63ce4d37a22b64e544c8417540305d563c5f09f3527adc2c8548bc04f716b",
+        "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
+      },
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
+        "version": "6d0e1ef060324d1b0d03fcc3cce94016bf20d7b8786f5c3961e017e14f006292",
+        "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
+      },
+      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
+        "version": "93d72c2313fcbfc402cb1862a4b358adcd0e8a5f57f2466dab55fdcb255b4502",
+        "signature": "2a22876d3d7948b41724000670e5c28d3030192faf63ecd314d75b88a556c3a6"
+      },
+      "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
+        "version": "10a902da82db5e2177eeed5ca7aee62268447fe171d721d849abbbd065e25091",
+        "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
+      },
       "../src/app.module.ts": {
-        "version": "1dec3edf351938c7974a629879412a11b2ebf206f466e0c7adfab41388e389de",
+        "version": "286c09d9ed0617c098fcc57fd0a72db66d4bdd7417c16d0a4b498585aa196770",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -4144,18 +4160,6 @@
       "../src/core/trivia/points-type/points-type.module.ts": {
         "version": "499996063eda75c085386322a9313896078473d3b92f841a39acdaf784256114",
         "signature": "3afb153335a43faab26645561d27f4a562f5e440c96219331b74222d890492df"
-      },
-      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
-        "version": "8ebc8b56b3bb6d83b16638790b97ef8cc1ceade4dcf7dc7863018a674e042ee4",
-        "signature": "0bc1ace52583b50ac27b1ca9068a72510b6885ad7b75a18cf7ba878d66f91667"
-      },
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "ae0897d4210dcb55c9f27a36888b454e8bf05c3db8fcbce3f2deaadd44686eb2",
-        "signature": "c0d05ecd3c8262d1758a7b33ba33dbf711d7a7676b1ceaa33dc6d36ee687180f"
-      },
-      "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
-        "version": "e229aaeb8f35fcf943fa62e76863ffa0bf15cc21f52527cad3827394bcdbdace",
-        "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
       },
       "../node_modules/@types/babel-types/index.d.ts": {
         "version": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27",
@@ -11500,6 +11504,36 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
+        "../node_modules/moment/moment.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -11533,6 +11567,7 @@
         "../src/core/users/configuration/configuration.module.ts",
         "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
         "../src/core/content/message/message.module.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11794,23 +11829,6 @@
         "../src/core/trivia/points-type/points-type.service.ts",
         "../src/core/trivia/points-type/points-type.controller.ts",
         "../src/core/trivia/points-type/points-type.entity.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
-        "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -18513,6 +18531,15 @@
         "../src/core/content/message/message.service.ts",
         "../src/core/content/message/message.dto.ts"
       ],
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts"
+      ],
+      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": [
+        "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts"
+      ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
@@ -19803,6 +19830,7 @@
       "../src/config/config.service.ts",
       "../src/config/config.module.ts",
       "../src/core/users/configuration/configuration.dto.ts",
+      "../src/core/users/configuration/configuration.service.ts",
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
@@ -19813,6 +19841,9 @@
       "../src/core/content/message/message.service.ts",
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
       "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
@@ -19852,9 +19883,6 @@
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
       "../node_modules/@types/color-name/index.d.ts",
@@ -19868,7 +19896,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/configuration/configuration.service.ts"
+      "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts"
     ]
   },
   "version": "3.7.2"
