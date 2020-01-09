@@ -35,11 +35,11 @@ let PointsbyuserService = class PointsbyuserService {
             try {
                 let pointsByUserToReturn = [];
                 const pointsByUserList = yield this.pointsbyuserRepository.createQueryBuilder("pobyus")
-                    .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt"])
+                    .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt", "quizz.id", "quizz.name", "product.id", "product.title"])
                     .innerJoin("pobyus.user", "user")
                     .innerJoinAndSelect("pobyus.pointsType", "poty")
-                    .leftJoinAndSelect("pobyus.quizz", "quizz")
-                    .leftJoinAndSelect("pobyus.product", "product")
+                    .leftJoin("pobyus.quizz", "quizz")
+                    .leftJoin("pobyus.product", "product")
                     .where("user.email = :userEmail", { userEmail: requestDTO.email })
                     .skip(requestDTO.page * 20)
                     .take(20)

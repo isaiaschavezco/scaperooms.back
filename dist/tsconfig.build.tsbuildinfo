@@ -3994,7 +3994,7 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "3d50fb25481c3a3d1648dafe1acd93b4aff549719b2a3a627f73fcf225e871f7",
+        "version": "96d7fb2d1c273af800223d4d0e86a803c57ec0abfd1b6300ec31bff9ce94aa95",
         "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
