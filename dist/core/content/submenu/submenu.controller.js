@@ -48,6 +48,11 @@ let SubmenuController = class SubmenuController {
             return yield this.submenuService.create(createSubmenuDTO);
         });
     }
+    deleteFile(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.submenuService.deleteFile(id);
+        });
+    }
 };
 __decorate([
     common_1.Get(':id'),
@@ -77,6 +82,13 @@ __decorate([
     __metadata("design:paramtypes", [submenu_dto_1.CreateSubmenuDTO]),
     __metadata("design:returntype", Promise)
 ], SubmenuController.prototype, "create", null);
+__decorate([
+    common_1.Delete('file/:id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], SubmenuController.prototype, "deleteFile", null);
 SubmenuController = __decorate([
     common_1.Controller('submenu'),
     __metadata("design:paramtypes", [submenu_service_1.SubmenuService])

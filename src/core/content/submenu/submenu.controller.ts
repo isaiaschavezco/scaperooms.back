@@ -28,6 +28,11 @@ export class SubmenuController {
         return await this.submenuService.create(createSubmenuDTO);
     }
 
+    @Delete('file/:id')
+    async deleteFile(@Param('id') id): Promise<any> {
+        return await this.submenuService.deleteFile(id);
+    }
+
     // @Post()
     // async create(@Body() createDTO: CreateChainDTO): Promise<number> {
     //     return await this.chainService.create(createDTO);

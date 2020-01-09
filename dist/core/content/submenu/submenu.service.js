@@ -40,6 +40,25 @@ let SubmenuService = class SubmenuService {
             return submenuList;
         });
     }
+    deleteFile(submenuId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let fileToDelete = yield this.submenuRepository.findOne(submenuId);
+                fileToDelete.fileName = '';
+                fileToDelete.url = '';
+                fileToDelete.title = '';
+                yield this.submenuRepository.save(fileToDelete);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("SubmenuService - deleteFile: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error deleting file',
+                }, 500);
+            }
+        });
+    }
     findFilesByMenu(menuId) {
         return __awaiter(this, void 0, void 0, function* () {
             let productList = [];

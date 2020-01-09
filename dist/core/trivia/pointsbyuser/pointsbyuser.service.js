@@ -55,7 +55,7 @@ let PointsbyuserService = class PointsbyuserService {
                         product: points.product
                     });
                 });
-                return { pointsByUser: pointsByUserToReturn };
+                return { points: pointsByUserToReturn };
             }
             catch (err) {
                 console.log("PointsbyuserService - getUserPointsHistory: ", err);

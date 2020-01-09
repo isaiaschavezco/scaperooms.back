@@ -2394,12 +2394,12 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "40caeac4ede411b10c8b593aa533e1b7e24f73a4bca39267d6c4728f057517f3",
-        "signature": "7af8b8329e70f6762b5ab05f16c300f73e33adbe8fa3ba49158f603135fd038d"
+        "version": "92fbade6e2da2a7df9c1f412dfcc1866fbcdc9e2521159602508a696150ce04d",
+        "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
-        "version": "ec2ed80e814f5d3d618c9436a24faee06e93ffaaa3b2852cb252851476b483ac",
-        "signature": "f3cfb692d354913b96d95dfb79d5d279e1eba6793dcd9ae9cb58d42bb5b44839"
+        "version": "7b4f52714aff5497e56273f8d3b85aefa14d06dcfb905528ec4339789821596b",
+        "signature": "e6b7cbca4a5c9782b0cc893fa0b82497c5bfcfc57e408246c6bb24475d8b6270"
       },
       "../src/core/content/submenu/submenu.module.ts": {
         "version": "cf88846350dd0af4e8905d5ea70d946c557ab0065bf71abe612dc492c82c746b",
@@ -3994,7 +3994,7 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "96d7fb2d1c273af800223d4d0e86a803c57ec0abfd1b6300ec31bff9ce94aa95",
+        "version": "49c74ba4b837fde19b7c5d007f3d9561b924e1b326cfa12dc7c879a239672d94",
         "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
@@ -19442,7 +19442,6 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
-      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19842,6 +19841,7 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
       "../src/app.module.ts",
@@ -19896,7 +19896,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts"
+      "../src/core/content/submenu/submenu.service.ts"
     ]
   },
   "version": "3.7.2"

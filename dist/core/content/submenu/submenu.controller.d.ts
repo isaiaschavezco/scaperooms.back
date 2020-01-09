@@ -8,4 +8,5 @@ export declare class SubmenuController {
     findFilesByMenu(id: any): Promise<any>;
     findSubMenuItems(id: any): Promise<Submenu[]>;
     create(createSubmenuDTO: CreateSubmenuDTO): Promise<number>;
+    deleteFile(id: any): Promise<any>;
 }

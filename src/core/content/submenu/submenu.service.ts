@@ -19,6 +19,25 @@ export class SubmenuService {
         return submenuList;
     }
 
+    async deleteFile(submenuId: number): Promise<any> {
+        try {
+            let fileToDelete = await this.submenuRepository.findOne(submenuId);
+            fileToDelete.fileName = '';
+            fileToDelete.url = '';
+            fileToDelete.title = '';
+            await this.submenuRepository.save(fileToDelete);
+
+            return { status: 0 };
+        } catch (err) {
+            console.log("SubmenuService - deleteFile: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error deleting file',
+            }, 500);
+        }
+    }
+
     async findFilesByMenu(menuId: number): Promise<any> {
 
         let productList = [];
