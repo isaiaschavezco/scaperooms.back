@@ -2,7 +2,7 @@ export class CreateCampaingDTO {
     readonly name: string;
     readonly portrait: string;
     readonly isBiodermaGame: boolean;
-    readonly targets: number[]
+    readonly targets: number[];
 }
 
 export class GetCampaingsByUserDTO {

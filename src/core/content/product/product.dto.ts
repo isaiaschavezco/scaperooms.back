@@ -12,3 +12,8 @@ export class UpdateProductDTO {
     readonly description: string;
     readonly points: number;
 }
+
+export class ShopCartProducts {
+    readonly email: string;
+    readonly products: number[];
+}
