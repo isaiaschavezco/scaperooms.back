@@ -38,6 +38,11 @@ let ProductController = class ProductController {
             return yield this.productService.create(createDTO);
         });
     }
+    shopProducts(createDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.productService.create(createDTO);
+        });
+    }
     update(updateProductDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.productService.update(updateProductDTO);
@@ -62,6 +67,13 @@ __decorate([
     __metadata("design:paramtypes", [product_dto_1.CreateProductDTO]),
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "create", null);
+__decorate([
+    common_1.Post('cart'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [product_dto_1.CreateProductDTO]),
+    __metadata("design:returntype", Promise)
+], ProductController.prototype, "shopProducts", null);
 __decorate([
     common_1.Put(),
     __param(0, common_1.Body()),

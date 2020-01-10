@@ -11,3 +11,7 @@ export declare class UpdateProductDTO {
     readonly description: string;
     readonly points: number;
 }
+export declare class ShopCartProducts {
+    readonly email: string;
+    readonly products: number[];
+}

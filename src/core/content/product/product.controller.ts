@@ -20,7 +20,7 @@ export class ProductController {
     }
 
     @Post('cart')
-    async shopProducts(@Body() shopCartProducts: ShopCartProducts): Promise<number> {
+    async shopProducts(@Body() createDTO: CreateProductDTO): Promise<number> {
         return await this.productService.create(createDTO);
     }
 
