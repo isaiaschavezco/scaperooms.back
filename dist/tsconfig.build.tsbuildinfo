@@ -2410,15 +2410,15 @@
         "signature": "6b5623ad9a73caa0910abb663f34c11b62fbce8926a6fa1f9e171cd36edd70cc"
       },
       "../src/core/content/product/product.service.ts": {
-        "version": "4ccc5b62815a2eb92319a4c76ed5d6827514421c8008b07980a03966af8889ce",
-        "signature": "f9ab3e178a463fa40fd555149c44a5e930bc26af54d49bc1eea90d381a2eae73"
+        "version": "3bef99060e3995d1f52e1be763b9139c19c8de9535ae6346dd9a92339b2427a4",
+        "signature": "5ec7856124a0404ae1d5ef16ccbec3565eae646aa3a6f0f2ef709b2453f4d6fb"
       },
       "../src/core/content/product/product.controller.ts": {
-        "version": "49d348852744eca1f1137bd53040384adb43da7921506e65ba56043361003246",
-        "signature": "f689d388090a2582e7f5b2dd53dc6df0b90a609b5c31b7d9bcde273803aff463"
+        "version": "62990f1012f870a9e22a586d9cad471677a7471f1955e053f9d020f5381de8a5",
+        "signature": "85c5964c955650e8a1f47fdac1cee9441acd2806dd868b716004b5c6b7a6fa99"
       },
       "../src/core/content/product/product.module.ts": {
-        "version": "f5bafe28483ef6f0714e65c81e63345b8d4ffee7783561d4f8d1e3769ae26ac9",
+        "version": "18fb2b48e4df8c77356fd8cb53c4de284adbe3fc3abc1862e0d2dfa50755d2c0",
         "signature": "7f8b34d3314e0b7048eab6a82a4f0bf423213dfd64d60f0c5e178bde34c23841"
       },
       "../src/core/content/article/article.entity.ts": {
@@ -8131,6 +8131,9 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/product/product.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/points-type/points-type.entity.ts",
         "../src/core/content/product/product.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -8149,6 +8152,9 @@
         "../src/core/content/product/product.service.ts",
         "../src/core/content/product/product.controller.ts",
         "../src/core/content/product/product.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/points-type/points-type.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15501,6 +15507,9 @@
       "../src/core/content/product/product.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/product/product.entity.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+        "../src/core/trivia/points-type/points-type.entity.ts",
         "../src/core/content/product/product.dto.ts"
       ],
       "../src/core/content/product/product.controller.ts": [

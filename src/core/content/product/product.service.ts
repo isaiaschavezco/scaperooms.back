@@ -2,12 +2,18 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from './product.entity';
-import { CreateProductDTO, UpdateProductDTO } from './product.dto';
+import { User } from '../../users/user/user.entity';
+import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
+import { PointsType } from '../../trivia/points-type/points-type.entity';
+import { CreateProductDTO, UpdateProductDTO, ShopCartProducts } from './product.dto';
 
 @Injectable()
 export class ProductService {
 
-    constructor(@InjectRepository(Product) private productRepository: Repository<Product>) { }
+    constructor(@InjectRepository(Product) private productRepository: Repository<Product>,
+        @InjectRepository(User) private userRepository: Repository<User>,
+        @InjectRepository(Pointsbyuser) private pointsbyuserRepository: Repository<Pointsbyuser>,
+        @InjectRepository(PointsType) private pointsTypeRepository: Repository<PointsType>) { }
 
     async findAll(): Promise<any> {
         try {
@@ -93,6 +99,63 @@ export class ProductService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error deleting token',
+            }, 500);
+        }
+    }
+
+    async registerShopCart(requestDTO: ShopCartProducts): Promise<any> {
+        try {
+
+            let response = { status: 0 };
+            let totalPoints = 0;
+
+            const productsToBuy = await this.productRepository.findByIds(requestDTO.products);
+
+            productsToBuy.forEach(product => {
+                totalPoints += product.points;
+            });
+
+            let userBuying = await this.userRepository.findOne({
+                where: { email: requestDTO.email }
+            });
+
+            if (userBuying.points < totalPoints) {
+                response = { status: 4 };
+            } else {
+                const pointsType = await this.pointsTypeRepository.findOne(3);
+
+                for (let index = 0; index < productsToBuy.length; index++) {
+
+                    const productToBuy = productsToBuy[index];
+                    const pointsToRegister = this.pointsbyuserRepository.create({
+                        isAdded: false,
+                        isDeleted: false,
+                        points: productToBuy.points,
+                        pointsType: pointsType,
+                        createdAt: new Date(),
+                        quizz: null,
+                        product: productToBuy,
+                        user: userBuying
+                    });
+
+                    await this.pointsbyuserRepository.save(pointsToRegister);
+
+                }
+
+                userBuying.points -= totalPoints;
+
+                await this.userRepository.save(userBuying);
+
+                // Falta enviar correo de confirmación a Bioderma
+            }
+
+            return response;
+        } catch (err) {
+            console.log("ProductService - registerShopCart: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error buying products',
             }, 500);
         }
     }

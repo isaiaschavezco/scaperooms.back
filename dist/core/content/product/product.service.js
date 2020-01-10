@@ -25,9 +25,15 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const product_entity_1 = require("./product.entity");
+const user_entity_1 = require("../../users/user/user.entity");
+const pointsbyuser_entity_1 = require("../../trivia/pointsbyuser/pointsbyuser.entity");
+const points_type_entity_1 = require("../../trivia/points-type/points-type.entity");
 let ProductService = class ProductService {
-    constructor(productRepository) {
+    constructor(productRepository, userRepository, pointsbyuserRepository, pointsTypeRepository) {
         this.productRepository = productRepository;
+        this.userRepository = userRepository;
+        this.pointsbyuserRepository = pointsbyuserRepository;
+        this.pointsTypeRepository = pointsTypeRepository;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -108,11 +114,62 @@ let ProductService = class ProductService {
             }
         });
     }
+    registerShopCart(requestDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                let totalPoints = 0;
+                const productsToBuy = yield this.productRepository.findByIds(requestDTO.products);
+                productsToBuy.forEach(product => {
+                    totalPoints += product.points;
+                });
+                let userBuying = yield this.userRepository.findOne({
+                    where: { email: requestDTO.email }
+                });
+                if (userBuying.points < totalPoints) {
+                    response = { status: 4 };
+                }
+                else {
+                    const pointsType = yield this.pointsTypeRepository.findOne(3);
+                    for (let index = 0; index < productsToBuy.length; index++) {
+                        const productToBuy = productsToBuy[index];
+                        const pointsToRegister = this.pointsbyuserRepository.create({
+                            isAdded: false,
+                            isDeleted: false,
+                            points: productToBuy.points,
+                            pointsType: pointsType,
+                            createdAt: new Date(),
+                            quizz: null,
+                            product: productToBuy,
+                            user: userBuying
+                        });
+                        yield this.pointsbyuserRepository.save(pointsToRegister);
+                    }
+                    userBuying.points -= totalPoints;
+                    yield this.userRepository.save(userBuying);
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("ProductService - registerShopCart: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error buying products',
+                }, 500);
+            }
+        });
+    }
 };
 ProductService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(product_entity_1.Product)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, typeorm_1.InjectRepository(user_entity_1.User)),
+    __param(2, typeorm_1.InjectRepository(pointsbyuser_entity_1.Pointsbyuser)),
+    __param(3, typeorm_1.InjectRepository(points_type_entity_1.PointsType)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], ProductService);
 exports.ProductService = ProductService;
 //# sourceMappingURL=product.service.js.map
