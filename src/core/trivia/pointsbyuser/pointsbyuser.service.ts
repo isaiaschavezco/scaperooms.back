@@ -22,9 +22,9 @@ export class PointsbyuserService {
                 .leftJoin("pobyus.quizz", "quizz")
                 .leftJoin("pobyus.product", "product")
                 .where("user.email = :userEmail AND pobyus.isDeleted = :isDeleted", { userEmail: requestDTO.email, isDeleted: false })
-                .skip(requestDTO.page * 20)
+                .skip(requestDTO.page * 1)//.skip(requestDTO.page * 20)
                 .orderBy("pobyus.createdAt", "DESC")
-                .take(20)
+                .take(1) // .take(20)
                 .getMany();
 
             pointsByUserList.forEach(points => {

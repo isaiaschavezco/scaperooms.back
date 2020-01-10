@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "3dea4bf03570007188bc76d14cbc48a99ac580d558f7c17b9be2e044c2e34b94",
+        "version": "90e61d631b1e1725bba916dcf6ba576639a313818b733c93d0a67ef24563b5f4",
         "signature": "85446e721877a8e8abf08f7ad5a01b25f624a678f6360721dbd725b0546c2214"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -3994,7 +3994,7 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "f713140bc3107a38d042699f3e5a3905fe03eb9735e1d48e9db10c158758cf10",
+        "version": "e353105ce445ec0d476c7d935baaa4af1afc5af4e9fcac32b21b33c707ffcca2",
         "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
@@ -19437,7 +19437,10 @@
       "../src/core/users/token/token.service.ts",
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
+      "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19847,9 +19850,9 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19901,11 +19904,8 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.dto.ts",
-      "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.module.ts",
-      "../src/app.module.ts"
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts"
     ]
   },
   "version": "3.7.2"
