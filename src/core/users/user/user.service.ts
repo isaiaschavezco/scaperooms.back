@@ -121,7 +121,9 @@ export class UserService {
                     branchChain: user.chain,
                     branchOffice: user.drugstore,
                     postalCode: user.postalCode,
-                    charge: user.charge
+                    charge: user.charge,
+                    points: user.points,
+                    biodermaGamePoints: user.biodermaGamePoints
                 }
             };
         } catch (err) {
