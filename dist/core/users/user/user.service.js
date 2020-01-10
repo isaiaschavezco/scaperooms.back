@@ -480,6 +480,30 @@ let UserService = class UserService {
             }
         });
     }
+    requestPasswordReset(requestEmail) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                const user = yield this.userRepository.findOne({
+                    where: { email: requestEmail }
+                });
+                if (user) {
+                    console.log("Enviar correo");
+                }
+                else {
+                    response = { status: 1 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - requestPasswordReset: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error requesting password reset',
+                }, 500);
+            }
+        });
+    }
 };
 UserService = __decorate([
     common_1.Injectable(),

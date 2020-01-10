@@ -6,6 +6,7 @@ export declare class UserController {
     create(inviteUserDTO: InviteUserDTO): Promise<number>;
     findAllUsers(): Promise<any>;
     findUserDetail(email: any): Promise<any>;
+    requestPasswordReset(email: any): Promise<any>;
     createUser(createUserDTO: CreateUserDTO): Promise<any>;
     createNAOSUser(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any>;
     createDrugStoreUser(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any>;

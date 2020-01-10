@@ -43,6 +43,11 @@ let UserController = class UserController {
             return yield this.userService.findUserDetail(email);
         });
     }
+    requestPasswordReset(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.requestPasswordReset(email);
+        });
+    }
     createUser(createUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.userService.create(createUserDTO);
@@ -100,6 +105,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findUserDetail", null);
 __decorate([
+    common_1.Get('requestreset/:email'),
+    __param(0, common_1.Param('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "requestPasswordReset", null);
+__decorate([
     common_1.Post(),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
@@ -142,7 +154,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "deleteUser", null);
 __decorate([
-    common_1.Put('reset'),
+    common_1.Put('resetpoints'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

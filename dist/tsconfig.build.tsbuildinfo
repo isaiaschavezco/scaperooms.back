@@ -2338,20 +2338,20 @@
         "signature": "3d500686aa1061df45201267d57375b5f2fad19b86528626375f7fb06d715588"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "a3e6e4dfffae5d1d75a7df498ffe4e0a8735f5e5d69b8e42db585c9e0e81d764",
-        "signature": "96492caa78a1cee0fab024b94bf41f45a862642f517d1bc53cc917df7ec4264a"
+        "version": "163a7f4113a7ccaeb5152724ab45047d42cb47d9d51093761765dfe13e1da5ef",
+        "signature": "973e59e09f6f52e4144b5858706003b86f926e4c11b70afd44f522b9d234e901"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "33430f45f432a2cb4734cad582133ee759d34453cbc4b50a8327559f6e5e922c",
-        "signature": "3b94262dbbea120660605ee3490918ced7824d5022cdf98441c1e84981a8ceed"
+        "version": "3dea4bf03570007188bc76d14cbc48a99ac580d558f7c17b9be2e044c2e34b94",
+        "signature": "85446e721877a8e8abf08f7ad5a01b25f624a678f6360721dbd725b0546c2214"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "873a4dab1337c826fe9f9441fb8874f76ba2e4f7c9a4ecd33da0ef187d413398",
-        "signature": "42290dc061f14f97d9c2141a2fac5a5290d87a12e2b38a2fb69fe6425a79a98c"
+        "version": "2eff93cb1a97793e5e0315ac30b8c1c7631423dd4c16888cd382e1c606fa34be",
+        "signature": "3fd32ccba4a98413f09f9cd1c4fe6b9ce28e2965baa7bd3ce405d54affe07faf"
       },
       "../src/core/users/user/user.module.ts": {
         "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",
@@ -19437,11 +19437,7 @@
       "../src/core/users/token/token.service.ts",
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
-      "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19456,6 +19452,8 @@
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
       "../src/core/content/product/product.service.ts",
+      "../src/core/content/product/product.controller.ts",
+      "../src/core/content/product/product.module.ts",
       "../src/core/content/article/article.entity.ts",
       "../src/core/content/tag/tag.entity.ts",
       "../src/core/content/tag/tag.dto.ts",
@@ -19852,7 +19850,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19904,8 +19901,11 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/product/product.controller.ts",
-      "../src/core/content/product/product.module.ts"
+      "../src/core/users/user/user.dto.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

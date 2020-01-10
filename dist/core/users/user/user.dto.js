@@ -18,4 +18,7 @@ exports.UpdateNAOSUserDTO = UpdateNAOSUserDTO;
 class UpdateDrugStoreUserDTO {
 }
 exports.UpdateDrugStoreUserDTO = UpdateDrugStoreUserDTO;
+class ResetPassword {
+}
+exports.ResetPassword = ResetPassword;
 //# sourceMappingURL=user.dto.js.map

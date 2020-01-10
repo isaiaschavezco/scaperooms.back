@@ -22,6 +22,11 @@ export class UserController {
         return await this.userService.findUserDetail(email);
     }
 
+    @Get('requestreset/:email')
+    async requestPasswordReset(@Param('email') email): Promise<any> {
+        return await this.userService.requestPasswordReset(email);
+    }
+
     @Post()
     async createUser(@Body() createUserDTO: CreateUserDTO): Promise<any> {
         return await this.userService.create(createUserDTO);
@@ -52,7 +57,7 @@ export class UserController {
         return await this.userService.deleteUser(email);
     }
 
-    @Put('reset')
+    @Put('resetpoints')
     async resetUserPoints(): Promise<any> {
         return await this.userService.resetUserPoints();
     }

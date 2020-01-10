@@ -539,4 +539,30 @@ export class UserService {
         }
     }
 
+    async requestPasswordReset(requestEmail: string): Promise<any> {
+        try {
+
+            let response = { status: 0 };
+
+            const user = await this.userRepository.findOne({
+                where: { email: requestEmail }
+            });
+
+            if (user) {
+                console.log("Enviar correo");
+            } else {
+                response = { status: 1 };
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - requestPasswordReset: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error requesting password reset',
+            }, 500);
+        }
+    }
+
 }

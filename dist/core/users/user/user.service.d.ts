@@ -31,4 +31,5 @@ export declare class UserService {
     updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any>;
     deleteUser(requestEmail: string): Promise<any>;
     resetUserPoints(): Promise<any>;
+    requestPasswordReset(requestEmail: string): Promise<any>;
 }
