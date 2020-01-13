@@ -9,4 +9,5 @@ export declare class QuizzController {
     createQuizz(createQuizzDTO: CreateQuizzDTO): Promise<any>;
     sendQuizz(sendQuizzDTO: SendQuizzDTO): Promise<any>;
     getQuizzesByUserCampaing(getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any>;
+    getUserCampaingHistory(email: any): Promise<any>;
 }

@@ -33,6 +33,11 @@ let PointsbyuserController = class PointsbyuserController {
             return yield this.pointsbyuserService.getUserPointsHistory(getUserPointsHistory);
         });
     }
+    getCampaingUserHistory(getUserPointsHistory) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.pointsbyuserService.getCampaingUserHistory(getUserPointsHistory);
+        });
+    }
 };
 __decorate([
     common_1.Post('history'),
@@ -41,6 +46,13 @@ __decorate([
     __metadata("design:paramtypes", [pointsbyuser_dto_1.GetUserPointsHistory]),
     __metadata("design:returntype", Promise)
 ], PointsbyuserController.prototype, "getUserPointsHistory", null);
+__decorate([
+    common_1.Post('campaing/history'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [pointsbyuser_dto_1.GetUserPointsHistory]),
+    __metadata("design:returntype", Promise)
+], PointsbyuserController.prototype, "getCampaingUserHistory", null);
 PointsbyuserController = __decorate([
     common_1.Controller('pointsbyuser'),
     __metadata("design:paramtypes", [pointsbyuser_service_1.PointsbyuserService])

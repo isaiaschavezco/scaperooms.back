@@ -65,6 +65,31 @@ let PointsbyuserService = class PointsbyuserService {
             }
         });
     }
+    getCampaingUserHistory(requestDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let pointsByUserToReturn = [];
+                const pointsByUserList = yield this.pointsbyuserRepository.createQueryBuilder("pobyus")
+                    .select(["cmp.id", "cmp.name"])
+                    .innerJoin("pobyus.user", "user", "user.email = :email", { email: requestDTO.email })
+                    .leftJoin("pobyus.quizz", "quizz")
+                    .innerJoin("quizz.campaing", "cmp")
+                    .where("pobyus.isDeleted = :isDeleted AND pobyus.quizz IS NOT NULL", { isDeleted: false })
+                    .skip(requestDTO.page * 20)
+                    .groupBy("cmp.id")
+                    .take(20)
+                    .getMany();
+                return { points: pointsByUserList };
+            }
+            catch (err) {
+                console.log("PointsbyuserService - getCampaingUserHistory: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting campaing history',
+                }, 500);
+            }
+        });
+    }
 };
 PointsbyuserService = __decorate([
     common_1.Injectable(),

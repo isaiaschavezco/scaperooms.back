@@ -32,35 +32,47 @@ export class UserService {
         try {
 
             let status = 0;
+
             // Se verifica si el usuario ya cuenta con una invitacion enviada
-            const token = await this.tokenRepository.findOne({
+            const userExist = await this.userRepository.findOne({
                 where: { email: request.email }
             });
 
-            if (token) {
-                await this.tokenRepository.remove(token);
+            if (!userExist) {
+
+                // Se verifica si el usuario ya cuenta con una invitacion enviada
+                const token = await this.tokenRepository.findOne({
+                    where: { email: request.email }
+                });
+
+                if (token) {
+                    await this.tokenRepository.remove(token);
+                }
+                // Se obtiene el tipo de usuario
+                const userType = await this.typeRepository.findOne(request.type);
+                // Se crea nuevo token asociado al email del usuario
+                let newToken = this.tokenRepository.create({
+                    email: request.email,
+                    type: userType
+                });
+                // Se registra token
+                const registerToken = await this.tokenRepository.save(newToken);
+                // Se genera jwt para enviar por correo
+                const jwtToken = await jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
+                // Se envia correo
+                await this.mailerService.sendMail({
+                    to: request.email,
+                    subject: 'Has sido invitado a Bioderma.',
+                    template: 'invitacion',
+                    context: {
+                        url: jwtToken,
+                        type: request.type
+                    },
+                });
+
+            } else {
+                status = 5;
             }
-            // Se obtiene el tipo de usuario
-            const userType = await this.typeRepository.findOne(request.type);
-            // Se crea nuevo token asociado al email del usuario
-            let newToken = this.tokenRepository.create({
-                email: request.email,
-                type: userType
-            });
-            // Se registra token
-            const registerToken = await this.tokenRepository.save(newToken);
-            // Se genera jwt para enviar por correo
-            const jwtToken = await jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
-            // Se envia correo
-            await this.mailerService.sendMail({
-                to: request.email,
-                subject: 'Has sido invitado a Bioderma.',
-                template: 'invitacion',
-                context: {
-                    url: jwtToken,
-                    type: request.type
-                },
-            });
 
             return status;
 

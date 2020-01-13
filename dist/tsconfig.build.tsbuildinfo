@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "4d18fd9413ed79624463bab4d00cf585b27e8f7d5471a164b149384b1a999018",
+        "version": "47816ff98fb9db845c5b6aeecf812bfc6e054c968c2148179b6202ed526f3d5b",
         "signature": "e72491db6838b42294a7e8774aaa92fd1e3d71dddd3f4adcf39f13f0aa4cdcdd"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2538,12 +2538,12 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "ec5ce310f0398f0d007ff94809776edd9f37d697a2d9f8c9d15cc4806e4e9fee",
-        "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
+        "version": "34af95eef3e3e8ba821cc28c4bf9c5f9b89f3e27ad3e966cebd731caebb62111",
+        "signature": "6f9f6018b191e7588465efcca90c777e1dc830f4733043ef976c33cbe7e452cc"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
-        "version": "d7ba364aafa932d552486e9e35af2a4414b57595b80d1b9237ff2dfa2b22260a",
-        "signature": "42928e2437a05e23bf79fb07bb2d698937987c7ed8711445618a71a1e97a2de2"
+        "version": "fce0731ac8177513173b00f945a73947351b4903b88c85025590ea2ce2bc7c21",
+        "signature": "6f4ac360fe7d87c1edd83a7713c9b3a78b4e55a3b3b256bae39b324160054d1b"
       },
       "../src/core/trivia/quizz/quizz.module.ts": {
         "version": "481935e047f1b08e6b09df021c14e914f4547a8850dfb45b0cbdc0e2d1a20389",
@@ -3994,12 +3994,12 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "e353105ce445ec0d476c7d935baaa4af1afc5af4e9fcac32b21b33c707ffcca2",
-        "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
+        "version": "2da0bb7513b12770bb93e0b5e390ea4d534ebd1cd663f386a63ecdf736b89529",
+        "signature": "830c3858a7ea3f6f72e033500f13a6e03e1bfe27666164e39e68055ef26b6933"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
-        "version": "93d72c2313fcbfc402cb1862a4b358adcd0e8a5f57f2466dab55fdcb255b4502",
-        "signature": "2a22876d3d7948b41724000670e5c28d3030192faf63ecd314d75b88a556c3a6"
+        "version": "e3cdc7d55aa5b0674f965327c85f34101956929cad1b0e9f5b6e792b5fae3b72",
+        "signature": "d7e91b196c15c45ffe53be55e54e99ffc42a5ea92f2d49c478078cd4c93ec787"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
         "version": "10a902da82db5e2177eeed5ca7aee62268447fe171d721d849abbbd065e25091",

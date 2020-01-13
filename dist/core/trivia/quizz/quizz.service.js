@@ -197,6 +197,26 @@ let QuizzService = class QuizzService {
             }
         });
     }
+    getCampaingUserHistoy(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const campaingsList = yield this.quizzRepository.createQueryBuilder("quizz")
+                    .leftJoinAndSelect("quizz.campaing", "cmp")
+                    .leftJoin("quizz.user", "user", "user.email = :email", { email: email })
+                    .leftJoinAndSelect("quizz.pointsbyuser", "pobyus")
+                    .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })
+                    .getMany();
+                return { campaings: campaingsList };
+            }
+            catch (err) {
+                console.log("QuizzService - getCampaingUserHistoy: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting campaing history',
+                }, 500);
+            }
+        });
+    }
 };
 QuizzService = __decorate([
     common_1.Injectable(),

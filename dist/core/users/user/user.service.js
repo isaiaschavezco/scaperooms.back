@@ -52,28 +52,36 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let status = 0;
-                const token = yield this.tokenRepository.findOne({
+                const userExist = yield this.userRepository.findOne({
                     where: { email: request.email }
                 });
-                if (token) {
-                    yield this.tokenRepository.remove(token);
+                if (!userExist) {
+                    const token = yield this.tokenRepository.findOne({
+                        where: { email: request.email }
+                    });
+                    if (token) {
+                        yield this.tokenRepository.remove(token);
+                    }
+                    const userType = yield this.typeRepository.findOne(request.type);
+                    let newToken = this.tokenRepository.create({
+                        email: request.email,
+                        type: userType
+                    });
+                    const registerToken = yield this.tokenRepository.save(newToken);
+                    const jwtToken = yield jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
+                    yield this.mailerService.sendMail({
+                        to: request.email,
+                        subject: 'Has sido invitado a Bioderma.',
+                        template: 'invitacion',
+                        context: {
+                            url: jwtToken,
+                            type: request.type
+                        },
+                    });
                 }
-                const userType = yield this.typeRepository.findOne(request.type);
-                let newToken = this.tokenRepository.create({
-                    email: request.email,
-                    type: userType
-                });
-                const registerToken = yield this.tokenRepository.save(newToken);
-                const jwtToken = yield jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
-                yield this.mailerService.sendMail({
-                    to: request.email,
-                    subject: 'Has sido invitado a Bioderma.',
-                    template: 'invitacion',
-                    context: {
-                        url: jwtToken,
-                        type: request.type
-                    },
-                });
+                else {
+                    status = 5;
+                }
                 return status;
             }
             catch (err) {
