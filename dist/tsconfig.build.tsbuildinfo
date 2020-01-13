@@ -2338,20 +2338,20 @@
         "signature": "3d500686aa1061df45201267d57375b5f2fad19b86528626375f7fb06d715588"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "163a7f4113a7ccaeb5152724ab45047d42cb47d9d51093761765dfe13e1da5ef",
-        "signature": "973e59e09f6f52e4144b5858706003b86f926e4c11b70afd44f522b9d234e901"
+        "version": "6194801215de663ac3de2dc1243724c635c6a11ba991ef8ba2c0cacf6caa1801",
+        "signature": "5a5aabb2111496a481f5c8f755de3ce3892e3e3f14b368fc1dba3c612641806a"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "90e61d631b1e1725bba916dcf6ba576639a313818b733c93d0a67ef24563b5f4",
-        "signature": "85446e721877a8e8abf08f7ad5a01b25f624a678f6360721dbd725b0546c2214"
+        "version": "4d18fd9413ed79624463bab4d00cf585b27e8f7d5471a164b149384b1a999018",
+        "signature": "e72491db6838b42294a7e8774aaa92fd1e3d71dddd3f4adcf39f13f0aa4cdcdd"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "2eff93cb1a97793e5e0315ac30b8c1c7631423dd4c16888cd382e1c606fa34be",
-        "signature": "3fd32ccba4a98413f09f9cd1c4fe6b9ce28e2965baa7bd3ce405d54affe07faf"
+        "version": "f333fc0b00f3ed9952051ed6ea9ba80d64ced84c8cb4104586e1f738b928bb5b",
+        "signature": "bd91a108d4667a47d6376b499ea46dff2ca13be10ffcf08eaa1ce7a5aa68466e"
       },
       "../src/core/users/user/user.module.ts": {
         "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",
@@ -19850,6 +19850,7 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
       "../src/app.module.ts",
@@ -19904,8 +19905,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

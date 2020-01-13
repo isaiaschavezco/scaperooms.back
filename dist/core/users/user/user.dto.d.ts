@@ -85,3 +85,7 @@ export declare class UpdateDrugStoreUserDTO {
 export declare class ResetPassword {
     readonly email: string;
 }
+export declare class ConfirmUserPassword {
+    readonly email: string;
+    readonly password: string;
+}

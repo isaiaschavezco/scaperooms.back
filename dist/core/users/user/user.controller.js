@@ -43,6 +43,11 @@ let UserController = class UserController {
             return yield this.userService.findUserDetail(email);
         });
     }
+    confirmUserPassword(confirmUserPassword) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.confirmPassword(confirmUserPassword);
+        });
+    }
     requestPasswordReset(email) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.userService.requestPasswordReset(email);
@@ -104,6 +109,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findUserDetail", null);
+__decorate([
+    common_1.Post('confirm'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.ConfirmUserPassword]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "confirmUserPassword", null);
 __decorate([
     common_1.Get('requestreset/:email'),
     __param(0, common_1.Param('email')),

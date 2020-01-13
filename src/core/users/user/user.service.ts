@@ -9,7 +9,7 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from 'bcrypt';
@@ -91,6 +91,37 @@ export class UserService {
         }
     }
 
+    async confirmPassword(requestDTO: ConfirmUserPassword): Promise<any> {
+        try {
+            let response = { status: 0 };
+
+            const userExist = await this.userRepository.findOne({
+                where: { email: requestDTO.email },
+                select: ["id", "name", "email", "points", "password"]
+            });
+
+            if (userExist) {
+                const match = await bcrypt.compare(requestDTO.password, userExist.password);
+
+                if (!match) {
+                    response = { status: 2 };
+                }
+
+            } else {
+                response = { status: 1 };
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - confirmPassword: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error confirming user password',
+            }, 500);
+        }
+    }
+
     async findUserDetail(requestEmail: string): Promise<any> {
         try {
             const user = await this.userRepository.findOne({
@@ -122,7 +153,6 @@ export class UserService {
                     branchOffice: user.drugstore,
                     postalCode: user.postalCode,
                     charge: user.charge,
-                    points: user.points,
                     biodermaGamePoints: user.biodermaGamePoints
                 }
             };

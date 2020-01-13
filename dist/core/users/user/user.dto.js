@@ -21,4 +21,7 @@ exports.UpdateDrugStoreUserDTO = UpdateDrugStoreUserDTO;
 class ResetPassword {
 }
 exports.ResetPassword = ResetPassword;
+class ConfirmUserPassword {
+}
+exports.ConfirmUserPassword = ConfirmUserPassword;
 //# sourceMappingURL=user.dto.js.map

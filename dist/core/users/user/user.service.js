@@ -103,6 +103,34 @@ let UserService = class UserService {
             }
         });
     }
+    confirmPassword(requestDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: requestDTO.email },
+                    select: ["id", "name", "email", "points", "password"]
+                });
+                if (userExist) {
+                    const match = yield bcrypt.compare(requestDTO.password, userExist.password);
+                    if (!match) {
+                        response = { status: 2 };
+                    }
+                }
+                else {
+                    response = { status: 1 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - confirmPassword: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error confirming user password',
+                }, 500);
+            }
+        });
+    }
     findUserDetail(requestEmail) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -134,7 +162,6 @@ let UserService = class UserService {
                         branchOffice: user.drugstore,
                         postalCode: user.postalCode,
                         charge: user.charge,
-                        points: user.points,
                         biodermaGamePoints: user.biodermaGamePoints
                     }
                 };

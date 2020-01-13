@@ -7,7 +7,7 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 export declare class UserService {
     private userRepository;
@@ -22,6 +22,7 @@ export declare class UserService {
     constructor(userRepository: Repository<User>, mailerService: MailerService, tokenRepository: Repository<Token>, typeRepository: Repository<Type>, chainRepository: Repository<Chain>, positionRepository: Repository<Position>, stateRepository: Repository<City>, cityRepository: Repository<Delegation>, roleRepository: Repository<Role>);
     invite(request: InviteUserDTO): Promise<number>;
     findAll(): Promise<any>;
+    confirmPassword(requestDTO: ConfirmUserPassword): Promise<any>;
     findUserDetail(requestEmail: string): Promise<any>;
     create(createUserDTO: CreateUserDTO): Promise<any>;
     createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any>;

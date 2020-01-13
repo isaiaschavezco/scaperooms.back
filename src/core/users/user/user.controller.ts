@@ -1,7 +1,7 @@
 import { Controller, Body, Get, Post, Put, Delete, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
 
 @Controller('user')
 export class UserController {
@@ -20,6 +20,11 @@ export class UserController {
     @Get(':email')
     async findUserDetail(@Param('email') email): Promise<any> {
         return await this.userService.findUserDetail(email);
+    }
+
+    @Post('confirm')
+    async confirmUserPassword(@Body() confirmUserPassword: ConfirmUserPassword): Promise<any> {
+        return await this.userService.confirmPassword(confirmUserPassword);
     }
 
     @Get('requestreset/:email')
