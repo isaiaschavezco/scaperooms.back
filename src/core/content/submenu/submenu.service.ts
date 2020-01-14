@@ -100,6 +100,12 @@ export class SubmenuService {
             });
         });
 
+        if (menuId == 2) {
+            listToReturn.sort(function (a, b) {
+                return a.id - b.id;
+            });
+        }
+
         return { files: listToReturn };
     }
 
