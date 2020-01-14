@@ -98,7 +98,7 @@ export class UserService {
 
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error getting users',
+                error: 'Error getting users list',
             }, 500);
         }
     }
