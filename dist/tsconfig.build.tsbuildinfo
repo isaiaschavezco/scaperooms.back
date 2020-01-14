@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "47816ff98fb9db845c5b6aeecf812bfc6e054c968c2148179b6202ed526f3d5b",
+        "version": "09eb248d2c3d18024a353d6069b3bd57822c29113a965827b5e91ec18c7742e5",
         "signature": "e72491db6838b42294a7e8774aaa92fd1e3d71dddd3f4adcf39f13f0aa4cdcdd"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2394,7 +2394,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "92fbade6e2da2a7df9c1f412dfcc1866fbcdc9e2521159602508a696150ce04d",
+        "version": "00c8e9a246ebe8ff6be314749b1a15887e83ef12e119a98414b865c63958cc5c",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
@@ -2518,16 +2518,16 @@
         "signature": "7a7e7365d97bfe93ae930d00901117c97e94d6333ae0e12111a427200f69e7d6"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
-        "version": "2195b65bbedaeb52bd57ccc7b8675f22e7dbb2b2582536942a8f11d7928db0cf",
-        "signature": "e2c9b985f2d698e627259c3aad3c416f2cc99b937be5aee2455dc764e967575b"
+        "version": "ca77ab5f310732a5f4515c75ae01c88348a9c0901f8a90b08cdc4e223887f589",
+        "signature": "63b96838daf75594d2021b71363ad4178b1ae2dc5fcc1eab5226830c46821642"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "01a1eccbc8eb4fc1997b51394bcfc33fbe4253960271036538283284e43c0173",
-        "signature": "c2a334265d44784cf01568d2ecbc7fd70cbdea9e62efd1356044badea086920f"
+        "version": "6b6f62aaef179d4468f97d3855eaf60d001a1dde1fda47de9f4714bd74eb7b05",
+        "signature": "7d644a7a4f489d3b984a9d2e421ed3d425d8cf57eb9eced31675ead806e86633"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
-        "version": "0c170f4b639e1b13f8f7ac30f57abb0d40b0a5527eaba4533332fa52fe804a77",
-        "signature": "ab80220381306ce205e1735052ea5f6149941740d861e6af952cb1137e77ca61"
+        "version": "edecf5834e29601803ce5d4f47bba80af7afb8cb905fcfdd97ce98e9ba5a3774",
+        "signature": "75e0455692dfce94b01ab3cd0425062c16847cf8e18a44ea6ae1961f1f22e1dd"
       },
       "../src/core/trivia/campaing/campaing.module.ts": {
         "version": "15353798f4e7e375482534b7d33675759f48fba13ddbece7ef054b5dd312ef64",
@@ -2538,12 +2538,12 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "34af95eef3e3e8ba821cc28c4bf9c5f9b89f3e27ad3e966cebd731caebb62111",
-        "signature": "6f9f6018b191e7588465efcca90c777e1dc830f4733043ef976c33cbe7e452cc"
+        "version": "ec5ce310f0398f0d007ff94809776edd9f37d697a2d9f8c9d15cc4806e4e9fee",
+        "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
-        "version": "fce0731ac8177513173b00f945a73947351b4903b88c85025590ea2ce2bc7c21",
-        "signature": "6f4ac360fe7d87c1edd83a7713c9b3a78b4e55a3b3b256bae39b324160054d1b"
+        "version": "d7ba364aafa932d552486e9e35af2a4414b57595b80d1b9237ff2dfa2b22260a",
+        "signature": "42928e2437a05e23bf79fb07bb2d698937987c7ed8711445618a71a1e97a2de2"
       },
       "../src/core/trivia/quizz/quizz.module.ts": {
         "version": "481935e047f1b08e6b09df021c14e914f4547a8850dfb45b0cbdc0e2d1a20389",
@@ -3994,12 +3994,12 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "2da0bb7513b12770bb93e0b5e390ea4d534ebd1cd663f386a63ecdf736b89529",
-        "signature": "830c3858a7ea3f6f72e033500f13a6e03e1bfe27666164e39e68055ef26b6933"
+        "version": "f713140bc3107a38d042699f3e5a3905fe03eb9735e1d48e9db10c158758cf10",
+        "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
-        "version": "e3cdc7d55aa5b0674f965327c85f34101956929cad1b0e9f5b6e792b5fae3b72",
-        "signature": "d7e91b196c15c45ffe53be55e54e99ffc42a5ea92f2d49c478078cd4c93ec787"
+        "version": "93d72c2313fcbfc402cb1862a4b358adcd0e8a5f57f2466dab55fdcb255b4502",
+        "signature": "2a22876d3d7948b41724000670e5c28d3030192faf63ecd314d75b88a556c3a6"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
         "version": "10a902da82db5e2177eeed5ca7aee62268447fe171d721d849abbbd065e25091",
@@ -8353,6 +8353,7 @@
         "../src/core/trivia/campaing/campaing.entity.ts",
         "../src/core/trivia/target/target.entity.ts",
         "../src/core/trivia/campaing/campaing.dto.ts",
+        "../node_modules/moment/moment.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -19439,6 +19440,7 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19482,13 +19484,7 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
-      "../src/core/trivia/campaing/campaing.controller.ts",
-      "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
-      "../src/core/trivia/quizz/quizz.controller.ts",
-      "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/aws-sdk/lib/error.d.ts",
       "../node_modules/aws-sdk/lib/credentials.d.ts",
       "../node_modules/aws-sdk/lib/credentials/credential_provider_chain.d.ts",
@@ -19853,7 +19849,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19905,7 +19900,13 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      "../src/core/trivia/campaing/campaing.service.ts",
+      "../src/core/trivia/campaing/campaing.module.ts",
+      "../src/core/trivia/campaing/campaing.controller.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
+      "../src/core/trivia/quizz/quizz.module.ts",
+      "../src/core/trivia/quizz/quizz.controller.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

@@ -26,6 +26,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const campaing_entity_1 = require("./campaing.entity");
 const target_entity_1 = require("../target/target.entity");
+const moment = require("moment");
 let CampaingService = class CampaingService {
     constructor(campaingRepository, targetRepository) {
         this.campaingRepository = campaingRepository;
@@ -129,6 +130,48 @@ let CampaingService = class CampaingService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error creating campaing',
+                }, 500);
+            }
+        });
+    }
+    getCampaingUserHistoy(requestDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let campaingHistoryToReturn = [];
+                const campaingsList = yield this.campaingRepository.createQueryBuilder("cmp")
+                    .select(["cmp.id", "cmp.name", "cmp.createdAt", "cmp.isBiodermaGame", "quizz.id", "pobyus.id", "pobyus.points"])
+                    .leftJoin("cmp.quizz", "quizz")
+                    .leftJoin("quizz.user", "user", "user.email = :email", { email: requestDTO.email })
+                    .leftJoin("quizz.pointsbyuser", "pobyus")
+                    .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })
+                    .groupBy("cmp.id")
+                    .addGroupBy("quizz.id")
+                    .addGroupBy("pobyus.id")
+                    .skip(requestDTO.page * 20)
+                    .take(20)
+                    .getMany();
+                campaingsList.forEach(tempCamp => {
+                    let totalPoints = 0;
+                    tempCamp.quizz.forEach(tempQuizz => {
+                        tempQuizz.pointsbyuser.forEach(tempPointsByUser => {
+                            totalPoints += tempPointsByUser.points;
+                        });
+                    });
+                    campaingHistoryToReturn.push({
+                        id: tempCamp.id,
+                        name: tempCamp.name,
+                        createdAt: moment(tempCamp.createdAt).format('DD/MMM/YYYY'),
+                        isBiodermaGame: tempCamp.isBiodermaGame,
+                        points: totalPoints
+                    });
+                });
+                return { campaings: campaingHistoryToReturn };
+            }
+            catch (err) {
+                console.log("CampaingService - getCampaingUserHistoy: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting campaing history',
                 }, 500);
             }
         });

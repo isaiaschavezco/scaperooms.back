@@ -53,11 +53,6 @@ let QuizzController = class QuizzController {
             return yield this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
         });
     }
-    getUserCampaingHistory(email) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield this.quizzService.getCampaingUserHistoy(email);
-        });
-    }
 };
 __decorate([
     common_1.Get(),
@@ -93,13 +88,6 @@ __decorate([
     __metadata("design:paramtypes", [quizz_dto_1.GetQuizzesByUserCampaingDTO]),
     __metadata("design:returntype", Promise)
 ], QuizzController.prototype, "getQuizzesByUserCampaing", null);
-__decorate([
-    common_1.Get('user/history/:email'),
-    __param(0, common_1.Param('email')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], QuizzController.prototype, "getUserCampaingHistory", null);
 QuizzController = __decorate([
     common_1.Controller('quizz'),
     __metadata("design:paramtypes", [quizz_service_1.QuizzService])

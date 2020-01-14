@@ -113,6 +113,11 @@ let SubmenuService = class SubmenuService {
                     product: tempPDF
                 });
             });
+            if (menuId == 2) {
+                listToReturn.sort(function (a, b) {
+                    return a.id - b.id;
+                });
+            }
             return { files: listToReturn };
         });
     }

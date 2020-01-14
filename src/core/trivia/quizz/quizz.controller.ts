@@ -33,9 +33,4 @@ export class QuizzController {
         return await this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
     }
 
-    @Get('user/history/:email')
-    async getUserCampaingHistory(@Param('email') email): Promise<any> {
-        return await this.quizzService.getCampaingUserHistoy(email);
-    }
-
 }

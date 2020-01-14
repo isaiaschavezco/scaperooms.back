@@ -1,6 +1,6 @@
 import { CampaingService } from './campaing.service';
 import { Campaing } from './campaing.entity';
-import { CreateCampaingDTO, GetCampaingsByUserDTO } from './campaing.dto';
+import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory } from './campaing.dto';
 export declare class CampaingController {
     private campaingService;
     constructor(campaingService: CampaingService);
@@ -9,4 +9,5 @@ export declare class CampaingController {
     getCampaingTop(campaingId: any): Promise<any>;
     findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any>;
     createCampaing(createCampaingDTO: CreateCampaingDTO): Promise<any>;
+    getUserCampaingHistory(getUserCampaingHistory: GetUserCampaingHistory): Promise<any>;
 }

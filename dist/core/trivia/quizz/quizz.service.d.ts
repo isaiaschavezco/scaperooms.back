@@ -13,5 +13,4 @@ export declare class QuizzService {
     create(createDTO: CreateQuizzDTO): Promise<any>;
     send(sendQuizzDTO: SendQuizzDTO): Promise<any>;
     findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any>;
-    getCampaingUserHistoy(email: string): Promise<any>;
 }

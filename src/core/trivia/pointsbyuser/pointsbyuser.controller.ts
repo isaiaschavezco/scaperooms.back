@@ -12,9 +12,4 @@ export class PointsbyuserController {
         return await this.pointsbyuserService.getUserPointsHistory(getUserPointsHistory);
     }
 
-    @Post('campaing/history')
-    async getCampaingUserHistory(@Body() getUserPointsHistory: GetUserPointsHistory): Promise<any> {
-        return await this.pointsbyuserService.getCampaingUserHistory(getUserPointsHistory);
-    }
-
 }

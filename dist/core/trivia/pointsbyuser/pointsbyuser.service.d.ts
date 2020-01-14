@@ -5,5 +5,4 @@ export declare class PointsbyuserService {
     private pointsbyuserRepository;
     constructor(pointsbyuserRepository: Repository<Pointsbyuser>);
     getUserPointsHistory(requestDTO: GetUserPointsHistory): Promise<any>;
-    getCampaingUserHistory(requestDTO: GetUserPointsHistory): Promise<any>;
 }

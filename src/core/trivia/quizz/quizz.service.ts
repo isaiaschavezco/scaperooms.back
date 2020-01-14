@@ -206,28 +206,4 @@ export class QuizzService {
         }
     }
 
-    async getCampaingUserHistoy(email: string): Promise<any> {
-        try {
-
-            const campaingsList = await this.quizzRepository.createQueryBuilder("quizz")
-                // .select(["cmp.id", "cmp.name", "cmp.createdAt", "cmp.isBiodermaGame"])
-                // .addSelect("SUM(pobyus.points)", "sum")
-                .leftJoinAndSelect("quizz.campaing", "cmp")
-                .leftJoin("quizz.user", "user", "user.email = :email", { email: email })
-                .leftJoinAndSelect("quizz.pointsbyuser", "pobyus")
-                .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })
-                // .groupBy("cmp.id")
-                .getMany();
-
-            return { campaings: campaingsList };
-        } catch (err) {
-            console.log("QuizzService - getCampaingUserHistoy: ", err);
-
-            throw new HttpException({
-                status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error getting campaing history',
-            }, 500);
-        }
-    }
-
 }

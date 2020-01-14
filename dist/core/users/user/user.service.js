@@ -106,7 +106,7 @@ let UserService = class UserService {
                 console.log("UserService - findAll: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting users',
+                    error: 'Error getting users list',
                 }, 500);
             }
         });

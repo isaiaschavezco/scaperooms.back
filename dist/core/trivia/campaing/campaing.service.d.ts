@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 import { Campaing } from './campaing.entity';
 import { Target } from '../target/target.entity';
-import { CreateCampaingDTO, GetCampaingsByUserDTO } from './campaing.dto';
+import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory } from './campaing.dto';
 export declare class CampaingService {
     private campaingRepository;
     private targetRepository;
@@ -11,4 +11,5 @@ export declare class CampaingService {
     findTopCampaing(campaingId: number): Promise<any>;
     findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any>;
     create(createDTO: CreateCampaingDTO): Promise<any>;
+    getCampaingUserHistoy(requestDTO: GetUserCampaingHistory): Promise<any>;
 }

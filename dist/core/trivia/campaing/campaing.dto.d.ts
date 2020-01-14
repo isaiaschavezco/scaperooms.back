@@ -8,3 +8,7 @@ export declare class GetCampaingsByUserDTO {
     readonly email: string;
     readonly isBiodermaGame: boolean;
 }
+export declare class GetUserCampaingHistory {
+    readonly email: string;
+    readonly page: number;
+}
