@@ -76,6 +76,17 @@ let UploadService = class UploadService {
                 },
             }),
         }).array('upload', 1);
+        this.uploadUser = multer({
+            storage: multerS3({
+                s3: s3,
+                bucket: AWS_S3_BUCKET_NAME,
+                contentType: multerS3.AUTO_CONTENT_TYPE,
+                acl: 'public-read',
+                key: function (request, file, cb) {
+                    cb(null, `users/${Date.now().toString()}-${file.originalname.replace(/\s+/g, '')}`);
+                },
+            }),
+        }).array('upload', 1);
     }
     fileupload(req, res, folder) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -110,6 +121,15 @@ let UploadService = class UploadService {
                         break;
                     case '4':
                         this.uploadBlog(req, res, function (error) {
+                            if (error) {
+                                console.log(error);
+                                return res.status(404).json(`Failed to upload image file: ${error}`);
+                            }
+                            return res.status(201).json(req.files[0].location);
+                        });
+                        break;
+                    case '5':
+                        this.uploadUser(req, res, function (error) {
                             if (error) {
                                 console.log(error);
                                 return res.status(404).json(`Failed to upload image file: ${error}`);

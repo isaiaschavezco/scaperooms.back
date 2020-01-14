@@ -75,7 +75,8 @@ let UserService = class UserService {
                         template: 'invitacion',
                         context: {
                             url: jwtToken,
-                            type: request.type
+                            type: request.type,
+                            email: request.email
                         },
                     });
                 }

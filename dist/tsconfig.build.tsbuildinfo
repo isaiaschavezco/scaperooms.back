@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "09eb248d2c3d18024a353d6069b3bd57822c29113a965827b5e91ec18c7742e5",
+        "version": "620d5bef1becf8a86af79f5c6ed04691b084c9382e4a5d5714398026fbe826ce",
         "signature": "e72491db6838b42294a7e8774aaa92fd1e3d71dddd3f4adcf39f13f0aa4cdcdd"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -3594,8 +3594,8 @@
         "signature": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f"
       },
       "../src/upload/upload.service.ts": {
-        "version": "306c522c88e3e63266d5b9184bf2582595d970aab64ad6478e41ea58df922472",
-        "signature": "fcf2c92f6e1cf4f558d22b3dffb154db175ba307f37b77fab5d1ca4fdc504b02"
+        "version": "7923f3bcb592917210c44c2a1071c3cc8d906be503132c0d57af3baedd9fd0b3",
+        "signature": "046a0e6d3dccd27e2817c4e1e16226a4df7369d884c48a321c8485f8ddccc26e"
       },
       "../src/upload/upload.controller.ts": {
         "version": "51dd1a1e564b54560cc72db3aa518fe32f50d3236a0ed77c34ec930699221ca7",
@@ -19440,7 +19440,6 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19484,7 +19483,13 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
+      "../src/core/trivia/campaing/campaing.service.ts",
+      "../src/core/trivia/campaing/campaing.controller.ts",
+      "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
+      "../src/core/trivia/quizz/quizz.controller.ts",
+      "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/aws-sdk/lib/error.d.ts",
       "../node_modules/aws-sdk/lib/credentials.d.ts",
       "../node_modules/aws-sdk/lib/credentials/credential_provider_chain.d.ts",
@@ -19746,9 +19751,6 @@
       "../node_modules/aws-sdk/lib/shared-ini/ini-loader.d.ts",
       "../node_modules/aws-sdk/lib/core.d.ts",
       "../node_modules/aws-sdk/index.d.ts",
-      "../src/upload/upload.service.ts",
-      "../src/upload/upload.controller.ts",
-      "../src/upload/upload.module.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/index.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/onesignal.module.d.ts",
@@ -19900,12 +19902,10 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
-      "../src/core/trivia/campaing/campaing.module.ts",
-      "../src/core/trivia/campaing/campaing.controller.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
-      "../src/core/trivia/quizz/quizz.module.ts",
-      "../src/core/trivia/quizz/quizz.controller.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/upload/upload.service.ts",
+      "../src/upload/upload.module.ts",
+      "../src/upload/upload.controller.ts",
       "../src/app.module.ts"
     ]
   },

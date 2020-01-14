@@ -5,4 +5,5 @@ export declare class UploadService {
     uploadProduct: any;
     uploadCampaing: any;
     uploadBlog: any;
+    uploadUser: any;
 }
