@@ -2450,7 +2450,7 @@
         "signature": "5c97e0c66f6da75b8829a40c08c493b8fc1931ae1a8ff4a952d7ec5e454947d3"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "c57d6e082cd9daf631263c77f0eb892b9fccc7c293b970090394c63dd93f282e",
+        "version": "8edfaba0aa320e2ea20feeaeb36650f504840fe29499f9b88ebeae4cf5d4cfbe",
         "signature": "f4d7d60c6c098fdd2647d4fe8a19b0994eafa242400052e6211e2f1f360351ef"
       },
       "../src/core/content/article/article.controller.ts": {
@@ -19440,6 +19440,7 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19465,7 +19466,6 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
@@ -19751,6 +19751,9 @@
       "../node_modules/aws-sdk/lib/shared-ini/ini-loader.d.ts",
       "../node_modules/aws-sdk/lib/core.d.ts",
       "../node_modules/aws-sdk/index.d.ts",
+      "../src/upload/upload.service.ts",
+      "../src/upload/upload.controller.ts",
+      "../src/upload/upload.module.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/index.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/onesignal.module.d.ts",
@@ -19851,6 +19854,7 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19902,11 +19906,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/upload/upload.service.ts",
-      "../src/upload/upload.module.ts",
-      "../src/upload/upload.controller.ts",
-      "../src/app.module.ts"
+      "../src/core/content/article/article.service.ts"
     ]
   },
   "version": "3.7.2"
