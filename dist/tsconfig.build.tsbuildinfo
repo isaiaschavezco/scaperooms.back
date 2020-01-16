@@ -2450,7 +2450,7 @@
         "signature": "5c97e0c66f6da75b8829a40c08c493b8fc1931ae1a8ff4a952d7ec5e454947d3"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "8edfaba0aa320e2ea20feeaeb36650f504840fe29499f9b88ebeae4cf5d4cfbe",
+        "version": "e1c326f30cde48cc536696ad5643c8048197f04fec36e216455e6bfaf0e042b7",
         "signature": "f4d7d60c6c098fdd2647d4fe8a19b0994eafa242400052e6211e2f1f360351ef"
       },
       "../src/core/content/article/article.controller.ts": {
