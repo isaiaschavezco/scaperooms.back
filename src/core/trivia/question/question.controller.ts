@@ -18,6 +18,11 @@ export class QuestionController {
         return await this.questionService.findAllByQuizz(quizzId);
     }
 
+    @Get('detail/:questionId')
+    async getQuestionDetailById(@Param('questionId') questionId): Promise<any> {
+        return await this.questionService.getQuestionDetailById(questionId);
+    }
+
     @Get('quizz/:quizzId')
     async getAllByUserQuizz(@Param('quizzId') quizzId): Promise<any> {
         return await this.questionService.findAllByUserQuizz(quizzId);

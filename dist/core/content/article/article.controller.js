@@ -38,9 +38,14 @@ let ArticleController = class ArticleController {
             return yield this.articleService.findById(id);
         });
     }
-    findArticlesList(isBiodermaGame) {
+    deleteArticle(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.articleService.findListArticles(isBiodermaGame);
+            return yield this.articleService.deleteArticle(id);
+        });
+    }
+    findArticlesList(getArticlesList) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.articleService.findListArticles(getArticlesList);
         });
     }
     createArticle(createArticleDTO) {
@@ -68,10 +73,17 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "findArticleById", null);
 __decorate([
-    common_1.Get('list/:isBiodermaGame'),
-    __param(0, common_1.Param('isBiodermaGame')),
+    common_1.Delete(':id'),
+    __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ArticleController.prototype, "deleteArticle", null);
+__decorate([
+    common_1.Post('list'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [article_dto_1.GetArticlesList]),
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "findArticlesList", null);
 __decorate([

@@ -38,6 +38,11 @@ let QuestionController = class QuestionController {
             return yield this.questionService.findAllByQuizz(quizzId);
         });
     }
+    getQuestionDetailById(questionId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.questionService.getQuestionDetailById(questionId);
+        });
+    }
     getAllByUserQuizz(quizzId) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.questionService.findAllByUserQuizz(quizzId);
@@ -62,6 +67,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], QuestionController.prototype, "getAllByCampaing", null);
+__decorate([
+    common_1.Get('detail/:questionId'),
+    __param(0, common_1.Param('questionId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], QuestionController.prototype, "getQuestionDetailById", null);
 __decorate([
     common_1.Get('quizz/:quizzId'),
     __param(0, common_1.Param('quizzId')),

@@ -6,6 +6,7 @@ export declare class QuestionController {
     constructor(questionService: QuestionService);
     getAllQuizzes(): Promise<Question[]>;
     getAllByCampaing(quizzId: any): Promise<any>;
+    getQuestionDetailById(questionId: any): Promise<any>;
     getAllByUserQuizz(quizzId: any): Promise<any>;
     createQuizz(createQuestionDTO: CreateQuestionDTO): Promise<any>;
 }

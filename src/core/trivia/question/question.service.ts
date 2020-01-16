@@ -149,4 +149,20 @@ export class QuestionService {
         }
     }
 
+    async getQuestionDetailById(questionId: number): Promise<any> {
+        try {
+
+            const questionToReturn = await this.questionRepository.findOne(questionId);
+
+            return { question: questionToReturn };
+        } catch (err) {
+            console.log("QuizzService - getQuestionDetailById: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting question',
+            }, 500);
+        }
+    }
+
 }

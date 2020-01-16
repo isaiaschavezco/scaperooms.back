@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Like, In } from 'typeorm';
 import { Article } from './article.entity';
 import { Tag } from '../tag/tag.entity';
-import { CreateArticleDTO, GetArticleList } from './article.dto';
+import { CreateArticleDTO, GetArticleList, GetArticlesList } from './article.dto';
 import * as moment from 'moment';
 
 @Injectable()
@@ -63,13 +63,13 @@ export class ArticleService {
         }
     }
 
-    async findListArticles(isBiodermaGame: boolean): Promise<any> {
+    async findListArticles(requestDTO: GetArticlesList): Promise<any> {
         try {
             let listToReturn = [];
 
             const articlesList = await this.articleRepository.find({
                 relations: ["tag"],
-                where: { isBiodermaGame: isBiodermaGame },
+                where: { isBiodermaGame: requestDTO.isBiodermaGame, isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos },
                 order: {
                     createdAt: "DESC"
                 }
@@ -98,7 +98,7 @@ export class ArticleService {
     async createArticle(createDTO: CreateArticleDTO): Promise<any> {
         try {
 
-            console.log("createDTO: ", createDTO);
+            // console.log("createDTO: ", createDTO);
 
             const articleTags = await this.tagRepository.findByIds(createDTO.tags);
 
@@ -109,7 +109,8 @@ export class ArticleService {
                 subtitle: createDTO.subtitle,
                 galery: createDTO.galery,
                 isBiodermaGame: createDTO.isBiodermaGame,
-                tag: articleTags
+                tag: articleTags,
+                isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos
             });
 
             await this.articleRepository.save(newArticle);
@@ -157,6 +158,30 @@ export class ArticleService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting articles',
+            }, 500);
+        }
+    }
+
+    async deleteArticle(articleId: number): Promise<any> {
+        try {
+
+            let response = {};
+
+            const articleToDelete = await this.articleRepository.findOne(articleId, {
+                relations: ["tag"]
+            });
+
+            await this.articleRepository.remove(articleToDelete);
+
+            return {
+                blogs: response
+            };
+        } catch (err) {
+            console.log("ArticleService - deleteArticle: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error removing article',
             }, 500);
         }
     }

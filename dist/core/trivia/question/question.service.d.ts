@@ -12,4 +12,5 @@ export declare class QuestionService {
     findAllByQuizz(quizzId: number): Promise<any>;
     findAllByUserQuizz(quizzId: number): Promise<any>;
     create(createDTO: CreateQuestionDTO): Promise<any>;
+    getQuestionDetailById(questionId: number): Promise<any>;
 }

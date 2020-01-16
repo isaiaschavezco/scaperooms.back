@@ -6,4 +6,7 @@ exports.CreateArticleDTO = CreateArticleDTO;
 class GetArticleList {
 }
 exports.GetArticleList = GetArticleList;
+class GetArticlesList {
+}
+exports.GetArticlesList = GetArticlesList;
 //# sourceMappingURL=article.dto.js.map

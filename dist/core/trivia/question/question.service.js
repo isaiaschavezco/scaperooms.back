@@ -158,6 +158,21 @@ let QuestionService = class QuestionService {
             }
         });
     }
+    getQuestionDetailById(questionId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const questionToReturn = yield this.questionRepository.findOne(questionId);
+                return { question: questionToReturn };
+            }
+            catch (err) {
+                console.log("QuizzService - getQuestionDetailById: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting question',
+                }, 500);
+            }
+        });
+    }
 };
 QuestionService = __decorate([
     common_1.Injectable(),

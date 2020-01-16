@@ -1,7 +1,7 @@
 import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { Article } from './article.entity';
-import { CreateArticleDTO, GetArticleList } from './article.dto';
+import { CreateArticleDTO, GetArticleList, GetArticlesList } from './article.dto';
 
 @Controller('article')
 export class ArticleController {
@@ -18,9 +18,14 @@ export class ArticleController {
         return await this.articleService.findById(id);
     }
 
-    @Get('list/:isBiodermaGame')
-    async findArticlesList(@Param('isBiodermaGame') isBiodermaGame): Promise<any> {
-        return await this.articleService.findListArticles(isBiodermaGame);
+    @Delete(':id')
+    async deleteArticle(@Param('id') id): Promise<any> {
+        return await this.articleService.deleteArticle(id);
+    }
+
+    @Post('list')
+    async findArticlesList(@Body() getArticlesList: GetArticlesList): Promise<any> {
+        return await this.articleService.findListArticles(getArticlesList);
     }
 
     @Post()

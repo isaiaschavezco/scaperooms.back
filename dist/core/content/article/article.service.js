@@ -81,13 +81,13 @@ let ArticleService = class ArticleService {
             }
         });
     }
-    findListArticles(isBiodermaGame) {
+    findListArticles(requestDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let listToReturn = [];
                 const articlesList = yield this.articleRepository.find({
                     relations: ["tag"],
-                    where: { isBiodermaGame: isBiodermaGame },
+                    where: { isBiodermaGame: requestDTO.isBiodermaGame, isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos },
                     order: {
                         createdAt: "DESC"
                     }
@@ -114,7 +114,6 @@ let ArticleService = class ArticleService {
     createArticle(createDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log("createDTO: ", createDTO);
                 const articleTags = yield this.tagRepository.findByIds(createDTO.tags);
                 let newArticle = this.articleRepository.create({
                     title: createDTO.title,
@@ -123,7 +122,8 @@ let ArticleService = class ArticleService {
                     subtitle: createDTO.subtitle,
                     galery: createDTO.galery,
                     isBiodermaGame: createDTO.isBiodermaGame,
-                    tag: articleTags
+                    tag: articleTags,
+                    isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos
                 });
                 yield this.articleRepository.save(newArticle);
                 return { status: 0 };
@@ -167,6 +167,27 @@ let ArticleService = class ArticleService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting articles',
+                }, 500);
+            }
+        });
+    }
+    deleteArticle(articleId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = {};
+                const articleToDelete = yield this.articleRepository.findOne(articleId, {
+                    relations: ["tag"]
+                });
+                yield this.articleRepository.remove(articleToDelete);
+                return {
+                    blogs: response
+                };
+            }
+            catch (err) {
+                console.log("ArticleService - deleteArticle: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error removing article',
                 }, 500);
             }
         });

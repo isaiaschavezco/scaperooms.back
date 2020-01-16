@@ -7,6 +7,7 @@ export declare class Article {
     galery: string;
     content: string;
     isBiodermaGame: boolean;
+    isBlogNaos: boolean;
     createdAt: Date;
     tag: Tag[];
 }

@@ -25,6 +25,9 @@ export class Article {
     @Column()
     isBiodermaGame: boolean;
 
+    @Column({ nullable: true })
+    isBlogNaos: boolean;
+
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;
 
