@@ -165,17 +165,13 @@ export class ArticleService {
     async deleteArticle(articleId: number): Promise<any> {
         try {
 
-            let response = {};
-
             const articleToDelete = await this.articleRepository.findOne(articleId, {
                 relations: ["tag"]
             });
 
             await this.articleRepository.remove(articleToDelete);
 
-            return {
-                blogs: response
-            };
+            return { status: 0 };
         } catch (err) {
             console.log("ArticleService - deleteArticle: ", err);
 

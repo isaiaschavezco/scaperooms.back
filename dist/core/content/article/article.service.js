@@ -174,14 +174,11 @@ let ArticleService = class ArticleService {
     deleteArticle(articleId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = {};
                 const articleToDelete = yield this.articleRepository.findOne(articleId, {
                     relations: ["tag"]
                 });
                 yield this.articleRepository.remove(articleToDelete);
-                return {
-                    blogs: response
-                };
+                return { status: 0 };
             }
             catch (err) {
                 console.log("ArticleService - deleteArticle: ", err);

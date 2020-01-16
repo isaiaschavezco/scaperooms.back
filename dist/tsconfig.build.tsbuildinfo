@@ -2450,7 +2450,7 @@
         "signature": "848ffeef29ac3621a4e796e39f6c443fe726463937ed47c745f122611799a971"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "76461091a313e5012e75e2efec1e3c3f1e98c9ea144cb89a720a3c788954185e",
+        "version": "959e409fa2cb466ea40d9a93fd34caa61886362bc903f7e44bf4a472093b1e96",
         "signature": "2fdf37bc98a9cdb73c02daaff3a6ee8b46c937d2ebdb02ec0afb186e721bbbab"
       },
       "../src/core/content/article/article.controller.ts": {
@@ -2490,7 +2490,7 @@
         "signature": "41a85bbfe3d8f20360795838152aa4e617132cef1093b78b571bcff56a8aef44"
       },
       "../src/core/trivia/question/question.service.ts": {
-        "version": "3586b4b454dd5704dc686f5e0853eb60a22dad872da999ae291ae5f09d745008",
+        "version": "996db93bdc361bad06156e40b70b182214a9d3420f9aa71cab87e478aa1748ab",
         "signature": "7c208c9371b503b1fdd51d467e1a4f42ef558aaccd8c77e8fce0d4cee64bb10c"
       },
       "../src/core/trivia/question/question.controller.ts": {
@@ -19466,7 +19466,8 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.service.ts",
+      "../src/core/content/article/article.controller.ts",
+      "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
       "../src/core/content/trade/trade.module.ts",
@@ -19905,8 +19906,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/core/content/article/article.module.ts"
+      "../src/core/content/article/article.service.ts"
     ]
   },
   "version": "3.7.2"

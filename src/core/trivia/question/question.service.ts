@@ -65,7 +65,7 @@ export class QuestionService {
                 tempQuestion['type'] = actualQuestion.question_type.id;
                 tempQuestion['points'] = actualQuestion.points;
 
-                console.log("CONTENT: ", actualQuestion.content);
+                // console.log("CONTENT: ", actualQuestion.content);
 
                 const questionContent = JSON.parse(actualQuestion.content);
                 const answerContent = JSON.parse(actualQuestion.answer);
