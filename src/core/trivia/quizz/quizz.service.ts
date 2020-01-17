@@ -98,6 +98,7 @@ export class QuizzService {
         try {
 
             let filterQueries = [];
+            let notificationToAllUsers = false;
 
             let quizzToSend = await this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
                 relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type"]
@@ -113,6 +114,12 @@ export class QuizzService {
 
                 let tempTargetObject = {};
 
+                //Notificaciones a todos los usuarios
+                if (target.allUsers) {
+                    notificationToAllUsers = true;
+                }
+
+                //Notificaciones por filtro
                 if (target.initAge !== null) {
                     tempTargetObject['age'] = Between(target.initAge, target.finalAge);
                 }
@@ -142,10 +149,18 @@ export class QuizzService {
                 }
             });
 
-            const users = await this.userRepository.find({
-                select: ["id"],
-                where: filterQueries
-            });
+            let users;
+
+            if (notificationToAllUsers) {
+                users = await this.userRepository.find({
+                    select: ["id"]
+                });
+            } else {
+                users = await this.userRepository.find({
+                    select: ["id"],
+                    where: filterQueries
+                });
+            }
 
             // Se hace relación de trivias con usuarios
             quizzToSend.user = users;
