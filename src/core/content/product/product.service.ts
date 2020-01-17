@@ -6,6 +6,7 @@ import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
 import { PointsType } from '../../trivia/points-type/points-type.entity';
 import { CreateProductDTO, UpdateProductDTO, ShopCartProducts } from './product.dto';
+import { MailerService } from '@nest-modules/mailer';
 
 @Injectable()
 export class ProductService {
@@ -13,7 +14,8 @@ export class ProductService {
     constructor(@InjectRepository(Product) private productRepository: Repository<Product>,
         @InjectRepository(User) private userRepository: Repository<User>,
         @InjectRepository(Pointsbyuser) private pointsbyuserRepository: Repository<Pointsbyuser>,
-        @InjectRepository(PointsType) private pointsTypeRepository: Repository<PointsType>) { }
+        @InjectRepository(PointsType) private pointsTypeRepository: Repository<PointsType>,
+        private readonly mailerService: MailerService) { }
 
     async findAll(): Promise<any> {
         try {
@@ -147,6 +149,14 @@ export class ProductService {
                 await this.userRepository.save(userBuying);
 
                 // Falta enviar correo de confirmación a Bioderma
+                await this.mailerService.sendMail({
+                    to: userBuying.email,
+                    subject: 'Confirmación de productos.',
+                    template: 'cart',
+                    context: {
+                        product: productsToBuy
+                    },
+                });
             }
 
             return response;

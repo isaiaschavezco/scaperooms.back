@@ -28,12 +28,14 @@ const product_entity_1 = require("./product.entity");
 const user_entity_1 = require("../../users/user/user.entity");
 const pointsbyuser_entity_1 = require("../../trivia/pointsbyuser/pointsbyuser.entity");
 const points_type_entity_1 = require("../../trivia/points-type/points-type.entity");
+const mailer_1 = require("@nest-modules/mailer");
 let ProductService = class ProductService {
-    constructor(productRepository, userRepository, pointsbyuserRepository, pointsTypeRepository) {
+    constructor(productRepository, userRepository, pointsbyuserRepository, pointsTypeRepository, mailerService) {
         this.productRepository = productRepository;
         this.userRepository = userRepository;
         this.pointsbyuserRepository = pointsbyuserRepository;
         this.pointsTypeRepository = pointsTypeRepository;
+        this.mailerService = mailerService;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -147,6 +149,14 @@ let ProductService = class ProductService {
                     }
                     userBuying.points -= totalPoints;
                     yield this.userRepository.save(userBuying);
+                    yield this.mailerService.sendMail({
+                        to: userBuying.email,
+                        subject: 'Confirmación de productos.',
+                        template: 'cart',
+                        context: {
+                            product: productsToBuy
+                        },
+                    });
                 }
                 return response;
             }
@@ -169,7 +179,8 @@ ProductService = __decorate([
     __metadata("design:paramtypes", [typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
-        typeorm_2.Repository])
+        typeorm_2.Repository,
+        mailer_1.MailerService])
 ], ProductService);
 exports.ProductService = ProductService;
 //# sourceMappingURL=product.service.js.map
