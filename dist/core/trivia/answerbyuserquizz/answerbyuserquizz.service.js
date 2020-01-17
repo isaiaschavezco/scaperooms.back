@@ -77,7 +77,7 @@ let AnswerbyuserquizzService = class AnswerbyuserquizzService {
     setUserAnswerByquestion(setUserAnswersByQuestion) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const userAnswering = yield this.userRepository.findOne({
+                let userAnswering = yield this.userRepository.findOne({
                     where: { email: setUserAnswersByQuestion.email }
                 });
                 const quizzAnswering = yield this.quizzRepository.findOne(setUserAnswersByQuestion.quizzId, {
@@ -133,6 +133,13 @@ let AnswerbyuserquizzService = class AnswerbyuserquizzService {
                         pointsType: quizzPointsType
                     });
                     yield this.pointsbyuserRepository.save(newPointsByUSer);
+                    if (quizzAnswering.campaing.isBiodermaGame) {
+                        userAnswering.biodermaGamePoints += newUserAnswer.points;
+                    }
+                    else {
+                        userAnswering.points += newUserAnswer.points;
+                    }
+                    yield this.userRepository.save(userAnswering);
                 }
                 return { status: 0 };
             }

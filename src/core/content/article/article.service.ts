@@ -130,11 +130,19 @@ export class ArticleService {
         try {
             let listToReturn = [];
 
+            let whereString = "";
+
+            if (getArticleList.isBiodermaGame) {
+                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+            } else {
+                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos)";
+            }
+
             const articleList2 = await this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
                 .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
                 .leftJoinAndSelect("art.tag", "tag")
-                .where("(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )", { isBiodermaGame: getArticleList.isBiodermaGame, filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%' })
+                .where(whereString, { isBiodermaGame: getArticleList.isBiodermaGame, filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%', isBlogNaos: getArticleList.type == 1 ? true : false })
                 .skip(getArticleList.page * 10)
                 .take(10)
                 .orderBy("art.createdAt", "DESC")

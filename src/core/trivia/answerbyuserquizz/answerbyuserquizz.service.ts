@@ -64,7 +64,7 @@ export class AnswerbyuserquizzService {
         try {
 
             // Init values
-            const userAnswering = await this.userRepository.findOne({
+            let userAnswering = await this.userRepository.findOne({
                 where: { email: setUserAnswersByQuestion.email }
             });
 
@@ -144,6 +144,15 @@ export class AnswerbyuserquizzService {
                 });
 
                 await this.pointsbyuserRepository.save(newPointsByUSer);
+
+                // Se actualiza el puntaje del jugador 
+                if (quizzAnswering.campaing.isBiodermaGame) {
+                    userAnswering.biodermaGamePoints += newUserAnswer.points;
+                } else {
+                    userAnswering.points += newUserAnswer.points;
+                }
+
+                await this.userRepository.save(userAnswering);
 
             }
 

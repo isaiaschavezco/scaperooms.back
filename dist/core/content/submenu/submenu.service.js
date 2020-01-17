@@ -108,7 +108,7 @@ let SubmenuService = class SubmenuService {
                 }
                 listToReturn.push({
                     id: tempFile.id,
-                    name: tempFile.name,
+                    name: tempFile.name.toUpperCase(),
                     pdf: tempFile.url,
                     product: tempPDF
                 });

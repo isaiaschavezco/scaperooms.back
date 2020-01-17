@@ -2394,7 +2394,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "00c8e9a246ebe8ff6be314749b1a15887e83ef12e119a98414b865c63958cc5c",
+        "version": "7eeeb843d7ce5b481a0209621f7a7a0f99e4ec2bdba6ab1860b58a03996e9eb5",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
@@ -2446,11 +2446,11 @@
         "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "9638b91aba034504fe7df0815576025f9a3ea11edbb82708fc38bc4982b63aa3",
-        "signature": "848ffeef29ac3621a4e796e39f6c443fe726463937ed47c745f122611799a971"
+        "version": "cf6e59d5e804ce6cbffce9219b5d0ea559f12dc65f1f3a9783bfedbfb3a18c7d",
+        "signature": "4a82ade3447b96a4fb4e0dd6916fd8df5d7d57164e431997867bc725c5447a20"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "959e409fa2cb466ea40d9a93fd34caa61886362bc903f7e44bf4a472093b1e96",
+        "version": "2c78fb7c4b796971566542084be653a650444a6ce5fde8d6f2783200110d39ba",
         "signature": "2fdf37bc98a9cdb73c02daaff3a6ee8b46c937d2ebdb02ec0afb186e721bbbab"
       },
       "../src/core/content/article/article.controller.ts": {
@@ -3962,7 +3962,7 @@
         "signature": "aa57d9e6196c3e5a96d56eacd9e6b999c53d393eaa1cf964f88888d17280ed21"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": {
-        "version": "faf14a24968b45f934ed2a84a9081dfdb2c7007f1412c0732393083982f11ed5",
+        "version": "37f7944f86a0ddd08865eb94bf3b75be4506b1e8d779bf85ceb55efffc98b82b",
         "signature": "3242fa56dee2965e9dc3f0d315ad1719f09b632c28da7973b95f1989d524c838"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": {
@@ -19466,6 +19466,7 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
+      "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
@@ -19843,7 +19844,6 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
@@ -19906,7 +19906,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.service.ts"
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts"
     ]
   },
   "version": "3.7.2"

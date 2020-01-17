@@ -13,6 +13,7 @@ export class GetArticleList {
     readonly isBiodermaGame: boolean;
     readonly page: number;
     readonly filter: string;
+    readonly type: number;
 }
 
 export class GetArticlesList {
