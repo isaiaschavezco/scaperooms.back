@@ -51,7 +51,7 @@ import { PointsbyuserModule } from './core/trivia/pointsbyuser/pointsbyuser.modu
           }
         },
         defaults: {
-          from: '"Invitación Bioderma" <nicola.bruen@ethereal.email>',
+          from: '"Bioderma" <nicola.bruen@ethereal.email>',
         },
         template: {
           dir: __dirname + '/templates',
