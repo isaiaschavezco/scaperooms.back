@@ -136,6 +136,7 @@ let NotificationService = class NotificationService {
                 let filterQueries = [];
                 let userIds = [];
                 let playerIds = [];
+                let notificationToAllUsers = false;
                 let newNotification = yield this.notificationRepository.create({
                     content: sendRequest.content,
                     header: sendRequest.title,
@@ -146,6 +147,9 @@ let NotificationService = class NotificationService {
                 });
                 notificationTargets.forEach(target => {
                     let tempTargetObject = {};
+                    if (target.allUsers) {
+                        notificationToAllUsers = true;
+                    }
                     if (target.initAge !== null) {
                         tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
                     }
@@ -168,16 +172,23 @@ let NotificationService = class NotificationService {
                         filterQueries.push(tempTargetObject);
                     }
                 });
-                const usersToSend = yield this.userRepository.find({
-                    select: ["id"],
-                    where: filterQueries
-                });
+                let usersToSend;
+                if (notificationToAllUsers) {
+                    usersToSend = yield this.userRepository.find({
+                        select: ["id"]
+                    });
+                }
+                else {
+                    usersToSend = yield this.userRepository.find({
+                        select: ["id"],
+                        where: filterQueries
+                    });
+                }
                 newNotification.user = usersToSend;
                 yield this.notificationRepository.save(newNotification);
                 usersToSend.forEach(user => {
                     userIds.push(user.id);
                 });
-                console.log("userIds: ", userIds);
                 const activeSessions = yield this.sesionRepository.find({
                     user: typeorm_2.In(userIds)
                 });

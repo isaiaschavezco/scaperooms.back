@@ -3898,7 +3898,7 @@
         "signature": "cc446f196a5511168f28ff030bd2e7f645d02dfa59b575220ea60c00d4f97a2c"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "1e0901a5d74d564d18e16764a163c245b10849c6ca990455b955630c75cad10f",
+        "version": "83dfbef2e29eb237d217fac38c9e715bbdcdb51ebc575dcf09e6dfbe1aa26090",
         "signature": "df6617e51fd7c1d543bd455502eb18914ec6fb98b9b7f6d29de0cb54a42fe3fd"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -19828,7 +19828,6 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
-      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
@@ -19844,6 +19843,7 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
@@ -19906,7 +19906,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts"
+      "../src/core/users/notification/notification.service.ts"
     ]
   },
   "version": "3.7.2"

@@ -127,6 +127,7 @@ export class NotificationService {
             let filterQueries = [];
             let userIds = [];
             let playerIds = [];
+            let notificationToAllUsers = false;
 
             let newNotification = await this.notificationRepository.create({
                 content: sendRequest.content,
@@ -142,6 +143,12 @@ export class NotificationService {
 
                 let tempTargetObject = {};
 
+                //Notificaciones a todos los usuarios
+                if (target.allUsers) {
+                    notificationToAllUsers = true;
+                }
+
+                //Notificaciones por filtro
                 if (target.initAge !== null) {
                     tempTargetObject['age'] = Between(target.initAge, target.finalAge);
                 }
@@ -171,10 +178,18 @@ export class NotificationService {
                 }
             });
 
-            const usersToSend = await this.userRepository.find({
-                select: ["id"],
-                where: filterQueries
-            });
+            let usersToSend;
+
+            if (notificationToAllUsers) {
+                usersToSend = await this.userRepository.find({
+                    select: ["id"]
+                });
+            } else {
+                usersToSend = await this.userRepository.find({
+                    select: ["id"],
+                    where: filterQueries
+                });
+            }
 
             newNotification.user = usersToSend;
 
@@ -184,7 +199,7 @@ export class NotificationService {
                 userIds.push(user.id);
             });
 
-            console.log("userIds: ", userIds);
+            // console.log("userIds: ", userIds);
 
             const activeSessions = await this.sesionRepository.find({
                 user: In(userIds)
