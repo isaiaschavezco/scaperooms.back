@@ -154,7 +154,7 @@ export class ProductService {
                     subject: 'Confirmación de productos.',
                     template: 'cart',
                     context: {
-                        product: productsToBuy
+                        products: productsToBuy
                     },
                 });
             }

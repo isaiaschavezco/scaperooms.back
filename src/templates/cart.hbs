@@ -38,7 +38,9 @@
                                 <p style="font-family:Helvetica; font-size:1rem; line-height: 1.4;">
                                     Has realizado una transacción por los siguientes productos.</p>
                                 <ul id="luke_should_be_here">
-                                    {{product.1.title}}
+                                    {{#each products}}
+                                    <li>{{this.title}}</li>
+                                    {{/each}}
                                 </ul>
                                 <p style="font-family:Helvetica; font-size:1rem; line-height: 1.4;">
                                     En breve Bioderma se contactará contigo para coordinar el envío de tus productos.
