@@ -196,6 +196,27 @@ let ArticleService = class ArticleService {
             }
         });
     }
+    update(updateDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const articleTags = yield this.tagRepository.findByIds(updateDTO.tags);
+                let articleToUpdate = yield this.articleRepository.findOne(updateDTO.id);
+                articleToUpdate.image = updateDTO.image;
+                articleToUpdate.subtitle = updateDTO.subtitle;
+                articleToUpdate.content = updateDTO.content;
+                articleToUpdate.tag = articleTags;
+                yield this.articleRepository.save(articleToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("ArticleService - update: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error updating article',
+                }, 500);
+            }
+        });
+    }
 };
 ArticleService = __decorate([
     common_1.Injectable(),

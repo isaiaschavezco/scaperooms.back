@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Like, In } from 'typeorm';
 import { Article } from './article.entity';
 import { Tag } from '../tag/tag.entity';
-import { CreateArticleDTO, GetArticleList, GetArticlesList } from './article.dto';
+import { CreateArticleDTO, GetArticleList, GetArticlesList, UpdateArticleDTO } from './article.dto';
 import * as moment from 'moment';
 
 @Injectable()
@@ -186,6 +186,31 @@ export class ArticleService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error removing article',
+            }, 500);
+        }
+    }
+
+    async update(updateDTO: UpdateArticleDTO): Promise<any> {
+        try {
+
+            const articleTags = await this.tagRepository.findByIds(updateDTO.tags);
+
+            let articleToUpdate = await this.articleRepository.findOne(updateDTO.id);
+
+            articleToUpdate.image = updateDTO.image;
+            articleToUpdate.subtitle = updateDTO.subtitle;
+            articleToUpdate.content = updateDTO.content;
+            articleToUpdate.tag = articleTags;
+
+            await this.articleRepository.save(articleToUpdate);
+
+            return { status: 0 };
+        } catch (err) {
+            console.log("ArticleService - update: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error updating article',
             }, 500);
         }
     }

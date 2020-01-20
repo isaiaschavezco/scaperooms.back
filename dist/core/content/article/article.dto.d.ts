@@ -18,3 +18,10 @@ export declare class GetArticlesList {
     readonly isBiodermaGame: boolean;
     readonly isBlogNaos: boolean;
 }
+export declare class UpdateArticleDTO {
+    readonly id: number;
+    readonly image: string;
+    readonly subtitle: string;
+    readonly content: string;
+    readonly tags: number[];
+}

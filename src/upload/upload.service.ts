@@ -23,7 +23,9 @@ export class UploadService {
                             console.log(error);
                             return res.status(404).json(`Failed to upload pdf file: ${error}`);
                         }
-                        return res.status(201).json(req.files[0].location);
+                        let urlToReturn = req.files[0].location;
+                        urlToReturn = urlToReturn.substring(urlToReturn.indexOf("/capacitacion/"), urlToReturn.lenght)
+                        return res.status(201).json("https://bioderma-space.sfo2.cdn.digitaloceanspaces.com" + urlToReturn);
                     });
                     break;
                 case '2':
@@ -32,7 +34,9 @@ export class UploadService {
                             console.log(error);
                             return res.status(404).json(`Failed to upload image file: ${error}`);
                         }
-                        return res.status(201).json(req.files[0].location);
+                        let urlToReturn = req.files[0].location;
+                        urlToReturn = urlToReturn.substring(urlToReturn.indexOf("/productos/"), urlToReturn.lenght)
+                        return res.status(201).json("https://bioderma-space.sfo2.cdn.digitaloceanspaces.com" + urlToReturn);
                     });
                     break;
                 case '3':
@@ -41,7 +45,9 @@ export class UploadService {
                             console.log(error);
                             return res.status(404).json(`Failed to upload image file: ${error}`);
                         }
-                        return res.status(201).json(req.files[0].location);
+                        let urlToReturn = req.files[0].location;
+                        urlToReturn = urlToReturn.substring(urlToReturn.indexOf("/campanas/"), urlToReturn.lenght)
+                        return res.status(201).json("https://bioderma-space.sfo2.cdn.digitaloceanspaces.com" + urlToReturn);
                     });
                     break;
                 case '4':
@@ -50,7 +56,9 @@ export class UploadService {
                             console.log(error);
                             return res.status(404).json(`Failed to upload image file: ${error}`);
                         }
-                        return res.status(201).json(req.files[0].location);
+                        let urlToReturn = req.files[0].location;
+                        urlToReturn = urlToReturn.substring(urlToReturn.indexOf("/blog/"), urlToReturn.lenght)
+                        return res.status(201).json("https://bioderma-space.sfo2.cdn.digitaloceanspaces.com" + urlToReturn);
                     });
                     break;
                 case '5':
@@ -59,7 +67,9 @@ export class UploadService {
                             console.log(error);
                             return res.status(404).json(`Failed to upload image file: ${error}`);
                         }
-                        return res.status(201).json(req.files[0].location);
+                        let urlToReturn = req.files[0].location;
+                        urlToReturn = urlToReturn.substring(urlToReturn.indexOf("/users/"), urlToReturn.lenght)
+                        return res.status(201).json("https://bioderma-space.sfo2.cdn.digitaloceanspaces.com" + urlToReturn);
                     });
                     break;
                 default:

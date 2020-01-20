@@ -21,3 +21,10 @@ export class GetArticlesList {
     readonly isBlogNaos: boolean;
 }
 
+export class UpdateArticleDTO {
+    readonly id: number;
+    readonly image: string;
+    readonly subtitle: string;
+    readonly content: string;
+    readonly tags: number[];
+}

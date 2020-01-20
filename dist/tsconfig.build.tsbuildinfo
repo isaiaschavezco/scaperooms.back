@@ -2446,16 +2446,16 @@
         "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "cf6e59d5e804ce6cbffce9219b5d0ea559f12dc65f1f3a9783bfedbfb3a18c7d",
-        "signature": "4a82ade3447b96a4fb4e0dd6916fd8df5d7d57164e431997867bc725c5447a20"
+        "version": "8fdddf9df85c6c53b7d957ac183679de68dfd39d8657f7d7c45fbbecec5bb5ce",
+        "signature": "17f160a6010d8980d18c403bec83f6e35900d4ea80d255020bed0d26e72ca41f"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "2c78fb7c4b796971566542084be653a650444a6ce5fde8d6f2783200110d39ba",
-        "signature": "2fdf37bc98a9cdb73c02daaff3a6ee8b46c937d2ebdb02ec0afb186e721bbbab"
+        "version": "8433ff46e3e75238a00d8dea18f2b2c625b4fd08414cbc53d2a022ca055ebf53",
+        "signature": "137dad196a54f89c48ee2620e8b860191d663818e85ae099cc500ac67d1cf433"
       },
       "../src/core/content/article/article.controller.ts": {
-        "version": "7bd67201ae331ba78c14e0f536fd0c8636e9abb374c4d8e954946d440afe6e7b",
-        "signature": "3dbb3f2649c7fec508af13a44be4cebb65f8c9f48352813b5ded88aeb3afed9a"
+        "version": "14e3480b224b29f42f775cd9399ed4d3243ab8587bb4c8b6d053966f7f01f520",
+        "signature": "bf8b963eaf6e689292f5d8fe1ddbb827eaa4712461bfff9f8afb62527dd5a1a9"
       },
       "../src/core/content/article/article.module.ts": {
         "version": "7016c588ff41f9c6e7d9705a66dfa3768ff51bede58a5a87bf99141b1595c3e3",
@@ -3594,7 +3594,7 @@
         "signature": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f"
       },
       "../src/upload/upload.service.ts": {
-        "version": "7923f3bcb592917210c44c2a1071c3cc8d906be503132c0d57af3baedd9fd0b3",
+        "version": "b106f4e5a4952e999d64461ba0817766774c0abdafd121d11ed888607867f63e",
         "signature": "046a0e6d3dccd27e2817c4e1e16226a4df7369d884c48a321c8485f8ddccc26e"
       },
       "../src/upload/upload.controller.ts": {
@@ -19469,8 +19469,6 @@
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
       "../src/core/content/article/article.service.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
       "../src/core/content/trade/trade.module.ts",
@@ -19479,6 +19477,8 @@
       "../src/core/trivia/question-type/question-type.module.ts",
       "../src/core/trivia/question/question.dto.ts",
       "../src/core/trivia/question/question.service.ts",
+      "../src/core/trivia/question/question.controller.ts",
+      "../src/core/trivia/question/question.module.ts",
       "../src/core/trivia/target/target.dto.ts",
       "../src/core/trivia/target/target.service.ts",
       "../src/core/trivia/target/target.controller.ts",
@@ -19907,8 +19907,8 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/question/question.controller.ts",
-      "../src/core/trivia/question/question.module.ts"
+      "../src/core/content/article/article.controller.ts",
+      "../src/core/content/article/article.module.ts"
     ]
   },
   "version": "3.7.2"

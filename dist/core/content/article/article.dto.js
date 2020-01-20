@@ -9,4 +9,7 @@ exports.GetArticleList = GetArticleList;
 class GetArticlesList {
 }
 exports.GetArticlesList = GetArticlesList;
+class UpdateArticleDTO {
+}
+exports.UpdateArticleDTO = UpdateArticleDTO;
 //# sourceMappingURL=article.dto.js.map
