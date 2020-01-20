@@ -2346,12 +2346,12 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "620d5bef1becf8a86af79f5c6ed04691b084c9382e4a5d5714398026fbe826ce",
-        "signature": "e72491db6838b42294a7e8774aaa92fd1e3d71dddd3f4adcf39f13f0aa4cdcdd"
+        "version": "0023c9e91ebe9080bcc8deb7f2f3b2a36da88a16f46097cd6844af4ef22a336c",
+        "signature": "9473ce3381c3638d6a726146d2741defed8b0e54e1ff6f5a878d264fea996b69"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "f333fc0b00f3ed9952051ed6ea9ba80d64ced84c8cb4104586e1f738b928bb5b",
-        "signature": "bd91a108d4667a47d6376b499ea46dff2ca13be10ffcf08eaa1ce7a5aa68466e"
+        "version": "1edc1d52b85fc9583e6dbd278f1937ad63b57eafda3e0f494ed64a3961ef2d26",
+        "signature": "34ec86431254097b8d58f3e921d653aced6b730132fe6b39b00a1d96b69e88c0"
       },
       "../src/core/users/user/user.module.ts": {
         "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",
@@ -2410,7 +2410,7 @@
         "signature": "6b5623ad9a73caa0910abb663f34c11b62fbce8926a6fa1f9e171cd36edd70cc"
       },
       "../src/core/content/product/product.service.ts": {
-        "version": "0c79be8eeae76ce829959fc2f77c2476d2e1e16bc1efffa0b73ef01bc119c560",
+        "version": "045e5e9d809cac0b27dc43aeab78d36594bc8a7bf96ce280c920ef66f26b2c38",
         "signature": "6f066dd1c996c51d821bb64a7303b5db24ff843068900b7f042d64d38271d51a"
       },
       "../src/core/content/product/product.controller.ts": {
@@ -2538,7 +2538,7 @@
         "signature": "f8a76ab73a024b9101a39d562ac4bcf4ee5048f52274db9afbb8a96bb442d660"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "ec5ce310f0398f0d007ff94809776edd9f37d697a2d9f8c9d15cc4806e4e9fee",
+        "version": "0c3fdeb9b600c90c5296016b4e4466abec5c4d2c1c05b2530dc6014752878790",
         "signature": "90d1a842fe2fa9e93a3fb4cdb4a30f4d43972f6f5e4f6f3617c65323b1c7b872"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -4006,7 +4006,7 @@
         "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
       },
       "../src/app.module.ts": {
-        "version": "286c09d9ed0617c098fcc57fd0a72db66d4bdd7417c16d0a4b498585aa196770",
+        "version": "7ce827f8f6ff02805ab55142d5c0c6779e3ca2490fbade37c4b35b3d57194999",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -19442,9 +19442,6 @@
       "../src/core/users/token/token.module.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19458,6 +19455,9 @@
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
+      "../src/core/content/product/product.service.ts",
+      "../src/core/content/product/product.controller.ts",
+      "../src/core/content/product/product.module.ts",
       "../src/core/content/article/article.entity.ts",
       "../src/core/content/tag/tag.entity.ts",
       "../src/core/content/tag/tag.dto.ts",
@@ -19905,9 +19905,9 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/product/product.service.ts",
-      "../src/core/content/product/product.module.ts",
-      "../src/core/content/product/product.controller.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/core/users/user/user.controller.ts",
       "../src/app.module.ts"
     ]
   },

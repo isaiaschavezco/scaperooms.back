@@ -22,6 +22,12 @@ export class UserController {
         return await this.userService.findUserDetail(email);
     }
 
+    @Get('points/:email')
+    async getUserPoints(@Param('email') email): Promise<any> {
+        return await this.userService.getUserPoints(email);
+    }
+
+
     @Post('confirm')
     async confirmUserPassword(@Body() confirmUserPassword: ConfirmUserPassword): Promise<any> {
         return await this.userService.confirmPassword(confirmUserPassword);

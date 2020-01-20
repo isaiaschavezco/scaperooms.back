@@ -61,7 +61,7 @@ AppModule = __decorate([
                         }
                     },
                     defaults: {
-                        from: '"Invitación Bioderma" <nicola.bruen@ethereal.email>',
+                        from: '"Bioderma" <nicola.bruen@ethereal.email>',
                     },
                     template: {
                         dir: __dirname + '/templates',

@@ -6,6 +6,7 @@ export declare class UserController {
     create(inviteUserDTO: InviteUserDTO): Promise<number>;
     findAllUsers(): Promise<any>;
     findUserDetail(email: any): Promise<any>;
+    getUserPoints(email: any): Promise<any>;
     confirmUserPassword(confirmUserPassword: ConfirmUserPassword): Promise<any>;
     requestPasswordReset(email: any): Promise<any>;
     createUser(createUserDTO: CreateUserDTO): Promise<any>;

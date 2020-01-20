@@ -542,6 +542,28 @@ let UserService = class UserService {
             }
         });
     }
+    getUserPoints(requestEmail) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const user = yield this.userRepository.findOne({
+                    where: { email: requestEmail }
+                });
+                return {
+                    points: {
+                        totalPoints: user.points,
+                        biodermaGamePoints: user.biodermaGamePoints
+                    }
+                };
+            }
+            catch (err) {
+                console.log("UserService - getUserPoints: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting user points',
+                }, 500);
+            }
+        });
+    }
 };
 UserService = __decorate([
     common_1.Injectable(),

@@ -610,4 +610,26 @@ export class UserService {
         }
     }
 
+    async getUserPoints(requestEmail: string): Promise<any> {
+        try {
+            const user = await this.userRepository.findOne({
+                where: { email: requestEmail }
+            });
+
+            return {
+                points: {
+                    totalPoints: user.points,
+                    biodermaGamePoints: user.biodermaGamePoints
+                }
+            };
+        } catch (err) {
+            console.log("UserService - getUserPoints: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error getting user points',
+            }, 500);
+        }
+    }
+
 }

@@ -33,4 +33,5 @@ export declare class UserService {
     deleteUser(requestEmail: string): Promise<any>;
     resetUserPoints(): Promise<any>;
     requestPasswordReset(requestEmail: string): Promise<any>;
+    getUserPoints(requestEmail: string): Promise<any>;
 }

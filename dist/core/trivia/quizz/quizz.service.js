@@ -112,6 +112,7 @@ let QuizzService = class QuizzService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let filterQueries = [];
+                let notificationToAllUsers = false;
                 let quizzToSend = yield this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
                     relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type"]
                 });
@@ -121,6 +122,9 @@ let QuizzService = class QuizzService {
                 quizzToSend.isActive = true;
                 quizzToSend.campaing.target.forEach(target => {
                     let tempTargetObject = {};
+                    if (target.allUsers) {
+                        notificationToAllUsers = true;
+                    }
                     if (target.initAge !== null) {
                         tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
                     }
@@ -143,10 +147,18 @@ let QuizzService = class QuizzService {
                         filterQueries.push(tempTargetObject);
                     }
                 });
-                const users = yield this.userRepository.find({
-                    select: ["id"],
-                    where: filterQueries
-                });
+                let users;
+                if (notificationToAllUsers) {
+                    users = yield this.userRepository.find({
+                        select: ["id"]
+                    });
+                }
+                else {
+                    users = yield this.userRepository.find({
+                        select: ["id"],
+                        where: filterQueries
+                    });
+                }
                 quizzToSend.user = users;
                 yield this.quizzRepository.save(quizzToSend);
                 return users;
