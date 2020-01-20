@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Question } from './question.entity';
 import { QuestionType } from '../question-type/question-type.entity';
 import { Quizz } from '../quizz/quizz.entity';
-import { CreateQuestionDTO } from './question.dto';
+import { CreateQuestionDTO, UpdateQuestionDTO } from './question.dto';
 
 @Injectable()
 export class QuestionService {
@@ -145,6 +145,52 @@ export class QuestionService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error creating question',
+            }, 500);
+        }
+    }
+
+    async update(updateDTO: UpdateQuestionDTO): Promise<any> {
+        try {
+            let response = { status: 0 };
+
+            const questionType = await this.questionTypeRepository.findOne(updateDTO.questionType);
+            let quizz = await this.quizzRepository.findOne(updateDTO.quizzId);
+
+            if (quizz.isSend) {
+
+                response = { status: 7 };
+
+            } else {
+
+                let questionToUpdate = await this.questionRepository.findOne(updateDTO.id);
+
+                // Se restan los puntos de la pregunta antes de hacer la edición
+                quizz.points -= questionToUpdate.points;
+                quizz.time -= questionToUpdate.time;
+
+                questionToUpdate.content = updateDTO.content;
+                questionToUpdate.answer = updateDTO.answer;
+                questionToUpdate.points = updateDTO.points;
+                questionToUpdate.time = updateDTO.time;
+                questionToUpdate.question_type = questionType;
+                questionToUpdate.quizz = quizz;
+
+                //Se suman los puntos nuevos al total de la trivia
+                quizz.points += updateDTO.points;
+                quizz.time += updateDTO.time;
+
+                await this.quizzRepository.save(quizz);
+                await this.questionRepository.save(questionToUpdate);
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("QuestionService - update: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error updating question',
             }, 500);
         }
     }

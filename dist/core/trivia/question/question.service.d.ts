@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 import { Question } from './question.entity';
 import { QuestionType } from '../question-type/question-type.entity';
 import { Quizz } from '../quizz/quizz.entity';
-import { CreateQuestionDTO } from './question.dto';
+import { CreateQuestionDTO, UpdateQuestionDTO } from './question.dto';
 export declare class QuestionService {
     private questionRepository;
     private questionTypeRepository;
@@ -12,5 +12,6 @@ export declare class QuestionService {
     findAllByQuizz(quizzId: number): Promise<any>;
     findAllByUserQuizz(quizzId: number): Promise<any>;
     create(createDTO: CreateQuestionDTO): Promise<any>;
+    update(updateDTO: UpdateQuestionDTO): Promise<any>;
     getQuestionDetailById(questionId: number): Promise<any>;
 }

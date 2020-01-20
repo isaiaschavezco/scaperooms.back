@@ -1,12 +1,13 @@
 import { QuestionService } from './question.service';
 import { Question } from './question.entity';
-import { CreateQuestionDTO } from './question.dto';
+import { CreateQuestionDTO, UpdateQuestionDTO } from './question.dto';
 export declare class QuestionController {
     private questionService;
     constructor(questionService: QuestionService);
-    getAllQuizzes(): Promise<Question[]>;
+    getAllQuestions(): Promise<Question[]>;
     getAllByCampaing(quizzId: any): Promise<any>;
     getQuestionDetailById(questionId: any): Promise<any>;
     getAllByUserQuizz(quizzId: any): Promise<any>;
-    createQuizz(createQuestionDTO: CreateQuestionDTO): Promise<any>;
+    createQuestion(createQuestionDTO: CreateQuestionDTO): Promise<any>;
+    updateQuestion(updateQuestionDTO: UpdateQuestionDTO): Promise<any>;
 }

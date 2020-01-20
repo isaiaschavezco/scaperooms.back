@@ -157,6 +157,41 @@ let QuestionService = class QuestionService {
             }
         });
     }
+    update(updateDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                const questionType = yield this.questionTypeRepository.findOne(updateDTO.questionType);
+                let quizz = yield this.quizzRepository.findOne(updateDTO.quizzId);
+                if (quizz.isSend) {
+                    response = { status: 7 };
+                }
+                else {
+                    let questionToUpdate = yield this.questionRepository.findOne(updateDTO.id);
+                    quizz.points -= questionToUpdate.points;
+                    quizz.time -= questionToUpdate.time;
+                    questionToUpdate.content = updateDTO.content;
+                    questionToUpdate.answer = updateDTO.answer;
+                    questionToUpdate.points = updateDTO.points;
+                    questionToUpdate.time = updateDTO.time;
+                    questionToUpdate.question_type = questionType;
+                    questionToUpdate.quizz = quizz;
+                    quizz.points += updateDTO.points;
+                    quizz.time += updateDTO.time;
+                    yield this.quizzRepository.save(quizz);
+                    yield this.questionRepository.save(questionToUpdate);
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("QuestionService - update: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error updating question',
+                }, 500);
+            }
+        });
+    }
     getQuestionDetailById(questionId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

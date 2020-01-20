@@ -28,7 +28,7 @@ let QuestionController = class QuestionController {
     constructor(questionService) {
         this.questionService = questionService;
     }
-    getAllQuizzes() {
+    getAllQuestions() {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.questionService.findAll();
         });
@@ -48,9 +48,14 @@ let QuestionController = class QuestionController {
             return yield this.questionService.findAllByUserQuizz(quizzId);
         });
     }
-    createQuizz(createQuestionDTO) {
+    createQuestion(createQuestionDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.questionService.create(createQuestionDTO);
+        });
+    }
+    updateQuestion(updateQuestionDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.questionService.update(updateQuestionDTO);
         });
     }
 };
@@ -59,7 +64,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], QuestionController.prototype, "getAllQuizzes", null);
+], QuestionController.prototype, "getAllQuestions", null);
 __decorate([
     common_1.Get(':quizzId'),
     __param(0, common_1.Param('quizzId')),
@@ -87,7 +92,14 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [question_dto_1.CreateQuestionDTO]),
     __metadata("design:returntype", Promise)
-], QuestionController.prototype, "createQuizz", null);
+], QuestionController.prototype, "createQuestion", null);
+__decorate([
+    common_1.Put(),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [question_dto_1.UpdateQuestionDTO]),
+    __metadata("design:returntype", Promise)
+], QuestionController.prototype, "updateQuestion", null);
 QuestionController = __decorate([
     common_1.Controller('question'),
     __metadata("design:paramtypes", [question_service_1.QuestionService])

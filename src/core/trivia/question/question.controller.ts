@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { QuestionService } from './question.service';
 import { Question } from './question.entity';
-import { CreateQuestionDTO } from './question.dto';
+import { CreateQuestionDTO, UpdateQuestionDTO } from './question.dto';
 
 @Controller('question')
 export class QuestionController {
@@ -9,7 +9,7 @@ export class QuestionController {
     constructor(private questionService: QuestionService) { }
 
     @Get()
-    async getAllQuizzes(): Promise<Question[]> {
+    async getAllQuestions(): Promise<Question[]> {
         return await this.questionService.findAll();
     }
 
@@ -29,8 +29,13 @@ export class QuestionController {
     }
 
     @Post()
-    async createQuizz(@Body() createQuestionDTO: CreateQuestionDTO): Promise<any> {
+    async createQuestion(@Body() createQuestionDTO: CreateQuestionDTO): Promise<any> {
         return await this.questionService.create(createQuestionDTO);
+    }
+
+    @Put()
+    async updateQuestion(@Body() updateQuestionDTO: UpdateQuestionDTO): Promise<any> {
+        return await this.questionService.update(updateQuestionDTO);
     }
 
 }
