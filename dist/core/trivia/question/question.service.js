@@ -192,6 +192,34 @@ let QuestionService = class QuestionService {
             }
         });
     }
+    delete(questionId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                const questionToDelete = yield this.questionRepository.findOne(questionId, {
+                    relations: ["quizz"]
+                });
+                let quizz = yield this.quizzRepository.findOne(questionToDelete.quizz.id);
+                if (quizz.isSend) {
+                    response = { status: 7 };
+                }
+                else {
+                    quizz.points -= questionToDelete.points;
+                    quizz.time -= questionToDelete.time;
+                    yield this.quizzRepository.save(quizz);
+                    yield this.questionRepository.remove(questionToDelete);
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("QuestionService - delete: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error deleting question',
+                }, 500);
+            }
+        });
+    }
     getQuestionDetailById(questionId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

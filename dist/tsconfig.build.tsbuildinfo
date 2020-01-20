@@ -2490,12 +2490,12 @@
         "signature": "b9b02b7c26c91c2305632a574342d5f7573606d12a167834e3060ddf4e1ab632"
       },
       "../src/core/trivia/question/question.service.ts": {
-        "version": "8d4ac8a9d81cb1b6fc3f6846b3a0a2153e33b0edc238e83f35b275bb2abadf24",
-        "signature": "fdc67bab0070ee54783e2ace30f61ca0260098969a30711343cacd9c0f84358d"
+        "version": "8f70c6b129ae61c5b8ec98701f4885ae2df33edd161775ac4386e823ac958e2f",
+        "signature": "9264b99a1ef964a9a792183f9b11b5efdbf8992670288c62e6eef26bd2f91dd1"
       },
       "../src/core/trivia/question/question.controller.ts": {
-        "version": "3e35fa4052d650c054748d5a7f0a8604c000d23bd6d0cbdb634c0ffcbb157fba",
-        "signature": "fcd7874b3f2cfea535b9460e1c07ca4287e5f15ca3ca3ef71da01ab1f71de00f"
+        "version": "75f544873f9f9448efa6f673c5f4a2cf4d7aabf62888e8e5770057642665dd90",
+        "signature": "7bdab6ec6893c30a3f67556f195a6851701fb046e4648e0b5b5a8cd95980935d"
       },
       "../src/core/trivia/question/question.module.ts": {
         "version": "055809a89d7603fd0cd873901c7c47e02aed8c306a8085805f72387c4efc5ebd",
@@ -19478,8 +19478,7 @@
       "../src/core/trivia/question-type/question-type.controller.ts",
       "../src/core/trivia/question-type/question-type.module.ts",
       "../src/core/trivia/question/question.dto.ts",
-      "../src/core/trivia/question/question.controller.ts",
-      "../src/core/trivia/question/question.module.ts",
+      "../src/core/trivia/question/question.service.ts",
       "../src/core/trivia/target/target.dto.ts",
       "../src/core/trivia/target/target.service.ts",
       "../src/core/trivia/target/target.controller.ts",
@@ -19908,7 +19907,8 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/question/question.service.ts"
+      "../src/core/trivia/question/question.controller.ts",
+      "../src/core/trivia/question/question.module.ts"
     ]
   },
   "version": "3.7.2"

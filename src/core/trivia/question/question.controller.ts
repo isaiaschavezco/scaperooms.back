@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { QuestionService } from './question.service';
 import { Question } from './question.entity';
 import { CreateQuestionDTO, UpdateQuestionDTO } from './question.dto';
@@ -36,6 +36,11 @@ export class QuestionController {
     @Put()
     async updateQuestion(@Body() updateQuestionDTO: UpdateQuestionDTO): Promise<any> {
         return await this.questionService.update(updateQuestionDTO);
+    }
+
+    @Delete(':questionId')
+    async deleteQuestion(@Param('questionId') questionId): Promise<any> {
+        return await this.questionService.delete(questionId);
     }
 
 }

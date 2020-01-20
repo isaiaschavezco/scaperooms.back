@@ -10,4 +10,5 @@ export declare class QuestionController {
     getAllByUserQuizz(quizzId: any): Promise<any>;
     createQuestion(createQuestionDTO: CreateQuestionDTO): Promise<any>;
     updateQuestion(updateQuestionDTO: UpdateQuestionDTO): Promise<any>;
+    deleteQuestion(questionId: any): Promise<any>;
 }

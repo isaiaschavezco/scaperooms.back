@@ -13,5 +13,6 @@ export declare class QuestionService {
     findAllByUserQuizz(quizzId: number): Promise<any>;
     create(createDTO: CreateQuestionDTO): Promise<any>;
     update(updateDTO: UpdateQuestionDTO): Promise<any>;
+    delete(questionId: number): Promise<any>;
     getQuestionDetailById(questionId: number): Promise<any>;
 }

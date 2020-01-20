@@ -58,6 +58,11 @@ let QuestionController = class QuestionController {
             return yield this.questionService.update(updateQuestionDTO);
         });
     }
+    deleteQuestion(questionId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.questionService.delete(questionId);
+        });
+    }
 };
 __decorate([
     common_1.Get(),
@@ -100,6 +105,13 @@ __decorate([
     __metadata("design:paramtypes", [question_dto_1.UpdateQuestionDTO]),
     __metadata("design:returntype", Promise)
 ], QuestionController.prototype, "updateQuestion", null);
+__decorate([
+    common_1.Delete(':questionId'),
+    __param(0, common_1.Param('questionId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], QuestionController.prototype, "deleteQuestion", null);
 QuestionController = __decorate([
     common_1.Controller('question'),
     __metadata("design:paramtypes", [question_service_1.QuestionService])

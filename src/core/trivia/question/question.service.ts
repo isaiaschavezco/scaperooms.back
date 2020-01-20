@@ -195,6 +195,42 @@ export class QuestionService {
         }
     }
 
+    async delete(questionId: number): Promise<any> {
+        try {
+            let response = { status: 0 };
+
+            const questionToDelete = await this.questionRepository.findOne(questionId, {
+                relations: ["quizz"]
+            });
+
+            let quizz = await this.quizzRepository.findOne(questionToDelete.quizz.id);
+
+            if (quizz.isSend) {
+
+                response = { status: 7 };
+
+            } else {
+
+                // Se restan los puntos de la pregunta en la trivia
+                quizz.points -= questionToDelete.points;
+                quizz.time -= questionToDelete.time;
+
+                await this.quizzRepository.save(quizz);
+                await this.questionRepository.remove(questionToDelete);
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("QuestionService - delete: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error deleting question',
+            }, 500);
+        }
+    }
+
     async getQuestionDetailById(questionId: number): Promise<any> {
         try {
 
