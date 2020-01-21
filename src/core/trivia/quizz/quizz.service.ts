@@ -12,7 +12,8 @@ import * as moment from 'moment';
 export class QuizzService {
     constructor(@InjectRepository(Quizz) private quizzRepository: Repository<Quizz>,
         @InjectRepository(Campaing) private campaingRepository: Repository<Campaing>,
-        @InjectRepository(User) private userRepository: Repository<User>) { }
+        @InjectRepository(User) private userRepository: Repository<User>,
+        @InjectRepository(Pointsbyuser) private pointsByUserRepository: Repository<Pointsbyuser>) { }
 
     async findAll(): Promise<Quizz[]> {
         try {
@@ -217,6 +218,62 @@ export class QuizzService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting quizzes',
+            }, 500);
+        }
+    }
+
+    async delete(quizzId: number): Promise<any> {
+        try {
+            let response = { status: 0 };
+
+            // let quizzToDelete = await this.quizzRepository.find({
+            //     select: ["id", "user"],
+            //     relations: ["user"]
+            // });
+
+            // const quizzToDelete = await this.quizzRepository.createQueryBuilder("quizz")
+            //     .select(["quizz.id", "quizz.points", "quizz.time", "ques.id", "camp.id", "user.id", "user.points", "user.biodermaGamePoints", "ques.id"])
+            //     .leftJoin("quizz.answerbyuserquizz", "answ")
+            //     .innerJoin("quizz.campaing", "camp")
+            //     .leftJoin("quizz.user", "user")
+            //     .innerJoin("quizz.question", "ques")
+            //     .innerJoinAndSelect("quizz.pointsbyuser", "pobyus")
+            //     .where("quizz.id = :quizzId", { quizzId: quizzId })
+            //     .getOne();
+
+            // for (let index = 0; index < quizzToDelete.user.length; index++) {
+            //     const tempUser = quizzToDelete.user[index];
+
+            //     const tempPoints = await this.pointsByUserRepository.findOne({
+            //         relations: ["pointsType"],
+            //         where: { user: tempUser.id, quizz: quizzId }
+            //     });
+
+            //     if (tempPoints) {
+
+            //         let userToEdit = await this.userRepository.findOne(tempUser.id);
+
+            //         if (tempPoints.pointsType.id == 2) {
+            //             userToEdit.biodermaGamePoints -= tempPoints.points;
+            //         } else {
+            //             userToEdit.points -= tempPoints.points;
+            //         }
+
+            //         await this.userRepository.save(userToEdit);
+
+            //     }
+
+            // }
+
+            // await this.quizzRepository.remove(quizzToDelete);
+
+            return response;
+        } catch (err) {
+            console.log("QuizzService - delete: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error deleting quizzes',
             }, 500);
         }
     }

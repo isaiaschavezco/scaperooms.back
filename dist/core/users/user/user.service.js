@@ -52,7 +52,7 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let status = 0;
-                const userExist = yield this.userRepository.findOne({
+                let userExist = yield this.userRepository.findOne({
                     where: { email: request.email }
                 });
                 if (!userExist) {
@@ -81,7 +81,14 @@ let UserService = class UserService {
                     });
                 }
                 else {
-                    status = 5;
+                    if (userExist.isActive) {
+                        status = 9;
+                    }
+                    else {
+                        status = 8;
+                        userExist.isActive = true;
+                        yield this.userRepository.save(userExist);
+                    }
                 }
                 return status;
             }

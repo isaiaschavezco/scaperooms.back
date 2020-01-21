@@ -34,7 +34,7 @@ export class UserService {
             let status = 0;
 
             // Se verifica si el usuario ya cuenta con una invitacion enviada
-            const userExist = await this.userRepository.findOne({
+            let userExist = await this.userRepository.findOne({
                 where: { email: request.email }
             });
 
@@ -72,7 +72,14 @@ export class UserService {
                 });
 
             } else {
-                status = 5;
+
+                if (userExist.isActive) {
+                    status = 9;
+                } else {
+                    status = 8;
+                    userExist.isActive = true;
+                    await this.userRepository.save(userExist);
+                }
             }
 
             return status;

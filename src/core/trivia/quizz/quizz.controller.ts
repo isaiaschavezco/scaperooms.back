@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { QuizzService } from './quizz.service';
 import { Quizz } from './quizz.entity';
 import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO } from './quizz.dto';
@@ -31,6 +31,11 @@ export class QuizzController {
     @Post('user')
     async getQuizzesByUserCampaing(@Body() getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any> {
         return await this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
+    }
+
+    @Delete(':quizzId')
+    async deleteQuizz(@Param('quizzId') quizzId): Promise<any> {
+        return await this.quizzService.delete(quizzId);
     }
 
 }

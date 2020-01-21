@@ -13,6 +13,7 @@ const quizz_controller_1 = require("./quizz.controller");
 const quizz_entity_1 = require("./quizz.entity");
 const user_entity_1 = require("../../users/user/user.entity");
 const campaing_entity_1 = require("../campaing/campaing.entity");
+const pointsbyuser_entity_1 = require("../pointsbyuser/pointsbyuser.entity");
 let QuizzModule = class QuizzModule {
 };
 QuizzModule = __decorate([
@@ -20,7 +21,8 @@ QuizzModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forFeature([quizz_entity_1.Quizz]),
             typeorm_1.TypeOrmModule.forFeature([campaing_entity_1.Campaing]),
-            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User])
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
+            typeorm_1.TypeOrmModule.forFeature([pointsbyuser_entity_1.Pointsbyuser])
         ],
         providers: [quizz_service_1.QuizzService],
         controllers: [quizz_controller_1.QuizzController]

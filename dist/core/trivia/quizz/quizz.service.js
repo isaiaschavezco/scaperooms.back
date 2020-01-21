@@ -27,13 +27,15 @@ const typeorm_2 = require("typeorm");
 const quizz_entity_1 = require("./quizz.entity");
 const campaing_entity_1 = require("../campaing/campaing.entity");
 const user_entity_1 = require("../../users/user/user.entity");
+const pointsbyuser_entity_1 = require("../pointsbyuser/pointsbyuser.entity");
 const quizz_dto_1 = require("./quizz.dto");
 const moment = require("moment");
 let QuizzService = class QuizzService {
-    constructor(quizzRepository, campaingRepository, userRepository) {
+    constructor(quizzRepository, campaingRepository, userRepository, pointsByUserRepository) {
         this.quizzRepository = quizzRepository;
         this.campaingRepository = campaingRepository;
         this.userRepository = userRepository;
+        this.pointsByUserRepository = pointsByUserRepository;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -209,13 +211,30 @@ let QuizzService = class QuizzService {
             }
         });
     }
+    delete(quizzId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                return response;
+            }
+            catch (err) {
+                console.log("QuizzService - delete: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error deleting quizzes',
+                }, 500);
+            }
+        });
+    }
 };
 QuizzService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(quizz_entity_1.Quizz)),
     __param(1, typeorm_1.InjectRepository(campaing_entity_1.Campaing)),
     __param(2, typeorm_1.InjectRepository(user_entity_1.User)),
+    __param(3, typeorm_1.InjectRepository(pointsbyuser_entity_1.Pointsbyuser)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])
 ], QuizzService);

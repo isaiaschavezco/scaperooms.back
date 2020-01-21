@@ -53,6 +53,11 @@ let QuizzController = class QuizzController {
             return yield this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
         });
     }
+    deleteQuizz(quizzId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.quizzService.delete(quizzId);
+        });
+    }
 };
 __decorate([
     common_1.Get(),
@@ -88,6 +93,13 @@ __decorate([
     __metadata("design:paramtypes", [quizz_dto_1.GetQuizzesByUserCampaingDTO]),
     __metadata("design:returntype", Promise)
 ], QuizzController.prototype, "getQuizzesByUserCampaing", null);
+__decorate([
+    common_1.Delete(':quizzId'),
+    __param(0, common_1.Param('quizzId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], QuizzController.prototype, "deleteQuizz", null);
 QuizzController = __decorate([
     common_1.Controller('quizz'),
     __metadata("design:paramtypes", [quizz_service_1.QuizzService])
