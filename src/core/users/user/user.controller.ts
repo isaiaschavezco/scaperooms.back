@@ -1,7 +1,7 @@
 import { Controller, Body, Get, Post, Put, Delete, Param } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
 
 @Controller('user')
 export class UserController {
@@ -71,6 +71,11 @@ export class UserController {
     @Put('resetpoints')
     async resetUserPoints(): Promise<any> {
         return await this.userService.resetUserPoints();
+    }
+
+    @Put('recovery')
+    async recoveryPassword(@Body() passwordRecovery: PasswordRecovery): Promise<any> {
+        return await this.userService.passwordRecovery(passwordRecovery);
     }
 
 }

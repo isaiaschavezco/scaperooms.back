@@ -96,3 +96,9 @@ export class ConfirmUserPassword {
     readonly email: string;
     readonly password: string;
 }
+
+export class PasswordRecovery {
+    readonly email: string;
+    readonly password: string;
+    readonly token: string;
+}

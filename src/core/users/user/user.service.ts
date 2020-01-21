@@ -9,7 +9,7 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from 'bcrypt';
@@ -601,7 +601,24 @@ export class UserService {
             });
 
             if (user) {
-                console.log("Enviar correo");
+
+                let newToken = this.tokenRepository.create({
+                    email: requestEmail
+                });
+
+                const registerToken = await this.tokenRepository.save(newToken);
+                const jwtToken = await jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
+                // Se envia correo
+                await this.mailerService.sendMail({
+                    to: requestEmail,
+                    subject: 'Recuperacion de contraseña.',
+                    template: 'recovery',
+                    context: {
+                        url: jwtToken,
+                        email: requestEmail
+                    },
+                });
+
             } else {
                 response = { status: 1 };
             }
@@ -635,6 +652,49 @@ export class UserService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting user points',
+            }, 500);
+        }
+    }
+
+    async passwordRecovery(requestDTO: PasswordRecovery): Promise<any> {
+        try {
+
+            let response = { status: 0 };
+
+            const jwtDecoded = await jwt.verify(requestDTO.token, "Bi0d3rmaTokenJWT.");
+
+            if (!jwtDecoded.token) {
+
+                response = { status: 10 };
+
+            } else {
+
+                const tokenExist = await this.tokenRepository.findOne(jwtDecoded.token);
+
+                if (tokenExist) {
+
+                    const passwordHashed = await bcrypt.hash(requestDTO.password, 12);
+
+                    let userToUpdate = await this.userRepository.findOne({
+                        where: { email: requestDTO.email }
+                    });
+
+                    userToUpdate.password = passwordHashed;
+                    // Se actualiza password del usuario
+                    await this.userRepository.save(userToUpdate);
+                } else {
+                    response = { status: 10 };
+                }
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - passwordRecovery: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error ressetign password',
             }, 500);
         }
     }
