@@ -682,6 +682,8 @@ export class UserService {
                     userToUpdate.password = passwordHashed;
                     // Se actualiza password del usuario
                     await this.userRepository.save(userToUpdate);
+                    // Se elimina el token de la base de datos
+                    await this.tokenRepository.remove(tokenExist);
                 } else {
                     response = { status: 10 };
                 }
