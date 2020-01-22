@@ -93,6 +93,11 @@ let UserController = class UserController {
             return yield this.userService.resetUserPoints();
         });
     }
+    recoveryPassword(passwordRecovery) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.passwordRecovery(passwordRecovery);
+        });
+    }
 };
 __decorate([
     common_1.Post('invite'),
@@ -183,6 +188,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "resetUserPoints", null);
+__decorate([
+    common_1.Put('recovery'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.PasswordRecovery]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "recoveryPassword", null);
 UserController = __decorate([
     common_1.Controller('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

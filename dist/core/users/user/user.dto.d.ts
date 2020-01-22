@@ -89,3 +89,8 @@ export declare class ConfirmUserPassword {
     readonly email: string;
     readonly password: string;
 }
+export declare class PasswordRecovery {
+    readonly email: string;
+    readonly password: string;
+    readonly token: string;
+}

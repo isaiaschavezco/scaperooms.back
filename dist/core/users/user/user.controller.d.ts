@@ -1,5 +1,5 @@
 import { UserService } from './user.service';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
 export declare class UserController {
     private userService;
     constructor(userService: UserService);
@@ -16,4 +16,5 @@ export declare class UserController {
     updateDrugStoreUser(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any>;
     deleteUser(email: any): Promise<any>;
     resetUserPoints(): Promise<any>;
+    recoveryPassword(passwordRecovery: PasswordRecovery): Promise<any>;
 }

@@ -440,7 +440,6 @@ export class UserService {
                         birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
                         phonenumber: userToReturn.phone,
                         email: userToReturn.email,
-                        type: userToReturn.type.id,
                         totalPoints: userToReturn.points,
                         address: {
                             state: userToReturn.city,
@@ -566,7 +565,6 @@ export class UserService {
                         birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
                         phonenumber: userToReturn.phone,
                         email: userToReturn.email,
-                        type: userToReturn.type.id,
                         totalPoints: userToReturn.points,
                         address: {
                             state: userToReturn.city,

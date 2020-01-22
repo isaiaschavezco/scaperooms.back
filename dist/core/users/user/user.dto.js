@@ -24,4 +24,7 @@ exports.ResetPassword = ResetPassword;
 class ConfirmUserPassword {
 }
 exports.ConfirmUserPassword = ConfirmUserPassword;
+class PasswordRecovery {
+}
+exports.PasswordRecovery = PasswordRecovery;
 //# sourceMappingURL=user.dto.js.map

@@ -393,8 +393,31 @@ let UserService = class UserService {
                         userExist.delegation = userCity;
                     }
                     userExist.isActive = true;
-                    const registeredUser = yield this.userRepository.save(userExist);
-                    response = { user: registeredUser };
+                    const userToReturn = yield this.userRepository.save(userExist);
+                    response = {
+                        profile: {
+                            name: userToReturn.name,
+                            lastName: userToReturn.lastName,
+                            nickname: userToReturn.nickname,
+                            gender: userToReturn.gender,
+                            image: userToReturn.photo,
+                            birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                            phonenumber: userToReturn.phone,
+                            email: userToReturn.email,
+                            totalPoints: userToReturn.points,
+                            address: {
+                                state: userToReturn.city,
+                                city: userToReturn.delegation,
+                                mayoralty: userToReturn.mayoralty,
+                                suburb: userToReturn.town
+                            },
+                            workPosition: userToReturn.position,
+                            branchChain: userToReturn.chain,
+                            branchOffice: userToReturn.drugstore,
+                            postalCode: userToReturn.postalCode,
+                            charge: userToReturn.charge
+                        }
+                    };
                 }
                 return response;
             }
@@ -470,8 +493,31 @@ let UserService = class UserService {
                         userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
                     }
                     userExist.isActive = true;
-                    yield this.userRepository.save(userExist);
-                    response = { user: userExist };
+                    const userToReturn = yield this.userRepository.save(userExist);
+                    response = {
+                        profile: {
+                            name: userToReturn.name,
+                            lastName: userToReturn.lastName,
+                            nickname: userToReturn.nickname,
+                            gender: userToReturn.gender,
+                            image: userToReturn.photo,
+                            birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                            phonenumber: userToReturn.phone,
+                            email: userToReturn.email,
+                            totalPoints: userToReturn.points,
+                            address: {
+                                state: userToReturn.city,
+                                city: userToReturn.delegation,
+                                mayoralty: userToReturn.mayoralty,
+                                suburb: userToReturn.town
+                            },
+                            workPosition: userToReturn.position,
+                            branchChain: userToReturn.chain,
+                            branchOffice: userToReturn.drugstore,
+                            postalCode: userToReturn.postalCode,
+                            charge: userToReturn.charge
+                        }
+                    };
                 }
                 return response;
             }
@@ -533,7 +579,20 @@ let UserService = class UserService {
                     where: { email: requestEmail }
                 });
                 if (user) {
-                    console.log("Enviar correo");
+                    let newToken = this.tokenRepository.create({
+                        email: requestEmail
+                    });
+                    const registerToken = yield this.tokenRepository.save(newToken);
+                    const jwtToken = yield jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
+                    yield this.mailerService.sendMail({
+                        to: requestEmail,
+                        subject: 'Recuperacion de contraseña.',
+                        template: 'recovery',
+                        context: {
+                            url: jwtToken,
+                            email: requestEmail
+                        },
+                    });
                 }
                 else {
                     response = { status: 1 };
@@ -567,6 +626,40 @@ let UserService = class UserService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting user points',
+                }, 500);
+            }
+        });
+    }
+    passwordRecovery(requestDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                const jwtDecoded = yield jwt.verify(requestDTO.token, "Bi0d3rmaTokenJWT.");
+                if (!jwtDecoded.token) {
+                    response = { status: 10 };
+                }
+                else {
+                    const tokenExist = yield this.tokenRepository.findOne(jwtDecoded.token);
+                    if (tokenExist) {
+                        const passwordHashed = yield bcrypt.hash(requestDTO.password, 12);
+                        let userToUpdate = yield this.userRepository.findOne({
+                            where: { email: requestDTO.email }
+                        });
+                        userToUpdate.password = passwordHashed;
+                        yield this.userRepository.save(userToUpdate);
+                        yield this.tokenRepository.remove(tokenExist);
+                    }
+                    else {
+                        response = { status: 10 };
+                    }
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - passwordRecovery: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error ressetign password',
                 }, 500);
             }
         });

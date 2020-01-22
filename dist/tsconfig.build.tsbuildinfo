@@ -2338,20 +2338,20 @@
         "signature": "3d500686aa1061df45201267d57375b5f2fad19b86528626375f7fb06d715588"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "6194801215de663ac3de2dc1243724c635c6a11ba991ef8ba2c0cacf6caa1801",
-        "signature": "5a5aabb2111496a481f5c8f755de3ce3892e3e3f14b368fc1dba3c612641806a"
+        "version": "d24623b7881e0e74ed1607dd46d5e294f495844a98de4594718ae13dc781425b",
+        "signature": "4265d85b62066ea3a1524a90d8f18ff6344bae5fe1a8063721d148bd97209e47"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "4a560115685e08d6c6beea5a25385b946ac4e4ee6998f61f92b7e4ade0686f7d",
-        "signature": "9473ce3381c3638d6a726146d2741defed8b0e54e1ff6f5a878d264fea996b69"
+        "version": "63d65106bf1dc62f8a71520e9087af659b2efacaf2dd6002473c8acf07c70ca3",
+        "signature": "5801f6bd5d6ec58b307a394c7cf60123bab1f412cbe92d84564b75d779a9723c"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "1edc1d52b85fc9583e6dbd278f1937ad63b57eafda3e0f494ed64a3961ef2d26",
-        "signature": "34ec86431254097b8d58f3e921d653aced6b730132fe6b39b00a1d96b69e88c0"
+        "version": "07615a339c41d5b1fa0ea16811f2633baeacef247a3ed22d119898140fe32a68",
+        "signature": "eead305cb0c93217f1752dd11d85a72a2da276015ef18f9771df84ccad397abc"
       },
       "../src/core/users/user/user.module.ts": {
         "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",

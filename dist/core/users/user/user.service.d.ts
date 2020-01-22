@@ -7,7 +7,7 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 export declare class UserService {
     private userRepository;
@@ -34,4 +34,5 @@ export declare class UserService {
     resetUserPoints(): Promise<any>;
     requestPasswordReset(requestEmail: string): Promise<any>;
     getUserPoints(requestEmail: string): Promise<any>;
+    passwordRecovery(requestDTO: PasswordRecovery): Promise<any>;
 }
