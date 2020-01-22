@@ -349,7 +349,7 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
-                const userExist = yield this.userRepository.findOne({
+                let userExist = yield this.userRepository.findOne({
                     relations: ["city", "delegation", "position"],
                     where: { email: updateNAOSUserDTO.userId }
                 });
@@ -433,8 +433,9 @@ let UserService = class UserService {
     updateDrugStore(updateDrugStoreUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log("updateDrugStoreUserDTO: ", updateDrugStoreUserDTO);
                 let response = null;
-                const userExist = yield this.userRepository.findOne({
+                let userExist = yield this.userRepository.findOne({
                     relations: ["city", "delegation", "chain"],
                     where: { email: updateDrugStoreUserDTO.userId }
                 });

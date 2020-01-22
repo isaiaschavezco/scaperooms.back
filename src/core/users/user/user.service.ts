@@ -471,6 +471,8 @@ export class UserService {
     async updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any> {
         try {
 
+            console.log("updateDrugStoreUserDTO: ", updateDrugStoreUserDTO);
+
             let response = null;
 
             let userExist = await this.userRepository.findOne({
