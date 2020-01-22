@@ -370,7 +370,7 @@ export class UserService {
 
             let response = null;
 
-            const userExist = await this.userRepository.findOne({
+            let userExist = await this.userRepository.findOne({
                 relations: ["city", "delegation", "position"],
                 where: { email: updateNAOSUserDTO.userId }
             });
@@ -473,7 +473,7 @@ export class UserService {
 
             let response = null;
 
-            const userExist = await this.userRepository.findOne({
+            let userExist = await this.userRepository.findOne({
                 relations: ["city", "delegation", "chain"],
                 where: { email: updateDrugStoreUserDTO.userId }
             });
