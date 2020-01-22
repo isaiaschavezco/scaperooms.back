@@ -20,7 +20,7 @@ export declare class GetArticlesList {
 }
 export declare class UpdateArticleDTO {
     readonly id: number;
-    readonly image: string;
+    readonly galery: string;
     readonly subtitle: string;
     readonly content: string;
     readonly tags: number[];

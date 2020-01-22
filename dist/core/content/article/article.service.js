@@ -201,7 +201,7 @@ let ArticleService = class ArticleService {
             try {
                 const articleTags = yield this.tagRepository.findByIds(updateDTO.tags);
                 let articleToUpdate = yield this.articleRepository.findOne(updateDTO.id);
-                articleToUpdate.image = updateDTO.image;
+                articleToUpdate.galery = updateDTO.galery;
                 articleToUpdate.subtitle = updateDTO.subtitle;
                 articleToUpdate.content = updateDTO.content;
                 articleToUpdate.tag = articleTags;

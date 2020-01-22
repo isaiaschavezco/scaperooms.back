@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "e8e7cf1cb6b3080225e1bc5fca8c80470b19b8e9976331938f099ca2c015a41f",
+        "version": "2c1132b0423c17ce60f1a407d162a0f39199e724d163a0a61d407f3f255ba5a4",
         "signature": "76fc91e8601b45b5e4497c47cb740797448da7d9352f6e2ade50720a497f96ff"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2450,11 +2450,11 @@
         "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "8fdddf9df85c6c53b7d957ac183679de68dfd39d8657f7d7c45fbbecec5bb5ce",
-        "signature": "17f160a6010d8980d18c403bec83f6e35900d4ea80d255020bed0d26e72ca41f"
+        "version": "c9ead12723fd2aba51390af36b608673bd1db057406c915ff4fd262587a0d229",
+        "signature": "8f80a2ae7661b83e0d9cd678c8bad63fdb67b5f5efe5c3a8d1c0e4193991ccc1"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "8433ff46e3e75238a00d8dea18f2b2c625b4fd08414cbc53d2a022ca055ebf53",
+        "version": "987e8b82bee51a0da7d4bbc6ff75a84195d8e0d18a21b9ca2b1870a01af8405e",
         "signature": "137dad196a54f89c48ee2620e8b860191d663818e85ae099cc500ac67d1cf433"
       },
       "../src/core/content/article/article.controller.ts": {
@@ -19449,7 +19449,11 @@
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
+      "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19472,10 +19476,6 @@
       "../src/core/content/tag/tag.service.ts",
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
-      "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.service.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
       "../src/core/content/trade/trade.module.ts",
@@ -19912,10 +19912,10 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.dto.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.module.ts",
+      "../src/core/content/article/article.dto.ts",
+      "../src/core/content/article/article.controller.ts",
+      "../src/core/content/article/article.service.ts",
+      "../src/core/content/article/article.module.ts",
       "../src/app.module.ts"
     ]
   },
