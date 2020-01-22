@@ -393,8 +393,8 @@ export class UserService {
                     userExist.photo = updateNAOSUserDTO.photo;
                 }
 
-                if (updateNAOSUserDTO.nickName) {
-                    userExist.nickname = updateNAOSUserDTO.nickName;
+                if (updateNAOSUserDTO.nickname) {
+                    userExist.nickname = updateNAOSUserDTO.nickname;
                 }
 
                 if (updateNAOSUserDTO.birthDate) {
@@ -431,7 +431,7 @@ export class UserService {
                 const userToReturn = await this.userRepository.save(userExist);
 
                 response = {
-                    profile: {
+                    user: {
                         name: userToReturn.name,
                         lastName: userToReturn.lastName,
                         nickname: userToReturn.nickname,
@@ -453,6 +453,7 @@ export class UserService {
                         postalCode: userToReturn.postalCode,
                         charge: userToReturn.charge
                     }
+
                 };
 
             }
@@ -498,8 +499,8 @@ export class UserService {
                     userExist.photo = updateDrugStoreUserDTO.photo;
                 }
 
-                if (updateDrugStoreUserDTO.nickName) {
-                    userExist.nickname = updateDrugStoreUserDTO.nickName;
+                if (updateDrugStoreUserDTO.nickname) {
+                    userExist.nickname = updateDrugStoreUserDTO.nickname;
                 }
 
                 if (updateDrugStoreUserDTO.birthDate) {
@@ -558,7 +559,7 @@ export class UserService {
 
                 response = {
 
-                    profile: {
+                    user: {
                         name: userToReturn.name,
                         lastName: userToReturn.lastName,
                         nickname: userToReturn.nickname,

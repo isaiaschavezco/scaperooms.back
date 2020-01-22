@@ -59,7 +59,7 @@ export class UpdateNAOSUserDTO {
     readonly userId: string;
     readonly name: string;
     readonly lastName: string;
-    readonly nickName: string;
+    readonly nickname: string;
     readonly photo: string;
     readonly birthDate: string;
     readonly gender: boolean;
@@ -73,7 +73,7 @@ export class UpdateDrugStoreUserDTO {
     readonly userId: number;
     readonly name: string;
     readonly lastName: string;
-    readonly nickName: string;
+    readonly nickname: string;
     readonly photo: string;
     readonly birthDate: string;
     readonly gender: boolean;
