@@ -43,15 +43,15 @@ import { PointsbyuserModule } from './core/trivia/pointsbyuser/pointsbyuser.modu
           port: 465, // 587,
           secure: true, // false,
           auth: {
-            user: 'hector.iturbe@inmersys.com', // 'nicola.bruen@ethereal.email',
-            pass: 'Hector.Iturbe1'// 'a3UQAZ3E4yZMu9JG74'
+            user: 'bioderma@inmersys.com', // 'nicola.bruen@ethereal.email',
+            pass: 'Bioderma1234.'// 'a3UQAZ3E4yZMu9JG74'
           },
           tls: {
             rejectUnauthorized: false
           }
         },
         defaults: {
-          from: '"Bioderma" <nicola.bruen@ethereal.email>',
+          from: '"Bioderma" <noreplay@bioderma.mx>',
         },
         template: {
           dir: __dirname + '/templates',

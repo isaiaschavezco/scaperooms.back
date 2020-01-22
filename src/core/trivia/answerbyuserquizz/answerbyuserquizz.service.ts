@@ -63,6 +63,10 @@ export class AnswerbyuserquizzService {
     async setUserAnswerByquestion(setUserAnswersByQuestion: SetUserAnswersByQuestion): Promise<any> {
         try {
 
+            let newAnswerByUser = null;
+            let newUserAnswer = null;
+            let newPointsByUSer = null;
+
             // Init values
             let userAnswering = await this.userRepository.findOne({
                 where: { email: setUserAnswersByQuestion.email }
@@ -74,10 +78,10 @@ export class AnswerbyuserquizzService {
 
             const userResponse = JSON.parse(setUserAnswersByQuestion.userResponse);
 
-            // Se realiza registro inicial
+            // Se realiza registro de las respuestas del usuario
             if (setUserAnswersByQuestion.isFirstQuestion) {
 
-                let newAnswerByUser = this.answerbyuserquizzRepository.create({
+                newAnswerByUser = this.answerbyuserquizzRepository.create({
                     answer: JSON.stringify([{
                         questionId: setUserAnswersByQuestion.questionId,
                         response: userResponse
@@ -88,54 +92,40 @@ export class AnswerbyuserquizzService {
                     quizz: quizzAnswering
                 });
 
-                await this.answerbyuserquizzRepository.save(newAnswerByUser);
+            } else {
 
-            }
-
-            // Se registran preguntas intermedias
-            if (setUserAnswersByQuestion.isFirstQuestion === false && setUserAnswersByQuestion.isLastQuestion === false) {
-
-                let answerByUserToUpdate = await this.answerbyuserquizzRepository.findOne({
+                newAnswerByUser = await this.answerbyuserquizzRepository.findOne({
                     where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
                 });
 
-                answerByUserToUpdate.points += setUserAnswersByQuestion.points;
+                newAnswerByUser.points += setUserAnswersByQuestion.points;
 
-                let userResponseToUpdate = JSON.parse(answerByUserToUpdate.answer);
+                let userResponseToUpdate = JSON.parse(newAnswerByUser.answer);
                 userResponseToUpdate.push({
                     questionId: setUserAnswersByQuestion.questionId,
                     response: userResponse
                 });
 
-                answerByUserToUpdate.answer = JSON.stringify(userResponseToUpdate);
+                newAnswerByUser.answer = JSON.stringify(userResponseToUpdate);
 
-                await this.answerbyuserquizzRepository.save(answerByUserToUpdate);
+                if (setUserAnswersByQuestion.isLastQuestion === true) {
+
+                    newAnswerByUser.isActive = false;
+
+                }
 
             }
 
-            if (setUserAnswersByQuestion.isLastQuestion === true) {
+            // Se almacena la respuesta del usuario
+            await this.answerbyuserquizzRepository.save(newAnswerByUser);
 
-                let answerByUserToUpdate = await this.answerbyuserquizzRepository.findOne({
-                    where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
-                });
+            // Se realiza registro de los puntos obtenidos
+            if (setUserAnswersByQuestion.isFirstQuestion) {
 
-                answerByUserToUpdate.points += setUserAnswersByQuestion.points;
-
-                let userResponseToUpdate = JSON.parse(answerByUserToUpdate.answer);
-                userResponseToUpdate.push({
-                    questionId: setUserAnswersByQuestion.questionId,
-                    response: userResponse
-                });
-
-                answerByUserToUpdate.answer = JSON.stringify(userResponseToUpdate);
-
-                answerByUserToUpdate.isActive = false;
-
-                const newUserAnswer = await this.answerbyuserquizzRepository.save(answerByUserToUpdate);
                 const quizzPointsType = await this.pointsTypeRepository.findOne(quizzAnswering.campaing.isBiodermaGame ? 2 : 1);
 
-                const newPointsByUSer = this.pointsbyuserRepository.create({
-                    points: newUserAnswer.points,
+                newPointsByUSer = this.pointsbyuserRepository.create({
+                    points: setUserAnswersByQuestion.points,
                     isAdded: true,
                     isDeleted: false,
                     user: userAnswering,
@@ -143,18 +133,27 @@ export class AnswerbyuserquizzService {
                     pointsType: quizzPointsType
                 });
 
-                await this.pointsbyuserRepository.save(newPointsByUSer);
+            } else {
 
-                // Se actualiza el puntaje del jugador 
-                if (quizzAnswering.campaing.isBiodermaGame) {
-                    userAnswering.biodermaGamePoints += newUserAnswer.points;
-                } else {
-                    userAnswering.points += newUserAnswer.points;
-                }
+                newPointsByUSer = this.pointsbyuserRepository.findOne({
+                    where: { user: userAnswering, quizz: quizzAnswering }
+                });
 
-                await this.userRepository.save(userAnswering);
+                newPointsByUSer += setUserAnswersByQuestion.points;
 
             }
+
+            await this.pointsbyuserRepository.save(newPointsByUSer);
+
+            // Se actualiza el puntaje del jugador 
+            if (quizzAnswering.campaing.isBiodermaGame) {
+                userAnswering.biodermaGamePoints += setUserAnswersByQuestion.points;
+            } else {
+                userAnswering.points += setUserAnswersByQuestion.points;
+            }
+
+            await this.userRepository.save(userAnswering);
+
 
             return { status: 0 };
 
