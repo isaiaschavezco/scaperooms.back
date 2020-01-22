@@ -32,12 +32,14 @@ const city_entity_1 = require("../city/city.entity");
 const delegation_entity_1 = require("../delegation/delegation.entity");
 const position_entity_1 = require("../position/position.entity");
 const role_entity_1 = require("../role/role.entity");
+const sesion_entity_1 = require("../sesion/sesion.entity");
+const configuration_entity_1 = require("../configuration/configuration.entity");
 const mailer_1 = require("@nest-modules/mailer");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 let UserService = class UserService {
-    constructor(userRepository, mailerService, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository, roleRepository) {
+    constructor(userRepository, mailerService, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository, roleRepository, sesionRepository, configurationRepository) {
         this.userRepository = userRepository;
         this.mailerService = mailerService;
         this.tokenRepository = tokenRepository;
@@ -47,6 +49,8 @@ let UserService = class UserService {
         this.stateRepository = stateRepository;
         this.cityRepository = cityRepository;
         this.roleRepository = roleRepository;
+        this.sesionRepository = sesionRepository;
+        this.configurationRepository = configurationRepository;
     }
     invite(request) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -366,8 +370,8 @@ let UserService = class UserService {
                     if (updateNAOSUserDTO.photo) {
                         userExist.photo = updateNAOSUserDTO.photo;
                     }
-                    if (updateNAOSUserDTO.nickName) {
-                        userExist.nickname = updateNAOSUserDTO.nickName;
+                    if (updateNAOSUserDTO.nickname) {
+                        userExist.nickname = updateNAOSUserDTO.nickname;
                     }
                     if (updateNAOSUserDTO.birthDate) {
                         userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
@@ -393,9 +397,18 @@ let UserService = class UserService {
                         userExist.delegation = userCity;
                     }
                     userExist.isActive = true;
-                    const userToReturn = yield this.userRepository.save(userExist);
+                    yield this.userRepository.save(userExist);
+                    const userToReturn = yield this.userRepository.findOne({
+                        relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                        where: { email: userExist.email }
+                    });
+                    const loggedUser = yield this.sesionRepository.findOne({
+                        where: { user: userToReturn }
+                    });
+                    const generalConfiguration = yield this.configurationRepository.findOne(1);
                     response = {
-                        profile: {
+                        user: {
+                            token: loggedUser.id,
                             name: userToReturn.name,
                             lastName: userToReturn.lastName,
                             nickname: userToReturn.nickname,
@@ -404,6 +417,7 @@ let UserService = class UserService {
                             birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
                             phonenumber: userToReturn.phone,
                             email: userToReturn.email,
+                            type: userToReturn.type.id,
                             totalPoints: userToReturn.points,
                             address: {
                                 state: userToReturn.city,
@@ -412,10 +426,14 @@ let UserService = class UserService {
                                 suburb: userToReturn.town
                             },
                             workPosition: userToReturn.position,
+                            statusCart: generalConfiguration.isClubBiodermaActive,
                             branchChain: userToReturn.chain,
                             branchOffice: userToReturn.drugstore,
                             postalCode: userToReturn.postalCode,
-                            charge: userToReturn.charge
+                            charge: userToReturn.charge,
+                            isActiveCart: userToReturn.type.id === 1 ? false : true,
+                            countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                            totalBiodermaGames: userToReturn.biodermaGamePoints ? userToReturn.biodermaGamePoints : 0
                         }
                     };
                 }
@@ -433,7 +451,6 @@ let UserService = class UserService {
     updateDrugStore(updateDrugStoreUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log("updateDrugStoreUserDTO: ", updateDrugStoreUserDTO);
                 let response = null;
                 let userExist = yield this.userRepository.findOne({
                     relations: ["city", "delegation", "chain"],
@@ -452,8 +469,8 @@ let UserService = class UserService {
                     if (updateDrugStoreUserDTO.photo) {
                         userExist.photo = updateDrugStoreUserDTO.photo;
                     }
-                    if (updateDrugStoreUserDTO.nickName) {
-                        userExist.nickname = updateDrugStoreUserDTO.nickName;
+                    if (updateDrugStoreUserDTO.nickname) {
+                        userExist.nickname = updateDrugStoreUserDTO.nickname;
                     }
                     if (updateDrugStoreUserDTO.birthDate) {
                         const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
@@ -494,9 +511,18 @@ let UserService = class UserService {
                         userExist.mayoralty = updateDrugStoreUserDTO.mayoralty;
                     }
                     userExist.isActive = true;
-                    const userToReturn = yield this.userRepository.save(userExist);
+                    yield this.userRepository.save(userExist);
+                    const userToReturn = yield this.userRepository.findOne({
+                        relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                        where: { email: userExist.email }
+                    });
+                    const loggedUser = yield this.sesionRepository.findOne({
+                        where: { user: userToReturn }
+                    });
+                    const generalConfiguration = yield this.configurationRepository.findOne(1);
                     response = {
-                        profile: {
+                        user: {
+                            token: loggedUser.id,
                             name: userToReturn.name,
                             lastName: userToReturn.lastName,
                             nickname: userToReturn.nickname,
@@ -505,6 +531,7 @@ let UserService = class UserService {
                             birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
                             phonenumber: userToReturn.phone,
                             email: userToReturn.email,
+                            type: userToReturn.type.id,
                             totalPoints: userToReturn.points,
                             address: {
                                 state: userToReturn.city,
@@ -513,10 +540,14 @@ let UserService = class UserService {
                                 suburb: userToReturn.town
                             },
                             workPosition: userToReturn.position,
+                            statusCart: generalConfiguration.isClubBiodermaActive,
                             branchChain: userToReturn.chain,
                             branchOffice: userToReturn.drugstore,
                             postalCode: userToReturn.postalCode,
-                            charge: userToReturn.charge
+                            charge: userToReturn.charge,
+                            isActiveCart: userToReturn.type.id === 1 ? false : true,
+                            countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                            totalBiodermaGames: userToReturn.biodermaGamePoints ? userToReturn.biodermaGamePoints : 0
                         }
                     };
                 }
@@ -676,8 +707,12 @@ UserService = __decorate([
     __param(6, typeorm_1.InjectRepository(city_entity_1.City)),
     __param(7, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
     __param(8, typeorm_1.InjectRepository(role_entity_1.Role)),
+    __param(9, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
+    __param(10, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         mailer_1.MailerService,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

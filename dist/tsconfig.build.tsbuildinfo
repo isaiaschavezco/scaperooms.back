@@ -2337,24 +2337,28 @@
         "version": "083d0682ca9df9da0928f61b6dac0af592a2459f6b214a32bc19df8d1277cf1d",
         "signature": "3d500686aa1061df45201267d57375b5f2fad19b86528626375f7fb06d715588"
       },
+      "../src/core/users/configuration/configuration.entity.ts": {
+        "version": "c9cb3f92f161e81fb12697db8e114b22e66e5ec75cac29c410cf2b455c222551",
+        "signature": "f5c37ba259da0b0824e2c66b56cf7d3c359e1178591c9a7c13bcee5e3cb359be"
+      },
       "../src/core/users/user/user.dto.ts": {
-        "version": "d24623b7881e0e74ed1607dd46d5e294f495844a98de4594718ae13dc781425b",
-        "signature": "4265d85b62066ea3a1524a90d8f18ff6344bae5fe1a8063721d148bd97209e47"
+        "version": "0cb64b1a87012afb6d13b379c8212b0c78227eed763b2fd1b14981e0f25f6c4a",
+        "signature": "5aa00985511b0ae8681344fe6d93eb203fd7a79fc8f94ef280625721b6a99efe"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "150530f6d0990e0a49d3fae6eb0a176fcbc3b89ee5767b6ae3bee03177609c1c",
-        "signature": "5801f6bd5d6ec58b307a394c7cf60123bab1f412cbe92d84564b75d779a9723c"
+        "version": "e8e7cf1cb6b3080225e1bc5fca8c80470b19b8e9976331938f099ca2c015a41f",
+        "signature": "76fc91e8601b45b5e4497c47cb740797448da7d9352f6e2ade50720a497f96ff"
       },
       "../src/core/users/user/user.controller.ts": {
         "version": "07615a339c41d5b1fa0ea16811f2633baeacef247a3ed22d119898140fe32a68",
         "signature": "eead305cb0c93217f1752dd11d85a72a2da276015ef18f9771df84ccad397abc"
       },
       "../src/core/users/user/user.module.ts": {
-        "version": "79cdffee0952e19b65286e2d4c90450cf8411628fe867b5659e40599dc25fac4",
+        "version": "9534e0fbed232d80a8a72eaa06ace7c07edd3119bfd54b03a54cb4ae3de142d1",
         "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329"
       },
       "../src/core/users/role/role.service.ts": {
@@ -3908,10 +3912,6 @@
       "../src/core/users/notification/notification.module.ts": {
         "version": "d94aea1b4d11cec73e7211d51401da406995e09b46f2b7efd7e2583653dd610c",
         "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e"
-      },
-      "../src/core/users/configuration/configuration.entity.ts": {
-        "version": "c9cb3f92f161e81fb12697db8e114b22e66e5ec75cac29c410cf2b455c222551",
-        "signature": "f5c37ba259da0b0824e2c66b56cf7d3c359e1178591c9a7c13bcee5e3cb359be"
       },
       "../src/core/users/sesion/sesion.dto.ts": {
         "version": "3fe71e94cb92e9b287ecd84d414157386743dd7ee049ad5c45389db6dfac9107",
@@ -7992,6 +7992,11 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/users/configuration/configuration.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/users/user/user.dto.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -8012,6 +8017,8 @@
         "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/role/role.entity.ts",
+        "../src/core/users/sesion/sesion.entity.ts",
+        "../src/core/users/configuration/configuration.entity.ts",
         "../src/core/users/user/user.dto.ts",
         "../node_modules/@nest-modules/mailer/dist/index.d.ts",
         "../node_modules/moment/moment.d.ts",
@@ -8039,6 +8046,8 @@
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/role/role.entity.ts",
+        "../src/core/users/sesion/sesion.entity.ts",
+        "../src/core/users/configuration/configuration.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11352,11 +11361,6 @@
         "../src/core/users/notification/notificacion.entity.ts",
         "../src/core/users/user/user.entity.ts",
         "../src/core/users/sesion/sesion.entity.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/users/configuration/configuration.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15485,6 +15489,8 @@
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/role/role.entity.ts",
+        "../src/core/users/sesion/sesion.entity.ts",
+        "../src/core/users/configuration/configuration.entity.ts",
         "../src/core/users/user/user.dto.ts"
       ],
       "../src/core/users/user/user.controller.ts": [
@@ -19442,10 +19448,8 @@
       "../src/core/users/token/token.service.ts",
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
-      "../src/core/users/user/user.dto.ts",
+      "../src/core/users/configuration/configuration.entity.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19834,7 +19838,6 @@
       "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
-      "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/sesion/sesion.dto.ts",
       "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
@@ -19858,7 +19861,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19910,7 +19912,11 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      "../src/core/users/user/user.dto.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

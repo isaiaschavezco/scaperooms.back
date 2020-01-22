@@ -9,6 +9,8 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
+import { Sesion } from '../sesion/sesion.entity';
+import { Configuration } from '../configuration/configuration.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
 import { MailerService } from '@nest-modules/mailer';
 import * as jwt from "jsonwebtoken";
@@ -26,7 +28,9 @@ export class UserService {
         @InjectRepository(Position) private positionRepository: Repository<Position>,
         @InjectRepository(City) private stateRepository: Repository<City>,
         @InjectRepository(Delegation) private cityRepository: Repository<Delegation>,
-        @InjectRepository(Role) private roleRepository: Repository<Role>) { }
+        @InjectRepository(Role) private roleRepository: Repository<Role>,
+        @InjectRepository(Sesion) private sesionRepository: Repository<Sesion>,
+        @InjectRepository(Configuration) private configurationRepository: Repository<Configuration>) { }
 
     async  invite(request: InviteUserDTO): Promise<number> {
         try {
@@ -428,10 +432,23 @@ export class UserService {
 
                 userExist.isActive = true;
 
-                const userToReturn = await this.userRepository.save(userExist);
+                await this.userRepository.save(userExist);
+
+                const userToReturn = await this.userRepository.findOne({
+                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                    where: { email: userExist.email }
+                });
+
+                const loggedUser = await this.sesionRepository.findOne({
+                    where: { user: userToReturn }
+                });
+
+                const generalConfiguration = await this.configurationRepository.findOne(1);
 
                 response = {
+
                     user: {
+                        token: loggedUser.id,
                         name: userToReturn.name,
                         lastName: userToReturn.lastName,
                         nickname: userToReturn.nickname,
@@ -440,6 +457,7 @@ export class UserService {
                         birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
                         phonenumber: userToReturn.phone,
                         email: userToReturn.email,
+                        type: userToReturn.type.id,
                         totalPoints: userToReturn.points,
                         address: {
                             state: userToReturn.city,
@@ -448,12 +466,15 @@ export class UserService {
                             suburb: userToReturn.town
                         },
                         workPosition: userToReturn.position,
+                        statusCart: generalConfiguration.isClubBiodermaActive,
                         branchChain: userToReturn.chain,
                         branchOffice: userToReturn.drugstore,
                         postalCode: userToReturn.postalCode,
-                        charge: userToReturn.charge
+                        charge: userToReturn.charge,
+                        isActiveCart: userToReturn.type.id === 1 ? false : true,
+                        countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                        totalBiodermaGames: userToReturn.biodermaGamePoints ? userToReturn.biodermaGamePoints : 0
                     }
-
                 };
 
             }
@@ -471,9 +492,6 @@ export class UserService {
 
     async updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any> {
         try {
-
-            console.log("updateDrugStoreUserDTO: ", updateDrugStoreUserDTO);
-
             let response = null;
 
             let userExist = await this.userRepository.findOne({
@@ -555,11 +573,23 @@ export class UserService {
 
                 userExist.isActive = true;
 
-                const userToReturn = await this.userRepository.save(userExist);
+                await this.userRepository.save(userExist);
+
+                const userToReturn = await this.userRepository.findOne({
+                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                    where: { email: userExist.email }
+                });
+
+                const loggedUser = await this.sesionRepository.findOne({
+                    where: { user: userToReturn }
+                });
+
+                const generalConfiguration = await this.configurationRepository.findOne(1);
 
                 response = {
 
                     user: {
+                        token: loggedUser.id,
                         name: userToReturn.name,
                         lastName: userToReturn.lastName,
                         nickname: userToReturn.nickname,
@@ -568,6 +598,7 @@ export class UserService {
                         birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
                         phonenumber: userToReturn.phone,
                         email: userToReturn.email,
+                        type: userToReturn.type.id,
                         totalPoints: userToReturn.points,
                         address: {
                             state: userToReturn.city,
@@ -576,12 +607,16 @@ export class UserService {
                             suburb: userToReturn.town
                         },
                         workPosition: userToReturn.position,
+                        statusCart: generalConfiguration.isClubBiodermaActive,
                         branchChain: userToReturn.chain,
                         branchOffice: userToReturn.drugstore,
                         postalCode: userToReturn.postalCode,
-                        charge: userToReturn.charge
+                        charge: userToReturn.charge,
+                        isActiveCart: userToReturn.type.id === 1 ? false : true,
+                        countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                        totalBiodermaGames: userToReturn.biodermaGamePoints ? userToReturn.biodermaGamePoints : 0
                     }
-                }
+                };
 
             }
 

@@ -10,6 +10,8 @@ import { Position } from '../position/position.entity';
 import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Role } from '../role/role.entity';
+import { Sesion } from '../sesion/sesion.entity';
+import { Configuration } from '../configuration/configuration.entity';
 
 @Module({
   imports: [
@@ -20,7 +22,9 @@ import { Role } from '../role/role.entity';
     TypeOrmModule.forFeature([Position]),
     TypeOrmModule.forFeature([City]),
     TypeOrmModule.forFeature([Delegation]),
-    TypeOrmModule.forFeature([Role])
+    TypeOrmModule.forFeature([Role]),
+    TypeOrmModule.forFeature([Sesion]),
+    TypeOrmModule.forFeature([Configuration])
   ],
   providers: [UserService],
   controllers: [UserController]
