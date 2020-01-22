@@ -428,9 +428,33 @@ export class UserService {
 
                 userExist.isActive = true;
 
-                const registeredUser = await this.userRepository.save(userExist);
+                const userToReturn = await this.userRepository.save(userExist);
 
-                response = { user: registeredUser }
+                response = {
+                    profile: {
+                        name: userToReturn.name,
+                        lastName: userToReturn.lastName,
+                        nickname: userToReturn.nickname,
+                        gender: userToReturn.gender,
+                        image: userToReturn.photo,
+                        birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                        phonenumber: userToReturn.phone,
+                        email: userToReturn.email,
+                        type: userToReturn.type.id,
+                        totalPoints: userToReturn.points,
+                        address: {
+                            state: userToReturn.city,
+                            city: userToReturn.delegation,
+                            mayoralty: userToReturn.mayoralty,
+                            suburb: userToReturn.town
+                        },
+                        workPosition: userToReturn.position,
+                        branchChain: userToReturn.chain,
+                        branchOffice: userToReturn.drugstore,
+                        postalCode: userToReturn.postalCode,
+                        charge: userToReturn.charge
+                    }
+                };
 
             }
 
@@ -529,9 +553,34 @@ export class UserService {
 
                 userExist.isActive = true;
 
-                await this.userRepository.save(userExist);
+                const userToReturn = await this.userRepository.save(userExist);
 
-                response = { user: userExist }
+                response = {
+
+                    profile: {
+                        name: userToReturn.name,
+                        lastName: userToReturn.lastName,
+                        nickname: userToReturn.nickname,
+                        gender: userToReturn.gender,
+                        image: userToReturn.photo,
+                        birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                        phonenumber: userToReturn.phone,
+                        email: userToReturn.email,
+                        type: userToReturn.type.id,
+                        totalPoints: userToReturn.points,
+                        address: {
+                            state: userToReturn.city,
+                            city: userToReturn.delegation,
+                            mayoralty: userToReturn.mayoralty,
+                            suburb: userToReturn.town
+                        },
+                        workPosition: userToReturn.position,
+                        branchChain: userToReturn.chain,
+                        branchOffice: userToReturn.drugstore,
+                        postalCode: userToReturn.postalCode,
+                        charge: userToReturn.charge
+                    }
+                }
 
             }
 
