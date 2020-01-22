@@ -374,7 +374,7 @@ let UserService = class UserService {
                         const userAge = this.getAge(updateNAOSUserDTO.birthDate);
                         userExist.age = userAge;
                     }
-                    if (updateNAOSUserDTO.gender) {
+                    if (typeof updateNAOSUserDTO.gender !== "undefined") {
                         userExist.gender = updateNAOSUserDTO.gender;
                     }
                     if (updateNAOSUserDTO.phone) {
@@ -460,7 +460,7 @@ let UserService = class UserService {
                         userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
                         userExist.age = userAge;
                     }
-                    if (updateDrugStoreUserDTO.gender) {
+                    if (typeof updateDrugStoreUserDTO.gender !== "undefined") {
                         userExist.gender = updateDrugStoreUserDTO.gender;
                     }
                     if (updateDrugStoreUserDTO.phone) {

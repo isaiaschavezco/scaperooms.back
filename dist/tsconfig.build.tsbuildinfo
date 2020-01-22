@@ -2346,7 +2346,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "ac854c2c233d08c5af4da1503c6fbca8bcc54321dcc4d692f5dffd26437e10fb",
+        "version": "150530f6d0990e0a49d3fae6eb0a176fcbc3b89ee5767b6ae3bee03177609c1c",
         "signature": "5801f6bd5d6ec58b307a394c7cf60123bab1f412cbe92d84564b75d779a9723c"
       },
       "../src/core/users/user/user.controller.ts": {

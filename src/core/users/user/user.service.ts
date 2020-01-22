@@ -403,7 +403,7 @@ export class UserService {
                     userExist.age = userAge;
                 }
 
-                if (updateNAOSUserDTO.gender) {
+                if (typeof updateNAOSUserDTO.gender !== "undefined") {
                     userExist.gender = updateNAOSUserDTO.gender;
                 }
 
@@ -508,7 +508,7 @@ export class UserService {
                     userExist.age = userAge;
                 }
 
-                if (updateDrugStoreUserDTO.gender) {
+                if (typeof updateDrugStoreUserDTO.gender !== "undefined") {
                     userExist.gender = updateDrugStoreUserDTO.gender;
                 }
 
