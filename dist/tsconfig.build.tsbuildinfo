@@ -3962,7 +3962,7 @@
         "signature": "aa57d9e6196c3e5a96d56eacd9e6b999c53d393eaa1cf964f88888d17280ed21"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": {
-        "version": "37f7944f86a0ddd08865eb94bf3b75be4506b1e8d779bf85ceb55efffc98b82b",
+        "version": "dbba8d8a9fbca7c5706a577d599d5c836d24c539a15fa6419f0f2095e2a4f205",
         "signature": "3242fa56dee2965e9dc3f0d315ad1719f09b632c28da7973b95f1989d524c838"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": {
@@ -4006,7 +4006,7 @@
         "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
       },
       "../src/app.module.ts": {
-        "version": "7ce827f8f6ff02805ab55142d5c0c6779e3ca2490fbade37c4b35b3d57194999",
+        "version": "5c0d27cfa48b448f021c1590a1d007e33fbe6bc6d4e53af8a69b8c080ce72cbc",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -19476,6 +19476,10 @@
       "../src/core/content/tag/tag.service.ts",
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
+      "../src/core/content/article/article.dto.ts",
+      "../src/core/content/article/article.service.ts",
+      "../src/core/content/article/article.controller.ts",
+      "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
       "../src/core/content/trade/trade.module.ts",
@@ -19850,7 +19854,6 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
@@ -19912,10 +19915,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/core/content/article/article.service.ts",
-      "../src/core/content/article/article.module.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/app.module.ts"
     ]
   },

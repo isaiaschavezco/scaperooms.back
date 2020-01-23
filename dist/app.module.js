@@ -53,15 +53,15 @@ AppModule = __decorate([
                         port: 465,
                         secure: true,
                         auth: {
-                            user: 'hector.iturbe@inmersys.com',
-                            pass: 'Hector.Iturbe1'
+                            user: 'bioderma@inmersys.com',
+                            pass: 'Bioderma1234.'
                         },
                         tls: {
                             rejectUnauthorized: false
                         }
                     },
                     defaults: {
-                        from: '"Bioderma" <nicola.bruen@ethereal.email>',
+                        from: '"Bioderma" <noreplay@bioderma.mx>',
                     },
                     template: {
                         dir: __dirname + '/templates',
