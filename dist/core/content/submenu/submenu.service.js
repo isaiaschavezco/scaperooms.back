@@ -113,10 +113,43 @@ let SubmenuService = class SubmenuService {
                     product: tempPDF
                 });
             });
-            if (menuId == 2 || menuId == 1) {
+            if (menuId == 2) {
                 listToReturn.sort(function (a, b) {
                     return a.id - b.id;
                 });
+            }
+            if (menuId == 1) {
+                let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
+                listToReturn.forEach(tempFile => {
+                    switch (tempFile.id) {
+                        case 1:
+                            orderedList[0] = tempFile;
+                        case 2:
+                            orderedList[1] = tempFile;
+                            break;
+                        case 3:
+                            orderedList[2] = tempFile;
+                            break;
+                        case 4:
+                            orderedList[3] = tempFile;
+                            break;
+                        case 5:
+                            orderedList[4] = tempFile;
+                            break;
+                        case 6:
+                            orderedList[6] = tempFile;
+                            break;
+                        case 7:
+                            orderedList[7] = tempFile;
+                            break;
+                        case 8:
+                            orderedList[5] = tempFile;
+                            break;
+                        default:
+                            break;
+                    }
+                });
+                listToReturn = orderedList.slice();
             }
             return { files: listToReturn };
         });

@@ -2398,7 +2398,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "ba20f1d0077f1888fce648be91b1d806fff96a62f3c6879b12d04bc45e5211a5",
+        "version": "84fb7ff659381c321c1cf6f9dc14ce0105faec90d2f45ef9bea4d38d0b3b77fa",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
