@@ -73,19 +73,19 @@ export class SubmenuService {
                         tempPDF = productList[5].url;
                         break;
                     case 4:
-                        tempPDF = productList[2].url;
+                        tempPDF = productList[1].url;
                         break;
                     case 5:
                         tempPDF = productList[4].url;
                         break;
                     case 6:
-                        tempPDF = productList[3].url;
+                        tempPDF = productList[2].url;
                         break;
                     case 7:
                         tempPDF = productList[0].url;
                         break;
                     case 8:
-                        tempPDF = productList[1].url;
+                        tempPDF = productList[3].url;
                         break;
                     default:
                         break;
