@@ -139,7 +139,7 @@ export class AnswerbyuserquizzService {
                     where: { user: userAnswering, quizz: quizzAnswering }
                 });
 
-                newPointsByUSer += setUserAnswersByQuestion.points;
+                newPointsByUSer.points += setUserAnswersByQuestion.points;
 
             }
 
