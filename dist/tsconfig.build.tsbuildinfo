@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "7017e33e9b4c0899bd0607177e4b54c65122c94537fa521f230e935159ba079f",
+        "version": "dd9036666950bb450192038038516e6471313d3641298d5725fca3c2a5bff87e",
         "signature": "76fc91e8601b45b5e4497c47cb740797448da7d9352f6e2ade50720a497f96ff"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2398,7 +2398,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "7eeeb843d7ce5b481a0209621f7a7a0f99e4ec2bdba6ab1860b58a03996e9eb5",
+        "version": "ba20f1d0077f1888fce648be91b1d806fff96a62f3c6879b12d04bc45e5211a5",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
@@ -4225,6 +4225,7 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
+      "watch": true,
       "project": "../tsconfig.build.json",
       "configFilePath": "../tsconfig.build.json"
     },
@@ -19450,6 +19451,7 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19461,7 +19463,6 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
-      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19915,7 +19916,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      "../src/core/content/submenu/submenu.service.ts"
     ]
   },
   "version": "3.7.2"

@@ -110,7 +110,8 @@ let UserService = class UserService {
             try {
                 const usersList = yield this.userRepository.find({
                     select: ["id", "name", "email", "points"],
-                    relations: ["position", "type"]
+                    relations: ["position", "type"],
+                    where: { isActive: true }
                 });
                 return { users: usersList };
             }
