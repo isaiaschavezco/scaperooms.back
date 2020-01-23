@@ -136,7 +136,7 @@ export class AnswerbyuserquizzService {
             } else {
 
                 newPointsByUSer = await this.pointsbyuserRepository.findOne({
-                    where: { user: userAnswering, quizz: quizzAnswering }
+                    where: { user: userAnswering.id, quizz: quizzAnswering.id }
                 });
 
                 newPointsByUSer.points += setUserAnswersByQuestion.points;
