@@ -107,7 +107,7 @@ export class SubmenuService {
         }
 
         if (menuId == 1) {
-            let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}, {}];
+            let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}];
             listToReturn.forEach(tempFile => {
                 switch (tempFile.id) {
                     case 1:
