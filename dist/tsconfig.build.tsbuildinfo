@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "2c1132b0423c17ce60f1a407d162a0f39199e724d163a0a61d407f3f255ba5a4",
+        "version": "7017e33e9b4c0899bd0607177e4b54c65122c94537fa521f230e935159ba079f",
         "signature": "76fc91e8601b45b5e4497c47cb740797448da7d9352f6e2ade50720a497f96ff"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -4225,7 +4225,6 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
-      "watch": true,
       "project": "../tsconfig.build.json",
       "configFilePath": "../tsconfig.build.json"
     },
@@ -19451,7 +19450,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19854,6 +19852,7 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
@@ -19864,6 +19863,7 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19915,8 +19915,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
-      "../src/app.module.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

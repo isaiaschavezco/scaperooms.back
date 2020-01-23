@@ -452,7 +452,7 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
-                console.log("updateDrugStoreUserDTO: ", updateDrugStoreUserDTO);
+                console.log("updateDrugStoreUserDTO:  ", updateDrugStoreUserDTO);
                 let userExist = yield this.userRepository.findOne({
                     relations: ["city", "delegation", "chain"],
                     where: { email: updateDrugStoreUserDTO.userId }
