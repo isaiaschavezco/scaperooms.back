@@ -494,7 +494,7 @@ export class UserService {
         try {
             let response = null;
 
-            console.log("updateDrugStoreUserDTO: ", updateDrugStoreUserDTO);
+            console.log("updateDrugStoreUserDTO:  ", updateDrugStoreUserDTO);
 
             let userExist = await this.userRepository.findOne({
                 relations: ["city", "delegation", "chain"],
