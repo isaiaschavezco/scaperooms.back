@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { QuizzService } from './quizz.service';
 import { Quizz } from './quizz.entity';
-import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO } from './quizz.dto';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO } from './quizz.dto';
 
 @Controller('quizz')
 export class QuizzController {
@@ -33,9 +33,9 @@ export class QuizzController {
         return await this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
     }
 
-    @Delete(':quizzId')
-    async deleteQuizz(@Param('quizzId') quizzId): Promise<any> {
-        return await this.quizzService.delete(quizzId);
+    @Put('remove')
+    async deleteQuizz(@Body() removeQuizzDTO: RemoveQuizzDTO): Promise<any> {
+        return await this.quizzService.delete(removeQuizzDTO);
     }
 
 }

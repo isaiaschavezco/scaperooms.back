@@ -53,9 +53,9 @@ let QuizzController = class QuizzController {
             return yield this.quizzService.findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO);
         });
     }
-    deleteQuizz(quizzId) {
+    deleteQuizz(removeQuizzDTO) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.quizzService.delete(quizzId);
+            return yield this.quizzService.delete(removeQuizzDTO);
         });
     }
 };
@@ -94,10 +94,10 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], QuizzController.prototype, "getQuizzesByUserCampaing", null);
 __decorate([
-    common_1.Delete(':quizzId'),
-    __param(0, common_1.Param('quizzId')),
+    common_1.Put('remove'),
+    __param(0, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [quizz_dto_1.RemoveQuizzDTO]),
     __metadata("design:returntype", Promise)
 ], QuizzController.prototype, "deleteQuizz", null);
 QuizzController = __decorate([

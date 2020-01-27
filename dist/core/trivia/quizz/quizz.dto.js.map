@@ -1,1 +1,1 @@
-{"version":3,"file":"quizz.dto.js","sourceRoot":"","sources":["../../../../src/core/trivia/quizz/quizz.dto.ts"],"names":[],"mappings":";;AAAA,MAAa,cAAc;CAG1B;AAHD,wCAGC;AAED,MAAa,YAAY;CAIxB;AAJD,oCAIC;AAED,MAAa,YAAY;CAUxB;AAVD,oCAUC;AAED,MAAa,2BAA2B;CAGvC;AAHD,kEAGC"}
+{"version":3,"file":"quizz.dto.js","sourceRoot":"","sources":["../../../../src/core/trivia/quizz/quizz.dto.ts"],"names":[],"mappings":";;AAAA,MAAa,cAAc;CAG1B;AAHD,wCAGC;AAED,MAAa,YAAY;CAIxB;AAJD,oCAIC;AAED,MAAa,YAAY;CAUxB;AAVD,oCAUC;AAED,MAAa,2BAA2B;CAGvC;AAHD,kEAGC;AAED,MAAa,cAAc;CAI1B;AAJD,wCAIC"}

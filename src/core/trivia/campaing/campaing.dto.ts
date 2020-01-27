@@ -14,3 +14,9 @@ export class GetUserCampaingHistory {
     readonly email: string;
     readonly page: number;
 }
+
+export class RemoveCampaingDTO {
+    readonly email: string;
+    readonly password: string;
+    readonly campaingId: number;
+}

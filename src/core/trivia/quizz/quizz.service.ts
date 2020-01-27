@@ -5,15 +5,20 @@ import { Quizz } from './quizz.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
-import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO } from './quizz.dto';
+import { Question } from '../question/question.entity';
+import { Answerbyuserquizz } from '../answerbyuserquizz/answerbyuserquizz.entity';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO } from './quizz.dto';
 import * as moment from 'moment';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class QuizzService {
     constructor(@InjectRepository(Quizz) private quizzRepository: Repository<Quizz>,
         @InjectRepository(Campaing) private campaingRepository: Repository<Campaing>,
         @InjectRepository(User) private userRepository: Repository<User>,
-        @InjectRepository(Pointsbyuser) private pointsByUserRepository: Repository<Pointsbyuser>) { }
+        @InjectRepository(Pointsbyuser) private pointsByUserRepository: Repository<Pointsbyuser>,
+        @InjectRepository(Question) private questionRepository: Repository<Question>,
+        @InjectRepository(Answerbyuserquizz) private answerByUserRepository: Repository<Answerbyuserquizz>) { }
 
     async findAll(): Promise<Quizz[]> {
         try {
@@ -222,50 +227,77 @@ export class QuizzService {
         }
     }
 
-    async delete(quizzId: number): Promise<any> {
+    async delete(removeQuizzDTO: RemoveQuizzDTO): Promise<any> {
         try {
             let response = { status: 0 };
 
-            // let quizzToDelete = await this.quizzRepository.find({
-            //     select: ["id", "user"],
-            //     relations: ["user"]
-            // });
+            const userExist = await this.userRepository.findOne({
+                where: { email: removeQuizzDTO.email },
+                select: ["id", "name", "email", "points", "password"]
+            });
 
-            // const quizzToDelete = await this.quizzRepository.createQueryBuilder("quizz")
-            //     .select(["quizz.id", "quizz.points", "quizz.time", "ques.id", "camp.id", "user.id", "user.points", "user.biodermaGamePoints", "ques.id"])
-            //     .leftJoin("quizz.answerbyuserquizz", "answ")
-            //     .innerJoin("quizz.campaing", "camp")
-            //     .leftJoin("quizz.user", "user")
-            //     .innerJoin("quizz.question", "ques")
-            //     .innerJoinAndSelect("quizz.pointsbyuser", "pobyus")
-            //     .where("quizz.id = :quizzId", { quizzId: quizzId })
-            //     .getOne();
+            if (userExist) {
+                const match = await bcrypt.compare(removeQuizzDTO.password, userExist.password);
 
-            // for (let index = 0; index < quizzToDelete.user.length; index++) {
-            //     const tempUser = quizzToDelete.user[index];
+                if (match) {
 
-            //     const tempPoints = await this.pointsByUserRepository.findOne({
-            //         relations: ["pointsType"],
-            //         where: { user: tempUser.id, quizz: quizzId }
-            //     });
+                    let pointsByUserToRemove = await this.pointsByUserRepository.find({
+                        relations: ["pointsType"],
+                        where: { quizz: removeQuizzDTO.quizzId }
+                    });
 
-            //     if (tempPoints) {
+                    for (let index = 0; index < pointsByUserToRemove.length; index++) {
+                        const tempPointsByUser = pointsByUserToRemove[index];
 
-            //         let userToEdit = await this.userRepository.findOne(tempUser.id);
+                        if (tempPointsByUser.points > 0) {
 
-            //         if (tempPoints.pointsType.id == 2) {
-            //             userToEdit.biodermaGamePoints -= tempPoints.points;
-            //         } else {
-            //             userToEdit.points -= tempPoints.points;
-            //         }
+                            let userToChange = await this.userRepository.findOne(tempPointsByUser.user, {
+                                select: ["id", "points", "biodermaGamePoints"]
+                            });
 
-            //         await this.userRepository.save(userToEdit);
+                            if (tempPointsByUser.pointsType.id == 2) {
 
-            //     }
+                                userToChange.biodermaGamePoints -= tempPointsByUser.points;
+                                if (userToChange.biodermaGamePoints <= 0) {
+                                    userToChange.biodermaGamePoints = 0;
+                                }
+                            } else {
 
-            // }
+                                userToChange.points -= tempPointsByUser.points;
+                                if (userToChange.points <= 0) {
+                                    userToChange.points = 0;
+                                }
+                            }
 
-            // await this.quizzRepository.remove(quizzToDelete);
+                            await this.userRepository.save(userToChange);
+                        }
+
+                    }
+
+                    let questionsToRemove = await this.questionRepository.find({
+                        where: { quizz: removeQuizzDTO.quizzId }
+                    });
+
+                    let answerByUserToRemove = await this.answerByUserRepository.find({
+                        where: { quizz: removeQuizzDTO.quizzId }
+                    });
+
+                    let quizzToRemove = await this.quizzRepository.findOne(removeQuizzDTO.quizzId);
+
+                    await this.questionRepository.remove(questionsToRemove);
+                    await this.answerByUserRepository.remove(answerByUserToRemove);
+                    await this.pointsByUserRepository.remove(pointsByUserToRemove);
+                    await this.quizzRepository.remove(quizzToRemove);
+
+                    response = { status: 0 };
+
+                } else {
+                    response = { status: 2 };
+                }
+
+            } else {
+                response = { status: 1 };
+            }
 
             return response;
         } catch (err) {

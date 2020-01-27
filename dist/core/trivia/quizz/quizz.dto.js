@@ -12,4 +12,7 @@ exports.QuizzListDTO = QuizzListDTO;
 class GetQuizzesByUserCampaingDTO {
 }
 exports.GetQuizzesByUserCampaingDTO = GetQuizzesByUserCampaingDTO;
+class RemoveQuizzDTO {
+}
+exports.RemoveQuizzDTO = RemoveQuizzDTO;
 //# sourceMappingURL=quizz.dto.js.map

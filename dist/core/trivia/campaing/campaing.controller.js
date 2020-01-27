@@ -58,6 +58,11 @@ let CampaingController = class CampaingController {
             return yield this.campaingService.getCampaingUserHistoy(getUserCampaingHistory);
         });
     }
+    deleteCampaing(removeCampaingDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.campaingService.delete(removeCampaingDTO);
+        });
+    }
 };
 __decorate([
     common_1.Get(),
@@ -100,6 +105,13 @@ __decorate([
     __metadata("design:paramtypes", [campaing_dto_1.GetUserCampaingHistory]),
     __metadata("design:returntype", Promise)
 ], CampaingController.prototype, "getUserCampaingHistory", null);
+__decorate([
+    common_1.Put('remove'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [campaing_dto_1.RemoveCampaingDTO]),
+    __metadata("design:returntype", Promise)
+], CampaingController.prototype, "deleteCampaing", null);
 CampaingController = __decorate([
     common_1.Controller('campaing'),
     __metadata("design:paramtypes", [campaing_service_1.CampaingService])

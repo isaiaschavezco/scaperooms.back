@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { CampaingService } from './campaing.service';
 import { Campaing } from './campaing.entity';
-import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory } from './campaing.dto';
+import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory, RemoveCampaingDTO } from './campaing.dto';
 
 @Controller('campaing')
 export class CampaingController {
@@ -36,6 +36,11 @@ export class CampaingController {
     @Post('history')
     async getUserCampaingHistory(@Body() getUserCampaingHistory: GetUserCampaingHistory): Promise<any> {
         return await this.campaingService.getCampaingUserHistoy(getUserCampaingHistory);
+    }
+
+    @Put('remove')
+    async deleteCampaing(@Body() removeCampaingDTO: RemoveCampaingDTO): Promise<any> {
+        return await this.campaingService.delete(removeCampaingDTO);
     }
 
 }

@@ -28,14 +28,19 @@ const quizz_entity_1 = require("./quizz.entity");
 const campaing_entity_1 = require("../campaing/campaing.entity");
 const user_entity_1 = require("../../users/user/user.entity");
 const pointsbyuser_entity_1 = require("../pointsbyuser/pointsbyuser.entity");
+const question_entity_1 = require("../question/question.entity");
+const answerbyuserquizz_entity_1 = require("../answerbyuserquizz/answerbyuserquizz.entity");
 const quizz_dto_1 = require("./quizz.dto");
 const moment = require("moment");
+const bcrypt = require("bcrypt");
 let QuizzService = class QuizzService {
-    constructor(quizzRepository, campaingRepository, userRepository, pointsByUserRepository) {
+    constructor(quizzRepository, campaingRepository, userRepository, pointsByUserRepository, questionRepository, answerByUserRepository) {
         this.quizzRepository = quizzRepository;
         this.campaingRepository = campaingRepository;
         this.userRepository = userRepository;
         this.pointsByUserRepository = pointsByUserRepository;
+        this.questionRepository = questionRepository;
+        this.answerByUserRepository = answerByUserRepository;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -211,10 +216,62 @@ let QuizzService = class QuizzService {
             }
         });
     }
-    delete(quizzId) {
+    delete(removeQuizzDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = { status: 0 };
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: removeQuizzDTO.email },
+                    select: ["id", "name", "email", "points", "password"]
+                });
+                if (userExist) {
+                    const match = yield bcrypt.compare(removeQuizzDTO.password, userExist.password);
+                    if (match) {
+                        let pointsByUserToRemove = yield this.pointsByUserRepository.find({
+                            relations: ["pointsType"],
+                            where: { quizz: removeQuizzDTO.quizzId }
+                        });
+                        for (let index = 0; index < pointsByUserToRemove.length; index++) {
+                            const tempPointsByUser = pointsByUserToRemove[index];
+                            if (tempPointsByUser.points > 0) {
+                                let userToChange = yield this.userRepository.findOne(tempPointsByUser.user, {
+                                    select: ["id", "points", "biodermaGamePoints"]
+                                });
+                                if (tempPointsByUser.pointsType.id == 2) {
+                                    userToChange.biodermaGamePoints -= tempPointsByUser.points;
+                                    if (userToChange.biodermaGamePoints <= 0) {
+                                        userToChange.biodermaGamePoints = 0;
+                                    }
+                                }
+                                else {
+                                    userToChange.points -= tempPointsByUser.points;
+                                    if (userToChange.points <= 0) {
+                                        userToChange.points = 0;
+                                    }
+                                }
+                                yield this.userRepository.save(userToChange);
+                            }
+                        }
+                        let questionsToRemove = yield this.questionRepository.find({
+                            where: { quizz: removeQuizzDTO.quizzId }
+                        });
+                        let answerByUserToRemove = yield this.answerByUserRepository.find({
+                            where: { quizz: removeQuizzDTO.quizzId }
+                        });
+                        let quizzToRemove = yield this.quizzRepository.findOne(removeQuizzDTO.quizzId);
+                        yield this.questionRepository.remove(questionsToRemove);
+                        yield this.answerByUserRepository.remove(answerByUserToRemove);
+                        yield this.pointsByUserRepository.remove(pointsByUserToRemove);
+                        yield this.quizzRepository.remove(quizzToRemove);
+                        response = { status: 0 };
+                    }
+                    else {
+                        response = { status: 2 };
+                    }
+                }
+                else {
+                    response = { status: 1 };
+                }
                 return response;
             }
             catch (err) {
@@ -233,7 +290,11 @@ QuizzService = __decorate([
     __param(1, typeorm_1.InjectRepository(campaing_entity_1.Campaing)),
     __param(2, typeorm_1.InjectRepository(user_entity_1.User)),
     __param(3, typeorm_1.InjectRepository(pointsbyuser_entity_1.Pointsbyuser)),
+    __param(4, typeorm_1.InjectRepository(question_entity_1.Question)),
+    __param(5, typeorm_1.InjectRepository(answerbyuserquizz_entity_1.Answerbyuserquizz)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])

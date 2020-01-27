@@ -26,11 +26,14 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const campaing_entity_1 = require("./campaing.entity");
 const target_entity_1 = require("../target/target.entity");
+const user_entity_1 = require("../../users/user/user.entity");
 const moment = require("moment");
+const bcrypt = require("bcrypt");
 let CampaingService = class CampaingService {
-    constructor(campaingRepository, targetRepository) {
+    constructor(campaingRepository, targetRepository, userRepository) {
         this.campaingRepository = campaingRepository;
         this.targetRepository = targetRepository;
+        this.userRepository = userRepository;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -88,7 +91,6 @@ let CampaingService = class CampaingService {
     findCampaingsByUser(getCampaingsByUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log("getCampaingsByUserDTO: ", getCampaingsByUserDTO);
                 const response = yield this.campaingRepository.createQueryBuilder("campaing")
                     .select("campaing.id", "id")
                     .distinct(true)
@@ -176,12 +178,54 @@ let CampaingService = class CampaingService {
             }
         });
     }
+    delete(removeCampaingDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = { status: 0 };
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: removeCampaingDTO.email },
+                    select: ["id", "name", "email", "points", "password"]
+                });
+                if (userExist) {
+                    const match = yield bcrypt.compare(removeCampaingDTO.password, userExist.password);
+                    if (match) {
+                        let campaingToRemove = yield this.campaingRepository.findOne(removeCampaingDTO.campaingId, {
+                            relations: ["target", "quizz"]
+                        });
+                        if (campaingToRemove.quizz.length > 0) {
+                            response = { status: 11 };
+                        }
+                        else {
+                            yield this.campaingRepository.remove(campaingToRemove);
+                            response = { status: 0 };
+                        }
+                    }
+                    else {
+                        response = { status: 2 };
+                    }
+                }
+                else {
+                    response = { status: 1 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("CampaingService - delete: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error deleting campaings',
+                }, 500);
+            }
+        });
+    }
 };
 CampaingService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(campaing_entity_1.Campaing)),
     __param(1, typeorm_1.InjectRepository(target_entity_1.Target)),
+    __param(2, typeorm_1.InjectRepository(user_entity_1.User)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository])
 ], CampaingService);
 exports.CampaingService = CampaingService;

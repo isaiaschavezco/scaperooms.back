@@ -3,14 +3,17 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Campaing } from './campaing.entity';
 import { Target } from '../target/target.entity';
-import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory } from './campaing.dto';
+import { User } from '../../users/user/user.entity';
+import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory, RemoveCampaingDTO } from './campaing.dto';
 import * as moment from 'moment';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class CampaingService {
 
     constructor(@InjectRepository(Campaing) private campaingRepository: Repository<Campaing>,
-        @InjectRepository(Target) private targetRepository: Repository<Target>) { }
+        @InjectRepository(Target) private targetRepository: Repository<Target>,
+        @InjectRepository(User) private userRepository: Repository<User>) { }
 
     async findAll(): Promise<Campaing[]> {
         try {
@@ -64,7 +67,7 @@ export class CampaingService {
 
     async findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any> {
         try {
-            console.log("getCampaingsByUserDTO: ", getCampaingsByUserDTO);
+            // sconsole.log("getCampaingsByUserDTO: ", getCampaingsByUserDTO);
             const response = await this.campaingRepository.createQueryBuilder("campaing")
                 .select("campaing.id", "id")
                 .distinct(true)
@@ -157,6 +160,50 @@ export class CampaingService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error getting campaing history',
+            }, 500);
+        }
+    }
+
+    async delete(removeCampaingDTO: RemoveCampaingDTO): Promise<any> {
+        try {
+            let response = { status: 0 };
+
+            const userExist = await this.userRepository.findOne({
+                where: { email: removeCampaingDTO.email },
+                select: ["id", "name", "email", "points", "password"]
+            });
+
+            if (userExist) {
+                const match = await bcrypt.compare(removeCampaingDTO.password, userExist.password);
+
+                if (match) {
+
+                    let campaingToRemove = await this.campaingRepository.findOne(removeCampaingDTO.campaingId, {
+                        relations: ["target", "quizz"]
+                    });
+
+                    if (campaingToRemove.quizz.length > 0) {
+                        response = { status: 11 };
+                    } else {
+                        await this.campaingRepository.remove(campaingToRemove);
+                        response = { status: 0 };
+                    }
+
+                } else {
+                    response = { status: 2 };
+                }
+
+            } else {
+                response = { status: 1 };
+            }
+
+            return response;
+        } catch (err) {
+            console.log("CampaingService - delete: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error deleting campaings',
             }, 500);
         }
     }

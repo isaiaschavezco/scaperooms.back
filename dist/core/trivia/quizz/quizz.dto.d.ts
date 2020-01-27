@@ -22,3 +22,8 @@ export declare class GetQuizzesByUserCampaingDTO {
     readonly email: string;
     readonly campaingId: number;
 }
+export declare class RemoveQuizzDTO {
+    readonly email: string;
+    readonly password: string;
+    readonly quizzId: number;
+}

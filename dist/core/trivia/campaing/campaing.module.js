@@ -12,13 +12,15 @@ const campaing_service_1 = require("./campaing.service");
 const campaing_controller_1 = require("./campaing.controller");
 const campaing_entity_1 = require("./campaing.entity");
 const target_entity_1 = require("../target/target.entity");
+const user_entity_1 = require("../../users/user/user.entity");
 let CampaingModule = class CampaingModule {
 };
 CampaingModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([campaing_entity_1.Campaing]),
-            typeorm_1.TypeOrmModule.forFeature([target_entity_1.Target])
+            typeorm_1.TypeOrmModule.forFeature([target_entity_1.Target]),
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User])
         ],
         providers: [campaing_service_1.CampaingService],
         controllers: [campaing_controller_1.CampaingController]

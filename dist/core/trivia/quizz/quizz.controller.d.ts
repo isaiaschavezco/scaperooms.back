@@ -1,6 +1,6 @@
 import { QuizzService } from './quizz.service';
 import { Quizz } from './quizz.entity';
-import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO } from './quizz.dto';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO } from './quizz.dto';
 export declare class QuizzController {
     private quizzService;
     constructor(quizzService: QuizzService);
@@ -9,5 +9,5 @@ export declare class QuizzController {
     createQuizz(createQuizzDTO: CreateQuizzDTO): Promise<any>;
     sendQuizz(sendQuizzDTO: SendQuizzDTO): Promise<any>;
     getQuizzesByUserCampaing(getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any>;
-    deleteQuizz(quizzId: any): Promise<any>;
+    deleteQuizz(removeQuizzDTO: RemoveQuizzDTO): Promise<any>;
 }
