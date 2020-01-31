@@ -62,7 +62,7 @@ let ArticleService = class ArticleService {
                     response = {
                         title: articleToReturn.title,
                         subtitle: articleToReturn.subtitle,
-                        date: moment(articleToReturn.createdAt).format('DD/MMM/YYYY'),
+                        date: moment(articleToReturn.createdAt).format('DD/MM/YYYY'),
                         tags: articleToReturn.tag,
                         images: JSON.parse(articleToReturn.galery),
                         description: articleToReturn.content
@@ -96,7 +96,7 @@ let ArticleService = class ArticleService {
                     listToReturn.push({
                         id: article.id,
                         title: article.title,
-                        createdAt: moment(article.createdAt).format('DD/MMM/YYYY'),
+                        createdAt: moment(article.createdAt).format('DD/MM/YYYY'),
                         tags: article.tag
                     });
                 });
@@ -162,7 +162,7 @@ let ArticleService = class ArticleService {
                         id: article.id,
                         title: article.title,
                         subtitle: article.subtitle,
-                        date: moment(article.createdAt).format('DD/MMM/YYYY'),
+                        date: moment(article.createdAt).format('DD/MM/YYYY'),
                         imageURL: article.image,
                         tags: article.tag
                     });

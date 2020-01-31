@@ -8,7 +8,7 @@ import { Target } from '../../trivia/target/target.entity';
 import { User } from '../user/user.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { CreateNotificationDTO } from './notification.dto';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 
 @Injectable()
 export class NotificationService {
@@ -71,7 +71,7 @@ export class NotificationService {
                     id: notification.id,
                     header: notification.header,
                     content: notification.content,
-                    createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
+                    createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
                 });
             });
 
@@ -105,7 +105,7 @@ export class NotificationService {
                     id: notification.id,
                     header: notification.header,
                     content: notification.content,
-                    createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
+                    createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
                 });
             });
 
@@ -132,7 +132,7 @@ export class NotificationService {
             let newNotification = await this.notificationRepository.create({
                 content: sendRequest.content,
                 header: sendRequest.title,
-                createdAt: new Date()
+                createdAt: moment().tz('America/Mexico_City').format()
             });
 
             const notificationTargets = await this.targetRepository.findByIds(sendRequest.targets, {

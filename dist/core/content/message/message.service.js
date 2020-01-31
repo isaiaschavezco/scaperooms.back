@@ -26,7 +26,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const message_entity_1 = require("./message.entity");
 const user_entity_1 = require("../../users/user/user.entity");
-const moment = require("moment");
+const moment = require("moment-timezone");
 let MessageService = class MessageService {
     constructor(messageRepository, userRepository) {
         this.messageRepository = messageRepository;
@@ -41,7 +41,7 @@ let MessageService = class MessageService {
                 });
                 let newMessage = yield this.messageRepository.create({
                     content: 'Buen día, ¿En qué puedo ayudarle?',
-                    createdAt: new Date(),
+                    createdAt: moment().tz('America/Mexico_City').format(),
                     isAdmin: true,
                     user: userConversation
                 });
@@ -51,7 +51,7 @@ let MessageService = class MessageService {
                 tempMessage["type"] = registeredMessage.isAdmin ? 'Adviser' : 'client';
                 tempMessage["data"] = {
                     name: registeredMessage.isAdmin ? 'Asesor' : null,
-                    date: moment(registeredMessage.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    date: moment(registeredMessage.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                     msn: registeredMessage.content
                 };
                 messageListToReturn.push(tempMessage);
@@ -76,7 +76,7 @@ let MessageService = class MessageService {
                 });
                 let newMessage = yield this.messageRepository.create({
                     content: createRequest.data,
-                    createdAt: new Date(),
+                    createdAt: moment().tz('America/Mexico_City').format(),
                     isAdmin: false,
                     user: userConversation
                 });
@@ -93,7 +93,7 @@ let MessageService = class MessageService {
                     tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
                     tempMessage["data"] = {
                         name: message.isAdmin ? 'Asesor' : null,
-                        date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                        date: moment(message.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                         msn: message.content
                     };
                     messageListToReturn.push(tempMessage);
@@ -119,7 +119,7 @@ let MessageService = class MessageService {
                 });
                 let newMessage = yield this.messageRepository.create({
                     content: createRequest.data,
-                    createdAt: new Date(),
+                    createdAt: moment().tz('America/Mexico_City').format(),
                     isAdmin: true,
                     user: userConversation
                 });
@@ -136,7 +136,7 @@ let MessageService = class MessageService {
                     tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
                     tempMessage["data"] = {
                         name: message.isAdmin ? 'Asesor' : null,
-                        date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                        date: moment(message.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                         msn: message.content
                     };
                     messageListToReturn.push(tempMessage);
@@ -172,7 +172,7 @@ let MessageService = class MessageService {
                     tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
                     tempMessage["data"] = {
                         name: message.isAdmin ? 'Asesor' : null,
-                        date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                        date: moment(message.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                         msn: message.content
                     };
                     messageListToReturn.push(tempMessage);

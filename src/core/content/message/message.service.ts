@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Message } from './message.entity';
 import { User } from '../../users/user/user.entity';
 import { StartConversationDTO, CreateMessageDTO, CreateAdminMessageDTO } from './message.dto';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 
 @Injectable()
 export class MessageService {
@@ -24,7 +24,7 @@ export class MessageService {
 
             let newMessage = await this.messageRepository.create({
                 content: 'Buen día, ¿En qué puedo ayudarle?',
-                createdAt: new Date(),
+                createdAt: moment().tz('America/Mexico_City').format(),
                 isAdmin: true,
                 user: userConversation
             });
@@ -44,7 +44,7 @@ export class MessageService {
             tempMessage["type"] = registeredMessage.isAdmin ? 'Adviser' : 'client';
             tempMessage["data"] = {
                 name: registeredMessage.isAdmin ? 'Asesor' : null,
-                date: moment(registeredMessage.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                date: moment(registeredMessage.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                 msn: registeredMessage.content
             };
             messageListToReturn.push(tempMessage);
@@ -75,7 +75,7 @@ export class MessageService {
 
             let newMessage = await this.messageRepository.create({
                 content: createRequest.data,
-                createdAt: new Date(),
+                createdAt: moment().tz('America/Mexico_City').format(),
                 isAdmin: false,
                 user: userConversation
             });
@@ -95,7 +95,7 @@ export class MessageService {
                 tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
                 tempMessage["data"] = {
                     name: message.isAdmin ? 'Asesor' : null,
-                    date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    date: moment(message.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                     msn: message.content
                 };
                 messageListToReturn.push(tempMessage);
@@ -126,7 +126,7 @@ export class MessageService {
 
             let newMessage = await this.messageRepository.create({
                 content: createRequest.data,
-                createdAt: new Date(),
+                createdAt: moment().tz('America/Mexico_City').format(),
                 isAdmin: true,
                 user: userConversation
             });
@@ -146,7 +146,7 @@ export class MessageService {
                 tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
                 tempMessage["data"] = {
                     name: message.isAdmin ? 'Asesor' : null,
-                    date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    date: moment(message.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                     msn: message.content
                 };
                 messageListToReturn.push(tempMessage);
@@ -188,7 +188,7 @@ export class MessageService {
                 tempMessage["type"] = message.isAdmin ? 'Adviser' : 'client';
                 tempMessage["data"] = {
                     name: message.isAdmin ? 'Asesor' : null,
-                    date: moment(message.createdAt).format('DD/MMM/YYYY HH:mm:ss'),
+                    date: moment(message.createdAt).format('DD/MM/YYYY HH:mm:ss'),
                     msn: message.content
                 };
                 messageListToReturn.push(tempMessage);

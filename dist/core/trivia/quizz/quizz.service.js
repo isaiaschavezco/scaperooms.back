@@ -31,7 +31,7 @@ const pointsbyuser_entity_1 = require("../pointsbyuser/pointsbyuser.entity");
 const question_entity_1 = require("../question/question.entity");
 const answerbyuserquizz_entity_1 = require("../answerbyuserquizz/answerbyuserquizz.entity");
 const quizz_dto_1 = require("./quizz.dto");
-const moment = require("moment");
+const moment = require("moment-timezone");
 const bcrypt = require("bcrypt");
 let QuizzService = class QuizzService {
     constructor(quizzRepository, campaingRepository, userRepository, pointsByUserRepository, questionRepository, answerByUserRepository) {
@@ -70,9 +70,9 @@ let QuizzService = class QuizzService {
                     let quizzObj = new quizz_dto_1.QuizzListDTO();
                     quizzObj.quizzId = tempQuizz.id;
                     quizzObj.name = tempQuizz.name;
-                    quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MMM/YYYY');
-                    quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MMM/YYYY');
-                    quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MMM/YYYY');
+                    quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MM/YYYY');
+                    quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MM/YYYY');
+                    quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MM/YYYY');
                     quizzObj.isActive = tempQuizz.isActive;
                     quizzObj.isDeleted = tempQuizz.isDeleted;
                     quizzObj.isSend = tempQuizz.isSend;
@@ -182,6 +182,7 @@ let QuizzService = class QuizzService {
     findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const actualDate = moment().tz('America/Mexico_City').format();
                 const campaingSelected = yield this.campaingRepository.findOne(getQuizzesByUserCampaingDTO.campaingId, {
                     select: ["id", "name"]
                 });
@@ -199,10 +200,11 @@ let QuizzService = class QuizzService {
                     let quizzFormat = {};
                     quizzFormat["id"] = tempQuizz.id;
                     quizzFormat["name"] = tempQuizz.name;
-                    quizzFormat["finishedAt"] = moment(tempQuizz.finishedAt).format('DD/MMM/YYYY');
+                    quizzFormat["finishedAt"] = moment(tempQuizz.finishedAt).format('DD/MM/YYYY');
                     quizzFormat["time"] = tempQuizz.time;
                     quizzFormat["quizzPoints"] = tempQuizz.points;
                     quizzFormat["userPoints"] = tempQuizz.answerbyuserquizz.length > 0 ? tempQuizz.answerbyuserquizz[0].points : 0;
+                    quizzFormat["canBeAnswered"] = tempQuizz.answerbyuserquizz.length > 0 ? false : (!moment(actualDate).isAfter(moment(tempQuizz.finishedAt).format()));
                     quizzListToReturn.push(quizzFormat);
                 });
                 return { campaing: campaingSelected, quizzes: quizzListToReturn };

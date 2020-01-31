@@ -31,7 +31,7 @@ export class PointsbyuserService {
                 pointsByUserToReturn.push({
                     id: points.id,
                     points: points.isAdded ? '+' + points.points : '-' + points.points,
-                    createdAt: moment(points.createdAt).format('DD/MMM/YYYY'),
+                    createdAt: moment(points.createdAt).format('DD/MM/YYYY'),
                     pointsType: points.pointsType.name,
                     name: points.pointsType.id !== 4 ? (points.quizz ? points.quizz.name : points.product.title) : 'ADMINITRACIÓN'
                 });

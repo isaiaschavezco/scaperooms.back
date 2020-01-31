@@ -30,7 +30,7 @@ const notificacion_entity_1 = require("./notificacion.entity");
 const target_entity_1 = require("../../trivia/target/target.entity");
 const user_entity_1 = require("../user/user.entity");
 const sesion_entity_1 = require("../sesion/sesion.entity");
-const moment = require("moment");
+const moment = require("moment-timezone");
 let NotificationService = class NotificationService {
     constructor(oneSignalService, notificationRepository, targetRepository, userRepository, sesionRepository) {
         this.oneSignalService = oneSignalService;
@@ -86,7 +86,7 @@ let NotificationService = class NotificationService {
                         id: notification.id,
                         header: notification.header,
                         content: notification.content,
-                        createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
+                        createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
                     });
                 });
                 return { notificacions: notificationToReturn };
@@ -116,7 +116,7 @@ let NotificationService = class NotificationService {
                         id: notification.id,
                         header: notification.header,
                         content: notification.content,
-                        createdAt: moment(notification.createdAt).format('DD/MMM/YYYY HH:mm:ss')
+                        createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
                     });
                 });
                 return { notificacions: notificationToReturn };
@@ -140,7 +140,7 @@ let NotificationService = class NotificationService {
                 let newNotification = yield this.notificationRepository.create({
                     content: sendRequest.content,
                     header: sendRequest.title,
-                    createdAt: new Date()
+                    createdAt: moment().tz('America/Mexico_City').format()
                 });
                 const notificationTargets = yield this.targetRepository.findByIds(sendRequest.targets, {
                     relations: ["city", "chain", "position", "type"]

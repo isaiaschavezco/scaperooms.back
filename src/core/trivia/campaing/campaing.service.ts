@@ -147,7 +147,7 @@ export class CampaingService {
                 campaingHistoryToReturn.push({
                     id: tempCamp.id,
                     name: tempCamp.name,
-                    createdAt: moment(tempCamp.createdAt).format('DD/MMM/YYYY'),
+                    createdAt: moment(tempCamp.createdAt).format('DD/MM/YYYY'),
                     isBiodermaGame: tempCamp.isBiodermaGame,
                     points: totalPoints
                 });

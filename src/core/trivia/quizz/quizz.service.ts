@@ -8,7 +8,7 @@ import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
 import { Question } from '../question/question.entity';
 import { Answerbyuserquizz } from '../answerbyuserquizz/answerbyuserquizz.entity';
 import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO } from './quizz.dto';
-import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -49,9 +49,9 @@ export class QuizzService {
                 let quizzObj = new QuizzListDTO();
                 quizzObj.quizzId = tempQuizz.id;
                 quizzObj.name = tempQuizz.name;
-                quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MMM/YYYY');
-                quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MMM/YYYY');
-                quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MMM/YYYY');
+                quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MM/YYYY');
+                quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MM/YYYY');
+                quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MM/YYYY');
                 quizzObj.isActive = tempQuizz.isActive;
                 quizzObj.isDeleted = tempQuizz.isDeleted;
                 quizzObj.isSend = tempQuizz.isSend;
@@ -187,6 +187,8 @@ export class QuizzService {
     async findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any> {
         try {
 
+            const actualDate = moment().tz('America/Mexico_City').format();
+
             const campaingSelected = await this.campaingRepository.findOne(getQuizzesByUserCampaingDTO.campaingId, {
                 select: ["id", "name"]
             });
@@ -209,10 +211,11 @@ export class QuizzService {
                 let quizzFormat = {};
                 quizzFormat["id"] = tempQuizz.id;
                 quizzFormat["name"] = tempQuizz.name;
-                quizzFormat["finishedAt"] = moment(tempQuizz.finishedAt).format('DD/MMM/YYYY');
+                quizzFormat["finishedAt"] = moment(tempQuizz.finishedAt).format('DD/MM/YYYY');
                 quizzFormat["time"] = tempQuizz.time;
                 quizzFormat["quizzPoints"] = tempQuizz.points;
                 quizzFormat["userPoints"] = tempQuizz.answerbyuserquizz.length > 0 ? tempQuizz.answerbyuserquizz[0].points : 0;
+                quizzFormat["canBeAnswered"] = tempQuizz.answerbyuserquizz.length > 0 ? false : (!moment(actualDate).isAfter(moment(tempQuizz.finishedAt).format()));
                 quizzListToReturn.push(quizzFormat);
             });
 
