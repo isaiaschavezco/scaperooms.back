@@ -9,6 +9,9 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
+import { Quizz } from '../../trivia/quizz/quizz.entity';
+import { Target } from '../../trivia/target/target.entity';
+import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
@@ -22,6 +25,9 @@ export class UserService {
 
     constructor(@InjectRepository(User) private userRepository: Repository<User>,
         private readonly mailerService: MailerService,
+        @InjectRepository(Campaing) private campaingRepository: Repository<Campaing>,
+        @InjectRepository(Quizz) private quizzRepository: Repository<Quizz>,
+        @InjectRepository(Target) private targetRepository: Repository<Target>,
         @InjectRepository(Token) private tokenRepository: Repository<Token>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
@@ -231,65 +237,88 @@ export class UserService {
     }
 
     async createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any> {
-        try {
+        //try {
 
-            let response = null;
+            let response = {status:0};
+            const userAge = this.getAge(createNAOSUserDTO.birthDate);
+            console.clear();
+            console.log("User->", createNAOSUserDTO);
+            
+            // const quizz = await this.quizzRepository.find({
+                
+            // });
 
-            const userExist = await this.userRepository.findOne({
-                where: { email: createNAOSUserDTO.email }
-            });
+            const ans = await this.targetRepository.createQueryBuilder("target")
+            .select("target.id", "id")
+            .printSql()
+            .where("target.allUsers")
+            .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+            .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
+            .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
+            .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
+            .orWhere("target.type = :type", { type: 1 })
+            //.orWhere("target.chain = :chain", { chain: 0 })
+            .select("id")
+            .innerJoinAndSelect("id", "photo", "photo.isRemoved = :isRemoved", { isRemoved: false })
 
-            if (userExist) {
+            .getRawMany();
 
-                response = { status: 5 };
+            console.log("Quizz:", ans);
+            // const userExist = await this.userRepository.findOne({
+            //     where: { email: createNAOSUserDTO.email }
+            // });
 
-            } else {
+            // if (userExist) {
 
-                const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
-                const userAge = this.getAge(createNAOSUserDTO.birthDate);
+            //     response = { status: 5 };
 
-                const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
-                const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
-                const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
-                const userType = await this.typeRepository.findOne(1);
-                const userRole = await this.roleRepository.findOne(2);
+            // } else {
 
-                let newUser = await this.userRepository.create({
-                    name: createNAOSUserDTO.name,
-                    lastName: createNAOSUserDTO.lastName,
-                    photo: createNAOSUserDTO.photo,
-                    birthDate: createNAOSUserDTO.birthDate,
-                    gender: createNAOSUserDTO.gender,
-                    phone: createNAOSUserDTO.phone,
-                    email: createNAOSUserDTO.email,
-                    nickname: createNAOSUserDTO.nickName,
-                    password: userPassword,
-                    position: naosPosition,
-                    isActive: true,
-                    city: userState,
-                    delegation: userCity,
-                    points: 0,
-                    biodermaGamePoints: 0,
-                    age: userAge,
-                    type: userType,
-                    role: userRole
-                });
+            //     const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
+            //     const userAge = this.getAge(createNAOSUserDTO.birthDate);
 
-                await this.userRepository.save(newUser);
+            //     const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
+            //     const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
+            //     const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
+            //     const userType = await this.typeRepository.findOne(1);
+            //     const userRole = await this.roleRepository.findOne(2);
 
-                response = { status: 0 }
+            //     let newUser = await this.userRepository.create({
+            //         name: createNAOSUserDTO.name,
+            //         lastName: createNAOSUserDTO.lastName,
+            //         photo: createNAOSUserDTO.photo,
+            //         birthDate: createNAOSUserDTO.birthDate,
+            //         gender: createNAOSUserDTO.gender,
+            //         phone: createNAOSUserDTO.phone,
+            //         email: createNAOSUserDTO.email,
+            //         nickname: createNAOSUserDTO.nickName,
+            //         password: userPassword,
+            //         position: naosPosition,
+            //         isActive: true,
+            //         city: userState,
+            //         delegation: userCity,
+            //         points: 0,
+            //         biodermaGamePoints: 0,
+            //         age: userAge,
+            //         type: userType,
+            //         role: userRole
+            //     });
 
-            }
+            //     await this.userRepository.save(newUser);
+
+            //     response = { status: 0 }
+
+            // }
 
             return response;
-        } catch (err) {
-            console.log("UserService - createNAOS: ", err);
+        // } catch (err) {
+        //     console.log("UserService - createNAOS: ", err);
 
-            throw new HttpException({
-                status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error creating NAOS user',
-            }, 500);
-        }
+        //     throw new HttpException({
+        //         status: HttpStatus.INTERNAL_SERVER_ERROR,
+        //         error: 'Error creating NAOS user',
+        //     }, 500);
+        // }
     }
 
     async createDrugStore(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any> {

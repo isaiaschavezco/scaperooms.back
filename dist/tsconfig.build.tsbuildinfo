@@ -1098,12 +1098,12 @@
         "signature": "e0e01013f40a172c13d53c88ce2695741df27852da7ede9e2e336c86c43c8ec5"
       },
       "../src/app.service.ts": {
-        "version": "5d4242d50092a353e5ab1f06663a89dbc714c7d9d70072ea03c83c5b14750f05",
-        "signature": "d8f4cb0109c1b399d657807fd6af504d74a9300325e0fc915abdbf658b464a97"
+        "version": "eaf8514ce110fa428a93a27408df4d06d133dbd9ed0a775c315ddfdd507853a9",
+        "signature": "653711fba8904aa27fd8911b63cf526e7b334e13a292da4cefdbbe179ac3f3f2"
       },
       "../src/app.controller.ts": {
-        "version": "3469c5aa62e1ba5b183d9bb9d40193e91aa761fc5734d332650b0bd49c346266",
-        "signature": "3293b0d1d6a7f902316e164fcf36ae099f1bbb0224484586eaab30d9dea78d32"
+        "version": "260f889b9e2b69f77be1155348eb345166aec664b3efff6720053c6844a41f28",
+        "signature": "ef022c91ea9e75ab4082f2e881f9c4db7b346be2da706e876b253bebce5e6140"
       },
       "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts": {
         "version": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98",
@@ -2162,396 +2162,396 @@
         "signature": "836830aceb534f74d0c983f662ee1a9e42200cd5e440986a159d3d5774b6d4ab"
       },
       "../src/core/users/token/token.entity.ts": {
-        "version": "49cf2075d3602f678e047325cd27eaf1b29bd2dd4b6e72954fdc2d905a42e676",
-        "signature": "f43e48dadb2c6ad84414533fcbf7dab40b7dacd7189cb7d5980eabef600583f3"
+        "version": "e0ddd52e8f125c73e6448978e8d92e1aa9482f72e4f0e93b7f6dbc26b2efd8a6",
+        "signature": "eb296935d7e0e2400ecc63934ee3f3b92757cd52600b92a7a686bd00717ac3c3"
       },
       "../src/core/users/colony/colony.entity.ts": {
-        "version": "cf0a84760b907e73b89a683012d0f4a6589fea9bf40e28c5987e4a18b61b0701",
-        "signature": "8653231c0cba8bfb904880fe0424cc1150f81b9a8550a7d819f87b08952ee8b0"
+        "version": "9c4f4ec5b0bc95cc50e5a467b394d1fecc49e29b439edcc21d0f5163a6c61077",
+        "signature": "e706111afb7a925d2539428b7711bceac61beff39c9fe630caf61aca59a92aaf"
       },
       "../src/core/users/delegation/delegation.entity.ts": {
-        "version": "31eed5add480eb8899cf7eb16d384f5d944614b522467412684e41acd90d6168",
-        "signature": "a5cd40858a5dd0419bb4333cb11e39bb68da1d2ef582ef2936a36e02bcbaa178"
+        "version": "25742570a38996ee66d73ae7e352572ac69fbbc871915ab74566149797ae2354",
+        "signature": "e722de081f9c47af931444fe3b09ef87b45fb03cc0cd2e1825019763f3463c0a"
       },
       "../src/core/users/city/city.entity.ts": {
-        "version": "2e2e37f515c91c7b63695726e220f8857aa0b7af03742af00ccc4d21466d1423",
-        "signature": "5a6bf0171196c5f5a450afc969e5cf13d5e30e2e7714291dafe2f23180d9580d"
+        "version": "707a6e63afacbb942d154c8ac083daae4cc6e5bd25ef163d87e1a9d762b9fe11",
+        "signature": "a477963d8be9a830bb8cc655a8aec20139ee0ad573453db4cb8146f28e8377da"
       },
       "../src/core/users/position/position.entity.ts": {
-        "version": "4abab7d592f97d82707e55fc89f0392d31a4dea590ef783ee71f8e31b9cf4187",
-        "signature": "8207937d1d34bea58a48daf3a84fdb462a54fd2f26e610df866d99412f0fa676"
+        "version": "5d88e29e3e81ed3682bb4c5c0a5dfbc0af6b6e5ed927c7e6a50f74871f13f35b",
+        "signature": "21b3e2a8ce3af645034c17bee9ed1a05860270a77678bd9eb55122431bd53516"
       },
       "../src/core/trivia/question-type/question-type.entity.ts": {
-        "version": "a5dc2065347c05c4a741bb5ed2e5e7b0f023bd46342abfd73c39c2d71870e6bc",
-        "signature": "c32f75a736d45d1fff8ed8a7423f4bcedc94784e0526c05421c14cf95c888c70"
+        "version": "ff6534ba5f086c9e964e3dfac88fdf2227b78038e0b0df5c81cd3ad56fa156d7",
+        "signature": "88c66c26cb3a85e7ba2fadb6369074798377ee336543dcab2d27d6b5119d5356"
       },
       "../src/core/trivia/question/question.entity.ts": {
-        "version": "216bc2ef855e7de3c10d054327a3e49bd056e30f5bbb5c12c9a28f79525f8fe2",
-        "signature": "ee60f52912eabec3459c932deaa737d2b169b136fe4dd2c1a062a64f33c7370c"
+        "version": "eda81acbb6e51767d9e7b4b0f2435f506d4af4d52fd0b45ae12488f4f4301529",
+        "signature": "8934f0a5378b090888f75e123f75ddcba201a79ed14a2ac61d249f55b1b884cf"
       },
       "../src/core/trivia/points-type/points-type.entity.ts": {
-        "version": "a89fe6dbe504834e98b52b89835d6f7a412002acd72b6a37d39476d896fbb064",
-        "signature": "ca9e0895c32de431010de832c56a9a84cea5049d88ec623d5a8df2302da9536b"
+        "version": "f1ef2334b492a1264a303ac233d61b62d1eb4bd31f602dd7d70e02951eb70310",
+        "signature": "9429424fefea765e681386a73dc3f79dedb8fc64b7712c9659054ec98a58e83f"
       },
       "../src/core/content/trade/trade.entity.ts": {
-        "version": "20d090d00f62aef7bdfa403378cf02665511b65e522dd6be7cf59c5a8db70001",
-        "signature": "392612da6ab6bbc3e162563fdec42186be2c88d7fa6b26ecb8e33622019ad3f8"
+        "version": "7715008f5a43eec8a57800d5cbcdf3c343642d2a5d6ee12cf9b925f2e41afc23",
+        "signature": "549abca0471a4b100ebbcd0496d8e979380c22a3a2139f4fc285af88e58d1eee"
       },
       "../src/core/content/product/product.entity.ts": {
-        "version": "fa447b66099c01242c4002fe725edd3159ec9f6c6157d5a850073180f439e9a6",
-        "signature": "8e51428a5b263e5a5ad15c9d74f15050f59c242e53bef597d078fe7e37a043e8"
+        "version": "182364127d44f553b27926320d41f99d91fe16bdd33e0d06ae8b1616b99659f1",
+        "signature": "0afe11af61bfaa2f28f3c41355b9bf9d5aa656b27fc0afec13dc79f9edd92ddd"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts": {
-        "version": "2237ae87e9baf65cabe3e9a3ba8786d38a6ab8298e5d51b45c3f211d44560e4c",
-        "signature": "e9a6d00fe94a5e6044b6473a4dd88f31a8dc36c4fac19cf137ae660d5ca05417"
+        "version": "8bba5ac65de2011a1527a486e0eea5fbd6d3137ea0da7658f0b558f88c4de2bf",
+        "signature": "6475b2344b3a19dcb98aa385ab1435301fc88ec9cc2432f6beb0053dfa8e13c6"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts": {
-        "version": "733b11f467159a8f99c802933cc70d72bf10a75183bb1529246ebeac83bdc55a",
-        "signature": "be156c9ab389f02e28a3f1190b06fa19168a696f499587455df708d24dabcc2b"
+        "version": "a19a97fda0b557fb2b56ef5ea6b857d9c25aef28092c7d666e59e456291bce27",
+        "signature": "de099fcae5f37603776292012e04b449c42aa62bc0b6f6e20127f9ce6bac7a59"
       },
       "../src/core/trivia/quizz/quizz.entity.ts": {
-        "version": "affd533fe030bbe2eba830849e466fa85e6ba0db3ca7a92e56834f7c487a985c",
-        "signature": "5789f4cf9949fe04354d15c7e80e5872533a668378ab345e98faeea4719666c9"
+        "version": "ea7b346ae2a0e007ea91728abe39caeac391c53dad126a9c7f2b5ddd6fb3a8ae",
+        "signature": "63a6a7e2f64a589c9b353ec017e385c3fe74012166b75edc9c16144ac96ae739"
       },
       "../src/core/trivia/campaing/campaing.entity.ts": {
-        "version": "1e93b3c66e188fda8aca559a7cc51e3fbe683ed834009fdacd4fa6bec22c6056",
-        "signature": "323881c27f552c1085dd6963d593f498e3752e605aab20b9509bdc4f1d5a345d"
+        "version": "f27f581ae656f11f0bfbb77d8b6ef7729c988fdc1696e6136cf31af1f3de8f48",
+        "signature": "4c1f5f2ea974eabe0c3ce827079d30f0662336d6cd59e453d59005aa155587f8"
       },
       "../src/core/trivia/target/target.entity.ts": {
-        "version": "2b86bebe6c1ba6b9ae013b128e08efff94722add1c6b6b566c3ba4ce82cec95c",
-        "signature": "cb4203a4e1ed71147b5fdfeebf2143932a4eaf4b90ccfd6941dc09cedd18f60d"
+        "version": "678157caab54b2efb41e66f3f5fa75eb36e66ad2ed908f53a8738739edbd8373",
+        "signature": "237d9ed1b3b4d15b92d4955342fc589562988209ee85c948cd28e0a583ae287b"
       },
       "../src/core/users/type/type.entity.ts": {
-        "version": "f54a04a7f46cfe5c434aa844a29f791af95f53bc20427b96d4d236f2180f221e",
-        "signature": "0581d808c151f0c5486614f7f1d1c6fd395257c884257e6630341b258f2d7bbe"
+        "version": "2e0e7787ef6583df557b96615dcc98afa0ed0ebb6622f2b01d656a42ca292251",
+        "signature": "f8bbc026c56ff2f2bfbb9296dab10e526512bf40432eb21042ddfdd692e0a522"
       },
       "../src/core/users/role/role.entity.ts": {
-        "version": "e33fbd8967ae412d60de0970f7b696a0ce05661c722d98561f4caa378fa07ea4",
-        "signature": "6a1e3e4a08c601241a532cdf58b1d484dfe802b820295835ae2a5170b1d45931"
+        "version": "2df159783e7cda0804361eff9cfa4d44176c4e4624c1711163a55122ddd9cec5",
+        "signature": "dcd7cfba129e7b3146b9ee289a3f0cb707b7a7116401764615e7af60d6465afa"
       },
       "../src/core/content/message/message.entity.ts": {
-        "version": "060c4b445a53c04ce96d7e91514096d0a0de1b592c0329c7cd20ab8aa4eeb704",
-        "signature": "2f4522c157776159b67a1bf076ddd634be6f819bfd31cf6113473c43f2d77f0a"
+        "version": "23c6e33de347587320d0ef4aa6f8e0dc4960e4f7af42c6dadb0bdfe5f412c73f",
+        "signature": "193051b845f70ce44ce349cb2c67b8fc7b591f06c050802b4d364bdb3110577e"
       },
       "../src/core/users/notification/notificacion.entity.ts": {
-        "version": "e0728c3d44fc08ffaf4134bdde1ee5c431e791a7f0536067904ff03144a5c172",
-        "signature": "900959b871736f789c1f68d8f98ac9c4bc53603046c97e4cb0cfa9fd2a920ca2"
+        "version": "064e4d7d8fad975967899ec086e652aeac65bbfdb0a6e97cb21a8c14186a8905",
+        "signature": "dc1e47f5221d46435d248b08e7d98e6b659a3ddc8ae63f7266c48cc777e5c14d"
       },
       "../src/core/users/sesion/sesion.entity.ts": {
-        "version": "14e844cfcdc8f54b5f9470b9289341fbff1fd93b4783534cefe2f0728fa5f5de",
-        "signature": "c60299a92958a98896a7286ad4a8d9cafbdddee99d4ca615371680c59cd33e8c"
+        "version": "a5e929b928300e3f1954c95e1b7984c083ccf6cd80c822b1500bdf7b02b46193",
+        "signature": "4d40cc01614f1c79aa7b8dcb67d96866c95ea335b838272528f5e3264fc046b3"
       },
       "../src/core/users/user/user.entity.ts": {
-        "version": "63d59004dbda7b84dbfbacb05d3e574a3eeb28b383cc69d397146eef9b6d3edb",
-        "signature": "fbd3fed09f8bdd6890e7e6ea20a7af286a8ead5a9ef5141222edf89a973ed448"
+        "version": "d10b8d876023ac0d8d2f5ad2f3fde391d2e397aa2cb7c258813424d7e2b6b423",
+        "signature": "a15ac38bc0a80de04ae9dba4bb645a11ef65c25a1da00cf8ee848f15c04c32a1"
       },
       "../src/core/users/chain/chain.entity.ts": {
-        "version": "58e22efaa7bbc564ff6c84731180f456526d568d4641f461555b943cf4fa7e28",
-        "signature": "b6a2516deaa52465189953a896ae8295c4fd3ba2deb9250af50c01ba8aede1c1"
+        "version": "a65fec4e984e9cae80b00af5475610ee7b63ff55c7245de2fd675e20cba89804",
+        "signature": "c7f0a64f9922ed1781143ef93ebf2a67a687d46edd055869702d04dd6c51af35"
       },
       "../src/core/users/chain/chain.dto.ts": {
-        "version": "1ba739aee5315c0c7a06df48f539f484f0b71d9c587b13db34c80051ff7eaea3",
-        "signature": "6c8596ee9d053f989d5ceef61568187c32177089224c5a96c2d18c51aff00907"
+        "version": "8b55c5e2fd73f28058db1c873349a329dc3853d225f77435fbac7669d5fb5f7a",
+        "signature": "0d6921ab85b187f9d1bb3ace87785d2263ce47d736bdb04f4ab89c63a6cfab4f"
       },
       "../src/core/users/chain/chain.service.ts": {
-        "version": "3940e1dcbd33a0720733766bb5bdc8d7b28d2a09d9f50adb3a76bb1d7c73e12a",
-        "signature": "2ce65901328ae4a37d9be37b92e6095bca2acefe7c0edf83e3e13c5e4464b049"
+        "version": "fd57cfdec45102b9cf89612e2cfa191dd7b0bbbe510a55ea8a5810f3bbe15e88",
+        "signature": "593678f27444442842c3ddd756bdbfb841b92eec3906f300c945bc08e55f54ef"
       },
       "../src/core/users/chain/chain.controller.ts": {
-        "version": "9362e8630607beb9835694cdac968398fd50533a5d5c745438d1a1c545db4cfa",
-        "signature": "5ab7dff8f584dd37cfbb800efa6edb3e9dfbf6bb35a01f782b7d1b61a87e4e6d"
+        "version": "858ea030233a841ac86b651034c2743bf744031708de5d7287d952bb86c3d3d8",
+        "signature": "404c2aa01b48d01ecf8b40b04cf1b85200fca9bfccc6ac7eef7495053fc0ecec"
       },
       "../src/core/users/chain/chain.module.ts": {
-        "version": "308945512b68ff383d2a5b90fd8aa5fb1dba36416a7984deaa9646578863d457",
-        "signature": "ffbf12e7995bed55ba500e804ead55a441ba38c9b8cc22000b11de89ca14ccad"
+        "version": "64d2ba4fa6d56926a224e1434acfa9173a5a462a84bac06363f9b6a494fd7e93",
+        "signature": "143417901b9b1ff6177c67b2398da824c6c10ece8a708068a4dc7b65ffd7f044"
       },
       "../src/core/users/city/city.service.ts": {
-        "version": "4b5617f942609914a8497f260917c4444bebc28bd8d97751661b7d3ce0bdbf8e",
-        "signature": "066d0c575de56c360a274923497d33252c61819241802a7f46de1c639ab3b921"
+        "version": "cb2ec993ad658d39a1f09dad40b3c2c7dfe2afd4a553bd7b738ead7d720d8566",
+        "signature": "6ce02ccfdff93629e3cea8c88c950285f4709c47e6fcc74e53028de5883f4bf2"
       },
       "../src/core/users/city/city.controller.ts": {
-        "version": "3514407da939f1f745224e56764f46630587265996fdd7b74c0c7bb749add7cf",
-        "signature": "b1edeb88115f49d1f25baade9a4d08d824fa714407d6c646039da098bbc65de2"
+        "version": "a6b570963513d94e6f65ea47ee9b607b8620333f58406b33970c2013628e1e57",
+        "signature": "9356cc1691293361d4435084299e6251c46770efc067ba8fe790d559e7f429c3"
       },
       "../src/core/users/city/city.module.ts": {
-        "version": "fce3a8fd4db8b6ac838112827dfc7de8b72321dc845bcf5e6172281423ae2efc",
-        "signature": "527e23699e35e20be192bb5aa27c588891231ab38a077c06b3d4739ad199c211"
+        "version": "e6ff36940e6604b882f25a7a799e13c626a467a2896f3042edbc0387c01c4d68",
+        "signature": "ae15aa3a0c820ef91fb758869cb1085e3b7d03b93b0bcdb951eacae00a4734e7"
       },
       "../src/core/users/delegation/delegation.service.ts": {
-        "version": "ea97ad8fffbd66879ad37308ba46b3731f1f5fbda2b55cb482ffa1ae73d6341a",
-        "signature": "7bdbc6bece3b5da9de2ab90b4f530f17c1975c92e601a051f6760c12ca5bdc42"
+        "version": "59670fbd507c731db0d3c655a8476cfba2b1f5c1dfc5b2ffa052d848e8503104",
+        "signature": "1728c01413b808a100a886da58975e4304fe8cab3f874eb3623496a850cb10b7"
       },
       "../src/core/users/delegation/delegation.controller.ts": {
-        "version": "e0e200e2bfb112004183d519892b33ee9739277d4941d2be3e0144511340c6d0",
-        "signature": "3b41ca5089a16c27d294299ed34572212a611da3a6df3f19bccb6ef3b1391407"
+        "version": "ac659c131a49765752bf5d0ee07c0c3e64e7d74071d37a5baf3cc0ad6e475514",
+        "signature": "a924813ecfdcd510764d7bbf3d285fc2c2538ad62629c2ee3ca654cd081433b7"
       },
       "../src/core/users/delegation/delegation.module.ts": {
-        "version": "32b4501d933c89ea3b07e7ddbdd4df6682ee131838791e2d777db2f27678d9b5",
-        "signature": "a175089fb1e9b0ee0854a2a2c3450f8cf1aafcd9d9ea3db494a8ad51e6d1099f"
+        "version": "f910c7523a712804822d085858894b1a5407a860e6c7825fe9a3033cd83ec9a7",
+        "signature": "2bc7f48830f7c1282baff3dbbd4d632ec28a74159512c60b1227a530982047b4"
       },
       "../src/core/users/colony/colony.service.ts": {
-        "version": "eeebfe73c2ca017ee55149588a0753dd80f0e8dfebafc9551a0d662cdc174814",
-        "signature": "e29d871d9b78c589be7604920a96f26bbfc3209a57b798b7e16d3e2a2e4bd3b0"
+        "version": "0adf0776b01864ce64df20656776441adc52ab3cdc12424afd88d3df25cca9e3",
+        "signature": "0fec8de230ac09e23aefecc9c4ff413abf2386b9729488eedb0cc54d244a6fb3"
       },
       "../src/core/users/colony/colony.controller.ts": {
-        "version": "80681ea39e504ab38893b32509b10844564b63f0e2770121384efda508686a59",
-        "signature": "f7c63771c3d92aff5eae233f955f163d4c629c769fb1b153cd28a1656397ca43"
+        "version": "827f6ba986270f005fe3e5a1e2b7f26a0862690403667c7ec57a62792b43814d",
+        "signature": "237f303d60fe3859b861e16a49b15896be1319c3df5193874e44679d0333e6dc"
       },
       "../src/core/users/colony/colony.module.ts": {
-        "version": "92192175c7c731643e87179f607f4f20c796672f128999c63a4ab6663d1340f7",
-        "signature": "e2b49d94c9c5ecb1306085ffd20cbd06c5be523d0ff03e6760360068444b9f3b"
+        "version": "33485318a374613541f592d90647456590355a3472c87c90214e40291dbadfe2",
+        "signature": "3dbf0ce554c7dc711490832093a2598b9f69f4f3e2a379e61d8fe8c6b3f6c8d0"
       },
       "../src/core/users/type/type.service.ts": {
-        "version": "389e924c2134a46bcfe6d5c3ace76a9c412062073f8d83d8cde932a10b41c453",
-        "signature": "b16625850669fbcfdc38c33c46d3c2665fe1c1e94bcd66e0b6eb8b88d28371cb"
+        "version": "0b27285ce16112db563c08065e2b23c37b1d481f4d10ffdb678f5fc981e89368",
+        "signature": "489322891c7b0e87ae6f42fbc8437d4f436f7c1470be66a107296663137696d3"
       },
       "../src/core/users/type/type.controller.ts": {
-        "version": "c22c24eccf2420548763331de3b5872c5e4a090f43e4bbea26969f3fe3400f23",
-        "signature": "2be705d799764937efecfcbc147c3f0770c0646710c7d781c05e61cc02f16889"
+        "version": "e3f3d4c01bb37d1211cbb93909c62a3b5e4099b26f9d8c3a680345df3dd32c89",
+        "signature": "bed11364d76a8d00705b39e533c3fa4e5dd7938c04e8ec0184401e999c70be24"
       },
       "../src/core/users/type/type.module.ts": {
-        "version": "4be1cd001510dddac5007323b4b7c5d2022a5b46e60cedd79fc200accad07d08",
-        "signature": "d9b377fd964d092fde19ea7c155813725c6f03213dfc7f31e0df3cc7f3fca2ba"
+        "version": "61967951df80163104f8084c45d7dead8c8e8f67788b746fe466660bf7de1e0a",
+        "signature": "caeec8dc83952f322143658ba5380a834ea05de988f53c71608443c2e70b5e0a"
       },
       "../src/core/users/position/position.service.ts": {
-        "version": "7a24493aa3dc64a428f2a19a39221bdd1b8a7101c9f573378ab043a6ef264780",
-        "signature": "3dc0eac14938472908358dc2b4ffefe76395259aa68037d80fd89bafae062248"
+        "version": "7a73e3ff6618a4a1a634bfe91ebd142f9ab8a03f431f9b958980c3ceb9ca34b5",
+        "signature": "fa087872f46a9e1bf00398ad4187c2096cb51a3523fbffef2236feeaed982219"
       },
       "../src/core/users/position/position.controller.ts": {
-        "version": "5e25ddac35c9cd916808d868a04410f1035cb95c39c49c8dc7df8cf0574e4db1",
-        "signature": "a6304b414099e09f7ad6a05467ad7a2e609c5abfd8b38481148f91c07835c814"
+        "version": "fe236598d4c1b1135c8117daf8e3bdc92b443c73713cf70f7ab00141d951d711",
+        "signature": "c45558e12d530bf27cea1f17b2d589b519717813bb2e5e50a564590fa9c28037"
       },
       "../src/core/users/position/position.module.ts": {
-        "version": "e4d4f4f9050364565c0edd57711dab513f15653ce85f634cfbe9c92581f006f6",
-        "signature": "40475f1613ca452c84a8f5f6f83a7bf2a73887c2bd9e4fd70587fbe25a281bb3"
+        "version": "39082fd32c71633b5506403f80ff535c2caf985cfa0e53d74c985f48421707a2",
+        "signature": "3f2f049fbfa085b90b39c1567ad7a0ca4236e421fd76a2be972d0d20eea5cb03"
       },
       "../src/core/users/token/token.service.ts": {
-        "version": "5bb7cc302ee5ca489516462c30e23d443bec5b6ab198ebfd3285f951261a49f8",
-        "signature": "f01e3ca66cf2f5d1c820ae304edd8749a540936e38fc14c0bf6214fea2cdd835"
+        "version": "ba976eb68f63627c95d2eb395d404449727a9093d6c39bdac43efd4f2957895a",
+        "signature": "e806baaa4e875d2465a5b8a2ae0a18e973541dd26c3c1f6ff83c76c5795c301c"
       },
       "../src/core/users/token/token.controller.ts": {
-        "version": "478cd3e41411bd06283103486ee40bbadceeedaa629c00f93e1d0654a4203e5e",
-        "signature": "4b5090f6235628871b03953008984ead989734c010f847fefcfc351e8d3b37a5"
+        "version": "a0a1d5f6fe67a7b9509d60e8b76a9661be97e8f16a5740765e85ada6dc5fe479",
+        "signature": "8377aaadb479ada6c15f1925a6ba2f5ef7ae1d0eda2c00a99c5b4c943920116c"
       },
       "../src/core/users/token/token.module.ts": {
-        "version": "c61d3419f43d8435709a49775b5d15348803e66d0801a0d9c0e3e1f441bb25c2",
-        "signature": "9d12925c70517c1afb1ea701911c117d8dbe56e93eeb94f1752476ec13cbf9c2"
+        "version": "083d0682ca9df9da0928f61b6dac0af592a2459f6b214a32bc19df8d1277cf1d",
+        "signature": "3d500686aa1061df45201267d57375b5f2fad19b86528626375f7fb06d715588"
       },
       "../src/core/users/configuration/configuration.entity.ts": {
-        "version": "b59bddba0d08d735ee6a174908b3070931039b3aa5c654e32c929a6c9747a5bb",
-        "signature": "7c7085ecf13fdfc5106a61f9d1a551399138cb243b3fbbf23ab2855d70f3033f"
+        "version": "c9cb3f92f161e81fb12697db8e114b22e66e5ec75cac29c410cf2b455c222551",
+        "signature": "f5c37ba259da0b0824e2c66b56cf7d3c359e1178591c9a7c13bcee5e3cb359be"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "a1eff1bfb348081d33a2caa6816a06abae60c7c286f37ed0dfc56c230a2a6a39",
-        "signature": "87b40c67d5255abec083068976239b65c6cf0d929087cc781b00388a0b157571"
+        "version": "0cb64b1a87012afb6d13b379c8212b0c78227eed763b2fd1b14981e0f25f6c4a",
+        "signature": "5aa00985511b0ae8681344fe6d93eb203fd7a79fc8f94ef280625721b6a99efe"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "e976477ab6f74ed648c777b6d4a56a5a327c5f1806e1d842bfdacd5a46a8c79e",
-        "signature": "bc3820c121a3e384735e86fe4fa61ec22a42c6ca9fe839fa16ea32811558ce94"
+        "version": "707e176cd34f2343c06a29d3ae462abe1260ed8ce9408e98d891e5d5e7ede7f2",
+        "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "f3be4aa3e1b78888447a8d6af91dd65a6a0ae41e61e78bcc2c8c5f6e293ca97e",
-        "signature": "37eb606b2f538c117511b626d1febe1e9083f80511b1d97ed7e944d4ba88576b"
+        "version": "07615a339c41d5b1fa0ea16811f2633baeacef247a3ed22d119898140fe32a68",
+        "signature": "eead305cb0c93217f1752dd11d85a72a2da276015ef18f9771df84ccad397abc"
       },
       "../src/core/users/user/user.module.ts": {
-        "version": "cf8f0dfb735448bc84e0f32695685662097c00e8f10e0f7840ca474ac2133d38",
-        "signature": "9e36626cb39f17790cf2403e2e54d8a74542da63e2a49aba7061133a1af26dcd"
+        "version": "7f35b906441df343a92e54464039565cd84c712d6f0680d951ebeda9ac5b7b14",
+        "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329"
       },
       "../src/core/users/role/role.service.ts": {
-        "version": "37b1e5cc0fdec75d477ee2947e75290571c1ac3a3e8e9a5baa79330937478f02",
-        "signature": "2a7f83b2ccb9886a49a7a9b12c2596fb4fdb2ceb8b5474f65d5fc02704b07d12"
+        "version": "479f21fe050f0ce9981b35d1c7451852f4ab761b1786a0fc990cef211bbeb4fd",
+        "signature": "31fce5e5bc162adc441c00d15d45c130dd03a122ac97891eb149af4340182ae0"
       },
       "../src/core/users/role/role.controller.ts": {
-        "version": "c097fd93251cc266fa2cbdf473c3deb0e894eab4905a9834b8fb53e4e3bbf2b5",
-        "signature": "230c9b4f688ea4e452f4132444b6fe64220d94212579588f5e07ce76e178d8e6"
+        "version": "d21424f0cbdbcda9deab7c015a022578a7f758e1032e14f9782636b45e0c812a",
+        "signature": "f68705b1fa65c6cf65d54e68151f4843c20705e5a64a670d3cb80b198c7f70f9"
       },
       "../src/core/users/role/role.module.ts": {
-        "version": "24cd343901cfaf98190cf1c75d78c7f6adcd23f55d5bb8b0f4d4e8909cc00114",
-        "signature": "ff23fb2ce5839679caf3ce0e86af55c1511c32b39322fa379b133d5fd5823f12"
+        "version": "f5b37d76b6e472bdf0324a2111c7659dde86254de46e4e76b770f42e3ef0c396",
+        "signature": "917746f451b9febce5f684d7e8c86df5f7486ad7e87e4c1aed4a48f4f0c83650"
       },
       "../src/core/content/menu/menu.service.ts": {
-        "version": "8d6e0e6db865dd6910c17b0b64d6916659c07ee386d06b20ea37c3b7cc2d6ad7",
-        "signature": "fbf06bc78a6757a25b2b50b447d8f32cc88b2cf15192854d80ca2095b4512f0c"
+        "version": "09c461732917467944a953d7c2e23e4aafeaf32b190fb075e47f8d8cf373c3d8",
+        "signature": "a8ee84fa3203a7f7e3492db89f9765266dd287fe33cfaa715ac98c494e5dd6a0"
       },
       "../src/core/content/menu/menu.controller.ts": {
-        "version": "0aa15f2eab7024ad8599c48d9937c7878262015fd7459bd0b0bff1d88c398b22",
-        "signature": "2d46452b992b5a6d79af336ebed128d391bab42fb9a17bf2dbd35d9b2a91ae02"
+        "version": "426df08bff122eec4fd02d893f9d6d028724aa86e54c79fd1b462d531ceac2ac",
+        "signature": "0309eac8b9550f5c664e4464f12876b2d11cb7bf74aab3a2129771ad40060d33"
       },
       "../src/core/content/submenu/submenu.entity.ts": {
-        "version": "b1bb2b80bd892ce02939da1b550e8e58e14410ff85bb5a8969613fd42c9a94ff",
-        "signature": "a81e46d8d638c9c252df4ee42d78f521cdfb48a8b6bfbee6815127b89151ca02"
+        "version": "9cf0f12749c836815e2626f58b0d86d739b01808169cbff9b60a1effd09debc0",
+        "signature": "be26fa349b35a4912aaaa7a737d505056354e3979f92c220c5471330cca5e57c"
       },
       "../src/core/content/menu/menu.entity.ts": {
-        "version": "0b2441e48459ffab46dcc1850ebe2b1eadbb00d6327aaf45c031bfebb0871d2f",
-        "signature": "d00e470b45fc7029d1b1fd45515b5c37ca66e3638cc03d0c740875a8dab16709"
+        "version": "e40e991e359524414f2dd67ebe2cdb557e4a410b42da14045decdfd3f44489bc",
+        "signature": "33fe6953d34583c811afcb71757e439e98f98731193399d8c1d0af126a1c2f85"
       },
       "../src/core/content/menu/menu.module.ts": {
-        "version": "b74fac3b52fea5da17beb823f29c411abd451e305fafd039bbb4556658a58284",
-        "signature": "ce77cef3468514fcc8e92e422966a603efc27eb8f45f014202d20c15238115c0"
+        "version": "7a1c152e61d7678637173d17cfa1fb5a3961521024ee79a1f077da63285708fe",
+        "signature": "7ff85c64f97736307d2d54b057026b8a557a79fee2cd27e10c3349dc549b1061"
       },
       "../src/core/content/submenu/submenu.dto.ts": {
-        "version": "0e4f8addf8b87d1436bea9d77025fe2919eb638bc36add52df53e0cdf6e35c3b",
-        "signature": "05da88101c192ad28396d8c4ebaa5bc9232ef810db06164269d7905f842ce626"
+        "version": "49408b16503fe35211d1ddd46899fa302fd0817c52813657727fdf5633e8bc8a",
+        "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "829226fb0f65d0b087796497d324d2657cd892d67d8ad707817e25d1171455fd",
-        "signature": "5272ffeabb940ca3049ce685e02d27fb21957a93d7c6c92d263992f1bb1cb224"
+        "version": "9fcb96ea63db780dd4137e4e8643bba67c7709bb5bc90f9ed8eff347b1d4b556",
+        "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
-        "version": "ed3f6eb536d26d456dc05cb20b81e459603a08a823abe47d42ecb93b9b896be0",
-        "signature": "7579f9c79c494071d7d49c5d675400b9db3ee479cdc5ee87fb52185e104a6c53"
+        "version": "7b4f52714aff5497e56273f8d3b85aefa14d06dcfb905528ec4339789821596b",
+        "signature": "e6b7cbca4a5c9782b0cc893fa0b82497c5bfcfc57e408246c6bb24475d8b6270"
       },
       "../src/core/content/submenu/submenu.module.ts": {
-        "version": "9830c8ec2ae05827e69d195064ca2df4284490cb82b756cbf01666d1b42f1383",
-        "signature": "a2265edb225c5eaf2a77751a02df50b0040af8c7eb7cf8bfa827c4853da29543"
+        "version": "cf88846350dd0af4e8905d5ea70d946c557ab0065bf71abe612dc492c82c746b",
+        "signature": "e2acd47cabbba4729c40b20f04d61ab290eeb1c8a36fd8dfe8c806c1e66be4a2"
       },
       "../src/core/content/product/product.dto.ts": {
-        "version": "3f0bd293f2f8e761d780445cf576e6873249cf79b6ecb13569fbd6d63be9281f",
-        "signature": "db1665ec4ca8ffcc5d0b7bfa74bf848b3c19c23d0cb441e197d20078b28ef9e7"
+        "version": "163665074a72d7266251bf975d5c84f9cf8696830f65d16a0ae167444d5249be",
+        "signature": "6b5623ad9a73caa0910abb663f34c11b62fbce8926a6fa1f9e171cd36edd70cc"
       },
       "../src/core/content/product/product.service.ts": {
-        "version": "c90f69971fbbeee841fd08b8d0a4417b582f3892dad648f11d8b12159f225051",
-        "signature": "c53ff6c79ab1c105f76264e1fefb3a4fa3d1ec43fe2ab700fd1efb99799569a6"
+        "version": "045e5e9d809cac0b27dc43aeab78d36594bc8a7bf96ce280c920ef66f26b2c38",
+        "signature": "6f066dd1c996c51d821bb64a7303b5db24ff843068900b7f042d64d38271d51a"
       },
       "../src/core/content/product/product.controller.ts": {
-        "version": "e76b86fe56c827591ab886a651b88325ec75621b40e7562ef20f42d3cd296f3d",
-        "signature": "b61f144850f176eeeb597e23b50b7e1a80c72142dfa0d032c7d5cd8e553a5f18"
+        "version": "62990f1012f870a9e22a586d9cad471677a7471f1955e053f9d020f5381de8a5",
+        "signature": "85c5964c955650e8a1f47fdac1cee9441acd2806dd868b716004b5c6b7a6fa99"
       },
       "../src/core/content/product/product.module.ts": {
-        "version": "0c238f63bfd660c758c4926e1b35e5204fd5741cdb5d0181595b783b84405cbe",
-        "signature": "775682a30e63deb0ec3da028a66cf4cd3ae032d1b7d009697c8b9329465ef7f5"
+        "version": "18fb2b48e4df8c77356fd8cb53c4de284adbe3fc3abc1862e0d2dfa50755d2c0",
+        "signature": "7f8b34d3314e0b7048eab6a82a4f0bf423213dfd64d60f0c5e178bde34c23841"
       },
       "../src/core/content/article/article.entity.ts": {
-        "version": "6c017cb480195b5663e5203562b2d74936ede5c514fb20669fa338cfcc791364",
-        "signature": "0ead5a0caae297efacecd36c177c7da5f5012e2ddc552958f4ed6708ac6bde90"
+        "version": "94ce3d921caeba8c3a2299e849a5c92d2d81403ee182e8e9a84623bad6653c72",
+        "signature": "7a6b2909f608d573644c5880b71afe1577be97bdd0dabf39b0d7aa4169b3aa5f"
       },
       "../src/core/content/tag/tag.entity.ts": {
-        "version": "edc88fa7945698c87bba91e56670e41f6a761913d3a8bf9eb04c2648e8d4bba0",
-        "signature": "70a4f5bfad21c4135db2295aa507a33ce952b77e660941d882891d258b3e9ab4"
+        "version": "a66a654880405efce2a631ef701e60d8fcec5beef421a30f796b0ccb725efb2a",
+        "signature": "fc447e6bc5e187a3b5abe702fda96510b23fd26af0b605572cbb7f6dabfc2060"
       },
       "../src/core/content/tag/tag.dto.ts": {
-        "version": "803dcd9dbcc52fd844dbe39afdacfbc039e6a49eeb8332f7de9e527c2ca301e9",
-        "signature": "679cf5f8bb1a41439743bef1e32476ab5e911221783de1beb654b1c29651b7d5"
+        "version": "13f6524db43b13f052d5080c3b1274fca51d7a8b93313749827ac0a37b1a52a8",
+        "signature": "244561c4c7f2941199bff0016e3328aad1d0c1ecf2f2b00c842cd21fe48eadab"
       },
       "../src/core/content/tag/tag.service.ts": {
-        "version": "55940432bb472c7cb47aadd1cf3c9c78c00a2c919099f5ae9755178609d951d0",
-        "signature": "b89f417fb80e7e1f89f74d80bc8f5dfe91fb013c25d80c1830d05107aef992da"
+        "version": "43b9554dd99e86caa94787da5d5857346626d908f242e35d0a82368fd5693c51",
+        "signature": "64e377f79c871956cd4900ddcd8ce0387d228dd98bd6533fb4e1090efdff0d38"
       },
       "../src/core/content/tag/tag.controller.ts": {
-        "version": "3b07844473a0f7a3fc2be4eae5b926809a05d3809602c7579db3d02ab7cd174a",
-        "signature": "103beba9c061b1581e33d2e5481964d909eb3020cb3be2da47aea0c7025839cd"
+        "version": "635a52114c6b8387b78a36ec82bf2e51bfc07510b10c8a5b1a280cdc138bb52e",
+        "signature": "5aee324ccb69300566bbd6f1cc00808247945651da77282ac57ccfbfb29207b4"
       },
       "../src/core/content/tag/tag.module.ts": {
-        "version": "b159039f88f48fd5c57691a81889c80819e84e1a19fb1bd2a31a722251846ed9",
-        "signature": "939e943ce3d8cf82a54357c11e747dcd05345f70a18a5f549d83e4b8a0bd91f4"
+        "version": "ff7e5be8228befea0e7c8f46f74cbab947e3877dc9892af1973b29891a4bde3b",
+        "signature": "f99fd130788105071b631b3817d6785e42e6dc4417bc4acc92fb26e54b0ed60e"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "316de6e67426adc40f01013b0841672e28c5c504f086b262e59125c7ff6267ab",
-        "signature": "2287523501e5b12c4ca84746760cb55066eacb8fc0166c21b1040e7bded6e615"
+        "version": "c9ead12723fd2aba51390af36b608673bd1db057406c915ff4fd262587a0d229",
+        "signature": "8f80a2ae7661b83e0d9cd678c8bad63fdb67b5f5efe5c3a8d1c0e4193991ccc1"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "91c756278d6491ae58b25ea42eb680225745ecdf6776270b2e17b7593034b31b",
-        "signature": "88fc81dcecb1293f4e715f6d5afa440d0c9b16e592fcd392e72e30f28bb2c3e9"
+        "version": "987e8b82bee51a0da7d4bbc6ff75a84195d8e0d18a21b9ca2b1870a01af8405e",
+        "signature": "137dad196a54f89c48ee2620e8b860191d663818e85ae099cc500ac67d1cf433"
       },
       "../src/core/content/article/article.controller.ts": {
-        "version": "408bb30de2c4de2e9da8e40bd4d2e5d55486f5d66d3e07687891c690324befca",
-        "signature": "77d47aeb4f9370923f1e04a1c40d50d81bf1ae5f549c8f349dd8bcebf51d4ad2"
+        "version": "14e3480b224b29f42f775cd9399ed4d3243ab8587bb4c8b6d053966f7f01f520",
+        "signature": "bf8b963eaf6e689292f5d8fe1ddbb827eaa4712461bfff9f8afb62527dd5a1a9"
       },
       "../src/core/content/article/article.module.ts": {
-        "version": "4bcb89a4d4b730315565299554a67fff78b7948f30a6a8188b3cbfa2b4f9a2b7",
-        "signature": "4aa8966c963f643b5b1e874d7ac9eea6ec59070fe9f61c49bdb09a587121514c"
+        "version": "7016c588ff41f9c6e7d9705a66dfa3768ff51bede58a5a87bf99141b1595c3e3",
+        "signature": "05e9ac66e118c99ad657229f14b117a21eac7f64512ec69ecd450ba205b8739e"
       },
       "../src/core/content/trade/trade.service.ts": {
-        "version": "605668a9226ff027b3b2f275a056c1225439af11895e693937b43c4afffbf1d2",
-        "signature": "abcabe5086fdceaf4471586d168ea40dce48545cd9264090174d8ee0292a2a02"
+        "version": "b0c0fecb9586749183f9abad299a78d7644e81bfb20cc1a24dfcae9edb6efaf0",
+        "signature": "803165248fc27b48d7f9f178ae132d8d170d01da88e583371aec52bf10922a95"
       },
       "../src/core/content/trade/trade.controller.ts": {
-        "version": "048dda6c5bfcc77e78eb66edf071c116794344ed86bdd1e56ebc2a35e727b7d7",
-        "signature": "b621121a54f5647a36394010b6e3ce01f59035ce9c21b363ee7c20b700e4a8ab"
+        "version": "d1626bc976d4ba3d9b0233bea605888d385e7d71043bae373341c67dfaced92a",
+        "signature": "5677b0d2d3dba4b67a6c13de33e1736d8be9b0fef8e703bfa53588660f04e297"
       },
       "../src/core/content/trade/trade.module.ts": {
-        "version": "df93b5f713e405d37898a6fe2d400e24546016262e36036d682145e552f68ef5",
-        "signature": "af4fb99b2c64f849285fc5e316478bf5db37d652db301049b0e9e4dc5ec77ecb"
+        "version": "e73ca4795e7fac88080d65285fd044aee1b3c7cdd3af84bb9436d6daaad17d41",
+        "signature": "3e77d694dd3d442c3f58a590f6e5b3840eebdf23e2796360510e147edc3e77cf"
       },
       "../src/core/trivia/question-type/question-type.service.ts": {
-        "version": "06c42771329cfe4b74e398fbb6eb271df94a98dc1615042e86f5fcda8444a4ab",
-        "signature": "1f11a89d6f7cd10318e9bdd4411dabd8cd33b0fd96fe0b4b581fe2be5dd6450e"
+        "version": "aa3bbf8f82a57a198589a99c0c516a79cb7f04bf96b80029220db0d21f8485a0",
+        "signature": "9c0a7eee359b57a9ff3668dea34a86ed84ab8eddac55b05adbfbf33b77fe9e44"
       },
       "../src/core/trivia/question-type/question-type.controller.ts": {
-        "version": "a707c2efd02beadabaf6f2d0cd242e3cf2bfed4ba9ed1b73f1a3cb54db361059",
-        "signature": "22e2bd3e2af7a29c70080c7b5e57aa29f6e845e1570a1f8afdca78ba86d77cbf"
+        "version": "5793bf385b224d88a4578fd756b3f522930b94d8421b091cbbfa846cade69dab",
+        "signature": "fc3fb17399cefdeab2d86fe612e958cbbd260f353bbf888ed9b2255446200a77"
       },
       "../src/core/trivia/question-type/question-type.module.ts": {
-        "version": "c43e4ddf4737706a71c486f5f7962890f17084e0f8f1b10546c7c136e5da54f6",
-        "signature": "7fcb7c8a6dd3fb82b356a973219039f63c1e36d3931e685d00feb75c6f3a839d"
+        "version": "1050edb3fceb14862b2a0ab9d3232e753578f75b769b5add5ee9d4dc3502f734",
+        "signature": "d0a9126b93afaafc4a26bb2d63e113e5bbe1e3a4dda8278149cd342916bdd8eb"
       },
       "../src/core/trivia/question/question.dto.ts": {
-        "version": "b8b363743038a891cb8bb15578e68f4b5be094f1e04ee9df9f132ccec4387f37",
-        "signature": "74bdcff3574a9ddc5015795d652e0966898ee97549e7922aff75606ea934f662"
+        "version": "be5b5f4baaeb75efc7a2440c4e3fc4fc37759aec60c046bc2099a529d35f9903",
+        "signature": "b9b02b7c26c91c2305632a574342d5f7573606d12a167834e3060ddf4e1ab632"
       },
       "../src/core/trivia/question/question.service.ts": {
-        "version": "e278f1954d8e7e1d87e93768c8bae82e14af5b1d766666d615c63e56fec0aaaa",
-        "signature": "abf777d98fe0cb203a8a19bd35f376d476655a7d72346925a205520b925aea89"
+        "version": "8f70c6b129ae61c5b8ec98701f4885ae2df33edd161775ac4386e823ac958e2f",
+        "signature": "9264b99a1ef964a9a792183f9b11b5efdbf8992670288c62e6eef26bd2f91dd1"
       },
       "../src/core/trivia/question/question.controller.ts": {
-        "version": "02a20e923937836a3ad0039cbdda0713937d319df40f391fb0a0d293b86af9af",
-        "signature": "f6c9da47692646be82b03308a6c42af84caa1a3d6a2fa313e1b91deabff2e1aa"
+        "version": "75f544873f9f9448efa6f673c5f4a2cf4d7aabf62888e8e5770057642665dd90",
+        "signature": "7bdab6ec6893c30a3f67556f195a6851701fb046e4648e0b5b5a8cd95980935d"
       },
       "../src/core/trivia/question/question.module.ts": {
-        "version": "1446c5ecc4f40503013f370f0ee1c4fac70a3b6c81eb21afdb97dca11c827739",
-        "signature": "1b867860095e230758cbe5acf3e680b526d348bbe7581eaac1b68464d115c003"
+        "version": "055809a89d7603fd0cd873901c7c47e02aed8c306a8085805f72387c4efc5ebd",
+        "signature": "c25803029ad2bba7b81a981487ef26779c727cfd0a29c4a42f8e6122cf72b5e3"
       },
       "../src/core/trivia/target/target.dto.ts": {
-        "version": "2a1a45b390f25b6288dc276458b940aed5f524eb2fc5b25c0a8fc29780e585fe",
-        "signature": "2066263e6e7905b7b90ce75bf64c9887adc3bdf3f6f990fdeca7d85e2302151d"
+        "version": "f899949f5657a329bdd88976b891c5bef8915cbfe009cfde4753c7cb0ce47c41",
+        "signature": "73bd643700086e7cef0be28a0cf1cfb1734f68c9fdc403679e7dea6b2f9a421d"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "5ec8e75ccdd7404759429e0f044e2d75b2132fba37b4660d68006d1e047e3548",
-        "signature": "72a542a13287fd68c24e23f0b6ccca45a035afeaee734d260404430ba4f029a1"
+        "version": "44d9d4562f75d93e2da37271d02d4459092d5fc8419b5b534017cefbe6c220f1",
+        "signature": "43a8ba4f9264dae28907c4a6030f1cbeb86013bc595e182671946c1c9df0bf7f"
       },
       "../src/core/trivia/target/target.controller.ts": {
-        "version": "e1988d9900da0d158c67e747eb78aa44075626ec7e8f01436cfc403f047c0f45",
-        "signature": "ade657d99be9eb7348a289d345349a2d0668ab7c7d5e5e92375f17eed8f41aba"
+        "version": "5fac1cdec3d7b84b8b35e5cc2f17579b3446a6fb39e5da0465101f7f96b82126",
+        "signature": "badf883d33e2ca44355ea5350f1159933ebcaf4ff38345a9d232b56ef10f1022"
       },
       "../src/core/trivia/target/target.module.ts": {
-        "version": "05ce8bd615e82f61e4b0b55cac1d1baed131c399f802f4efa26f45ab0e1eb6a3",
-        "signature": "a9f1e3527e4d5289a2f6bfd9f48fd6cbcb0596a819c548db428607b70c4c3979"
+        "version": "cd5af73097e2cf27e80a80125c107efa4497da8e515163f246b68dff7b7a1102",
+        "signature": "7a7e7365d97bfe93ae930d00901117c97e94d6333ae0e12111a427200f69e7d6"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
-        "version": "60f32696dead288c51a59458254fd55e7b4c36882ec24657c7d1661923525166",
-        "signature": "6bf2635dabdeb1f1df6f69905c425dc7bccfe6c0162a5cd6cf10af0345dccc6c"
+        "version": "22d2d533e73f7c52c7b00eaec1a9287fdbec36407ebb4b8164f624a2883bb5f1",
+        "signature": "89e66d35e85474d727bed505efdd5ff583f8a6c45b4e3aaddcef197d75d6027d"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "6ed43ca3c174bd7f979c613b635e004d4618eb4d8567a7d1a893e228a2df2ed2",
-        "signature": "4282f51275b50913d0aecb7b93f9acbdd660591f205eb5145591cc5dc89560fb"
+        "version": "c831a594207e5e0f6c92f9e555e887d5cb8e9e7affa6822bb7684b0348db2ee4",
+        "signature": "ce57d7032886ab5cb25640d1a54ddd005c28d8e0cd04301ffc5cfd7e0f07b565"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
-        "version": "bb4d2cee4caaaae54fcc80fb2d675d7860bacc98e8dad72ef5caeb1cf0a9adad",
-        "signature": "84e30f72ea602e69e347a2943b0e8f3509e605643094f71a94c3d65431de5b6a"
+        "version": "fe4b6aaafaf817543156094e9c73c8b7d386b06f859a7a432f22158efaadcce8",
+        "signature": "5a1dec6bc893a04fa0260be3c90cedcdc339965bbbbf9c980c6f61259f092d55"
       },
       "../src/core/trivia/campaing/campaing.module.ts": {
-        "version": "554f0b60aa8401ab0eb2b620ebc36975c5d78859aadf308304bfe513f10421c7",
-        "signature": "096590002ba2e296e3fe15631b6521cd0566916899dff77610bc5b9243fe0197"
+        "version": "a396211f62057e87bed10c5cdf429936a68556bb1c79f917f82714c428048294",
+        "signature": "7ec1bedac1d1f24d9afa32027dfae5398e6095bedb22fb6f2816a8401238a024"
       },
       "../src/core/trivia/quizz/quizz.dto.ts": {
-        "version": "40260afc2cb18582e505120f4b064fe0b76510ec0714efe4d4fe7a837b2783fe",
-        "signature": "f31fd0275d67472e1a1ebf137d85455687d36186be1d79752fc21b09327deecc"
+        "version": "07ca6a6e5c55939be8a70255aa1f053a4f8dac0dba41b94be070a17b63b0793a",
+        "signature": "1168480d63d7b9bb9701e87d626e06049f1f82f81ee5c7877afeb3302826297f"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "cbdaacad09ad16935ad8d3b9ad5042eced3d647c99e84414ef0c5f25fcd275fd",
-        "signature": "0fe55fff24364dd5708133bf394feb0dd5276f7080f067c7b7a50217d1e813c4"
+        "version": "04f130e1851cfae97e96d8fbae2716d74eaef881d0030c9515ac58c373d7d32b",
+        "signature": "eaf88a232413be4340735a2985b6ef27eb6c07fde7a8f3024951271fe92c8a40"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
-        "version": "878b9bb68dab052fc7149f0cf32e6eabdfd7f83a51966cadce1b92e67e6124e1",
-        "signature": "b83b06db3e0018a93838ef33c9f54e4874fd89a32487c7f156170e3225f80723"
+        "version": "cdc282ccc2317f1f2655f31e72918f9274d6342920090663f0f929b656a5bcea",
+        "signature": "7ac22d4ecd0c528a9cba727d6a1824082d288954c63e291e7355b29e606e2583"
       },
       "../src/core/trivia/quizz/quizz.module.ts": {
-        "version": "df0e8970c94061edbeaf2b3d0eb206fceea7c4d02afc0178c5911c27be08ecf2",
-        "signature": "65a1e69bc14f9443411ec1689c620617f07cc0557b9fd82a51099f061ab8072a"
+        "version": "24f5ed5b098fa341a706aa45d47f153813dd487cb881a9ff56a6909a8016890a",
+        "signature": "01ee21917bfd565b64d9eb636a010550dacad907819599308dfeeb2c0f3d25f2"
       },
       "../node_modules/aws-sdk/lib/error.d.ts": {
         "version": "7f342dd49c8f5d894018ca14c1ec820991bbb3a25daa78c924961e2a61775c85",
@@ -3598,16 +3598,16 @@
         "signature": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f"
       },
       "../src/upload/upload.service.ts": {
-        "version": "1e7a2b9e26e9ce0c8788a594265fb6aa13578006e49969b1d4f791d68b818fc9",
-        "signature": "9e5b4c1fd00c96b0fd937d0fd45521c74868b9c3a2d250d97e0bee65afe113c3"
+        "version": "b106f4e5a4952e999d64461ba0817766774c0abdafd121d11ed888607867f63e",
+        "signature": "046a0e6d3dccd27e2817c4e1e16226a4df7369d884c48a321c8485f8ddccc26e"
       },
       "../src/upload/upload.controller.ts": {
-        "version": "71fd2b57cec01be76208df514a49f4642d3f3e69bf46db362b36b05b1933922c",
-        "signature": "be1bec136ad7c82f657353ddd86de9b9243152643eaf366c62a1a50569bd9f98"
+        "version": "51dd1a1e564b54560cc72db3aa518fe32f50d3236a0ed77c34ec930699221ca7",
+        "signature": "4e9ed7c36c5cc194e1eb4fdd5966a53e6f2f3ce1e7b84dff11ff21839ef47981"
       },
       "../src/upload/upload.module.ts": {
         "version": "dc1d488c9967d9f49a2c9d473c4e93ff496c1ab7b8e05ead7e6dc5bfe70b90cc",
-        "signature": "0130e2f523b9ad920910011643cf7e5876a950a8af3fc82366d12f070c44bc49"
+        "signature": "b5e94c01a086c2c0bdc1098fa2e4b7b1003a2cd5116062d4ed00cd2a8fbd84fb"
       },
       "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts": {
         "version": "f34f2abdc8078aa7279133b6ac92a2d23851f977dbfc2aad267681b15466a23f",
@@ -3898,116 +3898,116 @@
         "signature": "9ad98983f52f7d10e86b8bdcc8cefa46fad862710ba8c20cae5a7ac6bfaecedf"
       },
       "../src/core/users/notification/notification.dto.ts": {
-        "version": "3662a5fc8b62d1854b3d98fefc55a7dffa2d1ab3a2a0ccc656dec22d6cf4008a",
-        "signature": "f0bfc5bde1a78509da469d6ca293d6eaf5893d62c3385d62510b4f486e04a053"
+        "version": "69fd768de2c8ed4d0fdf33b6ad9890f46cc4481711f1389657517f1f42df27d4",
+        "signature": "cc446f196a5511168f28ff030bd2e7f645d02dfa59b575220ea60c00d4f97a2c"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "1ce9577264d331b4d2528ea2b78ee1c580a21b433ba8513f8aa642d73df508e5",
-        "signature": "13c57d2d9cfa767d33a67485c51e69eead661c5f9279a63f77a0fc85eec7a749"
+        "version": "83dfbef2e29eb237d217fac38c9e715bbdcdb51ebc575dcf09e6dfbe1aa26090",
+        "signature": "df6617e51fd7c1d543bd455502eb18914ec6fb98b9b7f6d29de0cb54a42fe3fd"
       },
       "../src/core/users/notification/notification.controller.ts": {
-        "version": "88b63c9509865d46412fe1d18c5f99d976b2b399a99079ae5d6bf0e6b3d6f698",
-        "signature": "935ca916626ef9dbb40f3db477c76304879f5921d0ec2ede592ae1e52d10335b"
+        "version": "cfdbe59e66039c78686f8a7e43360302ea73511aff696515f4fccd517eda4c86",
+        "signature": "032c5d63a575cc097c8ea945b6881a02d46d89a40bcc07728da5e608adb9ff2d"
       },
       "../src/core/users/notification/notification.module.ts": {
-        "version": "7743ac3eb1e1f42030f1b7b17f5f67ca51d4a0c120a9c907e6cc71c9701ef0f5",
-        "signature": "2bb936018a74923d7e1f44f4c3bd52b4d450b5bea6e50a082dc89c85d6a6caf4"
+        "version": "d94aea1b4d11cec73e7211d51401da406995e09b46f2b7efd7e2583653dd610c",
+        "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e"
       },
       "../src/core/users/sesion/sesion.dto.ts": {
-        "version": "b3a51a561c68b0901f7c580805d7208f664fe9b548d6f74258052657dc1f12ac",
-        "signature": "d998618322d4dc03b11bce039b3441d4a83c4f7eea456f5cced035101f0224b1"
+        "version": "3fe71e94cb92e9b287ecd84d414157386743dd7ee049ad5c45389db6dfac9107",
+        "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "2384f0d9b454e27244241d805753941bd4cdc681549ceef6aea4ec4ab7cc0b8a",
-        "signature": "835997860716829919d20327998d6250d5672933c25dfd5395d3a96bdbbaa905"
+        "version": "9e09eb25af4ca8a71c34c14179eea7fdad3a9a26af3cf85e24028d2f8fae6473",
+        "signature": "994c93da56b46f19ea549d8e5de9a693950a0f88056fab425799e7258d547dfe"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
-        "version": "c5101e48fcfb5042a66094e829378601fb28e527f7a13e516abd3d38dafd9377",
-        "signature": "c3223939a7be96cddfa138b0140c56607be2a1d9e1dc3441a204fca6afef2cc6"
+        "version": "c01f49dca86ac241176e5388df989e17b6ca473978a8db2643e5bf357e3a1e8e",
+        "signature": "72b464e64c0c528e96f5ee9baaf68ebfc26e07da70d1b55677d7e717ad7a5a46"
       },
       "../src/core/users/sesion/sesion.module.ts": {
-        "version": "02a4b73d8d68b38a30f2d3e2c81acfc4d84706debd9d39b0b77c94bc9231242d",
-        "signature": "62995955a284eb1d74974c158a7e0d14d3b71b992f889b33e82d45506074474a"
+        "version": "f4209afbcfba3dc13542eaf79df059fc0d245395a0fc4e8535c8dece3f7eb910",
+        "signature": "d5df43fd1c2452f3ab45975fad5d1d8bd29a6e648705db45ea65ad80fa256b60"
       },
       "../node_modules/dotenv/types/index.d.ts": {
         "version": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528",
         "signature": "c9ae0b351a07b52f29a28e869d8c7c8d29743bbb5eeddc7c0b5b2a69a2450528"
       },
       "../src/config/config.service.ts": {
-        "version": "f682113a6f8a793383bc4d902fd77e4529f7fab2dccce28d0587f9c198bd9562",
-        "signature": "c94a098d1fc8c64642a18eca445a0762ac16fe323d507e1b779420024e1a92ea"
+        "version": "84275663e83bf83a3a8acf0b924d268124d3ccdaa2c43daaf61d55fc8662fca6",
+        "signature": "fa3fbedfb9842257b2e3538bb2a693e2c74387e4966492e1c787362e1fd8e0c1"
       },
       "../src/config/config.module.ts": {
-        "version": "8f95845667f212d8b46ab26bb39406bd228bb45d8da11a1f77f877b4f714dbcb",
-        "signature": "ffade0409a282999ad0e1c1fecd4c0010a2aff097bdcc44ec192014ba167e447"
+        "version": "f406693fe37e0c66c3a661c88c2ecf694e9608c45b68bdfa63093a9059df767b",
+        "signature": "57875529e29eaf2f3fc6bbd50d92f271595480ba5962575d809d84a3c6ddcb6b"
       },
       "../src/core/users/configuration/configuration.dto.ts": {
-        "version": "ed8a3496b5f805b1899e0e2c4f0c38b6dc2e0aef4ec6a7cc5d73d64adf5bfa21",
-        "signature": "32e24af925596d6c1f00e1875655df63c6536855d2950d26e0b1fb8ea875d36a"
+        "version": "fc034475829daa6628fc5822d365afb90710f8da724c93383c27909da2eebcfe",
+        "signature": "32398b787c06747e6d3af0b4dcf52d0224ee9da74c3edef137557109b6ae77d2"
       },
       "../src/core/users/configuration/configuration.service.ts": {
-        "version": "e3f7dfd9190ddce6601dfe00d3704e82e1a45a87a105db48e6c3e4616c96cd3b",
-        "signature": "5b8a54fa6acf27486bd541ed566b3099e6b4d3cf8cdd013acee189fc4dd47394"
+        "version": "cd5590a95672c4ec094b50c86785e8a34b9ee411621f79ec61825285377618eb",
+        "signature": "93747eb5aa87b07960d9f69dd68386f39c1c1ab6784a6284bb725523f4dc4100"
       },
       "../src/core/users/configuration/configuration.controller.ts": {
-        "version": "163353d8765ce132b723ebf7d0e5e8187cee15cadca519fdccd1c4da6799950d",
-        "signature": "a6c8bbeaabb33719356e0934306f6969379637af19fe1eb93c4e0378fa3219ca"
+        "version": "114f6e184d8d32bd03eb1c770496f34676ce26f840a8d7f21ee678bdd6521393",
+        "signature": "f9826d6b8bc31d1c06d5bd020c25c3af05a40e1dd464d22be4a3b17793afdd15"
       },
       "../src/core/users/configuration/configuration.module.ts": {
-        "version": "327b2839378be93da8f512a89e4cdce51dc49c1463d097dd445325306149f16a",
-        "signature": "991cf7c61ff09f1a4ec0cd52ca5d8062aeedd9bf0a1428fe4dc236afbcd20e9d"
+        "version": "f5eac8888cd746dbdd71948e9dcac79abd6bbf6eacc54c7d21b0f1e0a026b243",
+        "signature": "2d631c508278bf35c8c19284367858e10ca49f18175af57f285fed3c3a69f4b2"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts": {
-        "version": "8aa165d50f0016cc01a7efb075c8cde6e19848a16ebea56fc8f5da510e69a222",
-        "signature": "12852073ea2744dd21850f5f689d4df123e65f514f0ec700d3d258ab6498a319"
+        "version": "df434c05acfe0a1d3e231508e2c338b55bc59677702d20ec36650bee3c106959",
+        "signature": "aa57d9e6196c3e5a96d56eacd9e6b999c53d393eaa1cf964f88888d17280ed21"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts": {
-        "version": "9b8ffbcff03646df1ed890297534d9831bde083532d70677001310a1d2f55f8f",
-        "signature": "b485b1fa1259a10e72c82f2bb010ad128458c810fa16586262aaac416ad1f475"
+        "version": "dbba8d8a9fbca7c5706a577d599d5c836d24c539a15fa6419f0f2095e2a4f205",
+        "signature": "3242fa56dee2965e9dc3f0d315ad1719f09b632c28da7973b95f1989d524c838"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts": {
-        "version": "142c9296347ebd01eaae72fcf8a2def42d87aa600dca953a316b298ebcc48650",
-        "signature": "af47ab3534749edfe95b4595b843190c42df4214ee818ef247710e123b8d41ed"
+        "version": "83e29699ae12e0094c48923bfba5f26caeba836a305c9ba64953ccf52cb4d783",
+        "signature": "87eb42b58cf3564b6a1f14b8fd1f7b9f1ad875349c3ebf5ef7b6d95911a2c836"
       },
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts": {
-        "version": "d6dbc18fe3f1b0be95f18886fba243cac56dd630fcfde88c2a072556f5fd7ab9",
-        "signature": "3cee8e41cfb1a423ccc3f45f8b90f4101706ce3ba37442512b60f94c87cb8d2f"
+        "version": "d1a7549d6187bbe23ab88e28ca41b88594721231c1d5cfd86d9fc35938900f60",
+        "signature": "931007c4634c7facf1ef2ecfbe745b00b97185c268647ec114c8be764657f5ee"
       },
       "../src/core/content/message/message.dto.ts": {
-        "version": "719d42b443bb4db242a68339e25ffbec81d26d804bd6440abfc533ee16bff10e",
-        "signature": "56bb39b8429c226f7c96e5303a97436a7b4aa467eec0b53dd9b0fcf31b1f81bb"
+        "version": "d74f17164eb0687e8a6c84a6efdc162367a4b87078b21579dca148fe4e224347",
+        "signature": "1af3f99da4d5ddd84e618fd09cb355cc522dc18093aaeb6c23cb3523174d816e"
       },
       "../src/core/content/message/message.service.ts": {
-        "version": "793981fdc8c747bc3f7a5f0636073e7ca67a28460be35db55baca715da577252",
-        "signature": "f2da7a90329af9eb11cc2aeaeff8744e522b9f4bfcaa70b3588c880ac0010bca"
+        "version": "9f7dc46262a977a31573e411ed4fed86a3ad5920ec4f1686e70880fe15d97f66",
+        "signature": "bab7335e6c32c35dfeede21d1999dd1405e58dfc720a730c50db755ff12472a4"
       },
       "../src/core/content/message/message.controller.ts": {
-        "version": "31156030df74116e831d735e20312109b247b3d896d1887d38adf7df70094b87",
-        "signature": "96a770e900bda61fc8ef0675ce140b498bc87856bb5b2e769015898462e6d403"
+        "version": "8fc7a16aa2a4f82229df6b4a7667e375cd70c208445b4a32083c8d3a3fd2e6ac",
+        "signature": "e7947354a6d21b700f5e29a3ea1a2006869ef39e7006222c1b8d817bea925dd3"
       },
       "../src/core/content/message/message.module.ts": {
-        "version": "29d009ec5538c8d9341d6a77811892700ec6c031746407f331edc21c01d4103b",
-        "signature": "63ca8fb67a0d5d4a1e896622186a8ea2035fe36b99c36abd44dbe6074e5b1a21"
+        "version": "c789f94d7cc853fb903cd2fbd8e60dc51e768fdee72ed7d821b70d17f3dc1afa",
+        "signature": "6f3ad4d6feae0a27bd7a0529297a3ebcefcfde9fd8db76261760888377768037"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts": {
-        "version": "84784ad51309831adf1d4795f846502f7ac5166ed55a5978ce1320373ac9b652",
-        "signature": "5bf836f2cde509a4c71abaa5c724aa4b33d2766c174b8e6c3cf59e31c89ef740"
+        "version": "baf63ce4d37a22b64e544c8417540305d563c5f09f3527adc2c8548bc04f716b",
+        "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "ee9fa8291c9b6645eb615d42042b0af5de40167d1089f0332de822aa8486536f",
-        "signature": "318fa97db0b5de28ac8a9aa7cce1c7b45d0daa75875852a8472a08087fd1afd1"
+        "version": "f713140bc3107a38d042699f3e5a3905fe03eb9735e1d48e9db10c158758cf10",
+        "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
-        "version": "5ad0addf695ea9e88cb12ee6407af3786c800d35b32cba6a87b8b5b4b2c4f3d4",
-        "signature": "5b67e037e8429671835ebbe0aea77da174c6f09dc7f306278899f4ac22795125"
+        "version": "93d72c2313fcbfc402cb1862a4b358adcd0e8a5f57f2466dab55fdcb255b4502",
+        "signature": "2a22876d3d7948b41724000670e5c28d3030192faf63ecd314d75b88a556c3a6"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
-        "version": "6cf653142c60749f6906a712f5441ca643172071325527e25a8fe5137da42ec1",
-        "signature": "0ff1daa6364a376bcd0f636b56c8454aa266fb6cac8087e86effdb6daa0296f6"
+        "version": "10a902da82db5e2177eeed5ca7aee62268447fe171d721d849abbbd065e25091",
+        "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
       },
       "../src/app.module.ts": {
-        "version": "c4db8ba1b8d42f25311f79efffae0a7cc810d2c4bacdeb14bee7a826617b8cab",
-        "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88"
+        "version": "5c0d27cfa48b448f021c1590a1d007e33fbe6bc6d4e53af8a69b8c080ce72cbc",
+        "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
         "version": "db3b4b2c9508013aecea8aafa90e968d3a389744d3b3c637921ff8f06c1a5c89",
@@ -4146,20 +4146,20 @@
         "signature": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768"
       },
       "../src/main.ts": {
-        "version": "99075b07479222dd3d066a33b78d9b8a8a1a284821155f169e540a520b81771b",
-        "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
+        "version": "bf6f103ee525f06c8f66abbd1a423660edd7a4211d6c1e8595429a162164e198",
+        "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
       "../src/core/trivia/points-type/points-type.controller.ts": {
-        "version": "097acb5360a9c458b65df73abeba6ae96f199d0096dac8d092b2d5dc0383dce6",
-        "signature": "6da750591e90afb395c5ec425d23a26f90e7e442e5c799d0e106c036bacdd5e6"
+        "version": "86c89d82a952a7b01c3c482569b88811b1d258d923e75dd78928e1914cbdb0dd",
+        "signature": "bd9e1bd03ef10d0fc35259f74381f772d0e2a0aef8a2611c46538ab034cff0a6"
       },
       "../src/core/trivia/points-type/points-type.service.ts": {
-        "version": "dc4f29967c81fd24f16cdaea0b5636774eedbf1e3894dc4af781b177575e464f",
-        "signature": "b7609c97d094715df745ba95367add157474dd41baa52aaa8274b61bb5fba8e5"
+        "version": "b78e447a035f32cdbd7905f9389c9fbb7a519d1d216b446d2d0d696bc80ae6f5",
+        "signature": "d576c332f2a0d5a544407516ed23a29053811b8fd8cc0622d8defec288e5f0a8"
       },
       "../src/core/trivia/points-type/points-type.module.ts": {
-        "version": "26ff1f109882df73684df7ded890dda295a41f82d0282b6829173ae3d8388922",
-        "signature": "4b054e2f994b8f035efb5a734a4c2a8b4a87ea42805ebbb912f07d3c3ba997b6"
+        "version": "499996063eda75c085386322a9313896078473d3b92f841a39acdaf784256114",
+        "signature": "3afb153335a43faab26645561d27f4a562f5e440c96219331b74222d890492df"
       },
       "../node_modules/@types/babel-types/index.d.ts": {
         "version": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27",
@@ -8017,6 +8017,9 @@
         "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/role/role.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
+        "../src/core/trivia/campaing/campaing.entity.ts",
         "../src/core/users/sesion/sesion.entity.ts",
         "../src/core/users/configuration/configuration.entity.ts",
         "../src/core/users/user/user.dto.ts",
@@ -8048,6 +8051,9 @@
         "../src/core/users/role/role.entity.ts",
         "../src/core/users/sesion/sesion.entity.ts",
         "../src/core/users/configuration/configuration.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../src/core/trivia/campaing/campaing.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15488,6 +15494,9 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/user/user.entity.ts",
         "../node_modules/@nest-modules/mailer/dist/index.d.ts",
+        "../src/core/trivia/campaing/campaing.entity.ts",
+        "../src/core/trivia/quizz/quizz.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
         "../src/core/users/token/token.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
@@ -19460,7 +19469,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -19504,6 +19512,7 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
+      "../src/core/trivia/campaing/campaing.service.ts",
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
@@ -19925,7 +19934,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/campaing/campaing.service.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

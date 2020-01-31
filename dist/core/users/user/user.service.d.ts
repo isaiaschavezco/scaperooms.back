@@ -7,6 +7,9 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
+import { Quizz } from '../../trivia/quizz/quizz.entity';
+import { Target } from '../../trivia/target/target.entity';
+import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
@@ -14,6 +17,9 @@ import { MailerService } from '@nest-modules/mailer';
 export declare class UserService {
     private userRepository;
     private readonly mailerService;
+    private campaingRepository;
+    private quizzRepository;
+    private targetRepository;
     private tokenRepository;
     private typeRepository;
     private chainRepository;
@@ -23,7 +29,7 @@ export declare class UserService {
     private roleRepository;
     private sesionRepository;
     private configurationRepository;
-    constructor(userRepository: Repository<User>, mailerService: MailerService, tokenRepository: Repository<Token>, typeRepository: Repository<Type>, chainRepository: Repository<Chain>, positionRepository: Repository<Position>, stateRepository: Repository<City>, cityRepository: Repository<Delegation>, roleRepository: Repository<Role>, sesionRepository: Repository<Sesion>, configurationRepository: Repository<Configuration>);
+    constructor(userRepository: Repository<User>, mailerService: MailerService, campaingRepository: Repository<Campaing>, quizzRepository: Repository<Quizz>, targetRepository: Repository<Target>, tokenRepository: Repository<Token>, typeRepository: Repository<Type>, chainRepository: Repository<Chain>, positionRepository: Repository<Position>, stateRepository: Repository<City>, cityRepository: Repository<Delegation>, roleRepository: Repository<Role>, sesionRepository: Repository<Sesion>, configurationRepository: Repository<Configuration>);
     invite(request: InviteUserDTO): Promise<number>;
     findAll(): Promise<any>;
     confirmPassword(requestDTO: ConfirmUserPassword): Promise<any>;
