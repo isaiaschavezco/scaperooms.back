@@ -259,9 +259,22 @@ export class UserService {
             .orWhere("target.type = :type", { type: 1 })
             //.orWhere("target.chain = :chain", { chain: 0 })
             .select("id")
-            .innerJoinAndSelect("id", "photo", "photo.isRemoved = :isRemoved", { isRemoved: false })
+            //.innerJoinAndSelect("target.camaping", "camaping", "campaing.id = :isRemoved", { isRemoved: false })
 
             .getRawMany();
+            // select quizz."id" from
+            // (
+            //     select campaing."id" from
+            //     (
+            //         select id
+            //         from "Trivia".target as target
+            //         where 18 between target."initAge" and target."finalAge"
+            //         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
+            //     ) as filter
+            //     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
+            // ) as campaing
+            // inner join "Trivia".quizz as quizz
+            // on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
 
             console.log("Quizz:", ans);
             // const userExist = await this.userRepository.findOne({
