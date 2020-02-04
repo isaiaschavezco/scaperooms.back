@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "707e176cd34f2343c06a29d3ae462abe1260ed8ce9408e98d891e5d5e7ede7f2",
+        "version": "3ae180a8763db0e18ae1525b95fe8cdce3cc133f1fb867e87bcefeb767271b9c",
         "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -19469,8 +19469,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19882,7 +19880,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19934,7 +19931,10 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

@@ -245,17 +245,20 @@ let UserService = class UserService {
             console.log("User->", createNAOSUserDTO);
             const ans = yield this.targetRepository.createQueryBuilder("target")
                 .select("target.id", "id")
-                .printSql()
                 .where("target.allUsers")
                 .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
                 .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
                 .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
                 .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
                 .orWhere("target.type = :type", { type: 1 })
-                .select("id")
-                .innerJoinAndSelect("id", "photo", "photo.isRemoved = :isRemoved", { isRemoved: false })
+                .innerJoinAndSelect("target.campaing", "campaing")
+                .innerJoinAndSelect("campaing.quizz", "quizz")
+                .where("quizz.isActive")
+                .orWhere("quizz.isSend")
+                .select("quizz.id", "quizzId")
                 .getRawMany();
             console.log("Quizz:", ans);
+            response = { status: 0 };
             return response;
         });
     }
