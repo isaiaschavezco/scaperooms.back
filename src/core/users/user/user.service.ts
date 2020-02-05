@@ -237,18 +237,18 @@ export class UserService {
     }
 
     async createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any> {
-        //try {
+        try {
 
             let response = {status:0};
             const userAge = this.getAge(createNAOSUserDTO.birthDate);
             console.clear();
             console.log("User->", createNAOSUserDTO);
             
-            // const quizz = await this.quizzRepository.find({
+            const quizz = await this.quizzRepository.find({
                 
-            // });
+            });
 
-            const ans = await this.targetRepository.createQueryBuilder("target")
+            const quizzes = await this.targetRepository.createQueryBuilder("target")
             .select("target.id", "id")
             .where("target.allUsers")
             .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
@@ -279,62 +279,71 @@ export class UserService {
             ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
             */
 
-            console.log("Quizz:", ans);
-            // const userExist = await this.userRepository.findOne({
-            //     where: { email: createNAOSUserDTO.email }
-            // });
+            let quizzesEntities = await this.quizzRepository.find({
+                select: ['id'],
+                where: {
+                    quizzes
+                }
+            });
+            console.log("Quizz:", quizzesEntities);
+            const userExist = await this.userRepository.findOne({
+                where: { email: createNAOSUserDTO.email }
+            });
 
-            // if (userExist) {
+            if (userExist) {
 
-            //     response = { status: 5 };
+                response = { status: 5 };
 
-            // } else {
+            } else {
 
-            //     const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
-            //     const userAge = this.getAge(createNAOSUserDTO.birthDate);
+                const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
+                const userAge = this.getAge(createNAOSUserDTO.birthDate);
 
-            //     const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
-            //     const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
-            //     const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
-            //     const userType = await this.typeRepository.findOne(1);
-            //     const userRole = await this.roleRepository.findOne(2);
+                const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
+                const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
+                const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
+                const userType = await this.typeRepository.findOne(1);
+                const userRole = await this.roleRepository.findOne(2);
 
-            //     let newUser = await this.userRepository.create({
-            //         name: createNAOSUserDTO.name,
-            //         lastName: createNAOSUserDTO.lastName,
-            //         photo: createNAOSUserDTO.photo,
-            //         birthDate: createNAOSUserDTO.birthDate,
-            //         gender: createNAOSUserDTO.gender,
-            //         phone: createNAOSUserDTO.phone,
-            //         email: createNAOSUserDTO.email,
-            //         nickname: createNAOSUserDTO.nickName,
-            //         password: userPassword,
-            //         position: naosPosition,
-            //         isActive: true,
-            //         city: userState,
-            //         delegation: userCity,
-            //         points: 0,
-            //         biodermaGamePoints: 0,
-            //         age: userAge,
-            //         type: userType,
-            //         role: userRole
-            //     });
+                let newUser = await this.userRepository.create({
+                    name: createNAOSUserDTO.name,
+                    lastName: createNAOSUserDTO.lastName,
+                    photo: createNAOSUserDTO.photo,
+                    birthDate: createNAOSUserDTO.birthDate,
+                    gender: createNAOSUserDTO.gender,
+                    phone: createNAOSUserDTO.phone,
+                    email: createNAOSUserDTO.email,
+                    nickname: createNAOSUserDTO.nickName,
+                    password: userPassword,
+                    position: naosPosition,
+                    isActive: true,
+                    city: userState,
+                    delegation: userCity,
+                    points: 0,
+                    biodermaGamePoints: 0,
+                    age: userAge,
+                    type: userType,
+                    role: userRole
+                });
 
-            //     await this.userRepository.save(newUser);
+                console.log("Save data");
+                
+                newUser.quizz = quizzesEntities;
+                newUser = await this.userRepository.save(newUser);
 
                  response = { status: 0 }
 
-            // }
+            }
 
              return response;
-        // } catch (err) {
-        //     console.log("UserService - createNAOS: ", err);
+        } catch (err) {
+            console.log("UserService - createNAOS: ", err);
 
-        //     throw new HttpException({
-        //         status: HttpStatus.INTERNAL_SERVER_ERROR,
-        //         error: 'Error creating NAOS user',
-        //     }, 500);
-        // }
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating NAOS user',
+            }, 500);
+        }
     }
 
     async createDrugStore(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any> {

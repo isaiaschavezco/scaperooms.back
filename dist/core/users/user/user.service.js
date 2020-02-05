@@ -239,27 +239,81 @@ let UserService = class UserService {
     }
     createNAOS(createNAOSUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
-            let response = { status: 0 };
-            const userAge = this.getAge(createNAOSUserDTO.birthDate);
-            console.clear();
-            console.log("User->", createNAOSUserDTO);
-            const ans = yield this.targetRepository.createQueryBuilder("target")
-                .select("target.id", "id")
-                .where("target.allUsers")
-                .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
-                .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
-                .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
-                .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
-                .orWhere("target.type = :type", { type: 1 })
-                .innerJoinAndSelect("target.campaing", "campaing")
-                .innerJoinAndSelect("campaing.quizz", "quizz")
-                .where("quizz.isActive")
-                .orWhere("quizz.isSend")
-                .select("quizz.id", "quizzId")
-                .getRawMany();
-            console.log("Quizz:", ans);
-            response = { status: 0 };
-            return response;
+            try {
+                let response = { status: 0 };
+                const userAge = this.getAge(createNAOSUserDTO.birthDate);
+                console.clear();
+                console.log("User->", createNAOSUserDTO);
+                const quizz = yield this.quizzRepository.find({});
+                const quizzes = yield this.targetRepository.createQueryBuilder("target")
+                    .select("target.id", "id")
+                    .where("target.allUsers")
+                    .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                    .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
+                    .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
+                    .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
+                    .orWhere("target.type = :type", { type: 1 })
+                    .innerJoinAndSelect("target.campaing", "campaing")
+                    .innerJoinAndSelect("campaing.quizz", "quizz")
+                    .where("quizz.isActive")
+                    .orWhere("quizz.isSend")
+                    .select("quizz.id", "quizzId")
+                    .getRawMany();
+                let quizzesEntities = yield this.quizzRepository.find({
+                    select: ['id'],
+                    where: {
+                        quizzes
+                    }
+                });
+                console.log("Quizz:", quizzesEntities);
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: createNAOSUserDTO.email }
+                });
+                if (userExist) {
+                    response = { status: 5 };
+                }
+                else {
+                    const userPassword = yield bcrypt.hash(createNAOSUserDTO.password, 12);
+                    const userAge = this.getAge(createNAOSUserDTO.birthDate);
+                    const naosPosition = yield this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
+                    const userState = yield this.stateRepository.findOne(createNAOSUserDTO.state);
+                    const userCity = yield this.cityRepository.findOne(createNAOSUserDTO.city);
+                    const userType = yield this.typeRepository.findOne(1);
+                    const userRole = yield this.roleRepository.findOne(2);
+                    let newUser = yield this.userRepository.create({
+                        name: createNAOSUserDTO.name,
+                        lastName: createNAOSUserDTO.lastName,
+                        photo: createNAOSUserDTO.photo,
+                        birthDate: createNAOSUserDTO.birthDate,
+                        gender: createNAOSUserDTO.gender,
+                        phone: createNAOSUserDTO.phone,
+                        email: createNAOSUserDTO.email,
+                        nickname: createNAOSUserDTO.nickName,
+                        password: userPassword,
+                        position: naosPosition,
+                        isActive: true,
+                        city: userState,
+                        delegation: userCity,
+                        points: 0,
+                        biodermaGamePoints: 0,
+                        age: userAge,
+                        type: userType,
+                        role: userRole
+                    });
+                    console.log("Save data");
+                    newUser.quizz = quizzesEntities;
+                    newUser = yield this.userRepository.save(newUser);
+                    response = { status: 0 };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - createNAOS: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error creating NAOS user',
+                }, 500);
+            }
         });
     }
     createDrugStore(createDrugStoreUserDTO) {
