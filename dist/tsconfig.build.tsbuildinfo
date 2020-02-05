@@ -3994,12 +3994,12 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "192d16356e0ee750108d0c74a94f1ceb2a9969058d4260b0b3a3887b674401e1",
-        "signature": "cab4296b6847dabd77da92f23a7b011647ba09e8c3880d545da350de2ce7fd76"
+        "version": "e33421c7ec1fc10ac658268bbfb0d6af7034ee298a4f277c2bd90896650dc0c0",
+        "signature": "1f03d21dfbc6b7af4b454bfca59bad0f31fb85251d9d6feb879aaef7daa0fb84"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
-        "version": "93d72c2313fcbfc402cb1862a4b358adcd0e8a5f57f2466dab55fdcb255b4502",
-        "signature": "2a22876d3d7948b41724000670e5c28d3030192faf63ecd314d75b88a556c3a6"
+        "version": "ec2b5fe0061c38ea590654fe30a05da583dd55a28cb9ae31d64f9fd11c30223f",
+        "signature": "ee601337c1e1d84409f9d4cb18b463d7e9a5c9e5350fd95152638d09fee4c502"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts": {
         "version": "10a902da82db5e2177eeed5ca7aee62268447fe171d721d849abbbd065e25091",
@@ -19845,6 +19845,7 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
+      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
@@ -19867,7 +19868,6 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
       "../src/app.module.ts",
@@ -19922,7 +19922,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/notification/notification.service.ts"
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts"
     ]
   },
   "version": "3.7.2"

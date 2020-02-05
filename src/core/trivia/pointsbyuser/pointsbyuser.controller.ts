@@ -12,4 +12,9 @@ export class PointsbyuserController {
         return await this.pointsbyuserService.getUserPointsHistory(getUserPointsHistory);
     }
 
+    @Get('campaing/:campaingId')
+    async getUserPointsHistoryByCampaing(@Param('campaingId') campaingId): Promise<any> {
+        return await this.pointsbyuserService.getUserPointsHistoryByCampaing(campaingId);
+    }
+
 }

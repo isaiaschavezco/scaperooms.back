@@ -51,13 +51,39 @@ let PointsbyuserService = class PointsbyuserService {
                         points: points.isAdded ? '+' + points.points : '-' + points.points,
                         createdAt: moment(points.createdAt).format('DD/MM/YYYY'),
                         pointsType: points.pointsType.name,
-                        name: points.pointsType.id !== 4 ? (points.quizz ? points.quizz.name : points.product.title) : 'ADMINITRACIÓN'
+                        name: points.pointsType.id !== 4 ? (points.quizz ? points.quizz.name : points.product.title) : 'ADMINISTRACIÓN'
                     });
                 });
                 return { points: pointsByUserToReturn };
             }
             catch (err) {
                 console.log("PointsbyuserService - getUserPointsHistory: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error getting points',
+                }, 500);
+            }
+        });
+    }
+    getUserPointsHistoryByCampaing(campaingId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let pointsByUserList = yield this.pointsbyuserRepository.createQueryBuilder("pobyus")
+                    .select("user.id", "id")
+                    .addSelect("user.name", "name")
+                    .addSelect("SUM(pobyus.points)", "totalPoints")
+                    .innerJoin("pobyus.user", "user")
+                    .leftJoin("pobyus.quizz", "quizz")
+                    .innerJoin("quizz.campaing", "cm", "cm.id = :campaingId", { campaingId: campaingId })
+                    .groupBy("user.id")
+                    .getRawMany();
+                pointsByUserList.sort(function (a, b) {
+                    return b.totalPoints - a.totalPoints;
+                });
+                return { points: pointsByUserList };
+            }
+            catch (err) {
+                console.log("PointsbyuserService - getUserPointsHistoryByCampaing: ", err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error getting points',

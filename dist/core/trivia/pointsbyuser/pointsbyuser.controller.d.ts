@@ -4,4 +4,5 @@ export declare class PointsbyuserController {
     private pointsbyuserService;
     constructor(pointsbyuserService: PointsbyuserService);
     getUserPointsHistory(getUserPointsHistory: GetUserPointsHistory): Promise<any>;
+    getUserPointsHistoryByCampaing(campaingId: any): Promise<any>;
 }
