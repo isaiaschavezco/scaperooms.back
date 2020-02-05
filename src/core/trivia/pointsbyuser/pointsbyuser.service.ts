@@ -56,6 +56,7 @@ export class PointsbyuserService {
             let pointsByUserList = await this.pointsbyuserRepository.createQueryBuilder("pobyus")
                 .select("user.id", "id")
                 .addSelect("user.name", "name")
+                .addSelect("user.lastName", "lastName")
                 .addSelect("SUM(pobyus.points)", "totalPoints")
                 .innerJoin("pobyus.user", "user")
                 .leftJoin("pobyus.quizz", "quizz")
