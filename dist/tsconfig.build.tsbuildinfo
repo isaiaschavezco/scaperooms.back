@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "858fa1de78589dff522dd66908ba8bba578c0b1ff9c3f6b4d4e0d6b3b9369131",
+        "version": "57e88ec5cfb395c2ad3c6d3f70ea777b8340d53817754e21ff8d74bacb14ab51",
         "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {

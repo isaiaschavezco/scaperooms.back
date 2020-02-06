@@ -242,9 +242,6 @@ let UserService = class UserService {
             try {
                 let response = { status: 0 };
                 const userAge = this.getAge(createNAOSUserDTO.birthDate);
-                console.clear();
-                console.log("User->", createNAOSUserDTO);
-                const quizz = yield this.quizzRepository.find({});
                 const quizzes = yield this.targetRepository.createQueryBuilder("target")
                     .select("target.id", "id")
                     .where("target.allUsers")
@@ -265,7 +262,6 @@ let UserService = class UserService {
                         quizzes
                     }
                 });
-                console.log("Quizz:", quizzesEntities);
                 const userExist = yield this.userRepository.findOne({
                     where: { email: createNAOSUserDTO.email }
                 });
@@ -300,7 +296,6 @@ let UserService = class UserService {
                         type: userType,
                         role: userRole
                     });
-                    console.log("Save data");
                     newUser.quizz = quizzesEntities;
                     newUser = yield this.userRepository.save(newUser);
                     response = { status: 0 };
@@ -359,6 +354,27 @@ let UserService = class UserService {
                         mayoralty: createDrugStoreUserDTO.mayoralty,
                         role: userRole
                     });
+                    const quizzes = yield this.targetRepository.createQueryBuilder("target")
+                        .select("target.id", "id")
+                        .where("target.allUsers")
+                        .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                        .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
+                        .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
+                        .orWhere("target.type = :type", { type: 2 })
+                        .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
+                        .innerJoinAndSelect("target.campaing", "campaing")
+                        .innerJoinAndSelect("campaing.quizz", "quizz")
+                        .where("quizz.isActive")
+                        .orWhere("quizz.isSend")
+                        .select("quizz.id", "quizzId")
+                        .getRawMany();
+                    let quizzesEntities = yield this.quizzRepository.find({
+                        select: ['id'],
+                        where: {
+                            quizzes
+                        }
+                    });
+                    newUser.quizz = quizzesEntities;
                     yield this.userRepository.save(newUser);
                     response = { status: 0 };
                 }

@@ -241,12 +241,6 @@ export class UserService {
 
             let response = {status:0};
             const userAge = this.getAge(createNAOSUserDTO.birthDate);
-            console.clear();
-            console.log("User->", createNAOSUserDTO);
-            
-            const quizz = await this.quizzRepository.find({
-                
-            });
 
             const quizzes = await this.targetRepository.createQueryBuilder("target")
             .select("target.id", "id")
@@ -285,13 +279,12 @@ export class UserService {
                     quizzes
                 }
             });
-            console.log("Quizz:", quizzesEntities);
+
             const userExist = await this.userRepository.findOne({
                 where: { email: createNAOSUserDTO.email }
             });
 
             if (userExist) {
-
                 response = { status: 5 };
 
             } else {
@@ -325,8 +318,6 @@ export class UserService {
                     type: userType,
                     role: userRole
                 });
-
-                console.log("Save data");
                 
                 newUser.quizz = quizzesEntities;
                 newUser = await this.userRepository.save(newUser);
@@ -396,6 +387,44 @@ export class UserService {
                     role: userRole
                 });
 
+                const quizzes = await this.targetRepository.createQueryBuilder("target")
+                .select("target.id", "id")
+                .where("target.allUsers")
+                .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
+                .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
+                .orWhere("target.type = :type", { type: 2 })
+                .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
+                .innerJoinAndSelect("target.campaing", "campaing")
+                .innerJoinAndSelect("campaing.quizz", "quizz")
+                .where("quizz.isActive")
+                .orWhere("quizz.isSend")
+                .select("quizz.id", "quizzId")
+                .getRawMany();
+                /*
+                ** select quizz."id" from
+                ** (
+                **     select campaing."id" from
+                **     (
+                **         select id
+                **         from "Trivia".target as target
+                **         where 18 between target."initAge" and target."finalAge"
+                **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
+                **     ) as filter
+                **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
+                ** ) as campaing
+                ** inner join "Trivia".quizz as quizz
+                ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
+                */
+    
+                let quizzesEntities = await this.quizzRepository.find({
+                    select: ['id'],
+                    where: {
+                        quizzes
+                    }
+                });
+
+                newUser.quizz = quizzesEntities;
                 await this.userRepository.save(newUser);
 
                 response = { status: 0 }
