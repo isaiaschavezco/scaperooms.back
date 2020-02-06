@@ -2526,7 +2526,7 @@
         "signature": "89e66d35e85474d727bed505efdd5ff583f8a6c45b4e3aaddcef197d75d6027d"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "73787334fcdfe61702b281745799413a37cc260b333210a71934f271efdb4f2f",
+        "version": "4032d12c476ccfe8c2398e6b75f0468d3f762f4e5b933bc710e0100aa3357c77",
         "signature": "ce57d7032886ab5cb25640d1a54ddd005c28d8e0cd04301ffc5cfd7e0f07b565"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -3994,7 +3994,7 @@
         "signature": "5e7fad8bd9a5533b180b8f3a27a663e80c8647eb48bfe9b8e703be0f50859421"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts": {
-        "version": "e33421c7ec1fc10ac658268bbfb0d6af7034ee298a4f277c2bd90896650dc0c0",
+        "version": "f9f753a865222de15f52b6f697df083b94a47edcf932d8835a75bdbf0d7c68e6",
         "signature": "1f03d21dfbc6b7af4b454bfca59bad0f31fb85251d9d6feb879aaef7daa0fb84"
       },
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts": {
@@ -19501,7 +19501,6 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
@@ -19868,6 +19867,7 @@
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
       "../src/app.module.ts",
@@ -19922,7 +19922,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts"
+      "../src/core/trivia/campaing/campaing.service.ts"
     ]
   },
   "version": "3.7.2"

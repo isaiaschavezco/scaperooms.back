@@ -141,30 +141,25 @@ let CampaingService = class CampaingService {
             try {
                 let campaingHistoryToReturn = [];
                 const campaingsList = yield this.campaingRepository.createQueryBuilder("cmp")
-                    .select(["cmp.id", "cmp.name", "cmp.createdAt", "cmp.isBiodermaGame", "quizz.id", "pobyus.id", "pobyus.points"])
-                    .leftJoin("cmp.quizz", "quizz")
-                    .leftJoin("quizz.user", "user", "user.email = :email", { email: requestDTO.email })
-                    .leftJoin("quizz.pointsbyuser", "pobyus")
-                    .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })
+                    .select("cmp.id", "id")
+                    .addSelect("cmp.name", "name")
+                    .addSelect("cmp.createdAt", "createdAt")
+                    .addSelect("cmp.isBiodermaGame", "isBiodermaGame")
+                    .addSelect("SUM(pobyus.points)", "totalPoints")
+                    .innerJoin("cmp.quizz", "quizz")
+                    .innerJoin("quizz.user", "user", "user.email = :email", { email: requestDTO.email })
+                    .innerJoin("quizz.pointsbyuser", "pobyus", "pobyus.user = user.id", {})
                     .groupBy("cmp.id")
-                    .addGroupBy("quizz.id")
-                    .addGroupBy("pobyus.id")
                     .skip(requestDTO.page * 20)
                     .take(20)
-                    .getMany();
+                    .getRawMany();
                 campaingsList.forEach(tempCamp => {
-                    let totalPoints = 0;
-                    tempCamp.quizz.forEach(tempQuizz => {
-                        tempQuizz.pointsbyuser.forEach(tempPointsByUser => {
-                            totalPoints += tempPointsByUser.points;
-                        });
-                    });
                     campaingHistoryToReturn.push({
                         id: tempCamp.id,
                         name: tempCamp.name,
                         createdAt: moment(tempCamp.createdAt).format('DD/MM/YYYY'),
                         isBiodermaGame: tempCamp.isBiodermaGame,
-                        points: totalPoints
+                        points: tempCamp.totalPoints
                     });
                 });
                 return { campaings: campaingHistoryToReturn };
