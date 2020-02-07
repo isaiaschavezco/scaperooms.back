@@ -58,7 +58,7 @@ let CampaingService = class CampaingService {
                 const campaingList = yield this.campaingRepository.find({
                     where: { isDeleted: false, isBiodermaGame: isBioderma },
                     order: { createdAt: 'DESC' },
-                    relations: ["target", "target.city", "target.chain", "target.position", "target.type"]
+                    relations: ["target", "target.city", "target.chain", "target.position", "target.type", "target.role"]
                 });
                 return campaingList;
             }

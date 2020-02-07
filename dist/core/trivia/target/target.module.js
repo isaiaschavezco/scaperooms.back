@@ -15,6 +15,7 @@ const city_entity_1 = require("../../users/city/city.entity");
 const chain_entity_1 = require("../../users/chain/chain.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const position_entity_1 = require("../../users/position/position.entity");
+const role_entity_1 = require("../../users/role/role.entity");
 let TargetModule = class TargetModule {
 };
 TargetModule = __decorate([
@@ -24,7 +25,8 @@ TargetModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([city_entity_1.City]),
             typeorm_1.TypeOrmModule.forFeature([chain_entity_1.Chain]),
             typeorm_1.TypeOrmModule.forFeature([type_entity_1.Type]),
-            typeorm_1.TypeOrmModule.forFeature([position_entity_1.Position])
+            typeorm_1.TypeOrmModule.forFeature([position_entity_1.Position]),
+            typeorm_1.TypeOrmModule.forFeature([role_entity_1.Role])
         ],
         providers: [target_service_1.TargetService],
         controllers: [target_controller_1.TargetController]

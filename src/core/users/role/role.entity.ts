@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { User } from '../user/user.entity';
+import { Target } from '../../trivia/target/target.entity';
 
 @Entity({ schema: 'Users' })
 export class Role {
@@ -12,5 +13,8 @@ export class Role {
 
     @OneToMany(type => User, user => user.role)
     user: User[];
+
+    @OneToMany(type => Target, target => target.role)
+    target: Target[];
 
 }

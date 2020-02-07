@@ -7,6 +7,7 @@ import { City } from '../../users/city/city.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Type } from '../../users/type/type.entity';
 import { Position } from '../../users/position/position.entity';
+import { Role } from '../../users/role/role.entity';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { Position } from '../../users/position/position.entity';
     TypeOrmModule.forFeature([City]),
     TypeOrmModule.forFeature([Chain]),
     TypeOrmModule.forFeature([Type]),
-    TypeOrmModule.forFeature([Position])
+    TypeOrmModule.forFeature([Position]),
+    TypeOrmModule.forFeature([Role])
   ],
   providers: [TargetService],
   controllers: [TargetController]

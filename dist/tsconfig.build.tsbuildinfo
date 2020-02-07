@@ -2217,17 +2217,17 @@
         "version": "f27f581ae656f11f0bfbb77d8b6ef7729c988fdc1696e6136cf31af1f3de8f48",
         "signature": "4c1f5f2ea974eabe0c3ce827079d30f0662336d6cd59e453d59005aa155587f8"
       },
+      "../src/core/users/role/role.entity.ts": {
+        "version": "3928b659b5d15b8c1a4a84629a4d718ea136e02ad7c72b37883174f6e8a8dc8e",
+        "signature": "cbf0191e0a09000d8d144e35100142081850e58747572e3d45b2a8fb069f3a27"
+      },
       "../src/core/trivia/target/target.entity.ts": {
-        "version": "678157caab54b2efb41e66f3f5fa75eb36e66ad2ed908f53a8738739edbd8373",
-        "signature": "237d9ed1b3b4d15b92d4955342fc589562988209ee85c948cd28e0a583ae287b"
+        "version": "597045abb1b60380187909b222475a5093b94341a5571ac4600955410ea9e21c",
+        "signature": "f3fdd6b6d63c3731a4e09cf3bca6e99001ef2f7d9bdb5fd4d5dfc829f002ee74"
       },
       "../src/core/users/type/type.entity.ts": {
         "version": "2e0e7787ef6583df557b96615dcc98afa0ed0ebb6622f2b01d656a42ca292251",
         "signature": "f8bbc026c56ff2f2bfbb9296dab10e526512bf40432eb21042ddfdd692e0a522"
-      },
-      "../src/core/users/role/role.entity.ts": {
-        "version": "2df159783e7cda0804361eff9cfa4d44176c4e4624c1711163a55122ddd9cec5",
-        "signature": "dcd7cfba129e7b3146b9ee289a3f0cb707b7a7116401764615e7af60d6465afa"
       },
       "../src/core/content/message/message.entity.ts": {
         "version": "23c6e33de347587320d0ef4aa6f8e0dc4960e4f7af42c6dadb0bdfe5f412c73f",
@@ -2510,15 +2510,15 @@
         "signature": "73bd643700086e7cef0be28a0cf1cfb1734f68c9fdc403679e7dea6b2f9a421d"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "44d9d4562f75d93e2da37271d02d4459092d5fc8419b5b534017cefbe6c220f1",
-        "signature": "43a8ba4f9264dae28907c4a6030f1cbeb86013bc595e182671946c1c9df0bf7f"
+        "version": "ec22c73381bc3406ab9c39e18a568cdff7704ba873630b659160435c85d1d971",
+        "signature": "3eb9773c74658c02942e25324071379de59936a0dce0e62b4be58bedc924b290"
       },
       "../src/core/trivia/target/target.controller.ts": {
         "version": "5fac1cdec3d7b84b8b35e5cc2f17579b3446a6fb39e5da0465101f7f96b82126",
         "signature": "badf883d33e2ca44355ea5350f1159933ebcaf4ff38345a9d232b56ef10f1022"
       },
       "../src/core/trivia/target/target.module.ts": {
-        "version": "cd5af73097e2cf27e80a80125c107efa4497da8e515163f246b68dff7b7a1102",
+        "version": "ef7353734f649d09c2d09319d8ddbf98eb7d1d53c45facc909d2562f3f28a6cd",
         "signature": "7a7e7365d97bfe93ae930d00901117c97e94d6333ae0e12111a427200f69e7d6"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
@@ -2526,7 +2526,7 @@
         "signature": "89e66d35e85474d727bed505efdd5ff583f8a6c45b4e3aaddcef197d75d6027d"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "4032d12c476ccfe8c2398e6b75f0468d3f762f4e5b933bc710e0100aa3357c77",
+        "version": "28f99ee7add55180b95a7ee983faae09afbd9adb428a693f7c723bbcc2d84b7f",
         "signature": "ce57d7032886ab5cb25640d1a54ddd005c28d8e0cd04301ffc5cfd7e0f07b565"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -2542,7 +2542,7 @@
         "signature": "1168480d63d7b9bb9701e87d626e06049f1f82f81ee5c7877afeb3302826297f"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "dcd1950f425e74df044c97e7591672c707e0002c166f38911785785c3cd2f1f3",
+        "version": "ad51fc015efaad5b71231f70c32ceb57857f947216d73ce229f3e5b91661c54e",
         "signature": "eaf88a232413be4340735a2985b6ef27eb6c07fde7a8f3024951271fe92c8a40"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -4160,6 +4160,10 @@
       "../src/core/trivia/points-type/points-type.module.ts": {
         "version": "499996063eda75c085386322a9313896078473d3b92f841a39acdaf784256114",
         "signature": "3afb153335a43faab26645561d27f4a562f5e440c96219331b74222d890492df"
+      },
+      "../src/migration/1581102603365-targetisadmin.ts": {
+        "version": "deee62a97dfa05fe3bd0bf3c4bc52642ca39513081e07a61367282398a079f96",
+        "signature": "a70d2d8d82ac3bae1218b87e9682fb53d08d152c3051913b9aab4eae8d8cede4"
       },
       "../node_modules/@types/babel-types/index.d.ts": {
         "version": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27",
@@ -7765,6 +7769,13 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/core/users/role/role.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/core/trivia/target/target.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/city/city.entity.ts",
@@ -7772,6 +7783,7 @@
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/trivia/campaing/campaing.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -7780,12 +7792,6 @@
         "../src/core/users/token/token.entity.ts",
         "../src/core/users/user/user.entity.ts",
         "../src/core/trivia/target/target.entity.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../src/core/users/role/role.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/core/users/user/user.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -8327,6 +8333,7 @@
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../src/core/trivia/target/target.dto.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -8349,6 +8356,7 @@
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11845,6 +11853,11 @@
         "../src/core/trivia/points-type/points-type.service.ts",
         "../src/core/trivia/points-type/points-type.controller.ts",
         "../src/core/trivia/points-type/points-type.entity.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/migration/1581102603365-targetisadmin.ts": [
+        "../node_modules/typeorm/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15403,20 +15416,22 @@
         "../src/core/trivia/quizz/quizz.entity.ts",
         "../src/core/trivia/target/target.entity.ts"
       ],
+      "../src/core/users/role/role.entity.ts": [
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/target/target.entity.ts"
+      ],
       "../src/core/trivia/target/target.entity.ts": [
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/type/type.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../src/core/trivia/campaing/campaing.entity.ts"
       ],
       "../src/core/users/type/type.entity.ts": [
         "../src/core/users/token/token.entity.ts",
         "../src/core/users/user/user.entity.ts",
         "../src/core/trivia/target/target.entity.ts"
-      ],
-      "../src/core/users/role/role.entity.ts": [
-        "../src/core/users/user/user.entity.ts"
       ],
       "../src/core/content/message/message.entity.ts": [
         "../src/core/users/user/user.entity.ts"
@@ -15573,6 +15588,7 @@
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
+        "../src/core/users/role/role.entity.ts",
         "../src/core/trivia/target/target.dto.ts"
       ],
       "../src/core/trivia/target/target.controller.ts": [
@@ -18800,6 +18816,9 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/migration/1581102603365-targetisadmin.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -19424,9 +19443,9 @@
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
       "../src/core/trivia/quizz/quizz.entity.ts",
       "../src/core/trivia/campaing/campaing.entity.ts",
+      "../src/core/users/role/role.entity.ts",
       "../src/core/trivia/target/target.entity.ts",
       "../src/core/users/type/type.entity.ts",
-      "../src/core/users/role/role.entity.ts",
       "../src/core/content/message/message.entity.ts",
       "../src/core/users/notification/notificacion.entity.ts",
       "../src/core/users/sesion/sesion.entity.ts",
@@ -19909,6 +19928,7 @@
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
+      "../src/migration/1581102603365-targetisadmin.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
       "../node_modules/@types/color-name/index.d.ts",

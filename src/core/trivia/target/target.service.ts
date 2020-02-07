@@ -6,6 +6,7 @@ import { City } from '../../users/city/city.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Type } from '../../users/type/type.entity';
 import { Position } from '../../users/position/position.entity';
+import { Role } from '../../users/role/role.entity';
 import { CreateTargetDTO, DeleteTargetDTO } from './target.dto';
 
 @Injectable()
@@ -15,7 +16,8 @@ export class TargetService {
         @InjectRepository(City) private cityRepository: Repository<City>,
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
-        @InjectRepository(Position) private positionRepository: Repository<Position>) { }
+        @InjectRepository(Position) private positionRepository: Repository<Position>,
+        @InjectRepository(Role) private roleRepository: Repository<Role>) { }
 
     async findAllTargets(): Promise<Target[]> {
         try {
@@ -45,8 +47,13 @@ export class TargetService {
             }
 
             let userTypeTargetData = null;
+            let userIsAdmin = null;
             if (createDTO.userType !== -1) {
-                userTypeTargetData = await this.typeRepository.findOne(createDTO.userType);
+                if (createDTO.userType == 3) {
+                    userIsAdmin = await this.roleRepository.findOne(1);
+                } else {
+                    userTypeTargetData = await this.typeRepository.findOne(createDTO.userType);
+                }
             }
 
             let naosPositionTargetData = null;
@@ -67,7 +74,8 @@ export class TargetService {
                 city: stateTargetData,
                 chain: chainTargetData,
                 position: naosPositionTargetData,
-                type: userTypeTargetData
+                type: userTypeTargetData,
+                role: userIsAdmin
             });
 
             const targetCreated = await this.targetRepository.save(newTarget);
@@ -81,7 +89,8 @@ export class TargetService {
                     chain: targetCreated.chain ? targetCreated.chain.name : null,
                     position: targetCreated.position ? targetCreated.position.name : null,
                     type: targetCreated.type ? targetCreated.type.name : null,
-                    allUsers: targetCreated.allUsers
+                    allUsers: targetCreated.allUsers,
+                    role: targetCreated.role ? targetCreated.role.name : null
                 }
             };
 

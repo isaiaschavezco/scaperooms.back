@@ -103,6 +103,8 @@ export class QuizzService {
     async send(sendQuizzDTO: SendQuizzDTO): Promise<any> {
         try {
 
+            console.log("sendQuizzDTO: ", sendQuizzDTO);
+
             let filterQueries = [];
             let notificationToAllUsers = false;
 

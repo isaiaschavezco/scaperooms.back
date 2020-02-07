@@ -36,7 +36,7 @@ export class CampaingService {
             const campaingList = await this.campaingRepository.find({
                 where: { isDeleted: false, isBiodermaGame: isBioderma },
                 order: { createdAt: 'DESC' },
-                relations: ["target", "target.city", "target.chain", "target.position", "target.type"]
+                relations: ["target", "target.city", "target.chain", "target.position", "target.type", "target.role"]
             });
             return campaingList;
         } catch (err) {

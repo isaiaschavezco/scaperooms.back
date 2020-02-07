@@ -29,13 +29,15 @@ const city_entity_1 = require("../../users/city/city.entity");
 const chain_entity_1 = require("../../users/chain/chain.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const position_entity_1 = require("../../users/position/position.entity");
+const role_entity_1 = require("../../users/role/role.entity");
 let TargetService = class TargetService {
-    constructor(targetRepository, cityRepository, chainRepository, typeRepository, positionRepository) {
+    constructor(targetRepository, cityRepository, chainRepository, typeRepository, positionRepository, roleRepository) {
         this.targetRepository = targetRepository;
         this.cityRepository = cityRepository;
         this.chainRepository = chainRepository;
         this.typeRepository = typeRepository;
         this.positionRepository = positionRepository;
+        this.roleRepository = roleRepository;
     }
     findAllTargets() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -64,8 +66,14 @@ let TargetService = class TargetService {
                     chainTargetData = yield this.chainRepository.findOne(createDTO.chain);
                 }
                 let userTypeTargetData = null;
+                let userIsAdmin = null;
                 if (createDTO.userType !== -1) {
-                    userTypeTargetData = yield this.typeRepository.findOne(createDTO.userType);
+                    if (createDTO.userType == 3) {
+                        userIsAdmin = yield this.roleRepository.findOne(1);
+                    }
+                    else {
+                        userTypeTargetData = yield this.typeRepository.findOne(createDTO.userType);
+                    }
                 }
                 let naosPositionTargetData = null;
                 if (createDTO.naosPosition !== -1) {
@@ -83,7 +91,8 @@ let TargetService = class TargetService {
                     city: stateTargetData,
                     chain: chainTargetData,
                     position: naosPositionTargetData,
-                    type: userTypeTargetData
+                    type: userTypeTargetData,
+                    role: userIsAdmin
                 });
                 const targetCreated = yield this.targetRepository.save(newTarget);
                 return {
@@ -96,7 +105,8 @@ let TargetService = class TargetService {
                         chain: targetCreated.chain ? targetCreated.chain.name : null,
                         position: targetCreated.position ? targetCreated.position.name : null,
                         type: targetCreated.type ? targetCreated.type.name : null,
-                        allUsers: targetCreated.allUsers
+                        allUsers: targetCreated.allUsers,
+                        role: targetCreated.role ? targetCreated.role.name : null
                     }
                 };
             }
@@ -133,7 +143,9 @@ TargetService = __decorate([
     __param(2, typeorm_1.InjectRepository(chain_entity_1.Chain)),
     __param(3, typeorm_1.InjectRepository(type_entity_1.Type)),
     __param(4, typeorm_1.InjectRepository(position_entity_1.Position)),
+    __param(5, typeorm_1.InjectRepository(role_entity_1.Role)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

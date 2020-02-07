@@ -3,6 +3,7 @@ import { Chain } from '../../users/chain/chain.entity';
 import { Position } from '../../users/position/position.entity';
 import { Type } from '../../users/type/type.entity';
 import { Campaing } from '../campaing/campaing.entity';
+import { Role } from '../../users/role/role.entity';
 export declare class Target {
     id: number;
     initAge: number;
@@ -13,5 +14,6 @@ export declare class Target {
     chain: Chain;
     position: Position;
     type: Type;
+    role: Role;
     campaing: Campaing[];
 }

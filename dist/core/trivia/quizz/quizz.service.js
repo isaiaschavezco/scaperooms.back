@@ -118,6 +118,7 @@ let QuizzService = class QuizzService {
     send(sendQuizzDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log("sendQuizzDTO: ", sendQuizzDTO);
                 let filterQueries = [];
                 let notificationToAllUsers = false;
                 let quizzToSend = yield this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
