@@ -109,7 +109,7 @@ export class QuizzService {
             let notificationToAllUsers = false;
 
             let quizzToSend = await this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
-                relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type"]
+                relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type", "campaing.target.role"]
             });
 
             // Se almacena fecha de inicio - fin de la trivia
@@ -150,6 +150,10 @@ export class QuizzService {
 
                 if (target.type !== null) {
                     tempTargetObject['type'] = target.type.id;
+                }
+
+                if (target.role !== null) {
+                    tempTargetObject['role'] = target.role.id;
                 }
 
                 if (Object.keys(tempTargetObject).length > 0) {

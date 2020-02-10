@@ -69,91 +69,96 @@ export class AnswerbyuserquizzService {
 
             // Init values
             let userAnswering = await this.userRepository.findOne({
+                select: ["id", "points", "biodermaGamePoints", "role"],
+                relations: ["role"],
                 where: { email: setUserAnswersByQuestion.email }
             });
 
-            const quizzAnswering = await this.quizzRepository.findOne(setUserAnswersByQuestion.quizzId, {
-                relations: ["campaing"]
-            });
+            if (userAnswering.role.id == 2) {
 
-            const userResponse = JSON.parse(setUserAnswersByQuestion.userResponse);
+                const quizzAnswering = await this.quizzRepository.findOne(setUserAnswersByQuestion.quizzId, {
+                    relations: ["campaing"]
+                });
 
-            // Se realiza registro de las respuestas del usuario
-            if (setUserAnswersByQuestion.isFirstQuestion) {
+                const userResponse = JSON.parse(setUserAnswersByQuestion.userResponse);
 
-                newAnswerByUser = this.answerbyuserquizzRepository.create({
-                    answer: JSON.stringify([{
+                // Se realiza registro de las respuestas del usuario
+                if (setUserAnswersByQuestion.isFirstQuestion) {
+
+                    newAnswerByUser = this.answerbyuserquizzRepository.create({
+                        answer: JSON.stringify([{
+                            questionId: setUserAnswersByQuestion.questionId,
+                            response: userResponse
+                        }]),
+                        points: setUserAnswersByQuestion.points,
+                        isActive: true,
+                        user: userAnswering,
+                        quizz: quizzAnswering
+                    });
+
+                } else {
+
+                    newAnswerByUser = await this.answerbyuserquizzRepository.findOne({
+                        where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
+                    });
+
+                    newAnswerByUser.points += setUserAnswersByQuestion.points;
+
+                    let userResponseToUpdate = JSON.parse(newAnswerByUser.answer);
+                    userResponseToUpdate.push({
                         questionId: setUserAnswersByQuestion.questionId,
                         response: userResponse
-                    }]),
-                    points: setUserAnswersByQuestion.points,
-                    isActive: true,
-                    user: userAnswering,
-                    quizz: quizzAnswering
-                });
+                    });
 
-            } else {
+                    newAnswerByUser.answer = JSON.stringify(userResponseToUpdate);
 
-                newAnswerByUser = await this.answerbyuserquizzRepository.findOne({
-                    where: { user: userAnswering, quizz: quizzAnswering, isActive: true }
-                });
+                    if (setUserAnswersByQuestion.isLastQuestion === true) {
 
-                newAnswerByUser.points += setUserAnswersByQuestion.points;
+                        newAnswerByUser.isActive = false;
 
-                let userResponseToUpdate = JSON.parse(newAnswerByUser.answer);
-                userResponseToUpdate.push({
-                    questionId: setUserAnswersByQuestion.questionId,
-                    response: userResponse
-                });
-
-                newAnswerByUser.answer = JSON.stringify(userResponseToUpdate);
-
-                if (setUserAnswersByQuestion.isLastQuestion === true) {
-
-                    newAnswerByUser.isActive = false;
+                    }
 
                 }
 
+                // Se almacena la respuesta del usuario
+                await this.answerbyuserquizzRepository.save(newAnswerByUser);
+
+                // Se realiza registro de los puntos obtenidos
+                if (setUserAnswersByQuestion.isFirstQuestion) {
+
+                    const quizzPointsType = await this.pointsTypeRepository.findOne(quizzAnswering.campaing.isBiodermaGame ? 2 : 1);
+
+                    newPointsByUSer = this.pointsbyuserRepository.create({
+                        points: setUserAnswersByQuestion.points,
+                        isAdded: true,
+                        isDeleted: false,
+                        user: userAnswering,
+                        quizz: quizzAnswering,
+                        pointsType: quizzPointsType
+                    });
+
+                } else {
+
+                    newPointsByUSer = await this.pointsbyuserRepository.findOne({
+                        where: { user: userAnswering.id, quizz: quizzAnswering.id }
+                    });
+
+                    newPointsByUSer.points += setUserAnswersByQuestion.points;
+
+                }
+
+                await this.pointsbyuserRepository.save(newPointsByUSer);
+
+                // Se actualiza el puntaje del jugador 
+                if (quizzAnswering.campaing.isBiodermaGame) {
+                    userAnswering.biodermaGamePoints += setUserAnswersByQuestion.points;
+                } else {
+                    userAnswering.points += setUserAnswersByQuestion.points;
+                }
+
+                await this.userRepository.save(userAnswering);
+
             }
-
-            // Se almacena la respuesta del usuario
-            await this.answerbyuserquizzRepository.save(newAnswerByUser);
-
-            // Se realiza registro de los puntos obtenidos
-            if (setUserAnswersByQuestion.isFirstQuestion) {
-
-                const quizzPointsType = await this.pointsTypeRepository.findOne(quizzAnswering.campaing.isBiodermaGame ? 2 : 1);
-
-                newPointsByUSer = this.pointsbyuserRepository.create({
-                    points: setUserAnswersByQuestion.points,
-                    isAdded: true,
-                    isDeleted: false,
-                    user: userAnswering,
-                    quizz: quizzAnswering,
-                    pointsType: quizzPointsType
-                });
-
-            } else {
-
-                newPointsByUSer = await this.pointsbyuserRepository.findOne({
-                    where: { user: userAnswering.id, quizz: quizzAnswering.id }
-                });
-
-                newPointsByUSer.points += setUserAnswersByQuestion.points;
-
-            }
-
-            await this.pointsbyuserRepository.save(newPointsByUSer);
-
-            // Se actualiza el puntaje del jugador 
-            if (quizzAnswering.campaing.isBiodermaGame) {
-                userAnswering.biodermaGamePoints += setUserAnswersByQuestion.points;
-            } else {
-                userAnswering.points += setUserAnswersByQuestion.points;
-            }
-
-            await this.userRepository.save(userAnswering);
-
 
             return { status: 0 };
 
