@@ -148,9 +148,11 @@ export class ProductService {
 
                 await this.userRepository.save(userBuying);
 
+                let mailList = [userBuying.email, 'app@bioderma.mx'];
+
                 // Falta enviar correo de confirmación a Bioderma
                 await this.mailerService.sendMail({
-                    to: userBuying.email,
+                    to: mailList.join(),
                     subject: 'Confirmación de productos.',
                     template: 'cart',
                     context: {

@@ -114,9 +114,34 @@ let SubmenuService = class SubmenuService {
                 });
             });
             if (menuId == 2) {
-                listToReturn.sort(function (a, b) {
-                    return a.id - b.id;
+                let orderedList = [{}, {}, {}, {}, {}, {}, {}];
+                listToReturn.forEach(tempFile => {
+                    switch (tempFile.id) {
+                        case 10:
+                            orderedList[0] = tempFile;
+                        case 11:
+                            orderedList[1] = tempFile;
+                            break;
+                        case 12:
+                            orderedList[2] = tempFile;
+                            break;
+                        case 9:
+                            orderedList[3] = tempFile;
+                            break;
+                        case 14:
+                            orderedList[4] = tempFile;
+                            break;
+                        case 13:
+                            orderedList[5] = tempFile;
+                            break;
+                        case 15:
+                            orderedList[6] = tempFile;
+                            break;
+                        default:
+                            break;
+                    }
                 });
+                listToReturn = orderedList.slice();
             }
             if (menuId == 1) {
                 let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}];

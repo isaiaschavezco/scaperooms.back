@@ -2398,7 +2398,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "9fcb96ea63db780dd4137e4e8643bba67c7709bb5bc90f9ed8eff347b1d4b556",
+        "version": "bc55d0a12b6f4dff7c4129056bb8c454da1aeb6e79685ce96bf695b94efc046c",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
@@ -2414,7 +2414,7 @@
         "signature": "6b5623ad9a73caa0910abb663f34c11b62fbce8926a6fa1f9e171cd36edd70cc"
       },
       "../src/core/content/product/product.service.ts": {
-        "version": "045e5e9d809cac0b27dc43aeab78d36594bc8a7bf96ce280c920ef66f26b2c38",
+        "version": "c63cbf83cfd44728159d4ce7f869be184f30689abd2a43e6d28832f6041b7c28",
         "signature": "6f066dd1c996c51d821bb64a7303b5db24ff843068900b7f042d64d38271d51a"
       },
       "../src/core/content/product/product.controller.ts": {
@@ -19488,7 +19488,6 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
-      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19879,6 +19878,7 @@
       "../src/core/users/configuration/configuration.controller.ts",
       "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
@@ -19942,7 +19942,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts"
+      "../src/core/content/submenu/submenu.service.ts"
     ]
   },
   "version": "3.7.2"

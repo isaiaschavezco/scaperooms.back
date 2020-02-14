@@ -149,8 +149,9 @@ let ProductService = class ProductService {
                     }
                     userBuying.points -= totalPoints;
                     yield this.userRepository.save(userBuying);
+                    let mailList = [userBuying.email, 'app@bioderma.mx'];
                     yield this.mailerService.sendMail({
-                        to: userBuying.email,
+                        to: mailList.join(),
                         subject: 'Confirmación de productos.',
                         template: 'cart',
                         context: {
