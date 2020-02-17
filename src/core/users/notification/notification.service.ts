@@ -9,6 +9,7 @@ import { User } from '../user/user.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { CreateNotificationDTO } from './notification.dto';
 import * as moment from 'moment-timezone';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class NotificationService {
@@ -124,103 +125,122 @@ export class NotificationService {
     async send(sendRequest: CreateNotificationDTO) {
         try {
 
-            let filterQueries = [];
-            let userIds = [];
-            let playerIds = [];
-            let notificationToAllUsers = false;
+            let response = { status: 0 };
 
-            let newNotification = await this.notificationRepository.create({
-                content: sendRequest.content,
-                header: sendRequest.title,
-                createdAt: moment().tz('America/Mexico_City').format()
+            const userExist = await this.userRepository.findOne({
+                where: { email: sendRequest.email },
+                select: ["id", "name", "email", "password"]
             });
 
-            const notificationTargets = await this.targetRepository.findByIds(sendRequest.targets, {
-                relations: ["city", "chain", "position", "type"]
-            });
+            if (userExist) {
+                const match = await bcrypt.compare(sendRequest.password, userExist.password);
 
-            notificationTargets.forEach(target => {
+                if (match) {
+                    let filterQueries = [];
+                    let userIds = [];
+                    let playerIds = [];
+                    let notificationToAllUsers = false;
 
-                let tempTargetObject = {};
+                    let newNotification = await this.notificationRepository.create({
+                        content: sendRequest.content,
+                        header: sendRequest.title,
+                        createdAt: moment().tz('America/Mexico_City').format()
+                    });
 
-                //Notificaciones a todos los usuarios
-                if (target.allUsers) {
-                    notificationToAllUsers = true;
+                    const notificationTargets = await this.targetRepository.findByIds(sendRequest.targets, {
+                        relations: ["city", "chain", "position", "type"]
+                    });
+
+                    notificationTargets.forEach(target => {
+
+                        let tempTargetObject = {};
+
+                        //Notificaciones a todos los usuarios
+                        if (target.allUsers) {
+                            notificationToAllUsers = true;
+                        }
+
+                        //Notificaciones por filtro
+                        if (target.initAge !== null) {
+                            tempTargetObject['age'] = Between(target.initAge, target.finalAge);
+                        }
+
+                        if (target.gender !== null) {
+                            tempTargetObject['gender'] = target.gender;
+                        }
+
+                        if (target.chain !== null) {
+                            tempTargetObject['chain'] = target.chain.id;
+                        }
+
+                        if (target.city !== null) {
+                            tempTargetObject['city'] = target.city.id;
+                        }
+
+                        if (target.position !== null) {
+                            tempTargetObject['position'] = target.position.id;
+                        }
+
+                        if (target.type !== null) {
+                            tempTargetObject['type'] = target.type.id;
+                        }
+
+                        if (Object.keys(tempTargetObject).length > 0) {
+                            filterQueries.push(tempTargetObject);
+                        }
+                    });
+
+                    let usersToSend;
+
+                    if (notificationToAllUsers) {
+                        usersToSend = await this.userRepository.find({
+                            select: ["id"]
+                        });
+                    } else {
+                        usersToSend = await this.userRepository.find({
+                            select: ["id"],
+                            where: filterQueries
+                        });
+                    }
+
+                    newNotification.user = usersToSend;
+
+                    await this.notificationRepository.save(newNotification);
+
+                    usersToSend.forEach(user => {
+                        userIds.push(user.id);
+                    });
+
+                    // console.log("userIds: ", userIds);
+
+                    const activeSessions = await this.sesionRepository.find({
+                        user: In(userIds)
+                    });
+
+                    activeSessions.forEach(sesion => {
+                        if (sesion.playerId) {
+                            playerIds.push(sesion.playerId);
+                        }
+                    });
+
+                    const input = new NotificationByDeviceBuilder()
+                        .setIncludePlayerIds(playerIds)
+                        .notification() // .email()
+                        .setHeadings({ en: sendRequest.title })
+                        .setContents({ en: sendRequest.content })
+                        .build();
+
+                    await this.oneSignalService.createNotification(input);
+
+                } else {
+                    response = { status: 2 };
                 }
 
-                //Notificaciones por filtro
-                if (target.initAge !== null) {
-                    tempTargetObject['age'] = Between(target.initAge, target.finalAge);
-                }
-
-                if (target.gender !== null) {
-                    tempTargetObject['gender'] = target.gender;
-                }
-
-                if (target.chain !== null) {
-                    tempTargetObject['chain'] = target.chain.id;
-                }
-
-                if (target.city !== null) {
-                    tempTargetObject['city'] = target.city.id;
-                }
-
-                if (target.position !== null) {
-                    tempTargetObject['position'] = target.position.id;
-                }
-
-                if (target.type !== null) {
-                    tempTargetObject['type'] = target.type.id;
-                }
-
-                if (Object.keys(tempTargetObject).length > 0) {
-                    filterQueries.push(tempTargetObject);
-                }
-            });
-
-            let usersToSend;
-
-            if (notificationToAllUsers) {
-                usersToSend = await this.userRepository.find({
-                    select: ["id"]
-                });
             } else {
-                usersToSend = await this.userRepository.find({
-                    select: ["id"],
-                    where: filterQueries
-                });
+                response = { status: 1 };
             }
 
-            newNotification.user = usersToSend;
-
-            await this.notificationRepository.save(newNotification);
-
-            usersToSend.forEach(user => {
-                userIds.push(user.id);
-            });
-
-            // console.log("userIds: ", userIds);
-
-            const activeSessions = await this.sesionRepository.find({
-                user: In(userIds)
-            });
-
-            activeSessions.forEach(sesion => {
-                if (sesion.playerId) {
-                    playerIds.push(sesion.playerId);
-                }
-            });
-
-            const input = new NotificationByDeviceBuilder()
-                .setIncludePlayerIds(playerIds)
-                .notification() // .email()
-                .setHeadings({ en: sendRequest.title })
-                .setContents({ en: sendRequest.content })
-                .build();
-
-            await this.oneSignalService.createNotification(input);
-
-            return { status: 0 };
+            return response;
         } catch (err) {
             console.log("NotificationService - send: ", err);
 

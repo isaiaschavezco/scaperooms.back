@@ -31,6 +31,7 @@ const target_entity_1 = require("../../trivia/target/target.entity");
 const user_entity_1 = require("../user/user.entity");
 const sesion_entity_1 = require("../sesion/sesion.entity");
 const moment = require("moment-timezone");
+const bcrypt = require("bcrypt");
 let NotificationService = class NotificationService {
     constructor(oneSignalService, notificationRepository, targetRepository, userRepository, sesionRepository) {
         this.oneSignalService = oneSignalService;
@@ -133,78 +134,94 @@ let NotificationService = class NotificationService {
     send(sendRequest) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let filterQueries = [];
-                let userIds = [];
-                let playerIds = [];
-                let notificationToAllUsers = false;
-                let newNotification = yield this.notificationRepository.create({
-                    content: sendRequest.content,
-                    header: sendRequest.title,
-                    createdAt: moment().tz('America/Mexico_City').format()
+                let response = { status: 0 };
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: sendRequest.email },
+                    select: ["id", "name", "email", "password"]
                 });
-                const notificationTargets = yield this.targetRepository.findByIds(sendRequest.targets, {
-                    relations: ["city", "chain", "position", "type"]
-                });
-                notificationTargets.forEach(target => {
-                    let tempTargetObject = {};
-                    if (target.allUsers) {
-                        notificationToAllUsers = true;
+                if (userExist) {
+                    const match = yield bcrypt.compare(sendRequest.password, userExist.password);
+                    if (match) {
+                        let filterQueries = [];
+                        let userIds = [];
+                        let playerIds = [];
+                        let notificationToAllUsers = false;
+                        let newNotification = yield this.notificationRepository.create({
+                            content: sendRequest.content,
+                            header: sendRequest.title,
+                            createdAt: moment().tz('America/Mexico_City').format()
+                        });
+                        const notificationTargets = yield this.targetRepository.findByIds(sendRequest.targets, {
+                            relations: ["city", "chain", "position", "type"]
+                        });
+                        notificationTargets.forEach(target => {
+                            let tempTargetObject = {};
+                            if (target.allUsers) {
+                                notificationToAllUsers = true;
+                            }
+                            if (target.initAge !== null) {
+                                tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
+                            }
+                            if (target.gender !== null) {
+                                tempTargetObject['gender'] = target.gender;
+                            }
+                            if (target.chain !== null) {
+                                tempTargetObject['chain'] = target.chain.id;
+                            }
+                            if (target.city !== null) {
+                                tempTargetObject['city'] = target.city.id;
+                            }
+                            if (target.position !== null) {
+                                tempTargetObject['position'] = target.position.id;
+                            }
+                            if (target.type !== null) {
+                                tempTargetObject['type'] = target.type.id;
+                            }
+                            if (Object.keys(tempTargetObject).length > 0) {
+                                filterQueries.push(tempTargetObject);
+                            }
+                        });
+                        let usersToSend;
+                        if (notificationToAllUsers) {
+                            usersToSend = yield this.userRepository.find({
+                                select: ["id"]
+                            });
+                        }
+                        else {
+                            usersToSend = yield this.userRepository.find({
+                                select: ["id"],
+                                where: filterQueries
+                            });
+                        }
+                        newNotification.user = usersToSend;
+                        yield this.notificationRepository.save(newNotification);
+                        usersToSend.forEach(user => {
+                            userIds.push(user.id);
+                        });
+                        const activeSessions = yield this.sesionRepository.find({
+                            user: typeorm_2.In(userIds)
+                        });
+                        activeSessions.forEach(sesion => {
+                            if (sesion.playerId) {
+                                playerIds.push(sesion.playerId);
+                            }
+                        });
+                        const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
+                            .setIncludePlayerIds(playerIds)
+                            .notification()
+                            .setHeadings({ en: sendRequest.title })
+                            .setContents({ en: sendRequest.content })
+                            .build();
+                        yield this.oneSignalService.createNotification(input);
                     }
-                    if (target.initAge !== null) {
-                        tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
+                    else {
+                        response = { status: 2 };
                     }
-                    if (target.gender !== null) {
-                        tempTargetObject['gender'] = target.gender;
-                    }
-                    if (target.chain !== null) {
-                        tempTargetObject['chain'] = target.chain.id;
-                    }
-                    if (target.city !== null) {
-                        tempTargetObject['city'] = target.city.id;
-                    }
-                    if (target.position !== null) {
-                        tempTargetObject['position'] = target.position.id;
-                    }
-                    if (target.type !== null) {
-                        tempTargetObject['type'] = target.type.id;
-                    }
-                    if (Object.keys(tempTargetObject).length > 0) {
-                        filterQueries.push(tempTargetObject);
-                    }
-                });
-                let usersToSend;
-                if (notificationToAllUsers) {
-                    usersToSend = yield this.userRepository.find({
-                        select: ["id"]
-                    });
                 }
                 else {
-                    usersToSend = yield this.userRepository.find({
-                        select: ["id"],
-                        where: filterQueries
-                    });
+                    response = { status: 1 };
                 }
-                newNotification.user = usersToSend;
-                yield this.notificationRepository.save(newNotification);
-                usersToSend.forEach(user => {
-                    userIds.push(user.id);
-                });
-                const activeSessions = yield this.sesionRepository.find({
-                    user: typeorm_2.In(userIds)
-                });
-                activeSessions.forEach(sesion => {
-                    if (sesion.playerId) {
-                        playerIds.push(sesion.playerId);
-                    }
-                });
-                const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
-                    .setIncludePlayerIds(playerIds)
-                    .notification()
-                    .setHeadings({ en: sendRequest.title })
-                    .setContents({ en: sendRequest.content })
-                    .build();
-                yield this.oneSignalService.createNotification(input);
-                return { status: 0 };
+                return response;
             }
             catch (err) {
                 console.log("NotificationService - send: ", err);

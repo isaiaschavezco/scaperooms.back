@@ -3898,11 +3898,11 @@
         "signature": "9ad98983f52f7d10e86b8bdcc8cefa46fad862710ba8c20cae5a7ac6bfaecedf"
       },
       "../src/core/users/notification/notification.dto.ts": {
-        "version": "69fd768de2c8ed4d0fdf33b6ad9890f46cc4481711f1389657517f1f42df27d4",
-        "signature": "cc446f196a5511168f28ff030bd2e7f645d02dfa59b575220ea60c00d4f97a2c"
+        "version": "2ee8cd2ee497082ac749cdfb0644670c38594eb2bede5a49487336092366c3cc",
+        "signature": "eb98bfc652a7867ae5666d6bd59b85cea6f34ce403f1708fc27506eb11ef5ffe"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "f1affe87a2c0dd55f46cb9f7e8808531a0a487f678aea1ed233cec0200034629",
+        "version": "74fe345dfb852a20b71265c2105dfa1dda2c53b49aa29a01a63d71a0c322adb5",
         "signature": "df6617e51fd7c1d543bd455502eb18914ec6fb98b9b7f6d29de0cb54a42fe3fd"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -19488,6 +19488,7 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19863,9 +19864,7 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
-      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
-      "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
       "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
@@ -19942,7 +19941,8 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/submenu/submenu.service.ts"
+      "../src/core/users/notification/notification.service.ts",
+      "../src/core/users/notification/notification.module.ts"
     ]
   },
   "version": "3.7.2"
