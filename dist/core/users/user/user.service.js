@@ -32,6 +32,9 @@ const city_entity_1 = require("../city/city.entity");
 const delegation_entity_1 = require("../delegation/delegation.entity");
 const position_entity_1 = require("../position/position.entity");
 const role_entity_1 = require("../role/role.entity");
+const quizz_entity_1 = require("../../trivia/quizz/quizz.entity");
+const target_entity_1 = require("../../trivia/target/target.entity");
+const campaing_entity_1 = require("../../trivia/campaing/campaing.entity");
 const sesion_entity_1 = require("../sesion/sesion.entity");
 const configuration_entity_1 = require("../configuration/configuration.entity");
 const mailer_1 = require("@nest-modules/mailer");
@@ -39,9 +42,12 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 let UserService = class UserService {
-    constructor(userRepository, mailerService, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository, roleRepository, sesionRepository, configurationRepository) {
+    constructor(userRepository, mailerService, campaingRepository, quizzRepository, targetRepository, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository, roleRepository, sesionRepository, configurationRepository) {
         this.userRepository = userRepository;
         this.mailerService = mailerService;
+        this.campaingRepository = campaingRepository;
+        this.quizzRepository = quizzRepository;
+        this.targetRepository = targetRepository;
         this.tokenRepository = tokenRepository;
         this.typeRepository = typeRepository;
         this.chainRepository = chainRepository;
@@ -234,7 +240,28 @@ let UserService = class UserService {
     createNAOS(createNAOSUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = null;
+                let response = { status: 0 };
+                const userAge = this.getAge(createNAOSUserDTO.birthDate);
+                const quizzes = yield this.targetRepository.createQueryBuilder("target")
+                    .select("target.id", "id")
+                    .where("target.allUsers")
+                    .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                    .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
+                    .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
+                    .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
+                    .orWhere("target.type = :type", { type: 1 })
+                    .innerJoinAndSelect("target.campaing", "campaing")
+                    .innerJoinAndSelect("campaing.quizz", "quizz")
+                    .where("quizz.isActive")
+                    .orWhere("quizz.isSend")
+                    .select("quizz.id", "quizzId")
+                    .getRawMany();
+                let quizzesEntities = yield this.quizzRepository.find({
+                    select: ['id'],
+                    where: {
+                        quizzes
+                    }
+                });
                 const userExist = yield this.userRepository.findOne({
                     where: { email: createNAOSUserDTO.email }
                 });
@@ -269,7 +296,8 @@ let UserService = class UserService {
                         type: userType,
                         role: userRole
                     });
-                    yield this.userRepository.save(newUser);
+                    newUser.quizz = quizzesEntities;
+                    newUser = yield this.userRepository.save(newUser);
                     response = { status: 0 };
                 }
                 return response;
@@ -326,6 +354,27 @@ let UserService = class UserService {
                         mayoralty: createDrugStoreUserDTO.mayoralty,
                         role: userRole
                     });
+                    const quizzes = yield this.targetRepository.createQueryBuilder("target")
+                        .select("target.id", "id")
+                        .where("target.allUsers")
+                        .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                        .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
+                        .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
+                        .orWhere("target.type = :type", { type: 2 })
+                        .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
+                        .innerJoinAndSelect("target.campaing", "campaing")
+                        .innerJoinAndSelect("campaing.quizz", "quizz")
+                        .where("quizz.isActive")
+                        .orWhere("quizz.isSend")
+                        .select("quizz.id", "quizzId")
+                        .getRawMany();
+                    let quizzesEntities = yield this.quizzRepository.find({
+                        select: ['id'],
+                        where: {
+                            quizzes
+                        }
+                    });
+                    newUser.quizz = quizzesEntities;
                     yield this.userRepository.save(newUser);
                     response = { status: 0 };
                 }
@@ -702,17 +751,23 @@ let UserService = class UserService {
 UserService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(user_entity_1.User)),
-    __param(2, typeorm_1.InjectRepository(token_entity_1.Token)),
-    __param(3, typeorm_1.InjectRepository(type_entity_1.Type)),
-    __param(4, typeorm_1.InjectRepository(chain_entity_1.Chain)),
-    __param(5, typeorm_1.InjectRepository(position_entity_1.Position)),
-    __param(6, typeorm_1.InjectRepository(city_entity_1.City)),
-    __param(7, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
-    __param(8, typeorm_1.InjectRepository(role_entity_1.Role)),
-    __param(9, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
-    __param(10, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
+    __param(2, typeorm_1.InjectRepository(campaing_entity_1.Campaing)),
+    __param(3, typeorm_1.InjectRepository(quizz_entity_1.Quizz)),
+    __param(4, typeorm_1.InjectRepository(target_entity_1.Target)),
+    __param(5, typeorm_1.InjectRepository(token_entity_1.Token)),
+    __param(6, typeorm_1.InjectRepository(type_entity_1.Type)),
+    __param(7, typeorm_1.InjectRepository(chain_entity_1.Chain)),
+    __param(8, typeorm_1.InjectRepository(position_entity_1.Position)),
+    __param(9, typeorm_1.InjectRepository(city_entity_1.City)),
+    __param(10, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
+    __param(11, typeorm_1.InjectRepository(role_entity_1.Role)),
+    __param(12, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
+    __param(13, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         mailer_1.MailerService,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

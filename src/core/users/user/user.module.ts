@@ -12,10 +12,16 @@ import { Delegation } from '../delegation/delegation.entity';
 import { Role } from '../role/role.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
+import { Quizz } from '../../trivia/quizz/quizz.entity';
+import { Campaing } from '../../trivia/campaing/campaing.entity';
+import { Target } from '../../trivia/target/target.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([Campaing]),
+    TypeOrmModule.forFeature([Quizz]),
+    TypeOrmModule.forFeature([Target]),
     TypeOrmModule.forFeature([Token]),
     TypeOrmModule.forFeature([Type]),
     TypeOrmModule.forFeature([Chain]),

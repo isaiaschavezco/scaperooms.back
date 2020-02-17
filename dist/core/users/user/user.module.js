@@ -20,12 +20,18 @@ const delegation_entity_1 = require("../delegation/delegation.entity");
 const role_entity_1 = require("../role/role.entity");
 const sesion_entity_1 = require("../sesion/sesion.entity");
 const configuration_entity_1 = require("../configuration/configuration.entity");
+const quizz_entity_1 = require("../../trivia/quizz/quizz.entity");
+const campaing_entity_1 = require("../../trivia/campaing/campaing.entity");
+const target_entity_1 = require("../../trivia/target/target.entity");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
+            typeorm_1.TypeOrmModule.forFeature([campaing_entity_1.Campaing]),
+            typeorm_1.TypeOrmModule.forFeature([quizz_entity_1.Quizz]),
+            typeorm_1.TypeOrmModule.forFeature([target_entity_1.Target]),
             typeorm_1.TypeOrmModule.forFeature([token_entity_1.Token]),
             typeorm_1.TypeOrmModule.forFeature([type_entity_1.Type]),
             typeorm_1.TypeOrmModule.forFeature([chain_entity_1.Chain]),

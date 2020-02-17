@@ -9,6 +9,9 @@ import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
 import { Position } from '../position/position.entity';
 import { Role } from '../role/role.entity';
+import { Quizz } from '../../trivia/quizz/quizz.entity';
+import { Target } from '../../trivia/target/target.entity';
+import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
@@ -22,6 +25,9 @@ export class UserService {
 
     constructor(@InjectRepository(User) private userRepository: Repository<User>,
         private readonly mailerService: MailerService,
+        @InjectRepository(Campaing) private campaingRepository: Repository<Campaing>,
+        @InjectRepository(Quizz) private quizzRepository: Repository<Quizz>,
+        @InjectRepository(Target) private targetRepository: Repository<Target>,
         @InjectRepository(Token) private tokenRepository: Repository<Token>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
@@ -233,14 +239,52 @@ export class UserService {
     async createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any> {
         try {
 
-            let response = null;
+            let response = {status:0};
+            const userAge = this.getAge(createNAOSUserDTO.birthDate);
+
+            const quizzes = await this.targetRepository.createQueryBuilder("target")
+            .select("target.id", "id")
+            .where("target.allUsers")
+            .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+            .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
+            .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
+            .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
+            .orWhere("target.type = :type", { type: 1 })
+            //.orWhere("target.chain = :chain", { chain: 0 })
+            .innerJoinAndSelect("target.campaing", "campaing")
+            .innerJoinAndSelect("campaing.quizz", "quizz")
+            .where("quizz.isActive")
+            .orWhere("quizz.isSend")
+            .select("quizz.id", "quizzId")
+            .getRawMany();
+            /*
+            ** select quizz."id" from
+            ** (
+            **     select campaing."id" from
+            **     (
+            **         select id
+            **         from "Trivia".target as target
+            **         where 18 between target."initAge" and target."finalAge"
+            **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
+            **     ) as filter
+            **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
+            ** ) as campaing
+            ** inner join "Trivia".quizz as quizz
+            ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
+            */
+
+            let quizzesEntities = await this.quizzRepository.find({
+                select: ['id'],
+                where: {
+                    quizzes
+                }
+            });
 
             const userExist = await this.userRepository.findOne({
                 where: { email: createNAOSUserDTO.email }
             });
 
             if (userExist) {
-
                 response = { status: 5 };
 
             } else {
@@ -274,14 +318,15 @@ export class UserService {
                     type: userType,
                     role: userRole
                 });
+                
+                newUser.quizz = quizzesEntities;
+                newUser = await this.userRepository.save(newUser);
 
-                await this.userRepository.save(newUser);
-
-                response = { status: 0 }
+                 response = { status: 0 }
 
             }
 
-            return response;
+             return response;
         } catch (err) {
             console.log("UserService - createNAOS: ", err);
 
@@ -342,6 +387,44 @@ export class UserService {
                     role: userRole
                 });
 
+                const quizzes = await this.targetRepository.createQueryBuilder("target")
+                .select("target.id", "id")
+                .where("target.allUsers")
+                .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
+                .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
+                .orWhere("target.type = :type", { type: 2 })
+                .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
+                .innerJoinAndSelect("target.campaing", "campaing")
+                .innerJoinAndSelect("campaing.quizz", "quizz")
+                .where("quizz.isActive")
+                .orWhere("quizz.isSend")
+                .select("quizz.id", "quizzId")
+                .getRawMany();
+                /*
+                ** select quizz."id" from
+                ** (
+                **     select campaing."id" from
+                **     (
+                **         select id
+                **         from "Trivia".target as target
+                **         where 18 between target."initAge" and target."finalAge"
+                **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
+                **     ) as filter
+                **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
+                ** ) as campaing
+                ** inner join "Trivia".quizz as quizz
+                ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
+                */
+    
+                let quizzesEntities = await this.quizzRepository.find({
+                    select: ['id'],
+                    where: {
+                        quizzes
+                    }
+                });
+
+                newUser.quizz = quizzesEntities;
                 await this.userRepository.save(newUser);
 
                 response = { status: 0 }
