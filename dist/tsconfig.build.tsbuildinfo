@@ -2350,15 +2350,15 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "dd9036666950bb450192038038516e6471313d3641298d5725fca3c2a5bff87e",
-        "signature": "76fc91e8601b45b5e4497c47cb740797448da7d9352f6e2ade50720a497f96ff"
+        "version": "57e88ec5cfb395c2ad3c6d3f70ea777b8340d53817754e21ff8d74bacb14ab51",
+        "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
         "version": "07615a339c41d5b1fa0ea16811f2633baeacef247a3ed22d119898140fe32a68",
         "signature": "eead305cb0c93217f1752dd11d85a72a2da276015ef18f9771df84ccad397abc"
       },
       "../src/core/users/user/user.module.ts": {
-        "version": "9534e0fbed232d80a8a72eaa06ace7c07edd3119bfd54b03a54cb4ae3de142d1",
+        "version": "7f35b906441df343a92e54464039565cd84c712d6f0680d951ebeda9ac5b7b14",
         "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329"
       },
       "../src/core/users/role/role.service.ts": {
@@ -19485,8 +19485,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19872,7 +19870,9 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
+      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
+      "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
       "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
@@ -19896,7 +19896,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19949,8 +19948,10 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/notification/notification.service.ts",
-      "../src/core/users/notification/notification.module.ts"
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"
