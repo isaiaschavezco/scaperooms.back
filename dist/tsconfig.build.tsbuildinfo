@@ -2398,7 +2398,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "bc55d0a12b6f4dff7c4129056bb8c454da1aeb6e79685ce96bf695b94efc046c",
+        "version": "ad8d1b2cbc877ba49383d82a73493f7c3f4d0a82044c42b306068dff44e7f339",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
@@ -19485,6 +19485,9 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19494,7 +19497,6 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
-      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19896,6 +19898,7 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19948,10 +19951,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.module.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/app.module.ts"
+      "../src/core/content/submenu/submenu.service.ts"
     ]
   },
   "version": "3.7.2"
