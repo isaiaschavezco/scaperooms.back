@@ -1105,6 +1105,114 @@
         "version": "260f889b9e2b69f77be1155348eb345166aec664b3efff6720053c6844a41f28",
         "signature": "ef022c91ea9e75ab4082f2e881f9c4db7b346be2da706e876b253bebce5e6140"
       },
+      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": {
+        "version": "7d2eed7cce648593302069d3fabed797a0a83c05f696e9ba92b1a8df2a0cbcf9",
+        "signature": "7d2eed7cce648593302069d3fabed797a0a83c05f696e9ba92b1a8df2a0cbcf9"
+      },
+      "../node_modules/@nestjs/websockets/adapters/index.d.ts": {
+        "version": "6aac2c5ca00378e4d1421a03f614643dc1e9fd02279257cbf2e8e2a713b00907",
+        "signature": "6aac2c5ca00378e4d1421a03f614643dc1e9fd02279257cbf2e8e2a713b00907"
+      },
+      "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts": {
+        "version": "33dd63d5dbfd02cdfc4fc6d47750e619de2da36fe98176731ea2a291287ff4c4",
+        "signature": "33dd63d5dbfd02cdfc4fc6d47750e619de2da36fe98176731ea2a291287ff4c4"
+      },
+      "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts": {
+        "version": "6ad4a01c7e7ebf90072bd6f3087abcf6a443fe41ebcb13b5a0bcfd742dd8ebd5",
+        "signature": "6ad4a01c7e7ebf90072bd6f3087abcf6a443fe41ebcb13b5a0bcfd742dd8ebd5"
+      },
+      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts": {
+        "version": "8a4de75e44a9943c4678d37601bc09517180ad3b9245e5f4b8531b33233f2281",
+        "signature": "8a4de75e44a9943c4678d37601bc09517180ad3b9245e5f4b8531b33233f2281"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts": {
+        "version": "7267ca11f2aad612f4026bb0337846d7a595d91c4c3746506957ba407a517830",
+        "signature": "7267ca11f2aad612f4026bb0337846d7a595d91c4c3746506957ba407a517830"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts": {
+        "version": "93850d9e8a0e018eca4809c67df09547c4b6d482c55fd6eae3030847f1c4b9ee",
+        "signature": "93850d9e8a0e018eca4809c67df09547c4b6d482c55fd6eae3030847f1c4b9ee"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts": {
+        "version": "9a8e992b0199d6b032b6223a87050e3738671f2742794233649706438fe16724",
+        "signature": "9a8e992b0199d6b032b6223a87050e3738671f2742794233649706438fe16724"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts": {
+        "version": "f60ccdb5672ab91d03afc4f24f402e5164a6c818bf15185f5361802523f86df7",
+        "signature": "f60ccdb5672ab91d03afc4f24f402e5164a6c818bf15185f5361802523f86df7"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts": {
+        "version": "931574e125523649902eee2db57c221a1b36417db4f2c4665bf38ce2170ea06e",
+        "signature": "931574e125523649902eee2db57c221a1b36417db4f2c4665bf38ce2170ea06e"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts": {
+        "version": "8507490941583b43ffa5f8becc19d90530e0619b08f0c2e8bc6e71ce75ef1c14",
+        "signature": "8507490941583b43ffa5f8becc19d90530e0619b08f0c2e8bc6e71ce75ef1c14"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts": {
+        "version": "438b57c680914f2dd27b29789a5d8c169d3abcfb584b68a520e0df5c3ca3cef5",
+        "signature": "438b57c680914f2dd27b29789a5d8c169d3abcfb584b68a520e0df5c3ca3cef5"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts": {
+        "version": "510292e419065814acdc81c37a2d801efea1715951600cfbdc1b712f9da10451",
+        "signature": "510292e419065814acdc81c37a2d801efea1715951600cfbdc1b712f9da10451"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/index.d.ts": {
+        "version": "552c721b49a127b5ccaa59ee7793c43deb530ef4434b59b801ada4368e6b1395",
+        "signature": "552c721b49a127b5ccaa59ee7793c43deb530ef4434b59b801ada4368e6b1395"
+      },
+      "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts": {
+        "version": "af3919f1e15caad054071c209341804d85ab679b78979fdf1b1aac4a73dd634a",
+        "signature": "af3919f1e15caad054071c209341804d85ab679b78979fdf1b1aac4a73dd634a"
+      },
+      "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts": {
+        "version": "6aa893aa7bbf9ce05b51e9af8a72816fcb5d54ce0959998640da8d0fcfd8b529",
+        "signature": "6aa893aa7bbf9ce05b51e9af8a72816fcb5d54ce0959998640da8d0fcfd8b529"
+      },
+      "../node_modules/@nestjs/websockets/decorators/index.d.ts": {
+        "version": "877388f59a044fc4c4689637425d4f8762662b4c6dc86d55864ca8816382b69e",
+        "signature": "877388f59a044fc4c4689637425d4f8762662b4c6dc86d55864ca8816382b69e"
+      },
+      "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts": {
+        "version": "c2575845c6608e5db1e43ba88ea65d967c1999c09e40e61de92dab2032823e5a",
+        "signature": "c2575845c6608e5db1e43ba88ea65d967c1999c09e40e61de92dab2032823e5a"
+      },
+      "../node_modules/@nestjs/websockets/errors/index.d.ts": {
+        "version": "a85d6e7924c263fdb7a9e28a578401f2f96950ff9fd0e250c76f25de5ce3b9f2",
+        "signature": "a85d6e7924c263fdb7a9e28a578401f2f96950ff9fd0e250c76f25de5ce3b9f2"
+      },
+      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts": {
+        "version": "d7ea3fb5318d0149a8510037016a98dd7d1ebb5fd360e6ab34866e02521e7b57",
+        "signature": "d7ea3fb5318d0149a8510037016a98dd7d1ebb5fd360e6ab34866e02521e7b57"
+      },
+      "../node_modules/@nestjs/websockets/exceptions/index.d.ts": {
+        "version": "57947d16b34a3811f854965fe668e81ccea9dd6321e412ea1a2c75d4fd2619c1",
+        "signature": "57947d16b34a3811f854965fe668e81ccea9dd6321e412ea1a2c75d4fd2619c1"
+      },
+      "../node_modules/@nestjs/core/metadata-scanner.d.ts": {
+        "version": "9c08c74e1560befc7fc784be9cd20ec036f7387ad0d55dbb0d5164b3a67f6ab0",
+        "signature": "9c08c74e1560befc7fc784be9cd20ec036f7387ad0d55dbb0d5164b3a67f6ab0"
+      },
+      "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts": {
+        "version": "e52c9bb4a4e20ed2ed5cd0aa01d15261949691bffd4d7f5011e79bced9d14e5c",
+        "signature": "e52c9bb4a4e20ed2ed5cd0aa01d15261949691bffd4d7f5011e79bced9d14e5c"
+      },
+      "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts": {
+        "version": "9458c833bb1a862ac70069a0faa9aff8cbf1b528eea24efef93f6e273dfa5fdf",
+        "signature": "9458c833bb1a862ac70069a0faa9aff8cbf1b528eea24efef93f6e273dfa5fdf"
+      },
+      "../node_modules/@nestjs/websockets/index.d.ts": {
+        "version": "4bc4c7612f5cc6298b01f76f7a21674181ae6e199a0b07c518107c15bde32344",
+        "signature": "4bc4c7612f5cc6298b01f76f7a21674181ae6e199a0b07c518107c15bde32344"
+      },
+      "../node_modules/@types/socket.io/index.d.ts": {
+        "version": "17868dee2559ec6f6b6f5c996cdf22e9b17da693d8c88ee4635a3a28d8264c61",
+        "signature": "17868dee2559ec6f6b6f5c996cdf22e9b17da693d8c88ee4635a3a28d8264c61"
+      },
+      "../src/app.gateway.ts": {
+        "version": "a5556ae32c12bd7906b2a2abc6ecec2b2e2252c12a9782df0828197a2773d3d9",
+        "signature": "37103b6b6f45bff1fb00fafcea5e617d540eb73d519f7ddcb27af701a36781dd"
+      },
       "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts": {
         "version": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98",
         "signature": "222ebf19b1260582fd2023a65c5b7da77f730021f05afb9c4ead4b0b339a8c98"
@@ -4006,7 +4114,7 @@
         "signature": "0e19c83340953c8c698ab36f880dd3ea87876726dfc1fde0bc6c0c99652d08f8"
       },
       "../src/app.module.ts": {
-        "version": "5c0d27cfa48b448f021c1590a1d007e33fbe6bc6d4e53af8a69b8c080ce72cbc",
+        "version": "0040fa5b70b84b4839a4c6bbf220be74623da83fc6860a68aa77deea2bf9e2bf",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -5860,6 +5968,152 @@
       "../src/app.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/app.service.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/adapters/index.d.ts": [
+        "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts": [
+        "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts": [
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts": [
+        "../node_modules/@nestjs/websockets/interfaces/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/index.d.ts": [
+        "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/errors/index.d.ts": [
+        "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/exceptions/index.d.ts": [
+        "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/core/metadata-scanner.d.ts": [
+        "../node_modules/@nestjs/common/interfaces/injectable.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts": [
+        "../node_modules/@nestjs/core/metadata-scanner.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/index.d.ts": [
+        "../node_modules/reflect-metadata/index.d.ts",
+        "../node_modules/@nestjs/websockets/adapters/index.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/index.d.ts",
+        "../node_modules/@nestjs/websockets/errors/index.d.ts",
+        "../node_modules/@nestjs/websockets/exceptions/index.d.ts",
+        "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/socket.io/index.d.ts": [
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/app.gateway.ts": [
+        "../node_modules/@nestjs/websockets/index.d.ts",
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/socket.io/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -11598,6 +11852,7 @@
         "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
         "../src/core/content/message/message.module.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+        "../src/app.gateway.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -13557,6 +13812,149 @@
       ],
       "../src/app.controller.ts": [
         "../src/app.service.ts"
+      ],
+      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/adapters/index.d.ts": [
+        "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts": [
+        "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts": [
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts": [
+        "../node_modules/@nestjs/websockets/interfaces/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/decorators/index.d.ts": [
+        "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/errors/index.d.ts": [
+        "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/exceptions/index.d.ts": [
+        "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/core/metadata-scanner.d.ts": [
+        "../node_modules/@nestjs/common/interfaces/injectable.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts": [
+        "../node_modules/@nestjs/core/metadata-scanner.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@nestjs/websockets/index.d.ts": [
+        "../node_modules/reflect-metadata/index.d.ts",
+        "../node_modules/@nestjs/websockets/adapters/index.d.ts",
+        "../node_modules/@nestjs/websockets/decorators/index.d.ts",
+        "../node_modules/@nestjs/websockets/errors/index.d.ts",
+        "../node_modules/@nestjs/websockets/exceptions/index.d.ts",
+        "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts",
+        "../node_modules/@nestjs/websockets/interfaces/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/socket.io/index.d.ts": [
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/app.gateway.ts": [
+        "../node_modules/@types/socket.io/index.d.ts",
+        "../node_modules/@nestjs/websockets/index.d.ts"
       ],
       "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts": [
         "../node_modules/@types/node/util.d.ts",
@@ -19174,6 +19572,32 @@
       "../node_modules/@nestjs/common/index.d.ts",
       "../src/app.service.ts",
       "../src/app.controller.ts",
+      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts",
+      "../node_modules/@nestjs/websockets/adapters/index.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-init.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/hooks/index.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/socket-events-host.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/web-socket-server.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/ws-response.interface.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/index.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/index.d.ts",
+      "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts",
+      "../node_modules/@nestjs/websockets/errors/index.d.ts",
+      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts",
+      "../node_modules/@nestjs/websockets/exceptions/index.d.ts",
+      "../node_modules/@nestjs/core/metadata-scanner.d.ts",
+      "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts",
+      "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts",
+      "../node_modules/@nestjs/websockets/index.d.ts",
+      "../node_modules/@types/socket.io/index.d.ts",
       "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts",
       "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
       "../node_modules/typeorm/common/objectliteral.d.ts",
@@ -19497,6 +19921,7 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -19898,7 +20323,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -19951,7 +20375,8 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/submenu/submenu.service.ts"
+      "../src/app.gateway.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"
