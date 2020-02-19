@@ -31,7 +31,6 @@ import { ConfigutarionModule } from './core/users/configuration/configuration.mo
 import { AnswerbyuserquizzModule } from './core/trivia/answerbyuserquizz/answerbyuserquizz.module';
 import { MessageModule } from './core/content/message/message.module';
 import { PointsbyuserModule } from './core/trivia/pointsbyuser/pointsbyuser.module';
-import { AppGateway } from './app.gateway';
 
 @Module({
   imports: [
@@ -92,6 +91,6 @@ import { AppGateway } from './app.gateway';
     MessageModule,
     PointsbyuserModule],
   controllers: [AppController],
-  providers: [AppService, AppGateway],
+  providers: [AppService],
 })
 export class AppModule { }

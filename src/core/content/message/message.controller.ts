@@ -1,11 +1,13 @@
 import { Controller, Body, Get, Post, Delete, Param } from '@nestjs/common';
 import { MessageService } from './message.service';
+import { MessageGateway } from './message.gateway';
 import { StartConversationDTO, CreateMessageDTO, CreateAdminMessageDTO } from './message.dto';
 
 @Controller('message')
 export class MessageController {
 
-    constructor(private messageService: MessageService) { }
+    constructor(private messageService: MessageService,
+        private msgGateway: MessageGateway) { }
 
     @Post('user/start')
     async startConversation(@Body() startConversationDTO: StartConversationDTO): Promise<any> {
@@ -14,6 +16,7 @@ export class MessageController {
 
     @Post('user')
     async sendMessage(@Body() createMessageDTO: CreateMessageDTO): Promise<any> {
+        this.msgGateway.sentToAll(createMessageDTO.email);
         return await this.messageService.createMessage(createMessageDTO);
     }
 
