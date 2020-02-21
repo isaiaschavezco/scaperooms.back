@@ -11,31 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const websockets_1 = require("@nestjs/websockets");
 const common_1 = require("@nestjs/common");
-let AppGateway = class AppGateway {
+let MessageGateway = class MessageGateway {
     constructor() {
-        this.logger = new common_1.Logger('AppGateway');
+        this.logger = new common_1.Logger('MessageGateway');
     }
     afterInit(server) {
-        this.logger.log('Init sockets');
+        this.logger.log('Init MessageDateWay');
     }
-    handleDisconnect(client) {
-        this.logger.log(`Client disconnected: ${client.id}`);
-    }
-    handleConnection(client, ...args) {
-        this.logger.log(`Client connected: ${client.id}`);
-    }
-    handleMessage(client, text) {
-        return { event: 'msgToClient', data: text };
+    sentToAll(msg) {
+        this.wss.emit('alertToClient', { type: 'Alert', message: msg });
     }
 };
 __decorate([
-    websockets_1.SubscribeMessage('msgToServer'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, String]),
-    __metadata("design:returntype", Object)
-], AppGateway.prototype, "handleMessage", null);
-AppGateway = __decorate([
-    websockets_1.WebSocketGateway()
-], AppGateway);
-exports.AppGateway = AppGateway;
-//# sourceMappingURL=app.gateway.js.map
+    websockets_1.WebSocketServer(),
+    __metadata("design:type", Object)
+], MessageGateway.prototype, "wss", void 0);
+MessageGateway = __decorate([
+    websockets_1.WebSocketGateway({ namespace: '/chatAdmin' })
+], MessageGateway);
+exports.MessageGateway = MessageGateway;
+//# sourceMappingURL=message.gateway.js.map

@@ -23,10 +23,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const message_service_1 = require("./message.service");
+const message_gateway_1 = require("./message.gateway");
+const message_user_gateway_1 = require("./message_user.gateway");
 const message_dto_1 = require("./message.dto");
 let MessageController = class MessageController {
-    constructor(messageService) {
+    constructor(messageService, msgGateway, msgUserGateway) {
         this.messageService = messageService;
+        this.msgGateway = msgGateway;
+        this.msgUserGateway = msgUserGateway;
     }
     startConversation(startConversationDTO) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -35,11 +39,13 @@ let MessageController = class MessageController {
     }
     sendMessage(createMessageDTO) {
         return __awaiter(this, void 0, void 0, function* () {
+            this.msgGateway.sentToAll(createMessageDTO.email);
             return yield this.messageService.createMessage(createMessageDTO);
         });
     }
     sendAdminMessage(createAdminMessageDTO) {
         return __awaiter(this, void 0, void 0, function* () {
+            this.msgUserGateway.sentToAll(createAdminMessageDTO.userEmail);
             return yield this.messageService.createAdminMessage(createAdminMessageDTO);
         });
     }
@@ -102,7 +108,9 @@ __decorate([
 ], MessageController.prototype, "closeConversation", null);
 MessageController = __decorate([
     common_1.Controller('message'),
-    __metadata("design:paramtypes", [message_service_1.MessageService])
+    __metadata("design:paramtypes", [message_service_1.MessageService,
+        message_gateway_1.MessageGateway,
+        message_user_gateway_1.MessageUserGateway])
 ], MessageController);
 exports.MessageController = MessageController;
 //# sourceMappingURL=message.controller.js.map

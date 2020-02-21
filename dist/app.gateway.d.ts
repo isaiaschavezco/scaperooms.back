@@ -1,7 +1,9 @@
-import { OnGatewayInit } from '@nestjs/websockets';
-import { Server } from 'socket.io';
-export declare class AppGateway implements OnGatewayInit {
+import { OnGatewayInit, WsResponse, OnGatewayConnection, OnGatewayDisconnect } from '@nestjs/websockets';
+import { Socket, Server } from 'socket.io';
+export declare class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
     private logger;
     afterInit(server: Server): void;
-    handleMessage(client: any, payload: any): string;
+    handleDisconnect(client: Socket): void;
+    handleConnection(client: Socket, ...args: any[]): void;
+    handleMessage(client: Socket, text: string): WsResponse<string>;
 }

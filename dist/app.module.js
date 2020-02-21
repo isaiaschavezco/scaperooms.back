@@ -39,7 +39,6 @@ const configuration_module_1 = require("./core/users/configuration/configuration
 const answerbyuserquizz_module_1 = require("./core/trivia/answerbyuserquizz/answerbyuserquizz.module");
 const message_module_1 = require("./core/content/message/message.module");
 const pointsbyuser_module_1 = require("./core/trivia/pointsbyuser/pointsbyuser.module");
-const app_gateway_1 = require("./app.gateway");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -103,7 +102,7 @@ AppModule = __decorate([
             pointsbyuser_module_1.PointsbyuserModule
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService, app_gateway_1.AppGateway],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -1,8 +1,12 @@
 import { MessageService } from './message.service';
+import { MessageGateway } from './message.gateway';
+import { MessageUserGateway } from './message_user.gateway';
 import { StartConversationDTO, CreateMessageDTO, CreateAdminMessageDTO } from './message.dto';
 export declare class MessageController {
     private messageService;
-    constructor(messageService: MessageService);
+    private msgGateway;
+    private msgUserGateway;
+    constructor(messageService: MessageService, msgGateway: MessageGateway, msgUserGateway: MessageUserGateway);
     startConversation(startConversationDTO: StartConversationDTO): Promise<any>;
     sendMessage(createMessageDTO: CreateMessageDTO): Promise<any>;
     sendAdminMessage(createAdminMessageDTO: CreateAdminMessageDTO): Promise<any>;
