@@ -46,7 +46,7 @@ let SesionService = class SesionService {
                     where: { email: requestDTO.email, isActive: true }
                 });
                 if (user) {
-                    console.log("requestDTO.password: ", requestDTO.password);
+                    // console.log("requestDTO.password: ", requestDTO.password);
                     const match = yield bcrypt.compare(requestDTO.password, user.password);
                     if (match) {
                         const sesionExist = yield this.sesionRepository.findOne({
@@ -227,9 +227,9 @@ SesionService = __decorate([
     __param(2, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
     __param(3, typeorm_1.InjectRepository(notificacion_entity_1.Notificacion)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        typeorm_2.Repository,
-        typeorm_2.Repository,
-        typeorm_2.Repository])
+    typeorm_2.Repository,
+    typeorm_2.Repository,
+    typeorm_2.Repository])
 ], SesionService);
 exports.SesionService = SesionService;
 //# sourceMappingURL=sesion.service.js.map

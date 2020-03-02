@@ -93,13 +93,14 @@ let CampaingService = class CampaingService {
             try {
                 const response = yield this.campaingRepository.createQueryBuilder("campaing")
                     .select("campaing.id", "id")
-                    .distinct(true)
+                    .distinctOn(["campaing.id"])
                     .addSelect("campaing.name", "name")
                     .addSelect("campaing.portrait", "portrait")
                     .addSelect("campaing.isBiodermaGame", "type")
                     .innerJoin("campaing.quizz", "quizz", "quizz.isActive = :isActive", { isActive: true })
                     .innerJoin("quizz.user", "user", "user.email = :email", { email: getCampaingsByUserDTO.email })
                     .where("campaing.isBiodermaGame = :isBiodermaGame", { isBiodermaGame: getCampaingsByUserDTO.isBiodermaGame })
+                    .orderBy("campaing.id", "DESC")
                     .getRawMany();
                 return { campaings: response };
             }

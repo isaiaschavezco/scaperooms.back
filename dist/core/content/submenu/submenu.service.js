@@ -85,7 +85,6 @@ let SubmenuService = class SubmenuService {
                 }
             });
             let listToReturn = [];
-            console.log("productList: ", productList);
             submenuList.forEach(tempFile => {
                 let tempPDF = '';
                 if (menuId == 1) {

@@ -69,7 +69,7 @@ export class SubmenuService {
 
         let listToReturn = [];
 
-        console.log("productList: ", productList);
+        // console.log("productList: ", productList);
 
         submenuList.forEach(tempFile => {
 
