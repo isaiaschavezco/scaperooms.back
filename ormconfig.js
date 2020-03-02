@@ -13,5 +13,5 @@ module.exports = {
         "min": 1
     },
     "synchronize": process.env.TYPEORM_SYNCHRONIZE,
-    "migrationsRun": true
+    "migrationsRun": process.env.TYPEORM_MIGRATIONS_RUN
 }
