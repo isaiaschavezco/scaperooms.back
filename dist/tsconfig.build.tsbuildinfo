@@ -2342,15 +2342,15 @@
         "signature": "f5c37ba259da0b0824e2c66b56cf7d3c359e1178591c9a7c13bcee5e3cb359be"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "0cb64b1a87012afb6d13b379c8212b0c78227eed763b2fd1b14981e0f25f6c4a",
-        "signature": "5aa00985511b0ae8681344fe6d93eb203fd7a79fc8f94ef280625721b6a99efe"
+        "version": "741a20334af0c7f93b4d88dd8418fcc4982374cb7c6c653e1adcfbe04f8480d1",
+        "signature": "adbda27c4d0062a86370b512a77dde6f743c88a5755ded9f1cd18e4439ad520e"
       },
       "../node_modules/moment/moment.d.ts": {
         "version": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7",
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "57e88ec5cfb395c2ad3c6d3f70ea777b8340d53817754e21ff8d74bacb14ab51",
+        "version": "1943b30a487c4b3b536a89f0e4397de4ee0143b6e9dd8d53388c2ab8252cb0eb",
         "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -4272,10 +4272,6 @@
       "../src/core/trivia/points-type/points-type.module.ts": {
         "version": "499996063eda75c085386322a9313896078473d3b92f841a39acdaf784256114",
         "signature": "3afb153335a43faab26645561d27f4a562f5e440c96219331b74222d890492df"
-      },
-      "../src/migration/1581102603365-targetisadmin.ts": {
-        "version": "deee62a97dfa05fe3bd0bf3c4bc52642ca39513081e07a61367282398a079f96",
-        "signature": "a70d2d8d82ac3bae1218b87e9682fb53d08d152c3051913b9aab4eae8d8cede4"
       },
       "../node_modules/@types/babel-types/index.d.ts": {
         "version": "d9422bf2f3d2b4a02d901bd80370b6e58b4165e4bf488b99a3687c6eea721d27",
@@ -12131,11 +12127,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/migration/1581102603365-targetisadmin.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -19243,9 +19234,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../src/migration/1581102603365-targetisadmin.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -19901,11 +19889,7 @@
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
-      "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -19915,6 +19899,7 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -20344,7 +20329,6 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -20383,7 +20367,6 @@
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
-      "../src/migration/1581102603365-targetisadmin.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
       "../node_modules/@types/color-name/index.d.ts",
@@ -20397,7 +20380,11 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/submenu/submenu.service.ts"
+      "../src/core/users/user/user.dto.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

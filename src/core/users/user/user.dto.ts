@@ -33,6 +33,7 @@ export class CreateNAOSUserDTO {
     readonly state: number;
     readonly city: number;
     readonly naosPosition: number;
+    readonly userToken: string;
 }
 
 export class CreateDrugStoreUserDTO {
@@ -53,6 +54,7 @@ export class CreateDrugStoreUserDTO {
     readonly town: string;
     readonly mayoralty: string;
     readonly charge: string;
+    readonly userToken: string;
 }
 
 export class UpdateNAOSUserDTO {

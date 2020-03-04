@@ -239,10 +239,10 @@ export class UserService {
     async createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any> {
         try {
 
-            let response = {status:0};
-            const userAge = this.getAge(createNAOSUserDTO.birthDate);
+            let response = { status: 0 };
+            // const userAge = this.getAge(createNAOSUserDTO.birthDate);
 
-            const quizzes = await this.targetRepository.createQueryBuilder("target")
+            /* const quizzes = await this.targetRepository.createQueryBuilder("target")
             .select("target.id", "id")
             .where("target.allUsers")
             .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
@@ -256,77 +256,78 @@ export class UserService {
             .where("quizz.isActive")
             .orWhere("quizz.isSend")
             .select("quizz.id", "quizzId")
-            .getRawMany();
-            /*
-            ** select quizz."id" from
-            ** (
-            **     select campaing."id" from
-            **     (
-            **         select id
-            **         from "Trivia".target as target
-            **         where 18 between target."initAge" and target."finalAge"
-            **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
-            **     ) as filter
-            **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
-            ** ) as campaing
-            ** inner join "Trivia".quizz as quizz
-            ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
-            */
+            .getRawMany(); */
 
-            let quizzesEntities = await this.quizzRepository.find({
+            /* let quizzesEntities = await this.quizzRepository.find({
                 select: ['id'],
                 where: {
                     quizzes
                 }
-            });
+            }); */
 
             const userExist = await this.userRepository.findOne({
                 where: { email: createNAOSUserDTO.email }
             });
 
             if (userExist) {
+
                 response = { status: 5 };
 
             } else {
 
-                const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
-                const userAge = this.getAge(createNAOSUserDTO.birthDate);
+                const jwtDecoded = await jwt.verify(createNAOSUserDTO.userToken, "Bi0d3rmaTokenJWT.");
 
-                const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
-                const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
-                const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
-                const userType = await this.typeRepository.findOne(1);
-                const userRole = await this.roleRepository.findOne(2);
+                const tokenExist = await this.tokenRepository.findOne(jwtDecoded.token);
 
-                let newUser = await this.userRepository.create({
-                    name: createNAOSUserDTO.name,
-                    lastName: createNAOSUserDTO.lastName,
-                    photo: createNAOSUserDTO.photo,
-                    birthDate: createNAOSUserDTO.birthDate,
-                    gender: createNAOSUserDTO.gender,
-                    phone: createNAOSUserDTO.phone,
-                    email: createNAOSUserDTO.email,
-                    nickname: createNAOSUserDTO.nickName,
-                    password: userPassword,
-                    position: naosPosition,
-                    isActive: true,
-                    city: userState,
-                    delegation: userCity,
-                    points: 0,
-                    biodermaGamePoints: 0,
-                    age: userAge,
-                    type: userType,
-                    role: userRole
-                });
-                
-                newUser.quizz = quizzesEntities;
-                newUser = await this.userRepository.save(newUser);
+                response = { status: 13 };
 
-                 response = { status: 0 }
+                if (tokenExist) {
+
+                    if (tokenExist.email.trim() == createNAOSUserDTO.email.trim()) {
+
+                        const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
+                        const userAge = this.getAge(createNAOSUserDTO.birthDate);
+
+                        const naosPosition = await this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
+                        const userState = await this.stateRepository.findOne(createNAOSUserDTO.state);
+                        const userCity = await this.cityRepository.findOne(createNAOSUserDTO.city);
+                        const userType = await this.typeRepository.findOne(1);
+                        const userRole = await this.roleRepository.findOne(2);
+
+                        let newUser = await this.userRepository.create({
+                            name: createNAOSUserDTO.name,
+                            lastName: createNAOSUserDTO.lastName,
+                            photo: createNAOSUserDTO.photo,
+                            birthDate: createNAOSUserDTO.birthDate,
+                            gender: createNAOSUserDTO.gender,
+                            phone: createNAOSUserDTO.phone,
+                            email: createNAOSUserDTO.email,
+                            nickname: createNAOSUserDTO.nickName,
+                            password: userPassword,
+                            position: naosPosition,
+                            isActive: true,
+                            city: userState,
+                            delegation: userCity,
+                            points: 0,
+                            biodermaGamePoints: 0,
+                            age: userAge,
+                            type: userType,
+                            role: userRole
+                        });
+
+                        // newUser.quizz = quizzesEntities;
+                        await this.userRepository.save(newUser);
+                        await this.tokenRepository.remove(tokenExist);
+
+                        response = { status: 0 };
+
+                    }
+
+                }
 
             }
 
-             return response;
+            return response;
         } catch (err) {
             console.log("UserService - createNAOS: ", err);
 
@@ -352,82 +353,95 @@ export class UserService {
 
             } else {
 
-                const userPassword = await bcrypt.hash(createDrugStoreUserDTO.password, 12);
-                const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
+                const jwtDecoded = await jwt.verify(createDrugStoreUserDTO.userToken, "Bi0d3rmaTokenJWT.");
 
-                const userState = await this.stateRepository.findOne(createDrugStoreUserDTO.state);
-                const userCity = await this.cityRepository.findOne(createDrugStoreUserDTO.city);
-                const userType = await this.typeRepository.findOne(2);
-                const userChain = await this.chainRepository.findOne(createDrugStoreUserDTO.chain);
-                const userRole = await this.roleRepository.findOne(2);
+                const tokenExist = await this.tokenRepository.findOne(jwtDecoded.token);
 
-                let newUser = await this.userRepository.create({
-                    name: createDrugStoreUserDTO.name,
-                    lastName: createDrugStoreUserDTO.lastName,
-                    nickname: createDrugStoreUserDTO.nickName,
-                    photo: createDrugStoreUserDTO.photo,
-                    birthDate: createDrugStoreUserDTO.birthDate,
-                    gender: createDrugStoreUserDTO.gender,
-                    phone: createDrugStoreUserDTO.phone,
-                    email: createDrugStoreUserDTO.email,
-                    postalCode: createDrugStoreUserDTO.postalCode,
-                    drugstore: createDrugStoreUserDTO.drugStore,
-                    password: userPassword,
-                    chain: userChain,
-                    isActive: true,
-                    city: userState,
-                    delegation: userCity,
-                    points: 0,
-                    biodermaGamePoints: 0,
-                    age: userAge,
-                    type: userType,
-                    town: createDrugStoreUserDTO.town,
-                    charge: createDrugStoreUserDTO.charge,
-                    mayoralty: createDrugStoreUserDTO.mayoralty,
-                    role: userRole
-                });
+                response = { status: 13 };
 
-                const quizzes = await this.targetRepository.createQueryBuilder("target")
-                .select("target.id", "id")
-                .where("target.allUsers")
-                .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
-                .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
-                .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
-                .orWhere("target.type = :type", { type: 2 })
-                .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
-                .innerJoinAndSelect("target.campaing", "campaing")
-                .innerJoinAndSelect("campaing.quizz", "quizz")
-                .where("quizz.isActive")
-                .orWhere("quizz.isSend")
-                .select("quizz.id", "quizzId")
-                .getRawMany();
-                /*
-                ** select quizz."id" from
-                ** (
-                **     select campaing."id" from
-                **     (
-                **         select id
-                **         from "Trivia".target as target
-                **         where 18 between target."initAge" and target."finalAge"
-                **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
-                **     ) as filter
-                **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
-                ** ) as campaing
-                ** inner join "Trivia".quizz as quizz
-                ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
-                */
-    
-                let quizzesEntities = await this.quizzRepository.find({
-                    select: ['id'],
-                    where: {
-                        quizzes
+                if (tokenExist) {
+
+                    if (tokenExist.email.trim() == createDrugStoreUserDTO.email.trim()) {
+
+                        const userPassword = await bcrypt.hash(createDrugStoreUserDTO.password, 12);
+                        const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
+
+                        const userState = await this.stateRepository.findOne(createDrugStoreUserDTO.state);
+                        const userCity = await this.cityRepository.findOne(createDrugStoreUserDTO.city);
+                        const userType = await this.typeRepository.findOne(2);
+                        const userChain = await this.chainRepository.findOne(createDrugStoreUserDTO.chain);
+                        const userRole = await this.roleRepository.findOne(2);
+
+                        let newUser = await this.userRepository.create({
+                            name: createDrugStoreUserDTO.name,
+                            lastName: createDrugStoreUserDTO.lastName,
+                            nickname: createDrugStoreUserDTO.nickName,
+                            photo: createDrugStoreUserDTO.photo,
+                            birthDate: createDrugStoreUserDTO.birthDate,
+                            gender: createDrugStoreUserDTO.gender,
+                            phone: createDrugStoreUserDTO.phone,
+                            email: createDrugStoreUserDTO.email,
+                            postalCode: createDrugStoreUserDTO.postalCode,
+                            drugstore: createDrugStoreUserDTO.drugStore,
+                            password: userPassword,
+                            chain: userChain,
+                            isActive: true,
+                            city: userState,
+                            delegation: userCity,
+                            points: 0,
+                            biodermaGamePoints: 0,
+                            age: userAge,
+                            type: userType,
+                            town: createDrugStoreUserDTO.town,
+                            charge: createDrugStoreUserDTO.charge,
+                            mayoralty: createDrugStoreUserDTO.mayoralty,
+                            role: userRole
+                        });
+
+                        /* const quizzes = await this.targetRepository.createQueryBuilder("target")
+                            .select("target.id", "id")
+                            .where("target.allUsers")
+                            .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
+                            .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
+                            .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
+                            .orWhere("target.type = :type", { type: 2 })
+                            .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
+                            .innerJoinAndSelect("target.campaing", "campaing")
+                            .innerJoinAndSelect("campaing.quizz", "quizz")
+                            .where("quizz.isActive")
+                            .orWhere("quizz.isSend")
+                            .select("quizz.id", "quizzId")
+                            .getRawMany(); */
+                        /*
+                        ** select quizz."id" from
+                        ** (
+                        **     select campaing."id" from
+                        **     (
+                        **         select id
+                        **         from "Trivia".target as target
+                        **         where 18 between target."initAge" and target."finalAge"
+                        **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
+                        **     ) as filter
+                        **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
+                        ** ) as campaing
+                        ** inner join "Trivia".quizz as quizz
+                        ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
+                        */
+
+                        /* let quizzesEntities = await this.quizzRepository.find({
+                            select: ['id'],
+                            where: {
+                                quizzes
+                            }
+                        }); */
+
+                        // newUser.quizz = quizzesEntities;
+                        await this.userRepository.save(newUser);
+                        await this.tokenRepository.remove(tokenExist);
+
+                        response = { status: 0 }
                     }
-                });
-
-                newUser.quizz = quizzesEntities;
-                await this.userRepository.save(newUser);
-
-                response = { status: 0 }
+                }
 
             }
 

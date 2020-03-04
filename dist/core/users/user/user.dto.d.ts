@@ -31,6 +31,7 @@ export declare class CreateNAOSUserDTO {
     readonly state: number;
     readonly city: number;
     readonly naosPosition: number;
+    readonly userToken: string;
 }
 export declare class CreateDrugStoreUserDTO {
     readonly name: string;
@@ -50,6 +51,7 @@ export declare class CreateDrugStoreUserDTO {
     readonly town: string;
     readonly mayoralty: string;
     readonly charge: string;
+    readonly userToken: string;
 }
 export declare class UpdateNAOSUserDTO {
     readonly userId: string;

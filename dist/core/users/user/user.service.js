@@ -241,27 +241,6 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = { status: 0 };
-                const userAge = this.getAge(createNAOSUserDTO.birthDate);
-                const quizzes = yield this.targetRepository.createQueryBuilder("target")
-                    .select("target.id", "id")
-                    .where("target.allUsers")
-                    .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
-                    .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
-                    .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
-                    .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
-                    .orWhere("target.type = :type", { type: 1 })
-                    .innerJoinAndSelect("target.campaing", "campaing")
-                    .innerJoinAndSelect("campaing.quizz", "quizz")
-                    .where("quizz.isActive")
-                    .orWhere("quizz.isSend")
-                    .select("quizz.id", "quizzId")
-                    .getRawMany();
-                let quizzesEntities = yield this.quizzRepository.find({
-                    select: ['id'],
-                    where: {
-                        quizzes
-                    }
-                });
                 const userExist = yield this.userRepository.findOne({
                     where: { email: createNAOSUserDTO.email }
                 });
@@ -269,36 +248,43 @@ let UserService = class UserService {
                     response = { status: 5 };
                 }
                 else {
-                    const userPassword = yield bcrypt.hash(createNAOSUserDTO.password, 12);
-                    const userAge = this.getAge(createNAOSUserDTO.birthDate);
-                    const naosPosition = yield this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
-                    const userState = yield this.stateRepository.findOne(createNAOSUserDTO.state);
-                    const userCity = yield this.cityRepository.findOne(createNAOSUserDTO.city);
-                    const userType = yield this.typeRepository.findOne(1);
-                    const userRole = yield this.roleRepository.findOne(2);
-                    let newUser = yield this.userRepository.create({
-                        name: createNAOSUserDTO.name,
-                        lastName: createNAOSUserDTO.lastName,
-                        photo: createNAOSUserDTO.photo,
-                        birthDate: createNAOSUserDTO.birthDate,
-                        gender: createNAOSUserDTO.gender,
-                        phone: createNAOSUserDTO.phone,
-                        email: createNAOSUserDTO.email,
-                        nickname: createNAOSUserDTO.nickName,
-                        password: userPassword,
-                        position: naosPosition,
-                        isActive: true,
-                        city: userState,
-                        delegation: userCity,
-                        points: 0,
-                        biodermaGamePoints: 0,
-                        age: userAge,
-                        type: userType,
-                        role: userRole
-                    });
-                    newUser.quizz = quizzesEntities;
-                    newUser = yield this.userRepository.save(newUser);
-                    response = { status: 0 };
+                    const jwtDecoded = yield jwt.verify(createNAOSUserDTO.userToken, "Bi0d3rmaTokenJWT.");
+                    const tokenExist = yield this.tokenRepository.findOne(jwtDecoded.token);
+                    response = { status: 13 };
+                    if (tokenExist) {
+                        if (tokenExist.email.trim() == createNAOSUserDTO.email.trim()) {
+                            const userPassword = yield bcrypt.hash(createNAOSUserDTO.password, 12);
+                            const userAge = this.getAge(createNAOSUserDTO.birthDate);
+                            const naosPosition = yield this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
+                            const userState = yield this.stateRepository.findOne(createNAOSUserDTO.state);
+                            const userCity = yield this.cityRepository.findOne(createNAOSUserDTO.city);
+                            const userType = yield this.typeRepository.findOne(1);
+                            const userRole = yield this.roleRepository.findOne(2);
+                            let newUser = yield this.userRepository.create({
+                                name: createNAOSUserDTO.name,
+                                lastName: createNAOSUserDTO.lastName,
+                                photo: createNAOSUserDTO.photo,
+                                birthDate: createNAOSUserDTO.birthDate,
+                                gender: createNAOSUserDTO.gender,
+                                phone: createNAOSUserDTO.phone,
+                                email: createNAOSUserDTO.email,
+                                nickname: createNAOSUserDTO.nickName,
+                                password: userPassword,
+                                position: naosPosition,
+                                isActive: true,
+                                city: userState,
+                                delegation: userCity,
+                                points: 0,
+                                biodermaGamePoints: 0,
+                                age: userAge,
+                                type: userType,
+                                role: userRole
+                            });
+                            yield this.userRepository.save(newUser);
+                            yield this.tokenRepository.remove(tokenExist);
+                            response = { status: 0 };
+                        }
+                    }
                 }
                 return response;
             }
@@ -322,61 +308,48 @@ let UserService = class UserService {
                     response = { status: 5 };
                 }
                 else {
-                    const userPassword = yield bcrypt.hash(createDrugStoreUserDTO.password, 12);
-                    const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
-                    const userState = yield this.stateRepository.findOne(createDrugStoreUserDTO.state);
-                    const userCity = yield this.cityRepository.findOne(createDrugStoreUserDTO.city);
-                    const userType = yield this.typeRepository.findOne(2);
-                    const userChain = yield this.chainRepository.findOne(createDrugStoreUserDTO.chain);
-                    const userRole = yield this.roleRepository.findOne(2);
-                    let newUser = yield this.userRepository.create({
-                        name: createDrugStoreUserDTO.name,
-                        lastName: createDrugStoreUserDTO.lastName,
-                        nickname: createDrugStoreUserDTO.nickName,
-                        photo: createDrugStoreUserDTO.photo,
-                        birthDate: createDrugStoreUserDTO.birthDate,
-                        gender: createDrugStoreUserDTO.gender,
-                        phone: createDrugStoreUserDTO.phone,
-                        email: createDrugStoreUserDTO.email,
-                        postalCode: createDrugStoreUserDTO.postalCode,
-                        drugstore: createDrugStoreUserDTO.drugStore,
-                        password: userPassword,
-                        chain: userChain,
-                        isActive: true,
-                        city: userState,
-                        delegation: userCity,
-                        points: 0,
-                        biodermaGamePoints: 0,
-                        age: userAge,
-                        type: userType,
-                        town: createDrugStoreUserDTO.town,
-                        charge: createDrugStoreUserDTO.charge,
-                        mayoralty: createDrugStoreUserDTO.mayoralty,
-                        role: userRole
-                    });
-                    const quizzes = yield this.targetRepository.createQueryBuilder("target")
-                        .select("target.id", "id")
-                        .where("target.allUsers")
-                        .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
-                        .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
-                        .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
-                        .orWhere("target.type = :type", { type: 2 })
-                        .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
-                        .innerJoinAndSelect("target.campaing", "campaing")
-                        .innerJoinAndSelect("campaing.quizz", "quizz")
-                        .where("quizz.isActive")
-                        .orWhere("quizz.isSend")
-                        .select("quizz.id", "quizzId")
-                        .getRawMany();
-                    let quizzesEntities = yield this.quizzRepository.find({
-                        select: ['id'],
-                        where: {
-                            quizzes
+                    const jwtDecoded = yield jwt.verify(createDrugStoreUserDTO.userToken, "Bi0d3rmaTokenJWT.");
+                    const tokenExist = yield this.tokenRepository.findOne(jwtDecoded.token);
+                    response = { status: 13 };
+                    if (tokenExist) {
+                        if (tokenExist.email.trim() == createDrugStoreUserDTO.email.trim()) {
+                            const userPassword = yield bcrypt.hash(createDrugStoreUserDTO.password, 12);
+                            const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
+                            const userState = yield this.stateRepository.findOne(createDrugStoreUserDTO.state);
+                            const userCity = yield this.cityRepository.findOne(createDrugStoreUserDTO.city);
+                            const userType = yield this.typeRepository.findOne(2);
+                            const userChain = yield this.chainRepository.findOne(createDrugStoreUserDTO.chain);
+                            const userRole = yield this.roleRepository.findOne(2);
+                            let newUser = yield this.userRepository.create({
+                                name: createDrugStoreUserDTO.name,
+                                lastName: createDrugStoreUserDTO.lastName,
+                                nickname: createDrugStoreUserDTO.nickName,
+                                photo: createDrugStoreUserDTO.photo,
+                                birthDate: createDrugStoreUserDTO.birthDate,
+                                gender: createDrugStoreUserDTO.gender,
+                                phone: createDrugStoreUserDTO.phone,
+                                email: createDrugStoreUserDTO.email,
+                                postalCode: createDrugStoreUserDTO.postalCode,
+                                drugstore: createDrugStoreUserDTO.drugStore,
+                                password: userPassword,
+                                chain: userChain,
+                                isActive: true,
+                                city: userState,
+                                delegation: userCity,
+                                points: 0,
+                                biodermaGamePoints: 0,
+                                age: userAge,
+                                type: userType,
+                                town: createDrugStoreUserDTO.town,
+                                charge: createDrugStoreUserDTO.charge,
+                                mayoralty: createDrugStoreUserDTO.mayoralty,
+                                role: userRole
+                            });
+                            yield this.userRepository.save(newUser);
+                            yield this.tokenRepository.remove(tokenExist);
+                            response = { status: 0 };
                         }
-                    });
-                    newUser.quizz = quizzesEntities;
-                    yield this.userRepository.save(newUser);
-                    response = { status: 0 };
+                    }
                 }
                 return response;
             }
