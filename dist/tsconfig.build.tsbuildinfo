@@ -3918,7 +3918,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "9e09eb25af4ca8a71c34c14179eea7fdad3a9a26af3cf85e24028d2f8fae6473",
+        "version": "2f5f2c4ea52d222ec6e1a8437abbe7af9b078960ab3b4f373cdf2f6a57765363",
         "signature": "994c93da56b46f19ea549d8e5de9a693950a0f88056fab425799e7258d547dfe"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -19889,7 +19889,11 @@
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
+      "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -20279,7 +20283,6 @@
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
-      "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
       "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
@@ -20329,6 +20332,7 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/constants.d.ts",
@@ -20380,11 +20384,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.dto.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.module.ts",
-      "../src/app.module.ts"
+      "../src/core/users/sesion/sesion.service.ts"
     ]
   },
   "version": "3.7.2"

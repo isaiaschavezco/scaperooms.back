@@ -21,14 +21,14 @@ export class SesionService {
         try {
 
             let response = null;
-            const user = await this.userRepository.findOne({
-                relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+            let user = await this.userRepository.findOne({
+                relations: ["type", "chain", "city", "delegation", "position"],
                 where: { email: requestDTO.email, isActive: true }
             });
 
             if (user) {
 
-                console.log("requestDTO.password: ", requestDTO.password);
+                // console.log("requestDTO.password: ", requestDTO.password);
 
                 const match = await bcrypt.compare(requestDTO.password, user.password);
 
@@ -46,9 +46,18 @@ export class SesionService {
                         user: user
                     });
 
-                    const loggedUser = await this.sesionRepository.save(sesion);
+                    const userNotifications = await this.notificationRepository.createQueryBuilder("not")
+                        .select(["not.id"])
+                        .innerJoin("not.user", "user", "user.email = :email", { email: requestDTO.email })
+                        .orderBy("not.id", "DESC")
+                        .limit(10)
+                        .getMany();
 
+                    const loggedUser = await this.sesionRepository.save(sesion);
                     const generalConfiguration = await this.configurationRepository.findOne(1);
+
+                    user.notificacion = userNotifications;
+                    await this.userRepository.save(user);
 
                     response = {
                         profile: {
@@ -76,7 +85,7 @@ export class SesionService {
                             postalCode: user.postalCode,
                             charge: user.charge,
                             isActiveCart: user.type.id === 1 ? false : true,
-                            countNotifications: user.notificacion ? user.notificacion.length : 0,
+                            countNotifications: userNotifications.length,
                             totalBiodermaGames: user.biodermaGamePoints ? user.biodermaGamePoints : 0
                         }
                     };

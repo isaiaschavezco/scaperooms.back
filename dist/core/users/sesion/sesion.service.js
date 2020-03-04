@@ -41,12 +41,11 @@ let SesionService = class SesionService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
-                const user = yield this.userRepository.findOne({
-                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                let user = yield this.userRepository.findOne({
+                    relations: ["type", "chain", "city", "delegation", "position"],
                     where: { email: requestDTO.email, isActive: true }
                 });
                 if (user) {
-                    // console.log("requestDTO.password: ", requestDTO.password);
                     const match = yield bcrypt.compare(requestDTO.password, user.password);
                     if (match) {
                         const sesionExist = yield this.sesionRepository.findOne({
@@ -58,8 +57,16 @@ let SesionService = class SesionService {
                         const sesion = this.sesionRepository.create({
                             user: user
                         });
+                        const userNotifications = yield this.notificationRepository.createQueryBuilder("not")
+                            .select(["not.id"])
+                            .innerJoin("not.user", "user", "user.email = :email", { email: requestDTO.email })
+                            .orderBy("not.id", "DESC")
+                            .limit(10)
+                            .getMany();
                         const loggedUser = yield this.sesionRepository.save(sesion);
                         const generalConfiguration = yield this.configurationRepository.findOne(1);
+                        user.notificacion = userNotifications;
+                        yield this.userRepository.save(user);
                         response = {
                             profile: {
                                 token: loggedUser.id,
@@ -86,7 +93,7 @@ let SesionService = class SesionService {
                                 postalCode: user.postalCode,
                                 charge: user.charge,
                                 isActiveCart: user.type.id === 1 ? false : true,
-                                countNotifications: user.notificacion ? user.notificacion.length : 0,
+                                countNotifications: userNotifications.length,
                                 totalBiodermaGames: user.biodermaGamePoints ? user.biodermaGamePoints : 0
                             }
                         };
@@ -227,9 +234,9 @@ SesionService = __decorate([
     __param(2, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
     __param(3, typeorm_1.InjectRepository(notificacion_entity_1.Notificacion)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-    typeorm_2.Repository,
-    typeorm_2.Repository,
-    typeorm_2.Repository])
+        typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], SesionService);
 exports.SesionService = SesionService;
 //# sourceMappingURL=sesion.service.js.map
