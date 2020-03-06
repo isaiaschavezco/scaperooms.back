@@ -1,6 +1,6 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, In } from 'typeorm';
 import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
@@ -240,30 +240,6 @@ export class UserService {
         try {
 
             let response = { status: 0 };
-            // const userAge = this.getAge(createNAOSUserDTO.birthDate);
-
-            /* const quizzes = await this.targetRepository.createQueryBuilder("target")
-            .select("target.id", "id")
-            .where("target.allUsers")
-            .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
-            .orWhere("target.gender = :gender", { gender: createNAOSUserDTO.gender })
-            .orWhere("target.city = :city", { city: createNAOSUserDTO.city })
-            .orWhere("target.position = :position", { position: createNAOSUserDTO.naosPosition })
-            .orWhere("target.type = :type", { type: 1 })
-            //.orWhere("target.chain = :chain", { chain: 0 })
-            .innerJoinAndSelect("target.campaing", "campaing")
-            .innerJoinAndSelect("campaing.quizz", "quizz")
-            .where("quizz.isActive")
-            .orWhere("quizz.isSend")
-            .select("quizz.id", "quizzId")
-            .getRawMany(); */
-
-            /* let quizzesEntities = await this.quizzRepository.find({
-                select: ['id'],
-                where: {
-                    quizzes
-                }
-            }); */
 
             const userExist = await this.userRepository.findOne({
                 where: { email: createNAOSUserDTO.email }
@@ -315,7 +291,37 @@ export class UserService {
                             role: userRole
                         });
 
-                        // newUser.quizz = quizzesEntities;
+                        //Se asignan las trivias correspondientes al nuevo usuario
+                        const targetsToFilter = await this.targetRepository.find({
+                            relations: ["city", "chain", "position", "type", "role"],
+                            where: [{ type: userType, role: null }, { allUsers: true, role: null }]
+                        });
+
+                        let filteredTargets = [];
+
+                        for (let index = 0; index < targetsToFilter.length; index++) {
+                            const tempTarget = targetsToFilter[index];
+
+                            const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
+                            const genderFilter = (tempTarget.gender == createNAOSUserDTO.gender) || (tempTarget.gender == null);
+                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userCity.id);
+                            const chainFilter = tempTarget.chain == null;
+                            const positionFilter = tempTarget.position == null ? true : (tempTarget.position.id == naosPosition.id);
+
+                            if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter) {
+                                filteredTargets.push(tempTarget.id);
+                            }
+
+                        }
+
+                        const quizzesFilteredByTarget = await this.campaingRepository.createQueryBuilder("cmp")
+                            .select("qz.id", "id")
+                            .innerJoin("cmp.target", "tg")
+                            .leftJoin("cmp.quizz", "qz")
+                            .where("tg.id IN (:...targetsIds) AND qz.isSend = true", { targetsIds: filteredTargets })
+                            .getRawMany()
+
+                        newUser.quizz = quizzesFilteredByTarget;
                         await this.userRepository.save(newUser);
                         await this.tokenRepository.remove(tokenExist);
 
@@ -398,44 +404,37 @@ export class UserService {
                             role: userRole
                         });
 
-                        /* const quizzes = await this.targetRepository.createQueryBuilder("target")
-                            .select("target.id", "id")
-                            .where("target.allUsers")
-                            .orWhere(":age between target.initAge and target.finalAge", { age: userAge })
-                            .orWhere("target.gender = :gender", { gender: createDrugStoreUserDTO.gender })
-                            .orWhere("target.city = :city", { city: createDrugStoreUserDTO.city })
-                            .orWhere("target.type = :type", { type: 2 })
-                            .orWhere("target.chain = :chain", { chain: createDrugStoreUserDTO.chain })
-                            .innerJoinAndSelect("target.campaing", "campaing")
-                            .innerJoinAndSelect("campaing.quizz", "quizz")
-                            .where("quizz.isActive")
-                            .orWhere("quizz.isSend")
-                            .select("quizz.id", "quizzId")
-                            .getRawMany(); */
-                        /*
-                        ** select quizz."id" from
-                        ** (
-                        **     select campaing."id" from
-                        **     (
-                        **         select id
-                        **         from "Trivia".target as target
-                        **         where 18 between target."initAge" and target."finalAge"
-                        **         or target."gender" = true or target."cityId" =  1 or target."chainId" =  1 or target."cityId" =  1 or target."positionId" = 1 or target."typeId" = 1
-                        **     ) as filter
-                        **     inner join "Trivia".campaing as campaing on campaing."id" = filter."id"
-                        ** ) as campaing
-                        ** inner join "Trivia".quizz as quizz
-                        ** on quizz."campaingId" = campaing."id" and quizz."isActive" and quizz."isSend" and quizz."startedAt" <= to_timestamp('05 Dec 2000', 'DD Mon YYYY') and to_timestamp('05 Dec 2000', 'DD Mon YYYY') <= quizz."finishedAt";
-                        */
+                        //Se asignan las trivias correspondientes al nuevo usuario
+                        const targetsToFilter = await this.targetRepository.find({
+                            relations: ["city", "chain", "position", "type", "role"],
+                            where: [{ type: userType, role: null }, { allUsers: true, role: null }]
+                        });
 
-                        /* let quizzesEntities = await this.quizzRepository.find({
-                            select: ['id'],
-                            where: {
-                                quizzes
+                        let filteredTargets = [];
+
+                        for (let index = 0; index < targetsToFilter.length; index++) {
+                            const tempTarget = targetsToFilter[index];
+
+                            const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
+                            const genderFilter = (tempTarget.gender == createDrugStoreUserDTO.gender) || (tempTarget.gender == null);
+                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userCity.id);
+                            const chainFilter = tempTarget.chain == null ? true : (tempTarget.chain.id == userChain.id);
+                            const positionFilter = tempTarget.position == null;
+
+                            if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter) {
+                                filteredTargets.push(tempTarget.id);
                             }
-                        }); */
 
-                        // newUser.quizz = quizzesEntities;
+                        }
+
+                        const quizzesFilteredByTarget = await this.campaingRepository.createQueryBuilder("cmp")
+                            .select("qz.id", "id")
+                            .innerJoin("cmp.target", "tg")
+                            .leftJoin("cmp.quizz", "qz")
+                            .where("tg.id IN (:...targetsIds) AND qz.isSend = true", { targetsIds: filteredTargets })
+                            .getRawMany()
+
+                        newUser.quizz = quizzesFilteredByTarget;
                         await this.userRepository.save(newUser);
                         await this.tokenRepository.remove(tokenExist);
 
@@ -592,7 +591,7 @@ export class UserService {
         try {
             let response = null;
 
-            console.log("updateDrugStoreUserDTO:  ", updateDrugStoreUserDTO);
+            // console.log("updateDrugStoreUserDTO:  ", updateDrugStoreUserDTO);
 
             let userExist = await this.userRepository.findOne({
                 relations: ["city", "delegation", "chain"],

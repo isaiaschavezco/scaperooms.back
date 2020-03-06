@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "1943b30a487c4b3b536a89f0e4397de4ee0143b6e9dd8d53388c2ab8252cb0eb",
+        "version": "5a285230bbe67efe5440ab467c8093444b0edb9244ceda296ef03689d7a71766",
         "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -19891,7 +19891,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -20283,6 +20282,7 @@
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
+      "../src/core/users/sesion/sesion.service.ts",
       "../src/core/users/sesion/sesion.controller.ts",
       "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
@@ -20384,7 +20384,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/sesion/sesion.service.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

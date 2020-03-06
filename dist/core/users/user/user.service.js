@@ -280,6 +280,29 @@ let UserService = class UserService {
                                 type: userType,
                                 role: userRole
                             });
+                            const targetsToFilter = yield this.targetRepository.find({
+                                relations: ["city", "chain", "position", "type", "role"],
+                                where: [{ type: userType, role: null }, { allUsers: true, role: null }]
+                            });
+                            let filteredTargets = [];
+                            for (let index = 0; index < targetsToFilter.length; index++) {
+                                const tempTarget = targetsToFilter[index];
+                                const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
+                                const genderFilter = (tempTarget.gender == createNAOSUserDTO.gender) || (tempTarget.gender == null);
+                                const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userCity.id);
+                                const chainFilter = tempTarget.chain == null;
+                                const positionFilter = tempTarget.position == null ? true : (tempTarget.position.id == naosPosition.id);
+                                if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter) {
+                                    filteredTargets.push(tempTarget.id);
+                                }
+                            }
+                            const quizzesFilteredByTarget = yield this.campaingRepository.createQueryBuilder("cmp")
+                                .select("qz.id", "id")
+                                .innerJoin("cmp.target", "tg")
+                                .leftJoin("cmp.quizz", "qz")
+                                .where("tg.id IN (:...targetsIds) AND qz.isSend = true", { targetsIds: filteredTargets })
+                                .getRawMany();
+                            newUser.quizz = quizzesFilteredByTarget;
                             yield this.userRepository.save(newUser);
                             yield this.tokenRepository.remove(tokenExist);
                             response = { status: 0 };
@@ -345,6 +368,29 @@ let UserService = class UserService {
                                 mayoralty: createDrugStoreUserDTO.mayoralty,
                                 role: userRole
                             });
+                            const targetsToFilter = yield this.targetRepository.find({
+                                relations: ["city", "chain", "position", "type", "role"],
+                                where: [{ type: userType, role: null }, { allUsers: true, role: null }]
+                            });
+                            let filteredTargets = [];
+                            for (let index = 0; index < targetsToFilter.length; index++) {
+                                const tempTarget = targetsToFilter[index];
+                                const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
+                                const genderFilter = (tempTarget.gender == createDrugStoreUserDTO.gender) || (tempTarget.gender == null);
+                                const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userCity.id);
+                                const chainFilter = tempTarget.chain == null ? true : (tempTarget.chain.id == userChain.id);
+                                const positionFilter = tempTarget.position == null;
+                                if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter) {
+                                    filteredTargets.push(tempTarget.id);
+                                }
+                            }
+                            const quizzesFilteredByTarget = yield this.campaingRepository.createQueryBuilder("cmp")
+                                .select("qz.id", "id")
+                                .innerJoin("cmp.target", "tg")
+                                .leftJoin("cmp.quizz", "qz")
+                                .where("tg.id IN (:...targetsIds) AND qz.isSend = true", { targetsIds: filteredTargets })
+                                .getRawMany();
+                            newUser.quizz = quizzesFilteredByTarget;
                             yield this.userRepository.save(newUser);
                             yield this.tokenRepository.remove(tokenExist);
                             response = { status: 0 };
@@ -475,7 +521,6 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let response = null;
-                console.log("updateDrugStoreUserDTO:  ", updateDrugStoreUserDTO);
                 let userExist = yield this.userRepository.findOne({
                     relations: ["city", "delegation", "chain"],
                     where: { email: updateDrugStoreUserDTO.userId }
