@@ -66,7 +66,7 @@ let SubmenuService = class SubmenuService {
                 productList = yield this.submenuRepository.find({
                     where: { menu: 2 },
                     order: {
-                        name: "ASC"
+                        id: "ASC"
                     }
                 });
             }
@@ -74,7 +74,7 @@ let SubmenuService = class SubmenuService {
                 productList = yield this.submenuRepository.find({
                     where: { menu: 1 },
                     order: {
-                        name: "ASC"
+                        id: "ASC"
                     }
                 });
             }
@@ -90,25 +90,25 @@ let SubmenuService = class SubmenuService {
                 if (menuId == 1) {
                     switch (tempFile.id) {
                         case 2:
-                            tempPDF = productList[5].url;
+                            tempPDF = productList[1].url;
                             break;
                         case 3:
-                            tempPDF = productList[6].url;
-                            break;
-                        case 4:
                             tempPDF = productList[2].url;
                             break;
-                        case 5:
-                            tempPDF = productList[4].url;
-                            break;
-                        case 6:
+                        case 4:
                             tempPDF = productList[3].url;
                             break;
-                        case 7:
+                        case 5:
                             tempPDF = productList[0].url;
                             break;
+                        case 6:
+                            tempPDF = productList[4].url;
+                            break;
+                        case 7:
+                            tempPDF = productList[6].url;
+                            break;
                         case 8:
-                            tempPDF = productList[1].url;
+                            tempPDF = productList[5].url;
                             break;
                         default:
                             break;
@@ -117,25 +117,25 @@ let SubmenuService = class SubmenuService {
                 if (menuId == 2) {
                     switch (tempFile.id) {
                         case 9:
-                            tempPDF = productList[1].url;
+                            tempPDF = productList[4].url;
                             break;
                         case 10:
-                            tempPDF = productList[7].url;
+                            tempPDF = productList[1].url;
                             break;
                         case 11:
-                            tempPDF = productList[5].url;
-                            break;
-                        case 12:
-                            tempPDF = productList[6].url;
-                            break;
-                        case 13:
-                            tempPDF = productList[3].url;
-                            break;
-                        case 14:
                             tempPDF = productList[2].url;
                             break;
+                        case 12:
+                            tempPDF = productList[3].url;
+                            break;
+                        case 13:
+                            tempPDF = productList[5].url;
+                            break;
+                        case 14:
+                            tempPDF = productList[7].url;
+                            break;
                         case 15:
-                            tempPDF = productList[4].url;
+                            tempPDF = productList[6].url;
                             break;
                         default:
                             break;
