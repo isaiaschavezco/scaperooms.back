@@ -65,6 +65,9 @@ let SesionService = class SesionService {
                             .getMany();
                         const loggedUser = yield this.sesionRepository.save(sesion);
                         const generalConfiguration = yield this.configurationRepository.findOne(1);
+                        const newUserAge = this.getAge(moment(new Date(user.birthDate)).format('DD-MM-YYYY'));
+                        console.log("newUserAge: ", newUserAge);
+                        user.age = isNaN(newUserAge) ? 0 : newUserAge;
                         user.notificacion = userNotifications;
                         yield this.userRepository.save(user);
                         response = {
@@ -225,6 +228,16 @@ let SesionService = class SesionService {
                 }, 500);
             }
         });
+    }
+    getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && (today.getDate() < birthDate.getDate()))) {
+            age--;
+        }
+        return age;
     }
 };
 SesionService = __decorate([

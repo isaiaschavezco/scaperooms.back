@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Campaing } from './campaing.entity';
 import { Target } from '../target/target.entity';
 import { User } from '../../users/user/user.entity';
-import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory, RemoveCampaingDTO } from './campaing.dto';
+import { CreateCampaingDTO, GetCampaingsByUserDTO, GetUserCampaingHistory, RemoveCampaingDTO, UpdateCampaingDTO } from './campaing.dto';
 import * as moment from 'moment';
 import * as bcrypt from 'bcrypt';
 
@@ -36,7 +36,7 @@ export class CampaingService {
             const campaingList = await this.campaingRepository.find({
                 where: { isDeleted: false, isBiodermaGame: isBioderma },
                 order: { createdAt: 'DESC' },
-                relations: ["target", "target.city", "target.chain", "target.position", "target.type", "target.role"]
+                relations: ["target", "target.city", "target.chain", "target.position", "target.type", "target.role", "target.delegation"]
             });
             return campaingList;
         } catch (err) {
@@ -113,6 +113,25 @@ export class CampaingService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error creating campaing',
+            }, 500);
+        }
+    }
+
+    async update(updateDTO: UpdateCampaingDTO): Promise<any> {
+        try {
+            let campaingToUpdate = await this.campaingRepository.findOne(updateDTO.campaingId);
+
+            campaingToUpdate.name = updateDTO.name;
+
+            await this.campaingRepository.save(campaingToUpdate);
+
+            return { status: 0 };
+        } catch (err) {
+            console.log("CampaingService - update: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error updating campaing',
             }, 500);
         }
     }

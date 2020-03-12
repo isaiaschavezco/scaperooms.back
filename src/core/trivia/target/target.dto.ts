@@ -2,6 +2,7 @@ export class CreateTargetDTO {
     readonly allUsers: boolean;
     readonly userType: number;
     readonly state: number;
+    readonly city: number;
     readonly chain: number;
     readonly naosPosition: number;
     readonly initAge: number;

@@ -56,6 +56,11 @@ export class SesionService {
                     const loggedUser = await this.sesionRepository.save(sesion);
                     const generalConfiguration = await this.configurationRepository.findOne(1);
 
+                    const newUserAge = this.getAge(moment(new Date(user.birthDate)).format('DD-MM-YYYY'));
+
+                    // console.log("newUserAge: ", newUserAge);
+
+                    user.age = isNaN(newUserAge) ? 0 : newUserAge;
                     user.notificacion = userNotifications;
                     await this.userRepository.save(user);
 
@@ -241,6 +246,17 @@ export class SesionService {
                 error: 'Error requesting login',
             }, 500);
         }
+    }
+
+    private getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && (today.getDate() < birthDate.getDate()))) {
+            age--;
+        }
+        return age;
     }
 
 }

@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne } from 'ty
 import { City } from '../city/city.entity';
 import { Colony } from '../colony/colony.entity';
 import { User } from '../user/user.entity';
+import { Target } from '../../trivia/target/target.entity';
 
 @Entity({ schema: 'Users' })
 export class Delegation {
@@ -20,5 +21,8 @@ export class Delegation {
 
     @OneToMany(type => User, user => user.delegation)
     user: User[];
+
+    @OneToMany(type => Target, target => target.delegation)
+    target: Target[];
 
 }

@@ -30,15 +30,26 @@ export class TagService {
     async createTag(createDTO: CreateTagDTO): Promise<any> {
         try {
 
-            console.log("createDTO: ", createDTO);
+            let tagToReturn = null;
 
-            let newTag = await this.tagRepository.create({
-                name: createDTO.tagName
+            const tagExist = await this.tagRepository.findOne({
+                where: { name: createDTO.tagName.trim().toUpperCase() }
             });
 
-            const tagRegistered = await this.tagRepository.save(newTag);
+            if (tagExist) {
 
-            return { tag: tagRegistered };
+                tagToReturn = tagExist;
+
+            } else {
+
+                let newTag = await this.tagRepository.create({
+                    name: createDTO.tagName
+                });
+                tagToReturn = await this.tagRepository.save(newTag);
+
+            }
+
+            return { tag: tagToReturn };
         } catch (err) {
             console.log("TagService - createTag: ", err);
 

@@ -32,8 +32,8 @@ NotificationModule = __decorate([
             onesignal_api_client_nest_1.OneSignalModule.forRootAsync({
                 useFactory: () => __awaiter(void 0, void 0, void 0, function* () {
                     return {
-                        appId: '188260b3-3b62-4622-aa05-cbe0aed8499a',
-                        restApiKey: 'ZjhjNGQ3OWEtYTRmMi00MjdmLWI2Y2UtMThjMTNkNzg0MjBj'
+                        appId: '',
+                        restApiKey: ''
                     };
                 })
             }),

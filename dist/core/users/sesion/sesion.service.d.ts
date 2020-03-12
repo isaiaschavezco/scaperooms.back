@@ -14,4 +14,5 @@ export declare class SesionService {
     SetPlayerID(updatePlayerID: UpdatePlayerID): Promise<any>;
     RequesLogout(reuestSesionLogOutDTO: ReuestSesionLogOutDTO): Promise<any>;
     RequesLoginAdmin(requestDTO: ReuestSesionDTO): Promise<any>;
+    private getAge;
 }

@@ -87,7 +87,7 @@ let NotificationService = class NotificationService {
                         id: notification.id,
                         header: notification.header,
                         content: notification.content,
-                        createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
+                        createdAt: moment(notification.createdAt).tz('America/Mexico_City').format('DD/MM/YYYY HH:mm:ss')
                     });
                 });
                 return { notificacions: notificationToReturn };
@@ -117,7 +117,7 @@ let NotificationService = class NotificationService {
                         id: notification.id,
                         header: notification.header,
                         content: notification.content,
-                        createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
+                        createdAt: moment(notification.createdAt).tz('America/Mexico_City').format('DD/MM/YYYY HH:mm:ss')
                     });
                 });
                 return { notificacions: notificationToReturn };
@@ -152,7 +152,7 @@ let NotificationService = class NotificationService {
                             createdAt: moment().tz('America/Mexico_City').format()
                         });
                         const notificationTargets = yield this.targetRepository.findByIds(sendRequest.targets, {
-                            relations: ["city", "chain", "position", "type"]
+                            relations: ["city", "chain", "position", "type", "delegation"]
                         });
                         notificationTargets.forEach(target => {
                             let tempTargetObject = {};
@@ -170,6 +170,9 @@ let NotificationService = class NotificationService {
                             }
                             if (target.city !== null) {
                                 tempTargetObject['city'] = target.city.id;
+                            }
+                            if (target.delegation !== null) {
+                                tempTargetObject['delegation'] = target.delegation.id;
                             }
                             if (target.position !== null) {
                                 tempTargetObject['position'] = target.position.id;
@@ -206,13 +209,6 @@ let NotificationService = class NotificationService {
                                 playerIds.push(sesion.playerId);
                             }
                         });
-                        const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
-                            .setIncludePlayerIds(playerIds)
-                            .notification()
-                            .setHeadings({ en: sendRequest.title })
-                            .setContents({ en: sendRequest.content })
-                            .build();
-                        yield this.oneSignalService.createNotification(input);
                     }
                     else {
                         response = { status: 2 };

@@ -1,4 +1,5 @@
 import { City } from '../../users/city/city.entity';
+import { Delegation } from '../../users/delegation/delegation.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Position } from '../../users/position/position.entity';
 import { Type } from '../../users/type/type.entity';
@@ -16,4 +17,5 @@ export declare class Target {
     type: Type;
     role: Role;
     campaing: Campaing[];
+    delegation: Delegation;
 }

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const city_entity_1 = require("../../users/city/city.entity");
+const delegation_entity_1 = require("../../users/delegation/delegation.entity");
 const chain_entity_1 = require("../../users/chain/chain.entity");
 const position_entity_1 = require("../../users/position/position.entity");
 const type_entity_1 = require("../../users/type/type.entity");
@@ -62,6 +63,10 @@ __decorate([
     typeorm_1.ManyToMany(type => campaing_entity_1.Campaing, campaing => campaing.target),
     __metadata("design:type", Array)
 ], Target.prototype, "campaing", void 0);
+__decorate([
+    typeorm_1.ManyToOne(type => delegation_entity_1.Delegation, delegation => delegation.target),
+    __metadata("design:type", delegation_entity_1.Delegation)
+], Target.prototype, "delegation", void 0);
 Target = __decorate([
     typeorm_1.Entity({ schema: 'Trivia' })
 ], Target);

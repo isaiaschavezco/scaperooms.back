@@ -109,7 +109,7 @@ export class QuizzService {
             let notificationToAllUsers = false;
 
             let quizzToSend = await this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
-                relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type", "campaing.target.role"]
+                relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type", "campaing.target.role", "campaing.target.delegation"]
             });
 
             // Se almacena fecha de inicio - fin de la trivia
@@ -119,6 +119,8 @@ export class QuizzService {
             quizzToSend.isActive = true;
 
             quizzToSend.campaing.target.forEach(target => {
+
+                // console.log("target: ", target);
 
                 let tempTargetObject = {};
 
@@ -142,6 +144,10 @@ export class QuizzService {
 
                 if (target.city !== null) {
                     tempTargetObject['city'] = target.city.id;
+                }
+
+                if (target.delegation !== null) {
+                    tempTargetObject['delegation'] = target.delegation.id;
                 }
 
                 if (target.position !== null) {

@@ -12,6 +12,7 @@ const target_service_1 = require("./target.service");
 const target_controller_1 = require("./target.controller");
 const target_entity_1 = require("./target.entity");
 const city_entity_1 = require("../../users/city/city.entity");
+const delegation_entity_1 = require("../../users/delegation/delegation.entity");
 const chain_entity_1 = require("../../users/chain/chain.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const position_entity_1 = require("../../users/position/position.entity");
@@ -26,7 +27,8 @@ TargetModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([chain_entity_1.Chain]),
             typeorm_1.TypeOrmModule.forFeature([type_entity_1.Type]),
             typeorm_1.TypeOrmModule.forFeature([position_entity_1.Position]),
-            typeorm_1.TypeOrmModule.forFeature([role_entity_1.Role])
+            typeorm_1.TypeOrmModule.forFeature([role_entity_1.Role]),
+            typeorm_1.TypeOrmModule.forFeature([delegation_entity_1.Delegation])
         ],
         providers: [target_service_1.TargetService],
         controllers: [target_controller_1.TargetController]

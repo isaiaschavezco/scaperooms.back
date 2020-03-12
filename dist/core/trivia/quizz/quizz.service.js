@@ -122,7 +122,7 @@ let QuizzService = class QuizzService {
                 let filterQueries = [];
                 let notificationToAllUsers = false;
                 let quizzToSend = yield this.quizzRepository.findOne(sendQuizzDTO.quizzId, {
-                    relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type", "campaing.target.role"]
+                    relations: ["campaing", "campaing.target", "campaing.target.city", "campaing.target.chain", "campaing.target.position", "campaing.target.type", "campaing.target.role", "campaing.target.delegation"]
                 });
                 quizzToSend.startedAt = new Date(sendQuizzDTO.startDate);
                 quizzToSend.finishedAt = new Date(sendQuizzDTO.finishDate);
@@ -144,6 +144,9 @@ let QuizzService = class QuizzService {
                     }
                     if (target.city !== null) {
                         tempTargetObject['city'] = target.city.id;
+                    }
+                    if (target.delegation !== null) {
+                        tempTargetObject['delegation'] = target.delegation.id;
                     }
                     if (target.position !== null) {
                         tempTargetObject['position'] = target.position.id;

@@ -51,12 +51,20 @@ let TagService = class TagService {
     createTag(createDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                console.log("createDTO: ", createDTO);
-                let newTag = yield this.tagRepository.create({
-                    name: createDTO.tagName
+                let tagToReturn = null;
+                const tagExist = yield this.tagRepository.findOne({
+                    where: { name: createDTO.tagName.trim().toUpperCase() }
                 });
-                const tagRegistered = yield this.tagRepository.save(newTag);
-                return { tag: tagRegistered };
+                if (tagExist) {
+                    tagToReturn = tagExist;
+                }
+                else {
+                    let newTag = yield this.tagRepository.create({
+                        name: createDTO.tagName
+                    });
+                    tagToReturn = yield this.tagRepository.save(newTag);
+                }
+                return { tag: tagToReturn };
             }
             catch (err) {
                 console.log("TagService - createTag: ", err);

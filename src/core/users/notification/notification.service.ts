@@ -72,7 +72,7 @@ export class NotificationService {
                     id: notification.id,
                     header: notification.header,
                     content: notification.content,
-                    createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
+                    createdAt: moment(notification.createdAt).tz('America/Mexico_City').format('DD/MM/YYYY HH:mm:ss')
                 });
             });
 
@@ -106,7 +106,7 @@ export class NotificationService {
                     id: notification.id,
                     header: notification.header,
                     content: notification.content,
-                    createdAt: moment(notification.createdAt).format('DD/MM/YYYY HH:mm:ss')
+                    createdAt: moment(notification.createdAt).tz('America/Mexico_City').format('DD/MM/YYYY HH:mm:ss')
                 });
             });
 
@@ -148,7 +148,7 @@ export class NotificationService {
                     });
 
                     const notificationTargets = await this.targetRepository.findByIds(sendRequest.targets, {
-                        relations: ["city", "chain", "position", "type"]
+                        relations: ["city", "chain", "position", "type", "delegation"]
                     });
 
                     notificationTargets.forEach(target => {
@@ -175,6 +175,10 @@ export class NotificationService {
 
                         if (target.city !== null) {
                             tempTargetObject['city'] = target.city.id;
+                        }
+
+                        if (target.delegation !== null) {
+                            tempTargetObject['delegation'] = target.delegation.id;
                         }
 
                         if (target.position !== null) {
@@ -225,7 +229,7 @@ export class NotificationService {
 
                     const input = new NotificationByDeviceBuilder()
                         .setIncludePlayerIds(playerIds)
-                        .notification() // .email()
+                        .notification()
                         .setHeadings({ en: sendRequest.title })
                         .setContents({ en: sendRequest.content })
                         .build();

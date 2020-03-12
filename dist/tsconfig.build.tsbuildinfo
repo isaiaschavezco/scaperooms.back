@@ -2170,8 +2170,8 @@
         "signature": "e706111afb7a925d2539428b7711bceac61beff39c9fe630caf61aca59a92aaf"
       },
       "../src/core/users/delegation/delegation.entity.ts": {
-        "version": "25742570a38996ee66d73ae7e352572ac69fbbc871915ab74566149797ae2354",
-        "signature": "e722de081f9c47af931444fe3b09ef87b45fb03cc0cd2e1825019763f3463c0a"
+        "version": "b0f7e51cc88f8654b5f72446cda424f670b7eb86a5a5f57c75661e6ef9104f93",
+        "signature": "9287351e0e9a8f5f79480cc7ca9786c48735972e6a1b6e6087f402929841a428"
       },
       "../src/core/users/city/city.entity.ts": {
         "version": "707a6e63afacbb942d154c8ac083daae4cc6e5bd25ef163d87e1a9d762b9fe11",
@@ -2222,8 +2222,8 @@
         "signature": "cbf0191e0a09000d8d144e35100142081850e58747572e3d45b2a8fb069f3a27"
       },
       "../src/core/trivia/target/target.entity.ts": {
-        "version": "597045abb1b60380187909b222475a5093b94341a5571ac4600955410ea9e21c",
-        "signature": "f3fdd6b6d63c3731a4e09cf3bca6e99001ef2f7d9bdb5fd4d5dfc829f002ee74"
+        "version": "eb3349bef11d8f06e9bfc411267219e4dcc1e7948588817a889ce7603cafa1ff",
+        "signature": "4f3ac4ced66805897a4fac32529b00cfafd935afa539cfe3814bdf1249e168f7"
       },
       "../src/core/users/type/type.entity.ts": {
         "version": "2e0e7787ef6583df557b96615dcc98afa0ed0ebb6622f2b01d656a42ca292251",
@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "5a285230bbe67efe5440ab467c8093444b0edb9244ceda296ef03689d7a71766",
+        "version": "6eb6d7074fc1792b4610fe59e550e6fb1a2601bc01d4094f848e7ff444662345",
         "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2438,7 +2438,7 @@
         "signature": "244561c4c7f2941199bff0016e3328aad1d0c1ecf2f2b00c842cd21fe48eadab"
       },
       "../src/core/content/tag/tag.service.ts": {
-        "version": "43b9554dd99e86caa94787da5d5857346626d908f242e35d0a82368fd5693c51",
+        "version": "736d24ce6fc8043b9f365d3c8056e743b2c02da8445ca18ab58a557f2af4549c",
         "signature": "64e377f79c871956cd4900ddcd8ce0387d228dd98bd6533fb4e1090efdff0d38"
       },
       "../src/core/content/tag/tag.controller.ts": {
@@ -2506,32 +2506,32 @@
         "signature": "c25803029ad2bba7b81a981487ef26779c727cfd0a29c4a42f8e6122cf72b5e3"
       },
       "../src/core/trivia/target/target.dto.ts": {
-        "version": "f899949f5657a329bdd88976b891c5bef8915cbfe009cfde4753c7cb0ce47c41",
-        "signature": "73bd643700086e7cef0be28a0cf1cfb1734f68c9fdc403679e7dea6b2f9a421d"
+        "version": "0d809e990ee00a8f2c0ccd4835d38ea94a4f81377d7c9bc8990f7d779ea4ff5f",
+        "signature": "463d3770c968abb98dd3cb6943752e24261c415c28fcdaa1821e4dca1dc2bb62"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "ec22c73381bc3406ab9c39e18a568cdff7704ba873630b659160435c85d1d971",
-        "signature": "3eb9773c74658c02942e25324071379de59936a0dce0e62b4be58bedc924b290"
+        "version": "8451f52807329cf7563fcaf3b474e710f4415734c9b11e140f777e3af747a085",
+        "signature": "435314652b03fea433faebb1e1c646ddc3155439184c8abf73e19496a0c23616"
       },
       "../src/core/trivia/target/target.controller.ts": {
         "version": "5fac1cdec3d7b84b8b35e5cc2f17579b3446a6fb39e5da0465101f7f96b82126",
         "signature": "badf883d33e2ca44355ea5350f1159933ebcaf4ff38345a9d232b56ef10f1022"
       },
       "../src/core/trivia/target/target.module.ts": {
-        "version": "ef7353734f649d09c2d09319d8ddbf98eb7d1d53c45facc909d2562f3f28a6cd",
+        "version": "ea684cf1dbc4dfba914e936a121bdb39060d0dc188c62db3bff1d85ba3ce532f",
         "signature": "7a7e7365d97bfe93ae930d00901117c97e94d6333ae0e12111a427200f69e7d6"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
-        "version": "22d2d533e73f7c52c7b00eaec1a9287fdbec36407ebb4b8164f624a2883bb5f1",
-        "signature": "89e66d35e85474d727bed505efdd5ff583f8a6c45b4e3aaddcef197d75d6027d"
+        "version": "08db736dcc0c179b7000b79df5b2ba832ff278c3db902202745eeb71f2cbc243",
+        "signature": "6452d7c0cf53c4c1d003c9c543653a98e543a6bfcb8b8c5b02be1ea811ed3105"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "5f6085a5eddb0e1dc39d84138e44428b963f76865714258cf6dd811b5ab5eb0a",
-        "signature": "ce57d7032886ab5cb25640d1a54ddd005c28d8e0cd04301ffc5cfd7e0f07b565"
+        "version": "5c8f963a36c424241c2cf678e351f7b5545778ba54da55df80e114288b6afe3e",
+        "signature": "27493516288ca6834e543dd0e4163a3a5aff579f4f6fbc195fa3832c66a55dee"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
-        "version": "fe4b6aaafaf817543156094e9c73c8b7d386b06f859a7a432f22158efaadcce8",
-        "signature": "5a1dec6bc893a04fa0260be3c90cedcdc339965bbbbf9c980c6f61259f092d55"
+        "version": "d19185d38d208538f8394b6ea18e5fdcd2cdb3c625084b332ea982c4de52aab4",
+        "signature": "539751e3c9f247474537def1d327eb5de9b1bbfdff6d8bc5cc701cc86315e39c"
       },
       "../src/core/trivia/campaing/campaing.module.ts": {
         "version": "a396211f62057e87bed10c5cdf429936a68556bb1c79f917f82714c428048294",
@@ -2542,7 +2542,7 @@
         "signature": "1168480d63d7b9bb9701e87d626e06049f1f82f81ee5c7877afeb3302826297f"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "d25c5b43f621e603973316632c0dcb726db23fb787b60e3b72cccbe2ca65073a",
+        "version": "8c012b4e6bbcaaa074720cd8ac3bf1de4bc672aad764c29e94ae6b51bebd0911",
         "signature": "eaf88a232413be4340735a2985b6ef27eb6c07fde7a8f3024951271fe92c8a40"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -3597,8 +3597,52 @@
         "version": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f",
         "signature": "1b8e2370aa2872687e7ab84dcf4c565ad5515b28c098b11d68a2d67d5e51095f"
       },
+      "../node_modules/@types/range-parser/index.d.ts": {
+        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b"
+      },
+      "../node_modules/@types/express-serve-static-core/index.d.ts": {
+        "version": "88300a14933efa862bf68f8444082c7ce0cfb23f67b3eeaf1575933a1ce84b3d",
+        "signature": "88300a14933efa862bf68f8444082c7ce0cfb23f67b3eeaf1575933a1ce84b3d"
+      },
+      "../node_modules/@types/mime/index.d.ts": {
+        "version": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6",
+        "signature": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6"
+      },
+      "../node_modules/@types/serve-static/index.d.ts": {
+        "version": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0",
+        "signature": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0"
+      },
+      "../node_modules/@types/connect/index.d.ts": {
+        "version": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82",
+        "signature": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82"
+      },
+      "../node_modules/@types/body-parser/index.d.ts": {
+        "version": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768",
+        "signature": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768"
+      },
+      "../node_modules/@types/express/index.d.ts": {
+        "version": "6e1c6fe784daeba017901db7766e6b872f535defe33b0e0196d2a12c26f50517",
+        "signature": "6e1c6fe784daeba017901db7766e6b872f535defe33b0e0196d2a12c26f50517"
+      },
+      "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts": {
+        "version": "c853a76d915bcefa3fa1ada5142367a7adfbb111ac7507fde18245596d54ee71",
+        "signature": "c853a76d915bcefa3fa1ada5142367a7adfbb111ac7507fde18245596d54ee71"
+      },
+      "../node_modules/multer-sharp-s3/dist/types/types.d.ts": {
+        "version": "828ac406b75d5c66bc5025abfd4af9c1205868425bda5001f70bf5ed1901e390",
+        "signature": "828ac406b75d5c66bc5025abfd4af9c1205868425bda5001f70bf5ed1901e390"
+      },
+      "../node_modules/multer-sharp-s3/dist/types/main.d.ts": {
+        "version": "18627d0efb9cac9981e543c5de3c07973050d87ef467f22bf428db6eb4bd305f",
+        "signature": "18627d0efb9cac9981e543c5de3c07973050d87ef467f22bf428db6eb4bd305f"
+      },
+      "../node_modules/multer-sharp-s3/index.d.ts": {
+        "version": "e5855133f8b0dc22b299c0956bba15b8211b7335f8907b98749ce461256040b3",
+        "signature": "e5855133f8b0dc22b299c0956bba15b8211b7335f8907b98749ce461256040b3"
+      },
       "../src/upload/upload.service.ts": {
-        "version": "b106f4e5a4952e999d64461ba0817766774c0abdafd121d11ed888607867f63e",
+        "version": "a7b6794305f53007e854e8c1de0bc3e38201329bfd18b6974c60804002f80cd2",
         "signature": "046a0e6d3dccd27e2817c4e1e16226a4df7369d884c48a321c8485f8ddccc26e"
       },
       "../src/upload/upload.controller.ts": {
@@ -3902,7 +3946,7 @@
         "signature": "eb98bfc652a7867ae5666d6bd59b85cea6f34ce403f1708fc27506eb11ef5ffe"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "74fe345dfb852a20b71265c2105dfa1dda2c53b49aa29a01a63d71a0c322adb5",
+        "version": "400f0be3c27abc2a52f41ce7a81330619bf54db5354923dc6a4ae4474e4565e0",
         "signature": "df6617e51fd7c1d543bd455502eb18914ec6fb98b9b7f6d29de0cb54a42fe3fd"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -3910,7 +3954,7 @@
         "signature": "032c5d63a575cc097c8ea945b6881a02d46d89a40bcc07728da5e608adb9ff2d"
       },
       "../src/core/users/notification/notification.module.ts": {
-        "version": "d94aea1b4d11cec73e7211d51401da406995e09b46f2b7efd7e2583653dd610c",
+        "version": "1e3c601bd6a6d0e3881c96ecf1f8289e8e80254978c4f0eccd0688c3e5a99be5",
         "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e"
       },
       "../src/core/users/sesion/sesion.dto.ts": {
@@ -3918,8 +3962,8 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "2f5f2c4ea52d222ec6e1a8437abbe7af9b078960ab3b4f373cdf2f6a57765363",
-        "signature": "994c93da56b46f19ea549d8e5de9a693950a0f88056fab425799e7258d547dfe"
+        "version": "a876070692bd57baab3893039be758e486e7e00a54cc78c2fe999fd1248ab1f6",
+        "signature": "fb6212a1e45daae93997de67dc4856c16269d598536a883081050d9a0f48dbbf"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
         "version": "c01f49dca86ac241176e5388df989e17b6ca473978a8db2643e5bf357e3a1e8e",
@@ -4249,14 +4293,6 @@
         "version": "2608cfd623840916e664e68c3dc5eb4347ccae822f808d899bf00e73cbab2bfe",
         "signature": "2608cfd623840916e664e68c3dc5eb4347ccae822f808d899bf00e73cbab2bfe"
       },
-      "../node_modules/@types/connect/index.d.ts": {
-        "version": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82",
-        "signature": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82"
-      },
-      "../node_modules/@types/body-parser/index.d.ts": {
-        "version": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768",
-        "signature": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768"
-      },
       "../src/main.ts": {
         "version": "bf6f103ee525f06c8f66abbd1a423660edd7a4211d6c1e8595429a162164e198",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
@@ -4288,26 +4324,6 @@
       "../node_modules/@types/cookiejar/index.d.ts": {
         "version": "16b7fb094ffaa5d270f934e7406e8baee2f8245cfabf6dcc20f693389f005f56",
         "signature": "16b7fb094ffaa5d270f934e7406e8baee2f8245cfabf6dcc20f693389f005f56"
-      },
-      "../node_modules/@types/range-parser/index.d.ts": {
-        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
-        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b"
-      },
-      "../node_modules/@types/express-serve-static-core/index.d.ts": {
-        "version": "88300a14933efa862bf68f8444082c7ce0cfb23f67b3eeaf1575933a1ce84b3d",
-        "signature": "88300a14933efa862bf68f8444082c7ce0cfb23f67b3eeaf1575933a1ce84b3d"
-      },
-      "../node_modules/@types/mime/index.d.ts": {
-        "version": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6",
-        "signature": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6"
-      },
-      "../node_modules/@types/serve-static/index.d.ts": {
-        "version": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0",
-        "signature": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0"
-      },
-      "../node_modules/@types/express/index.d.ts": {
-        "version": "6e1c6fe784daeba017901db7766e6b872f535defe33b0e0196d2a12c26f50517",
-        "signature": "6e1c6fe784daeba017901db7766e6b872f535defe33b0e0196d2a12c26f50517"
       },
       "../node_modules/@types/jest/index.d.ts": {
         "version": "37dbdee3bb13bc254e9d75bbb75569e807369868e5cbd89ce72aa77fb22fcb75",
@@ -7793,6 +7809,7 @@
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/colony/colony.entity.ts",
         "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -7887,6 +7904,7 @@
       "../src/core/trivia/target/target.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/city/city.entity.ts",
+        "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/type/type.entity.ts",
@@ -8444,6 +8462,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/core/trivia/target/target.entity.ts",
         "../src/core/users/city/city.entity.ts",
+        "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
@@ -8467,6 +8486,7 @@
         "../src/core/trivia/target/target.controller.ts",
         "../src/core/trivia/target/target.entity.ts",
         "../src/core/users/city/city.entity.ts",
+        "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
@@ -11025,9 +11045,77 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@types/range-parser/index.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/express-serve-static-core/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/range-parser/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/mime/index.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/serve-static/index.d.ts": [
+        "../node_modules/@types/express-serve-static-core/index.d.ts",
+        "../node_modules/@types/mime/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/connect/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/body-parser/index.d.ts": [
+        "../node_modules/@types/connect/index.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/express/index.d.ts": [
+        "../node_modules/@types/body-parser/index.d.ts",
+        "../node_modules/@types/serve-static/index.d.ts",
+        "../node_modules/@types/express-serve-static-core/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/types.d.ts": [
+        "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/main.d.ts": [
+        "../node_modules/aws-sdk/lib/s3/managed_upload.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
+        "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/index.d.ts": [
+        "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/upload/upload.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/multer-sharp-s3/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -12087,19 +12175,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../node_modules/@types/connect/index.d.ts": [
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/body-parser/index.d.ts": [
-        "../node_modules/@types/connect/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
         "../src/app.module.ts",
@@ -12141,35 +12216,6 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@types/cookiejar/index.d.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/range-parser/index.d.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/express-serve-static-core/index.d.ts": [
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/range-parser/index.d.ts",
-        "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/mime/index.d.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/serve-static/index.d.ts": [
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/mime/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/express/index.d.ts": [
-        "../node_modules/@types/body-parser/index.d.ts",
-        "../node_modules/@types/serve-static/index.d.ts",
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -15632,7 +15678,8 @@
       "../src/core/users/delegation/delegation.entity.ts": [
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/colony/colony.entity.ts",
-        "../src/core/users/user/user.entity.ts"
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/target/target.entity.ts"
       ],
       "../src/core/users/city/city.entity.ts": [
         "../src/core/users/delegation/delegation.entity.ts",
@@ -15692,7 +15739,8 @@
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/role/role.entity.ts",
-        "../src/core/trivia/campaing/campaing.entity.ts"
+        "../src/core/trivia/campaing/campaing.entity.ts",
+        "../src/core/users/delegation/delegation.entity.ts"
       ],
       "../src/core/users/type/type.entity.ts": [
         "../src/core/users/token/token.entity.ts",
@@ -15858,6 +15906,7 @@
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/role/role.entity.ts",
+        "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/trivia/target/target.dto.ts"
       ],
       "../src/core/trivia/target/target.controller.ts": [
@@ -18368,6 +18417,73 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../node_modules/@types/range-parser/index.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/express-serve-static-core/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/range-parser/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/mime/index.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/serve-static/index.d.ts": [
+        "../node_modules/@types/express-serve-static-core/index.d.ts",
+        "../node_modules/@types/mime/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/connect/index.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/body-parser/index.d.ts": [
+        "../node_modules/@types/connect/index.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/@types/express/index.d.ts": [
+        "../node_modules/@types/body-parser/index.d.ts",
+        "../node_modules/@types/serve-static/index.d.ts",
+        "../node_modules/@types/express-serve-static-core/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts": [
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/types.d.ts": [
+        "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/main.d.ts": [
+        "../node_modules/aws-sdk/lib/s3/managed_upload.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
+        "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
+        "../node_modules/@types/node/ts3.2/index.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/index.d.ts": [
+        "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/upload/upload.controller.ts": [
         "../src/upload/upload.service.ts"
       ],
@@ -19221,19 +19337,6 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "../node_modules/@types/connect/index.d.ts": [
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/body-parser/index.d.ts": [
-        "../node_modules/@types/connect/index.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
@@ -19248,35 +19351,6 @@
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "../node_modules/@types/cookiejar/index.d.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/range-parser/index.d.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/express-serve-static-core/index.d.ts": [
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/range-parser/index.d.ts",
-        "../node_modules/@types/node/ts3.2/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/mime/index.d.ts": [
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/serve-static/index.d.ts": [
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
-        "../node_modules/@types/mime/index.d.ts",
-        "../node_modules/@types/node/util.d.ts",
-        "../node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "../node_modules/@types/express/index.d.ts": [
-        "../node_modules/@types/body-parser/index.d.ts",
-        "../node_modules/@types/serve-static/index.d.ts",
-        "../node_modules/@types/express-serve-static-core/index.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -19903,6 +19977,7 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -20202,7 +20277,37 @@
       "../node_modules/aws-sdk/lib/shared-ini/ini-loader.d.ts",
       "../node_modules/aws-sdk/lib/core.d.ts",
       "../node_modules/aws-sdk/index.d.ts",
-      "../src/upload/upload.service.ts",
+      "../node_modules/@types/range-parser/index.d.ts",
+      "../node_modules/@types/express-serve-static-core/index.d.ts",
+      "../node_modules/@types/mime/index.d.ts",
+      "../node_modules/@types/serve-static/index.d.ts",
+      "../node_modules/@types/connect/index.d.ts",
+      "../node_modules/@types/body-parser/index.d.ts",
+      "../node_modules/@types/express/index.d.ts",
+      "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
+      "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
+      [
+        "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
+        [
+          {
+            "file": "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
+            "start": 458,
+            "length": 6,
+            "messageText": "Namespace 'global.Express' has no exported member 'Multer'.",
+            "category": 1,
+            "code": 2694
+          },
+          {
+            "file": "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
+            "start": 561,
+            "length": 6,
+            "messageText": "Namespace 'global.Express' has no exported member 'Multer'.",
+            "category": 1,
+            "code": 2694
+          }
+        ]
+      ],
+      "../node_modules/multer-sharp-s3/index.d.ts",
       "../src/upload/upload.controller.ts",
       "../src/upload/upload.module.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
@@ -20365,8 +20470,6 @@
       "../node_modules/@nestjs/core/services/reflector.service.d.ts",
       "../node_modules/@nestjs/core/services/index.d.ts",
       "../node_modules/@nestjs/core/index.d.ts",
-      "../node_modules/@types/connect/index.d.ts",
-      "../node_modules/@types/body-parser/index.d.ts",
       "../src/main.ts",
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
@@ -20375,16 +20478,11 @@
       "../node_modules/@types/babylon/index.d.ts",
       "../node_modules/@types/color-name/index.d.ts",
       "../node_modules/@types/cookiejar/index.d.ts",
-      "../node_modules/@types/range-parser/index.d.ts",
-      "../node_modules/@types/express-serve-static-core/index.d.ts",
-      "../node_modules/@types/mime/index.d.ts",
-      "../node_modules/@types/serve-static/index.d.ts",
-      "../node_modules/@types/express/index.d.ts",
       "../node_modules/@types/jest/index.d.ts",
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/submenu/submenu.service.ts"
+      "../src/upload/upload.service.ts"
     ]
   },
   "version": "3.7.2"

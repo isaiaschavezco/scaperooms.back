@@ -2,6 +2,7 @@ import { Injectable, Res, Req } from '@nestjs/common';
 import * as multer from 'multer';
 import * as AWS from 'aws-sdk';
 import * as multerS3 from 'multer-s3';
+import s3Storage = require("multer-sharp-s3");
 
 const AWS_S3_BUCKET_NAME = 'bioderma-space'; // process.env.AWS_S3_BUCKET_NAME;
 const s3 = new AWS.S3({
@@ -67,7 +68,8 @@ export class UploadService {
                             console.log(error);
                             return res.status(404).json(`Failed to upload image file: ${error}`);
                         }
-                        let urlToReturn = req.files[0].location;
+                        // console.log("ASSETS: ", req.files);
+                        let urlToReturn = req.files[0].Location;
                         urlToReturn = urlToReturn.substring(urlToReturn.indexOf("/users/"), urlToReturn.lenght)
                         return res.status(201).json("https://bioderma-space.sfo2.cdn.digitaloceanspaces.com" + urlToReturn);
                     });
@@ -132,14 +134,18 @@ export class UploadService {
     }).array('upload', 1);
 
     uploadUser = multer({
-        storage: multerS3({
+        storage: s3Storage({
             s3: s3,
-            bucket: AWS_S3_BUCKET_NAME,
-            contentType: multerS3.AUTO_CONTENT_TYPE,
-            acl: 'public-read',
-            key: function (request, file, cb) {
+            Bucket: AWS_S3_BUCKET_NAME,
+            // contentType: multerS3.AUTO_CONTENT_TYPE,
+            ACL: 'public-read',
+            Key: function (request, file, cb) {
                 cb(null, `users/${Date.now().toString()}-${file.originalname.replace(/\s+/g, '')}`);
             },
+            resize: {
+                width: 200,
+                height: 200,
+            }
         }),
     }).array('upload', 1);
 

@@ -286,14 +286,14 @@ export class UserService {
                             delegation: userCity,
                             points: 0,
                             biodermaGamePoints: 0,
-                            age: userAge,
+                            age: isNaN(userAge) ? 0 : userAge,
                             type: userType,
                             role: userRole
                         });
 
                         //Se asignan las trivias correspondientes al nuevo usuario
                         const targetsToFilter = await this.targetRepository.find({
-                            relations: ["city", "chain", "position", "type", "role"],
+                            relations: ["city", "chain", "position", "type", "role", "delegation"],
                             where: [{ type: userType, role: null }, { allUsers: true, role: null }]
                         });
 
@@ -304,11 +304,12 @@ export class UserService {
 
                             const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
                             const genderFilter = (tempTarget.gender == createNAOSUserDTO.gender) || (tempTarget.gender == null);
-                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userCity.id);
+                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userState.id);
+                            const delegationFilter = tempTarget.delegation == null ? true : (tempTarget.delegation.id == userCity.id);
                             const chainFilter = tempTarget.chain == null;
                             const positionFilter = tempTarget.position == null ? true : (tempTarget.position.id == naosPosition.id);
 
-                            if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter) {
+                            if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter && delegationFilter) {
                                 filteredTargets.push(tempTarget.id);
                             }
 
@@ -396,7 +397,7 @@ export class UserService {
                             delegation: userCity,
                             points: 0,
                             biodermaGamePoints: 0,
-                            age: userAge,
+                            age: isNaN(userAge) ? 0 : userAge,
                             type: userType,
                             town: createDrugStoreUserDTO.town,
                             charge: createDrugStoreUserDTO.charge,
@@ -406,7 +407,7 @@ export class UserService {
 
                         //Se asignan las trivias correspondientes al nuevo usuario
                         const targetsToFilter = await this.targetRepository.find({
-                            relations: ["city", "chain", "position", "type", "role"],
+                            relations: ["city", "chain", "position", "type", "role", "delegation"],
                             where: [{ type: userType, role: null }, { allUsers: true, role: null }]
                         });
 
@@ -417,11 +418,12 @@ export class UserService {
 
                             const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
                             const genderFilter = (tempTarget.gender == createDrugStoreUserDTO.gender) || (tempTarget.gender == null);
-                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userCity.id);
+                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userState.id);
+                            const delegationFilter = tempTarget.delegation == null ? true : (tempTarget.delegation.id == userCity.id);
                             const chainFilter = tempTarget.chain == null ? true : (tempTarget.chain.id == userChain.id);
                             const positionFilter = tempTarget.position == null;
 
-                            if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter) {
+                            if (ageFilter && genderFilter && cityFilter && chainFilter && positionFilter && delegationFilter) {
                                 filteredTargets.push(tempTarget.id);
                             }
 
@@ -501,7 +503,7 @@ export class UserService {
                 if (updateNAOSUserDTO.birthDate) {
                     userExist.birthDate = new Date(updateNAOSUserDTO.birthDate);
                     const userAge = this.getAge(updateNAOSUserDTO.birthDate);
-                    userExist.age = userAge;
+                    userExist.age = isNaN(userAge) ? 0 : userAge;
                 }
 
                 if (typeof updateNAOSUserDTO.gender !== "undefined") {
@@ -623,7 +625,7 @@ export class UserService {
                 if (updateDrugStoreUserDTO.birthDate) {
                     const userAge = this.getAge(updateDrugStoreUserDTO.birthDate);
                     userExist.birthDate = new Date(updateDrugStoreUserDTO.birthDate);
-                    userExist.age = userAge;
+                    userExist.age = isNaN(userAge) ? 0 : userAge;
                 }
 
                 if (typeof updateDrugStoreUserDTO.gender !== "undefined") {

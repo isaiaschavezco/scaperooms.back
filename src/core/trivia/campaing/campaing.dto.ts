@@ -5,6 +5,11 @@ export class CreateCampaingDTO {
     readonly targets: number[];
 }
 
+export class UpdateCampaingDTO {
+    readonly campaingId: number;
+    readonly name: string;
+}
+
 export class GetCampaingsByUserDTO {
     readonly email: string;
     readonly isBiodermaGame: boolean;

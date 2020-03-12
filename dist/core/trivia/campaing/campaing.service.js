@@ -58,7 +58,7 @@ let CampaingService = class CampaingService {
                 const campaingList = yield this.campaingRepository.find({
                     where: { isDeleted: false, isBiodermaGame: isBioderma },
                     order: { createdAt: 'DESC' },
-                    relations: ["target", "target.city", "target.chain", "target.position", "target.type", "target.role"]
+                    relations: ["target", "target.city", "target.chain", "target.position", "target.type", "target.role", "target.delegation"]
                 });
                 return campaingList;
             }
@@ -133,6 +133,23 @@ let CampaingService = class CampaingService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error creating campaing',
+                }, 500);
+            }
+        });
+    }
+    update(updateDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let campaingToUpdate = yield this.campaingRepository.findOne(updateDTO.campaingId);
+                campaingToUpdate.name = updateDTO.name;
+                yield this.campaingRepository.save(campaingToUpdate);
+                return { status: 0 };
+            }
+            catch (err) {
+                console.log("CampaingService - update: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error updating campaing',
                 }, 500);
             }
         });

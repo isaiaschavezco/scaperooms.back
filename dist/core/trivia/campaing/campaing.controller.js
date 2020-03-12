@@ -43,6 +43,11 @@ let CampaingController = class CampaingController {
             return yield this.campaingService.findTopCampaing(campaingId);
         });
     }
+    updateCampaing(updateCampaingDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.campaingService.update(updateCampaingDTO);
+        });
+    }
     findCampaingsByUser(getCampaingsByUserDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.campaingService.findCampaingsByUser(getCampaingsByUserDTO);
@@ -84,6 +89,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], CampaingController.prototype, "getCampaingTop", null);
+__decorate([
+    common_1.Put(),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [campaing_dto_1.UpdateCampaingDTO]),
+    __metadata("design:returntype", Promise)
+], CampaingController.prototype, "updateCampaing", null);
 __decorate([
     common_1.Post('user'),
     __param(0, common_1.Body()),

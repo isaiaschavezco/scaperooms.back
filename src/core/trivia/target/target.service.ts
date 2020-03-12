@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Target } from './target.entity';
 import { City } from '../../users/city/city.entity';
+import { Delegation } from '../../users/delegation/delegation.entity';
 import { Chain } from '../../users/chain/chain.entity';
 import { Type } from '../../users/type/type.entity';
 import { Position } from '../../users/position/position.entity';
@@ -17,7 +18,8 @@ export class TargetService {
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
         @InjectRepository(Position) private positionRepository: Repository<Position>,
-        @InjectRepository(Role) private roleRepository: Repository<Role>) { }
+        @InjectRepository(Role) private roleRepository: Repository<Role>,
+        @InjectRepository(Delegation) private delegationRepository: Repository<Delegation>) { }
 
     async findAllTargets(): Promise<Target[]> {
         try {
@@ -39,6 +41,11 @@ export class TargetService {
             let stateTargetData = null;
             if (createDTO.state !== -1) {
                 stateTargetData = await this.cityRepository.findOne(createDTO.state);
+            }
+
+            let cityTargetData = null;
+            if (createDTO.city !== -1) {
+                cityTargetData = await this.delegationRepository.findOne(createDTO.city);
             }
 
             let chainTargetData = null;
@@ -72,6 +79,7 @@ export class TargetService {
                 finalAge: createDTO.finalAge !== -1 ? createDTO.finalAge : null,
                 gender: genderTargetData,
                 city: stateTargetData,
+                delegation: cityTargetData,
                 chain: chainTargetData,
                 position: naosPositionTargetData,
                 type: userTypeTargetData,
@@ -86,6 +94,7 @@ export class TargetService {
                     finalAge: targetCreated.finalAge,
                     gender: targetCreated.gender,
                     city: targetCreated.city ? targetCreated.city.name : null,
+                    delegation: targetCreated.delegation ? targetCreated.delegation.name : null,
                     chain: targetCreated.chain ? targetCreated.chain.name : null,
                     position: targetCreated.position ? targetCreated.position.name : null,
                     type: targetCreated.type ? targetCreated.type.name : null,

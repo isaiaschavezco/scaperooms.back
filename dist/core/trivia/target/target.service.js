@@ -26,18 +26,20 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const target_entity_1 = require("./target.entity");
 const city_entity_1 = require("../../users/city/city.entity");
+const delegation_entity_1 = require("../../users/delegation/delegation.entity");
 const chain_entity_1 = require("../../users/chain/chain.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const position_entity_1 = require("../../users/position/position.entity");
 const role_entity_1 = require("../../users/role/role.entity");
 let TargetService = class TargetService {
-    constructor(targetRepository, cityRepository, chainRepository, typeRepository, positionRepository, roleRepository) {
+    constructor(targetRepository, cityRepository, chainRepository, typeRepository, positionRepository, roleRepository, delegationRepository) {
         this.targetRepository = targetRepository;
         this.cityRepository = cityRepository;
         this.chainRepository = chainRepository;
         this.typeRepository = typeRepository;
         this.positionRepository = positionRepository;
         this.roleRepository = roleRepository;
+        this.delegationRepository = delegationRepository;
     }
     findAllTargets() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -60,6 +62,10 @@ let TargetService = class TargetService {
                 let stateTargetData = null;
                 if (createDTO.state !== -1) {
                     stateTargetData = yield this.cityRepository.findOne(createDTO.state);
+                }
+                let cityTargetData = null;
+                if (createDTO.city !== -1) {
+                    cityTargetData = yield this.delegationRepository.findOne(createDTO.city);
                 }
                 let chainTargetData = null;
                 if (createDTO.chain !== -1) {
@@ -89,6 +95,7 @@ let TargetService = class TargetService {
                     finalAge: createDTO.finalAge !== -1 ? createDTO.finalAge : null,
                     gender: genderTargetData,
                     city: stateTargetData,
+                    delegation: cityTargetData,
                     chain: chainTargetData,
                     position: naosPositionTargetData,
                     type: userTypeTargetData,
@@ -102,6 +109,7 @@ let TargetService = class TargetService {
                         finalAge: targetCreated.finalAge,
                         gender: targetCreated.gender,
                         city: targetCreated.city ? targetCreated.city.name : null,
+                        delegation: targetCreated.delegation ? targetCreated.delegation.name : null,
                         chain: targetCreated.chain ? targetCreated.chain.name : null,
                         position: targetCreated.position ? targetCreated.position.name : null,
                         type: targetCreated.type ? targetCreated.type.name : null,
@@ -144,7 +152,9 @@ TargetService = __decorate([
     __param(3, typeorm_1.InjectRepository(type_entity_1.Type)),
     __param(4, typeorm_1.InjectRepository(position_entity_1.Position)),
     __param(5, typeorm_1.InjectRepository(role_entity_1.Role)),
+    __param(6, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

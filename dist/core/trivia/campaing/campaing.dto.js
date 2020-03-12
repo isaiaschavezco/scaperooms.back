@@ -3,6 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class CreateCampaingDTO {
 }
 exports.CreateCampaingDTO = CreateCampaingDTO;
+class UpdateCampaingDTO {
+}
+exports.UpdateCampaingDTO = UpdateCampaingDTO;
 class GetCampaingsByUserDTO {
 }
 exports.GetCampaingsByUserDTO = GetCampaingsByUserDTO;
