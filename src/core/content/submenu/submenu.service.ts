@@ -150,6 +150,7 @@ export class SubmenuService {
                         orderedList[0] = tempFile;
                     case 11:
                         orderedList[1] = tempFile;
+                        console.log("* * * * * GUARDO 11: ", tempFile, orderedList[1]);
                         break;
                     case 12:
                         orderedList[2] = tempFile;
