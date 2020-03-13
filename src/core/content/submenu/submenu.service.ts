@@ -139,54 +139,17 @@ export class SubmenuService {
             });
         });
 
-        console.log("listToReturn: ", listToReturn);
-
         if (menuId == 2) {
             let orderedList = [{}, {}, {}, {}, {}, {}, {}];
-            
-            // for (let index = 0; index < listToReturn.length; index++) {
-            //     const tempFile = listToReturn[index];
-            //     console.log("* * * * * tempFile: ", tempFile);
-            //     switch (tempFile.id) {
-            //         case 10:
-            //             orderedList[0] = tempFile;
-            //         case 11:
-            //             if (!isNaN(orderedList[1])) {
-            //                 orderedList[1] = tempFile;
-            //                 console.log("* * * * * GUARDO 11: ", tempFile, orderedList[1]);
-            //             }
-                        
-            //             break;
-            //         case 12:
-            //             orderedList[2] = tempFile;
-            //             break;
-            //         case 9:
-            //             orderedList[3] = tempFile;
-            //             break;
-            //         case 14:
-            //             orderedList[4] = tempFile;
-            //             break;
-            //         case 13:
-            //             orderedList[5] = tempFile;
-            //             break;
-            //         case 15:
-            //             orderedList[6] = tempFile;
-            //             break;
-            //         default:
-            //             break;
-            //     }
-                
-            // }
 
             listToReturn.forEach(tempFile => {
-                console.log("* * * * * tempFile: ", tempFile);
+
                 switch (tempFile.id) {
                     case 10:
                         orderedList[0] = tempFile;
                     case 11:
                         if (Object.entries(orderedList[1]).length === 0) {
                             orderedList[1] = tempFile;
-                            console.log("* * * * * GUARDO 11: ", tempFile, orderedList[1]);
                         }
                         break;
                     case 12:
@@ -209,12 +172,8 @@ export class SubmenuService {
                 }
             });
 
-            console.log("orderedList: ", orderedList);
-
             listToReturn = orderedList.slice();
         }
-
-        console.log(" * * listToReturn: ", listToReturn);
 
         if (menuId == 1) {
             let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}];
