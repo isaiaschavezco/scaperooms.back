@@ -170,8 +170,12 @@ export class SubmenuService {
                 }
             });
 
+            console.log("orderedList: ", orderedList);
+
             listToReturn = orderedList.slice();
         }
+
+        console.log(" * * listToReturn: ", listToReturn);
 
         if (menuId == 1) {
             let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}];
