@@ -144,6 +144,7 @@ export class SubmenuService {
         if (menuId == 2) {
             let orderedList = [{}, {}, {}, {}, {}, {}, {}];
             listToReturn.forEach(tempFile => {
+                console.log("* * * * * tempFile: ", tempFile);
                 switch (tempFile.id) {
                     case 10:
                         orderedList[0] = tempFile;
