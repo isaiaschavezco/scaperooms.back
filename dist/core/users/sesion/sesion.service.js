@@ -66,7 +66,6 @@ let SesionService = class SesionService {
                         const loggedUser = yield this.sesionRepository.save(sesion);
                         const generalConfiguration = yield this.configurationRepository.findOne(1);
                         const newUserAge = this.getAge(moment(new Date(user.birthDate)).format('DD-MM-YYYY'));
-                        console.log("newUserAge: ", newUserAge);
                         user.age = isNaN(newUserAge) ? 0 : newUserAge;
                         user.notificacion = userNotifications;
                         yield this.userRepository.save(user);

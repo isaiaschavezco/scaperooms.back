@@ -30,6 +30,7 @@
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
+    "helmet": "^3.21.3",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
@@ -42,6 +43,9 @@
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
     "typeorm": "^0.2.18"
+  },
+  "engines": {
+    "node": ">=10.12.18 <=10.16.0"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",

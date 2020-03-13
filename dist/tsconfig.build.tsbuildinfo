@@ -3946,7 +3946,7 @@
         "signature": "eb98bfc652a7867ae5666d6bd59b85cea6f34ce403f1708fc27506eb11ef5ffe"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "400f0be3c27abc2a52f41ce7a81330619bf54db5354923dc6a4ae4474e4565e0",
+        "version": "3bd967f92d5e854c02512678a7ceb3b5334ad1f31b2e933a95f18002964e40f7",
         "signature": "df6617e51fd7c1d543bd455502eb18914ec6fb98b9b7f6d29de0cb54a42fe3fd"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -3954,7 +3954,7 @@
         "signature": "032c5d63a575cc097c8ea945b6881a02d46d89a40bcc07728da5e608adb9ff2d"
       },
       "../src/core/users/notification/notification.module.ts": {
-        "version": "1e3c601bd6a6d0e3881c96ecf1f8289e8e80254978c4f0eccd0688c3e5a99be5",
+        "version": "d94aea1b4d11cec73e7211d51401da406995e09b46f2b7efd7e2583653dd610c",
         "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e"
       },
       "../src/core/users/sesion/sesion.dto.ts": {
@@ -3962,7 +3962,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "a876070692bd57baab3893039be758e486e7e00a54cc78c2fe999fd1248ab1f6",
+        "version": "b49dde1e98d8556981dff4bb173638c32b42e1bdda1676c49ac2fd8ad4e1435a",
         "signature": "fb6212a1e45daae93997de67dc4856c16269d598536a883081050d9a0f48dbbf"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
@@ -4294,7 +4294,7 @@
         "signature": "2608cfd623840916e664e68c3dc5eb4347ccae822f808d899bf00e73cbab2bfe"
       },
       "../src/main.ts": {
-        "version": "bf6f103ee525f06c8f66abbd1a423660edd7a4211d6c1e8595429a162164e198",
+        "version": "f82f280363abd8a1c58128ac1710522f575c1f07150dd1dfd84511fba80276f8",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
       "../src/core/trivia/points-type/points-type.controller.ts": {
@@ -20308,6 +20308,7 @@
         ]
       ],
       "../node_modules/multer-sharp-s3/index.d.ts",
+      "../src/upload/upload.service.ts",
       "../src/upload/upload.controller.ts",
       "../src/upload/upload.module.ts",
       "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
@@ -20470,7 +20471,6 @@
       "../node_modules/@nestjs/core/services/reflector.service.d.ts",
       "../node_modules/@nestjs/core/services/index.d.ts",
       "../node_modules/@nestjs/core/index.d.ts",
-      "../src/main.ts",
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
@@ -20482,7 +20482,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/upload/upload.service.ts"
+      "../src/main.ts"
     ]
   },
   "version": "3.7.2"

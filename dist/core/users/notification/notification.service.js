@@ -209,6 +209,13 @@ let NotificationService = class NotificationService {
                                 playerIds.push(sesion.playerId);
                             }
                         });
+                        const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
+                            .setIncludePlayerIds(playerIds)
+                            .notification()
+                            .setHeadings({ en: sendRequest.title })
+                            .setContents({ en: sendRequest.content })
+                            .build();
+                        yield this.oneSignalService.createNotification(input);
                     }
                     else {
                         response = { status: 2 };
