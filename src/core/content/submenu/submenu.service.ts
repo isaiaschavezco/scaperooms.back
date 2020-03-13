@@ -184,7 +184,7 @@ export class SubmenuService {
                     case 10:
                         orderedList[0] = tempFile;
                     case 11:
-                        if (!isNaN(orderedList[1])) {
+                        if (Object.entries(orderedList[1]).length === 0) {
                             orderedList[1] = tempFile;
                             console.log("* * * * * GUARDO 11: ", tempFile, orderedList[1]);
                         }
