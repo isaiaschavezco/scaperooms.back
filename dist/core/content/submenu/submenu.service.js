@@ -148,6 +148,7 @@ let SubmenuService = class SubmenuService {
                     product: tempPDF
                 });
             });
+            console.log("listToReturn: ", listToReturn);
             if (menuId == 2) {
                 let orderedList = [{}, {}, {}, {}, {}, {}, {}];
                 listToReturn.forEach(tempFile => {

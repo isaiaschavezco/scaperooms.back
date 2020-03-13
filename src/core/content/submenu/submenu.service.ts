@@ -139,6 +139,8 @@ export class SubmenuService {
             });
         });
 
+        console.log("listToReturn: ", listToReturn);
+
         if (menuId == 2) {
             let orderedList = [{}, {}, {}, {}, {}, {}, {}];
             listToReturn.forEach(tempFile => {
