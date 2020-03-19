@@ -228,7 +228,7 @@ let QuizzService = class QuizzService {
     delete(removeQuizzDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = { status: 0 };
+                let response = null;
                 const userExist = yield this.userRepository.findOne({
                     where: { email: removeQuizzDTO.email },
                     select: ["id", "name", "email", "points", "password"]
@@ -236,26 +236,33 @@ let QuizzService = class QuizzService {
                 if (userExist) {
                     const match = yield bcrypt.compare(removeQuizzDTO.password, userExist.password);
                     if (match) {
-                        let pointsByUserToRemove = yield this.pointsByUserRepository.find({
-                            relations: ["pointsType"],
-                            where: { quizz: removeQuizzDTO.quizzId }
-                        });
+                        let pointsByUserToRemove = yield this.pointsByUserRepository
+                            .createQueryBuilder("pobyus")
+                            .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt", "pobyus.isDeleted"])
+                            .addSelect("user.id")
+                            .leftJoin('pobyus.quizz', 'quizz')
+                            .leftJoinAndSelect('pobyus.pointsType', 'poty')
+                            .leftJoin('pobyus.user', 'user')
+                            .where('quizz.id = :quizzId', { quizzId: removeQuizzDTO.quizzId })
+                            .getMany();
                         for (let index = 0; index < pointsByUserToRemove.length; index++) {
                             const tempPointsByUser = pointsByUserToRemove[index];
                             if (tempPointsByUser.points > 0) {
-                                let userToChange = yield this.userRepository.findOne(tempPointsByUser.user, {
+                                let userToChange = yield this.userRepository.findOne(tempPointsByUser.user.id, {
                                     select: ["id", "points", "biodermaGamePoints"]
                                 });
-                                if (tempPointsByUser.pointsType.id == 2) {
-                                    userToChange.biodermaGamePoints -= tempPointsByUser.points;
-                                    if (userToChange.biodermaGamePoints <= 0) {
-                                        userToChange.biodermaGamePoints = 0;
+                                if (userToChange) {
+                                    if (tempPointsByUser.pointsType.id == 2) {
+                                        userToChange.biodermaGamePoints -= tempPointsByUser.points;
+                                        if (userToChange.biodermaGamePoints <= 0) {
+                                            userToChange.biodermaGamePoints = 0;
+                                        }
                                     }
-                                }
-                                else {
-                                    userToChange.points -= tempPointsByUser.points;
-                                    if (userToChange.points <= 0) {
-                                        userToChange.points = 0;
+                                    else {
+                                        userToChange.points -= tempPointsByUser.points;
+                                        if (userToChange.points <= 0) {
+                                            userToChange.points = 0;
+                                        }
                                     }
                                 }
                                 yield this.userRepository.save(userToChange);

@@ -2398,7 +2398,7 @@
         "signature": "76ffe293f1705bc9cf61afb9f3fa45cf03a60bdb1253f91302cb214eacd4265f"
       },
       "../src/core/content/submenu/submenu.service.ts": {
-        "version": "aa04fe17bd3e3e10fcc12a586adaa659adc68205601983181587d1512ded1dce",
+        "version": "1f6f3f8b8cb77718a3590472dfab9aad4b514e1dd899eb7795e2de1ea741b323",
         "signature": "f900bdaa1106630121adc2e7dea572e0f7a03bd73148816ed9a54e8e1fa0be6a"
       },
       "../src/core/content/submenu/submenu.controller.ts": {
@@ -2542,7 +2542,7 @@
         "signature": "1168480d63d7b9bb9701e87d626e06049f1f82f81ee5c7877afeb3302826297f"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "8c012b4e6bbcaaa074720cd8ac3bf1de4bc672aad764c29e94ae6b51bebd0911",
+        "version": "88478209531b3f0d91a736cd7f2dc18e5122de5a307cf31f79b5fcf6014f9949",
         "signature": "eaf88a232413be4340735a2985b6ef27eb6c07fde7a8f3024951271fe92c8a40"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -19997,6 +19997,7 @@
       "../src/core/content/menu/menu.entity.ts",
       "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
       "../src/core/content/submenu/submenu.controller.ts",
       "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
@@ -20032,7 +20033,6 @@
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
@@ -20483,7 +20483,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/submenu/submenu.service.ts"
+      "../src/core/trivia/quizz/quizz.service.ts"
     ]
   },
   "version": "3.7.2"

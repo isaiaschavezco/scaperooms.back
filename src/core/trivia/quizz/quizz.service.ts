@@ -256,31 +256,39 @@ export class QuizzService {
 
                 if (match) {
 
-                    let pointsByUserToRemove = await this.pointsByUserRepository.find({
-                        relations: ["pointsType"],
-                        where: { quizz: removeQuizzDTO.quizzId }
-                    });
+                    let pointsByUserToRemove = await this.pointsByUserRepository
+                    .createQueryBuilder("pobyus")
+                    .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt", "pobyus.isDeleted"])
+                    .addSelect("user.id")
+                    .leftJoin('pobyus.quizz', 'quizz')
+                    .leftJoinAndSelect('pobyus.pointsType', 'poty')
+                    .leftJoin('pobyus.user', 'user')
+                    .where('quizz.id = :quizzId', { quizzId: removeQuizzDTO.quizzId })
+                    .getMany();
 
                     for (let index = 0; index < pointsByUserToRemove.length; index++) {
                         const tempPointsByUser = pointsByUserToRemove[index];
 
                         if (tempPointsByUser.points > 0) {
 
-                            let userToChange = await this.userRepository.findOne(tempPointsByUser.user, {
+                            let userToChange = await this.userRepository.findOne(tempPointsByUser.user.id, {
                                 select: ["id", "points", "biodermaGamePoints"]
                             });
 
-                            if (tempPointsByUser.pointsType.id == 2) {
+                            if (userToChange) {
 
-                                userToChange.biodermaGamePoints -= tempPointsByUser.points;
-                                if (userToChange.biodermaGamePoints <= 0) {
-                                    userToChange.biodermaGamePoints = 0;
-                                }
-                            } else {
+                                if (tempPointsByUser.pointsType.id == 2) {
 
-                                userToChange.points -= tempPointsByUser.points;
-                                if (userToChange.points <= 0) {
-                                    userToChange.points = 0;
+                                    userToChange.biodermaGamePoints -= tempPointsByUser.points;
+                                    if (userToChange.biodermaGamePoints <= 0) {
+                                        userToChange.biodermaGamePoints = 0;
+                                    }
+                                } else {
+
+                                    userToChange.points -= tempPointsByUser.points;
+                                    if (userToChange.points <= 0) {
+                                        userToChange.points = 0;
+                                    }
                                 }
                             }
 

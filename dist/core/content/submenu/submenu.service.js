@@ -148,18 +148,15 @@ let SubmenuService = class SubmenuService {
                     product: tempPDF
                 });
             });
-            console.log("listToReturn: ", listToReturn);
             if (menuId == 2) {
                 let orderedList = [{}, {}, {}, {}, {}, {}, {}];
                 listToReturn.forEach(tempFile => {
-                    console.log("* * * * * tempFile: ", tempFile);
                     switch (tempFile.id) {
                         case 10:
                             orderedList[0] = tempFile;
                         case 11:
                             if (Object.entries(orderedList[1]).length === 0) {
                                 orderedList[1] = tempFile;
-                                console.log("* * * * * GUARDO 11: ", tempFile, orderedList[1]);
                             }
                             break;
                         case 12:
@@ -181,10 +178,8 @@ let SubmenuService = class SubmenuService {
                             break;
                     }
                 });
-                console.log("orderedList: ", orderedList);
                 listToReturn = orderedList.slice();
             }
-            console.log(" * * listToReturn: ", listToReturn);
             if (menuId == 1) {
                 let orderedList = [{}, {}, {}, {}, {}, {}, {}, {}];
                 listToReturn.forEach(tempFile => {
