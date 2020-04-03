@@ -195,7 +195,9 @@ export class SesionService {
 
             let response = null;
             const user = await this.userRepository.findOne({
-                where: { email: requestDTO.email }
+                // relations: ["role"],
+                select: ["id", "email", "password", "name", "lastName"],
+                where: { email: requestDTO.email, role: 1 }
             });
 
             if (user) {
@@ -223,7 +225,6 @@ export class SesionService {
                         profile: {
                             token: loggedUser.id,
                             name: completeName,
-                            image: user.photo,
                             email: user.email
                         }
                     };

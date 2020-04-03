@@ -71,11 +71,12 @@ let QuizzService = class QuizzService {
                     quizzObj.quizzId = tempQuizz.id;
                     quizzObj.name = tempQuizz.name;
                     quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MM/YYYY');
-                    quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MM/YYYY');
-                    quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MM/YYYY');
+                    quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MM/YYYY HH:mm:ss');
+                    quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MM/YYYY HH:mm:ss');
                     quizzObj.isActive = tempQuizz.isActive;
                     quizzObj.isDeleted = tempQuizz.isDeleted;
                     quizzObj.isSend = tempQuizz.isSend;
+                    quizzObj.questions = tempQuizz.question.length;
                     quizzObj.points = tempQuizz.points;
                     listToReturn.push(quizzObj);
                 });
@@ -228,7 +229,7 @@ let QuizzService = class QuizzService {
     delete(removeQuizzDTO) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let response = null;
+                let response = { status: 0 };
                 const userExist = yield this.userRepository.findOne({
                     where: { email: removeQuizzDTO.email },
                     select: ["id", "name", "email", "points", "password"]

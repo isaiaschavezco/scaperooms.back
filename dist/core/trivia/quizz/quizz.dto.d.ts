@@ -16,6 +16,7 @@ export declare class QuizzListDTO {
     isActive: boolean;
     isDeleted: boolean;
     isSend: boolean;
+    questions: number;
     points: number;
 }
 export declare class GetQuizzesByUserCampaingDTO {

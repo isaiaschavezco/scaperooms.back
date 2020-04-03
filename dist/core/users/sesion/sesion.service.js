@@ -185,7 +185,8 @@ let SesionService = class SesionService {
             try {
                 let response = null;
                 const user = yield this.userRepository.findOne({
-                    where: { email: requestDTO.email }
+                    select: ["id", "email", "password", "name", "lastName"],
+                    where: { email: requestDTO.email, role: 1 }
                 });
                 if (user) {
                     const match = yield bcrypt.compare(requestDTO.password, user.password);
@@ -205,7 +206,6 @@ let SesionService = class SesionService {
                             profile: {
                                 token: loggedUser.id,
                                 name: completeName,
-                                image: user.photo,
                                 email: user.email
                             }
                         };

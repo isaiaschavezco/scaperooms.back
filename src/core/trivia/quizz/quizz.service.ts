@@ -50,11 +50,12 @@ export class QuizzService {
                 quizzObj.quizzId = tempQuizz.id;
                 quizzObj.name = tempQuizz.name;
                 quizzObj.createdAt = moment(tempQuizz.createdAt).format('DD/MM/YYYY');
-                quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MM/YYYY');
-                quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MM/YYYY');
+                quizzObj.startedAt = moment(tempQuizz.startedAt).format('DD/MM/YYYY HH:mm:ss');
+                quizzObj.finishedAt = moment(tempQuizz.finishedAt).format('DD/MM/YYYY HH:mm:ss');
                 quizzObj.isActive = tempQuizz.isActive;
                 quizzObj.isDeleted = tempQuizz.isDeleted;
                 quizzObj.isSend = tempQuizz.isSend;
+                quizzObj.questions = tempQuizz.question.length;
 
                 quizzObj.points = tempQuizz.points;
 

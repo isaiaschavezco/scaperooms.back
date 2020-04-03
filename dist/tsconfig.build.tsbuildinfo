@@ -2538,11 +2538,11 @@
         "signature": "7ec1bedac1d1f24d9afa32027dfae5398e6095bedb22fb6f2816a8401238a024"
       },
       "../src/core/trivia/quizz/quizz.dto.ts": {
-        "version": "07ca6a6e5c55939be8a70255aa1f053a4f8dac0dba41b94be070a17b63b0793a",
-        "signature": "1168480d63d7b9bb9701e87d626e06049f1f82f81ee5c7877afeb3302826297f"
+        "version": "ed767ed49487c2399c0d412b06c207841701e75f2f579bc0ab4826fbce7d8724",
+        "signature": "46c5cf380b24acdf985fc429b2ee3f91c9f7b4592498f1243e2a40c28af089f1"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "88478209531b3f0d91a736cd7f2dc18e5122de5a307cf31f79b5fcf6014f9949",
+        "version": "8c658d1fe4746b69f8a63f118a7ffeca9e943651b5904514587b4c444780622d",
         "signature": "eaf88a232413be4340735a2985b6ef27eb6c07fde7a8f3024951271fe92c8a40"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -3966,7 +3966,7 @@
         "signature": "1144dea2b1293cbeabfc8a80498d8bafcdbd436efc86515cd7d766de2317c037"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "b49dde1e98d8556981dff4bb173638c32b42e1bdda1676c49ac2fd8ad4e1435a",
+        "version": "6d84b388f04dbf28984f11bfaf332cdb7aafff91e8fd457b1ff792d8415386b6",
         "signature": "fb6212a1e45daae93997de67dc4856c16269d598536a883081050d9a0f48dbbf"
       },
       "../src/core/users/sesion/sesion.controller.ts": {
