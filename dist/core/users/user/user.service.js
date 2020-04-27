@@ -252,7 +252,7 @@ let UserService = class UserService {
                     const tokenExist = yield this.tokenRepository.findOne(jwtDecoded.token);
                     response = { status: 13 };
                     if (tokenExist) {
-                        if (tokenExist.email.trim() == createNAOSUserDTO.email.trim()) {
+                        if (tokenExist.email.trim() == createNAOSUserDTO.email.trim() || tokenExist.email.trim() == 'naos@general.com') {
                             const userPassword = yield bcrypt.hash(createNAOSUserDTO.password, 12);
                             const userAge = this.getAge(createNAOSUserDTO.birthDate);
                             const naosPosition = yield this.positionRepository.findOne(createNAOSUserDTO.naosPosition);
@@ -305,7 +305,9 @@ let UserService = class UserService {
                                 .getRawMany();
                             newUser.quizz = quizzesFilteredByTarget;
                             yield this.userRepository.save(newUser);
-                            yield this.tokenRepository.remove(tokenExist);
+                            if (tokenExist.email.trim() != 'naos@general.com') {
+                                yield this.tokenRepository.remove(tokenExist);
+                            }
                             response = { status: 0 };
                         }
                     }
@@ -336,7 +338,7 @@ let UserService = class UserService {
                     const tokenExist = yield this.tokenRepository.findOne(jwtDecoded.token);
                     response = { status: 13 };
                     if (tokenExist) {
-                        if (tokenExist.email.trim() == createDrugStoreUserDTO.email.trim()) {
+                        if (tokenExist.email.trim() == createDrugStoreUserDTO.email.trim() || tokenExist.email.trim() == 'drugstore@general.com') {
                             const userPassword = yield bcrypt.hash(createDrugStoreUserDTO.password, 12);
                             const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
                             const userState = yield this.stateRepository.findOne(createDrugStoreUserDTO.state);
@@ -394,7 +396,9 @@ let UserService = class UserService {
                                 .getRawMany();
                             newUser.quizz = quizzesFilteredByTarget;
                             yield this.userRepository.save(newUser);
-                            yield this.tokenRepository.remove(tokenExist);
+                            if (tokenExist.email.trim() != 'drugstore@general.com') {
+                                yield this.tokenRepository.remove(tokenExist);
+                            }
                             response = { status: 0 };
                         }
                     }

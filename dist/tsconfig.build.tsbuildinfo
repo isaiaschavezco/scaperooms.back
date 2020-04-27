@@ -2350,7 +2350,7 @@
         "signature": "d62fa6fe33566fa743b3d6715a1a2fe46e937ba9d2ba158563c5744315d438a7"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "6eb6d7074fc1792b4610fe59e550e6fb1a2601bc01d4094f848e7ff444662345",
+        "version": "65f0def57b56f0941816ad117a5724d6f45cf96d934245de8ec4a92b55d2f397",
         "signature": "2063a202742cf71c8f072edbe71145a139cb8f3ef43c8e2dd7c4b093683d39eb"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -19985,7 +19985,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -20033,6 +20032,7 @@
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
@@ -20483,7 +20483,7 @@
       "../node_modules/@types/json5/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/quizz/quizz.service.ts"
+      "../src/core/users/user/user.service.ts"
     ]
   },
   "version": "3.7.2"

@@ -259,7 +259,7 @@ export class UserService {
 
                 if (tokenExist) {
 
-                    if (tokenExist.email.trim() == createNAOSUserDTO.email.trim()) {
+                    if (tokenExist.email.trim() == createNAOSUserDTO.email.trim() || tokenExist.email.trim() == 'naos@general.com') {
 
                         const userPassword = await bcrypt.hash(createNAOSUserDTO.password, 12);
                         const userAge = this.getAge(createNAOSUserDTO.birthDate);
@@ -324,7 +324,9 @@ export class UserService {
 
                         newUser.quizz = quizzesFilteredByTarget;
                         await this.userRepository.save(newUser);
-                        await this.tokenRepository.remove(tokenExist);
+                        if (tokenExist.email.trim() != 'naos@general.com')  {
+                            await this.tokenRepository.remove(tokenExist);
+                        }
 
                         response = { status: 0 };
 
@@ -368,7 +370,7 @@ export class UserService {
 
                 if (tokenExist) {
 
-                    if (tokenExist.email.trim() == createDrugStoreUserDTO.email.trim()) {
+                    if (tokenExist.email.trim() == createDrugStoreUserDTO.email.trim() || tokenExist.email.trim() == 'drugstore@general.com') {
 
                         const userPassword = await bcrypt.hash(createDrugStoreUserDTO.password, 12);
                         const userAge = this.getAge(createDrugStoreUserDTO.birthDate);
@@ -438,7 +440,10 @@ export class UserService {
 
                         newUser.quizz = quizzesFilteredByTarget;
                         await this.userRepository.save(newUser);
-                        await this.tokenRepository.remove(tokenExist);
+
+                        if (tokenExist.email.trim() != 'drugstore@general.com') {
+                            await this.tokenRepository.remove(tokenExist);
+                        }
 
                         response = { status: 0 }
                     }
