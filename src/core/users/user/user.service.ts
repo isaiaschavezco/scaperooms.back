@@ -42,6 +42,7 @@ export class UserService {
         try {
 
             let status = 0;
+            let tokenToSign = '';
 
             // Se verifica si el usuario ya cuenta con una invitacion enviada
             let userExist = await this.userRepository.findOne({
@@ -55,20 +56,26 @@ export class UserService {
                     where: { email: request.email }
                 });
 
-                if (token) {
-                    await this.tokenRepository.remove(token);
+                tokenToSign = token.id;
+
+                if (!token) {
+                    
+                    // Se obtiene el tipo de usuario
+                    const userType = await this.typeRepository.findOne(request.type);
+                    // Se crea nuevo token asociado al email del usuario
+                    let newToken = this.tokenRepository.create({
+                        email: request.email,
+                        type: userType
+                    });
+                    // Se registra token
+                    const registerToken = await this.tokenRepository.save(newToken);
+
+                    tokenToSign = registerToken.id;
+
                 }
-                // Se obtiene el tipo de usuario
-                const userType = await this.typeRepository.findOne(request.type);
-                // Se crea nuevo token asociado al email del usuario
-                let newToken = this.tokenRepository.create({
-                    email: request.email,
-                    type: userType
-                });
-                // Se registra token
-                const registerToken = await this.tokenRepository.save(newToken);
+                
                 // Se genera jwt para enviar por correo
-                const jwtToken = await jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
+                const jwtToken = await jwt.sign({ token: tokenToSign }, "Bi0d3rmaTokenJWT.");
                 // Se envia correo
                 await this.mailerService.sendMail({
                     to: request.email,
