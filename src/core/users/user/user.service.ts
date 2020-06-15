@@ -56,8 +56,6 @@ export class UserService {
                     where: { email: request.email }
                 });
 
-                tokenToSign = token.id;
-
                 if (!token) {
                     
                     // Se obtiene el tipo de usuario
@@ -70,8 +68,12 @@ export class UserService {
                     // Se registra token
                     const registerToken = await this.tokenRepository.save(newToken);
 
+                    // console.log("TOKEN 2: ", registerToken);
+
                     tokenToSign = registerToken.id;
 
+                } else {
+                    tokenToSign = token.id;
                 }
                 
                 // Se genera jwt para enviar por correo

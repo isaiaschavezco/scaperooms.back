@@ -62,6 +62,7 @@ let UserService = class UserService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let status = 0;
+                let tokenToSign = '';
                 let userExist = yield this.userRepository.findOne({
                     where: { email: request.email }
                 });
@@ -69,16 +70,19 @@ let UserService = class UserService {
                     const token = yield this.tokenRepository.findOne({
                         where: { email: request.email }
                     });
-                    if (token) {
-                        yield this.tokenRepository.remove(token);
+                    if (!token) {
+                        const userType = yield this.typeRepository.findOne(request.type);
+                        let newToken = this.tokenRepository.create({
+                            email: request.email,
+                            type: userType
+                        });
+                        const registerToken = yield this.tokenRepository.save(newToken);
+                        tokenToSign = registerToken.id;
                     }
-                    const userType = yield this.typeRepository.findOne(request.type);
-                    let newToken = this.tokenRepository.create({
-                        email: request.email,
-                        type: userType
-                    });
-                    const registerToken = yield this.tokenRepository.save(newToken);
-                    const jwtToken = yield jwt.sign({ token: registerToken.id }, "Bi0d3rmaTokenJWT.");
+                    else {
+                        tokenToSign = token.id;
+                    }
+                    const jwtToken = yield jwt.sign({ token: tokenToSign }, "Bi0d3rmaTokenJWT.");
                     yield this.mailerService.sendMail({
                         to: request.email,
                         subject: 'Has sido invitado a Bioderma.',
