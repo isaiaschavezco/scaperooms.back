@@ -2386,7 +2386,7 @@
         "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "ee2a69c62e836df4991c718a965da8c2741d7f08e1b6e39aeb067529be06ac94",
+        "version": "520ef4ee84b7839fdb105dcedbbea88c9d0097ed2d3188282d1bd316e6f69d9e",
         "signature": "2c8d4ec1a0567263ed47602995497ad4d28dfe3c4989d47d5e765734b813356d"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2562,7 +2562,7 @@
         "signature": "12c5b3557db4043af9cf6031659d0bce21f7dc759b91a6d2c5798a1a6a22d062"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "ebd798411a1fba0f52c000bfdba2a13ebc2774e0c2b6ee12a13eb1d4d739b1c5",
+        "version": "4a1e2f122410ddd2aae9b3db9e4b1d5a807424df3e531b4fc0bfb8d23a58bf20",
         "signature": "79b6445d0285ebcfb4012574f032e314cda96cd209b44152ccfb82429f5559d5"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -20566,6 +20566,7 @@
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
       "../node_modules/moment-timezone/index.d.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
@@ -21033,8 +21034,7 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
-      "../src/core/trivia/quizz/quizz.service.ts"
+      "../src/core/trivia/campaing/campaing.service.ts"
     ]
   },
   "version": "3.7.2"

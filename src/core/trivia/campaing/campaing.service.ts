@@ -226,20 +226,23 @@ export class CampaingService {
         try {
 
             const report = await this.campaingRepository.createQueryBuilder('camp')
-                .select('user.name', 'nombre')
-                .addSelect('user.lastName', 'apellido')
-                .addSelect('user.email', 'email')
-                .addSelect('type.name', 'tipo')
-                .addSelect('city.name', 'ciudad')
-                .addSelect('pobyus.points', 'puntos')
-                .addSelect('quizz.name', 'trivia')
-                .addSelect('camp.name', 'campaña')
+                .select('user.name', 'NOMBRE')
+                .addSelect('user.lastName', 'APELLIDO')
+                .addSelect('user.email', 'EMAIL')
+                .addSelect('type.name', 'TIPO')
+                .addSelect("chain.name", "CADENA")
+                .addSelect('city.name', 'ESTADO')
+                .addSelect('pobyus.points', 'PUNTOS')
+                .addSelect('quizz.name', 'TRIVIA')
+                .addSelect('camp.name', 'CAMAPANA')
                 .innerJoin('camp.quizz', 'quizz')
                 .innerJoin('quizz.user', 'user')
                 .innerJoin('user.type', 'type')
                 .innerJoin('user.city', 'city')
+                .leftJoin("user.chain", "chain")
                 .innerJoin('user.pointsbyuser', 'pobyus', 'pobyus.quizz = quizz.id')
                 .where('camp.id = :campaingId AND user.isActive = true', { campaingId: parseInt(campaingId) })
+                .orderBy("camp.name", "ASC")
                 .getRawMany();
 
             return { report };
