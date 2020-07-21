@@ -13,7 +13,7 @@ import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
-import { MailerService } from '@nest-modules/mailer';
+import { MailerService } from '@nestjs-modules/mailer';
 export declare class UserService {
     private userRepository;
     private readonly mailerService;
@@ -45,4 +45,5 @@ export declare class UserService {
     requestPasswordReset(requestEmail: string): Promise<any>;
     getUserPoints(requestEmail: string): Promise<any>;
     passwordRecovery(requestDTO: PasswordRecovery): Promise<any>;
+    generateReport(userType: string): Promise<any>;
 }

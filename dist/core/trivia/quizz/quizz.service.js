@@ -300,6 +300,36 @@ let QuizzService = class QuizzService {
             }
         });
     }
+    generateQuizzReport(quizzId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const report = yield this.quizzRepository.createQueryBuilder('quizz')
+                    .select('user.name', 'nombre')
+                    .addSelect('user.lastName', 'apellido')
+                    .addSelect('user.email', 'email')
+                    .addSelect('type.name', 'tipo')
+                    .addSelect('city.name', 'ciudad')
+                    .addSelect('pobyus.points', 'puntos')
+                    .addSelect('quizz.name', 'trivia')
+                    .addSelect('camp.name', 'campaña')
+                    .innerJoin('quizz.campaing', 'camp')
+                    .innerJoin('quizz.user', 'user')
+                    .innerJoin('user.type', 'type')
+                    .innerJoin('user.city', 'city')
+                    .innerJoin('user.pointsbyuser', 'pobyus', 'pobyus.quizz = quizz.id')
+                    .where('quizz.id = :quizzId AND user.isActive = true', { quizzId: parseInt(quizzId) })
+                    .getRawMany();
+                return { report };
+            }
+            catch (err) {
+                console.log('QuizzService - generateQuizzReport: ', err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error generating report',
+                }, 500);
+            }
+        });
+    }
 };
 QuizzService = __decorate([
     common_1.Injectable(),

@@ -20,4 +20,5 @@ export declare class QuizzService {
     send(sendQuizzDTO: SendQuizzDTO): Promise<any>;
     findQuizzesByUserCampaing(getQuizzesByUserCampaingDTO: GetQuizzesByUserCampaingDTO): Promise<any>;
     delete(removeQuizzDTO: RemoveQuizzDTO): Promise<any>;
+    generateQuizzReport(quizzId: string): Promise<any>;
 }

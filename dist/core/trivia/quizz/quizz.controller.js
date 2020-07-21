@@ -33,6 +33,11 @@ let QuizzController = class QuizzController {
             return yield this.quizzService.findAll();
         });
     }
+    getCampaingReport(quizzId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.quizzService.generateQuizzReport(quizzId);
+        });
+    }
     getAllByCampaing(campaingId) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.quizzService.findAllByCampaing(campaingId);
@@ -65,6 +70,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], QuizzController.prototype, "getAllQuizzes", null);
+__decorate([
+    common_1.Get('report/:quizzId'),
+    __param(0, common_1.Param('quizzId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], QuizzController.prototype, "getCampaingReport", null);
 __decorate([
     common_1.Get(':campaingId'),
     __param(0, common_1.Param('campaingId')),

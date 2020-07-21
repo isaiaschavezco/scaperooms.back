@@ -10,7 +10,8 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const mailer_1 = require("@nest-modules/mailer");
+const mailer_1 = require("@nestjs-modules/mailer");
+const handlebars_adapter_1 = require("@nestjs-modules/mailer/dist/adapters/handlebars.adapter");
 const chain_module_1 = require("./core/users/chain/chain.module");
 const city_module_1 = require("./core/users/city/city.module");
 const delegation_module_1 = require("./core/users/delegation/delegation.module");
@@ -65,7 +66,7 @@ AppModule = __decorate([
                     },
                     template: {
                         dir: __dirname + '/templates',
-                        adapter: new mailer_1.HandlebarsAdapter(),
+                        adapter: new handlebars_adapter_1.HandlebarsAdapter(),
                         options: {
                             strict: true,
                         },

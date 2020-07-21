@@ -38,6 +38,11 @@ let UserController = class UserController {
             return yield this.userService.findAll();
         });
     }
+    getReport(userType) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.generateReport(userType);
+        });
+    }
     findUserDetail(email) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.userService.findUserDetail(email);
@@ -112,6 +117,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findAllUsers", null);
+__decorate([
+    common_1.Get('report/:userType'),
+    __param(0, common_1.Param('userType')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "getReport", null);
 __decorate([
     common_1.Get(':email'),
     __param(0, common_1.Param('email')),

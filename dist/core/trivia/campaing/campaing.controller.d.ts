@@ -6,6 +6,7 @@ export declare class CampaingController {
     constructor(campaingService: CampaingService);
     getAllCampaings(): Promise<Campaing[]>;
     getAllActiveCampaings(isBioderma: any): Promise<Campaing[]>;
+    getCampaingReport(campaingId: any): Promise<Campaing[]>;
     getCampaingTop(campaingId: any): Promise<any>;
     updateCampaing(updateCampaingDTO: UpdateCampaingDTO): Promise<any>;
     findCampaingsByUser(getCampaingsByUserDTO: GetCampaingsByUserDTO): Promise<any>;

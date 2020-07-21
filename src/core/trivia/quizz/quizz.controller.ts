@@ -13,6 +13,11 @@ export class QuizzController {
         return await this.quizzService.findAll();
     }
 
+    @Get('report/:quizzId')
+    async getCampaingReport(@Param('quizzId') quizzId): Promise<any> {
+        return await this.quizzService.generateQuizzReport(quizzId);
+    }
+
     @Get(':campaingId')
     async getAllByCampaing(@Param('campaingId') campaingId): Promise<QuizzListDTO[]> {
         return await this.quizzService.findAllByCampaing(campaingId);

@@ -5,6 +5,7 @@ export declare class UserController {
     constructor(userService: UserService);
     create(inviteUserDTO: InviteUserDTO): Promise<number>;
     findAllUsers(): Promise<any>;
+    getReport(userType: any): Promise<any>;
     findUserDetail(email: any): Promise<any>;
     getUserPoints(email: any): Promise<any>;
     confirmUserPassword(confirmUserPassword: ConfirmUserPassword): Promise<any>;

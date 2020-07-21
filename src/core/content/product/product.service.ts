@@ -6,7 +6,8 @@ import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../../trivia/pointsbyuser/pointsbyuser.entity';
 import { PointsType } from '../../trivia/points-type/points-type.entity';
 import { CreateProductDTO, UpdateProductDTO, ShopCartProducts } from './product.dto';
-import { MailerService } from '@nest-modules/mailer';
+// import { MailerService } from '@nest-modules/mailer';
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class ProductService {

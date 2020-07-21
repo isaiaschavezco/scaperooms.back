@@ -38,6 +38,11 @@ let CampaingController = class CampaingController {
             return yield this.campaingService.findAllActives(isBioderma);
         });
     }
+    getCampaingReport(campaingId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.campaingService.generateCampaingReport(campaingId);
+        });
+    }
     getCampaingTop(campaingId) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.campaingService.findTopCampaing(campaingId);
@@ -82,6 +87,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], CampaingController.prototype, "getAllActiveCampaings", null);
+__decorate([
+    common_1.Get('report/:campaingId'),
+    __param(0, common_1.Param('campaingId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], CampaingController.prototype, "getCampaingReport", null);
 __decorate([
     common_1.Get(':campaingId/top'),
     __param(0, common_1.Param('campaingId')),

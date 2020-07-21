@@ -5,6 +5,7 @@ export declare class QuizzController {
     private quizzService;
     constructor(quizzService: QuizzService);
     getAllQuizzes(): Promise<Quizz[]>;
+    getCampaingReport(quizzId: any): Promise<any>;
     getAllByCampaing(campaingId: any): Promise<QuizzListDTO[]>;
     createQuizz(createQuizzDTO: CreateQuizzDTO): Promise<any>;
     sendQuizz(sendQuizzDTO: SendQuizzDTO): Promise<any>;

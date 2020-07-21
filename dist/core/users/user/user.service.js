@@ -37,7 +37,7 @@ const target_entity_1 = require("../../trivia/target/target.entity");
 const campaing_entity_1 = require("../../trivia/campaing/campaing.entity");
 const sesion_entity_1 = require("../sesion/sesion.entity");
 const configuration_entity_1 = require("../configuration/configuration.entity");
-const mailer_1 = require("@nest-modules/mailer");
+const mailer_1 = require("@nestjs-modules/mailer");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
@@ -771,6 +771,36 @@ let UserService = class UserService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error ressetign password',
+                }, 500);
+            }
+        });
+    }
+    generateReport(userType) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const report = yield this.userRepository.createQueryBuilder("user")
+                    .select("user.name", "nombre")
+                    .addSelect("user.lastName", "apellido")
+                    .addSelect("user.email", "email")
+                    .addSelect("type.name", "tipo")
+                    .addSelect("city.name", "ciudad")
+                    .addSelect("pobyus.points", "puntos")
+                    .addSelect("quizz.name", "trivia")
+                    .addSelect("camp.name", "campaña")
+                    .innerJoin("user.quizz", "quizz")
+                    .innerJoin("quizz.campaing", "camp")
+                    .innerJoin("user.type", "type")
+                    .innerJoin("user.city", "city")
+                    .innerJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
+                    .where("user.type = :userType AND user.isActive = true", { userType: parseInt(userType) })
+                    .getRawMany();
+                return { report };
+            }
+            catch (err) {
+                console.log("UserService - generateReport: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error generating report',
                 }, 500);
             }
         });

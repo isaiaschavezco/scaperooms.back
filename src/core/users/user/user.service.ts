@@ -15,7 +15,8 @@ import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
 import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
-import { MailerService } from '@nest-modules/mailer';
+// import { MailerService } from '@nest-modules/mailer';
+import { MailerService } from '@nestjs-modules/mailer';
 import * as jwt from "jsonwebtoken";
 import * as bcrypt from 'bcrypt';
 import * as moment from 'moment';
@@ -38,7 +39,7 @@ export class UserService {
         @InjectRepository(Sesion) private sesionRepository: Repository<Sesion>,
         @InjectRepository(Configuration) private configurationRepository: Repository<Configuration>) { }
 
-    async  invite(request: InviteUserDTO): Promise<number> {
+    async invite(request: InviteUserDTO): Promise<number> {
         try {
 
             let status = 0;
@@ -57,7 +58,7 @@ export class UserService {
                 });
 
                 if (!token) {
-                    
+
                     // Se obtiene el tipo de usuario
                     const userType = await this.typeRepository.findOne(request.type);
                     // Se crea nuevo token asociado al email del usuario
@@ -75,7 +76,7 @@ export class UserService {
                 } else {
                     tokenToSign = token.id;
                 }
-                
+
                 // Se genera jwt para enviar por correo
                 const jwtToken = await jwt.sign({ token: tokenToSign }, "Bi0d3rmaTokenJWT.");
                 // Se envia correo
@@ -333,7 +334,7 @@ export class UserService {
 
                         newUser.quizz = quizzesFilteredByTarget;
                         await this.userRepository.save(newUser);
-                        if (tokenExist.email.trim() != 'naos@general.com')  {
+                        if (tokenExist.email.trim() != 'naos@general.com') {
                             await this.tokenRepository.remove(tokenExist);
                         }
 
@@ -897,6 +898,37 @@ export class UserService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error ressetign password',
+            }, 500);
+        }
+    }
+
+    async generateReport(userType: string): Promise<any> {
+        try {
+
+            const report = await this.userRepository.createQueryBuilder("user")
+                .select("user.name", "nombre")
+                .addSelect("user.lastName", "apellido")
+                .addSelect("user.email", "email")
+                .addSelect("type.name", "tipo")
+                .addSelect("city.name", "ciudad")
+                .addSelect("pobyus.points", "puntos")
+                .addSelect("quizz.name", "trivia")
+                .addSelect("camp.name", "campaña")
+                .innerJoin("user.quizz", "quizz")
+                .innerJoin("quizz.campaing", "camp")
+                .innerJoin("user.type", "type")
+                .innerJoin("user.city", "city")
+                .innerJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
+                .where("user.type = :userType AND user.isActive = true", { userType: parseInt(userType) })
+                .getRawMany();
+
+            return { report };
+        } catch (err) {
+            console.log("UserService - generateReport: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error generating report',
             }, 500);
         }
     }

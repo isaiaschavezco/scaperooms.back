@@ -18,6 +18,11 @@ export class CampaingController {
         return await this.campaingService.findAllActives(isBioderma);
     }
 
+    @Get('report/:campaingId')
+    async getCampaingReport(@Param('campaingId') campaingId): Promise<Campaing[]> {
+        return await this.campaingService.generateCampaingReport(campaingId);
+    }
+
     @Get(':campaingId/top')
     async getCampaingTop(@Param('campaingId') campaingId): Promise<any> {
         return await this.campaingService.findTopCampaing(campaingId);

@@ -16,4 +16,5 @@ export declare class CampaingService {
     update(updateDTO: UpdateCampaingDTO): Promise<any>;
     getCampaingUserHistoy(requestDTO: GetUserCampaingHistory): Promise<any>;
     delete(removeCampaingDTO: RemoveCampaingDTO): Promise<any>;
+    generateCampaingReport(campaingId: string): Promise<any>;
 }

@@ -334,4 +334,35 @@ export class QuizzService {
         }
     }
 
+    async generateQuizzReport(quizzId: string): Promise<any> {
+        try {
+
+            const report = await this.quizzRepository.createQueryBuilder('quizz')
+                .select('user.name', 'nombre')
+                .addSelect('user.lastName', 'apellido')
+                .addSelect('user.email', 'email')
+                .addSelect('type.name', 'tipo')
+                .addSelect('city.name', 'ciudad')
+                .addSelect('pobyus.points', 'puntos')
+                .addSelect('quizz.name', 'trivia')
+                .addSelect('camp.name', 'campaña')
+                .innerJoin('quizz.campaing', 'camp')
+                .innerJoin('quizz.user', 'user')
+                .innerJoin('user.type', 'type')
+                .innerJoin('user.city', 'city')
+                .innerJoin('user.pointsbyuser', 'pobyus', 'pobyus.quizz = quizz.id')
+                .where('quizz.id = :quizzId AND user.isActive = true', { quizzId: parseInt(quizzId) })
+                .getRawMany();
+
+            return { report };
+        } catch (err) {
+            console.log('QuizzService - generateQuizzReport: ', err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error generating report',
+            }, 500);
+        }
+    }
+
 }

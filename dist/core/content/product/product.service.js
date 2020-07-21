@@ -28,7 +28,7 @@ const product_entity_1 = require("./product.entity");
 const user_entity_1 = require("../../users/user/user.entity");
 const pointsbyuser_entity_1 = require("../../trivia/pointsbyuser/pointsbyuser.entity");
 const points_type_entity_1 = require("../../trivia/points-type/points-type.entity");
-const mailer_1 = require("@nest-modules/mailer");
+const mailer_1 = require("@nestjs-modules/mailer");
 let ProductService = class ProductService {
     constructor(productRepository, userRepository, pointsbyuserRepository, pointsTypeRepository, mailerService) {
         this.productRepository = productRepository;

@@ -17,6 +17,11 @@ export class UserController {
         return await this.userService.findAll();
     }
 
+    @Get('report/:userType')
+    async getReport(@Param('userType') userType): Promise<any> {
+        return await this.userService.generateReport(userType);
+    }
+
     @Get(':email')
     async findUserDetail(@Param('email') email): Promise<any> {
         return await this.userService.findUserDetail(email);
@@ -26,7 +31,6 @@ export class UserController {
     async getUserPoints(@Param('email') email): Promise<any> {
         return await this.userService.getUserPoints(email);
     }
-
 
     @Post('confirm')
     async confirmUserPassword(@Body() confirmUserPassword: ConfirmUserPassword): Promise<any> {
