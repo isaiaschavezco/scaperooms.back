@@ -83,6 +83,7 @@ let UserService = class UserService {
                         tokenToSign = token.id;
                     }
                     const jwtToken = yield jwt.sign({ token: tokenToSign }, "Bi0d3rmaTokenJWT.");
+                    console.log("Antes de enviar correo");
                     yield this.mailerService.sendMail({
                         to: request.email,
                         subject: 'Has sido invitado a Bioderma.',
