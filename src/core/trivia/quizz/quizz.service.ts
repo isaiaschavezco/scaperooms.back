@@ -206,13 +206,15 @@ export class QuizzService {
                 select: ["id", "name"]
             });
 
-            const user = await this.userRepository.findOne({
-                where: { email: getQuizzesByUserCampaingDTO.email }
+            const user = await this.userRepository.find({
+                where: { email: getQuizzesByUserCampaingDTO.email },
+                order: { id: "ASC" },
+                take: 1
             });
 
             const response = await this.quizzRepository.createQueryBuilder("quizz")
                 // .innerJoin("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user.id })
-                .leftJoinAndSelect("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user.id })
+                .leftJoinAndSelect("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user[0].id })
                 .innerJoin("quizz.campaing", "campaing", "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId })
                 .innerJoin("quizz.user", "user", "user.email = :email", { email: getQuizzesByUserCampaingDTO.email })
                 .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })

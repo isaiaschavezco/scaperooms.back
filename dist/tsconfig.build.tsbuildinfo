@@ -2386,7 +2386,7 @@
         "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "99b7719c433927aa377fb3cacba3e066049448ef2ce5d1b264e4884ba88aad61",
+        "version": "3574f7563e25db8cc6619e999c6c730a82ddcff3cf86fc36189dea80441d8604",
         "signature": "2c8d4ec1a0567263ed47602995497ad4d28dfe3c4989d47d5e765734b813356d"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2562,7 +2562,7 @@
         "signature": "12c5b3557db4043af9cf6031659d0bce21f7dc759b91a6d2c5798a1a6a22d062"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "4a1e2f122410ddd2aae9b3db9e4b1d5a807424df3e531b4fc0bfb8d23a58bf20",
+        "version": "23e84f705339377e16490e55a06230a546de43587f2acccfb9ff9689127b9c1b",
         "signature": "79b6445d0285ebcfb4012574f032e314cda96cd209b44152ccfb82429f5559d5"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -2582,7 +2582,7 @@
         "signature": "8621a7b709bc463d5ab5a96d95bae465323fbf80b8a3d9eff5d2d6b60c795dd1"
       },
       "../src/core/trivia/quizz/quizz.service.ts": {
-        "version": "6a1361e56f304615c422e17131b05b4bbcb56e6274b53090ad1f3018156da1bb",
+        "version": "31f9d616b5044821d404e35b501b77e4afc86a9824b4396c131a423847af1f0e",
         "signature": "8ef7fc377461e3db7bb60b2e2caa2d55878150e829ae07eab0451f3cdb90d318"
       },
       "../src/core/trivia/quizz/quizz.controller.ts": {
@@ -20518,6 +20518,7 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/ts3.1-typings/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -20566,7 +20567,6 @@
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
       "../node_modules/moment-timezone/index.d.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
@@ -21034,7 +21034,7 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/user/user.service.ts"
+      "../src/core/trivia/quizz/quizz.service.ts"
     ]
   },
   "version": "3.7.2"

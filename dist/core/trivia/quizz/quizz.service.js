@@ -194,11 +194,13 @@ let QuizzService = class QuizzService {
                 const campaingSelected = yield this.campaingRepository.findOne(getQuizzesByUserCampaingDTO.campaingId, {
                     select: ["id", "name"]
                 });
-                const user = yield this.userRepository.findOne({
-                    where: { email: getQuizzesByUserCampaingDTO.email }
+                const user = yield this.userRepository.find({
+                    where: { email: getQuizzesByUserCampaingDTO.email },
+                    order: { id: "ASC" },
+                    take: 1
                 });
                 const response = yield this.quizzRepository.createQueryBuilder("quizz")
-                    .leftJoinAndSelect("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user.id })
+                    .leftJoinAndSelect("quizz.answerbyuserquizz", "answ", "answ.user = :userId", { userId: user[0].id })
                     .innerJoin("quizz.campaing", "campaing", "campaing.id = :campaingId", { campaingId: getQuizzesByUserCampaingDTO.campaingId })
                     .innerJoin("quizz.user", "user", "user.email = :email", { email: getQuizzesByUserCampaingDTO.email })
                     .where("quizz.isActive = :isActive AND quizz.isSend = :isSend AND quizz.isDeleted = :isDeleted", { isActive: true, isSend: true, isDeleted: false })

@@ -83,7 +83,6 @@ let UserService = class UserService {
                         tokenToSign = token.id;
                     }
                     const jwtToken = yield jwt.sign({ token: tokenToSign }, "Bi0d3rmaTokenJWT.");
-                    console.log("Antes de enviar correo");
                     yield this.mailerService.sendMail({
                         to: request.email,
                         subject: 'Has sido invitado a Bioderma.',
@@ -794,7 +793,7 @@ let UserService = class UserService {
                     .innerJoin("user.type", "type")
                     .innerJoin("user.city", "city")
                     .leftJoin("user.chain", "chain")
-                    .innerJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
+                    .leftJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
                     .where("user.type = :userType AND user.isActive = true", { userType: parseInt(userType) })
                     .orderBy("user.email", "ASC")
                     .getRawMany();
