@@ -240,7 +240,7 @@ export class CampaingService {
                 .innerJoin('user.type', 'type')
                 .innerJoin('user.city', 'city')
                 .leftJoin("user.chain", "chain")
-                .innerJoin('user.pointsbyuser', 'pobyus', 'pobyus.quizz = quizz.id')
+                .leftJoin('user.pointsbyuser', 'pobyus', 'pobyus.quizz = quizz.id')
                 .where('camp.id = :campaingId AND user.isActive = true', { campaingId: parseInt(campaingId) })
                 .orderBy("camp.name", "ASC")
                 .getRawMany();

@@ -920,7 +920,7 @@ export class UserService {
                 .innerJoin("user.type", "type")
                 .innerJoin("user.city", "city")
                 .leftJoin("user.chain", "chain")
-                .innerJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
+                .leftJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
                 .where("user.type = :userType AND user.isActive = true", { userType: parseInt(userType) })
                 .orderBy("user.email", "ASC")
                 .getRawMany();
