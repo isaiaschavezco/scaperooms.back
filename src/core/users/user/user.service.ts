@@ -911,6 +911,7 @@ export class UserService {
                 .addSelect("user.email", "EMAIL")
                 .addSelect("type.name", "TIPO")
                 .addSelect("chain.name", "CADENA")
+                .addSelect("user.drugstore", "SUCURSAL")
                 .addSelect("city.name", "ESTADO")
                 .addSelect("pobyus.points", "PUNTOS")
                 .addSelect("quizz.name", "TRIVIA")

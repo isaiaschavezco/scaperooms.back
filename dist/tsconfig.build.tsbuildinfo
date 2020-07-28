@@ -2386,7 +2386,7 @@
         "signature": "ee08b4d535febfed2ab0ed4a943c26eee9646a0b6fd674552d925544e0e0afd4"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "3574f7563e25db8cc6619e999c6c730a82ddcff3cf86fc36189dea80441d8604",
+        "version": "53fec44ad1d77d7c87d8e17aae090984f67a8fd0279b1974110b56e29cd8581c",
         "signature": "2c8d4ec1a0567263ed47602995497ad4d28dfe3c4989d47d5e765734b813356d"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2562,7 +2562,7 @@
         "signature": "12c5b3557db4043af9cf6031659d0bce21f7dc759b91a6d2c5798a1a6a22d062"
       },
       "../src/core/trivia/campaing/campaing.service.ts": {
-        "version": "23e84f705339377e16490e55a06230a546de43587f2acccfb9ff9689127b9c1b",
+        "version": "1be66819b37cc13345bdb888d2ed08d9c69042afbc1a489d0a6f9638dd53af3b",
         "signature": "79b6445d0285ebcfb4012574f032e314cda96cd209b44152ccfb82429f5559d5"
       },
       "../src/core/trivia/campaing/campaing.controller.ts": {
@@ -20518,7 +20518,6 @@
       "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/ts3.1-typings/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
       "../src/core/users/user/user.controller.ts",
       "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
@@ -20562,11 +20561,11 @@
       "../src/core/trivia/target/target.controller.ts",
       "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
       "../src/core/trivia/campaing/campaing.controller.ts",
       "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
       "../node_modules/moment-timezone/index.d.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
       "../src/core/trivia/quizz/quizz.controller.ts",
       "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
@@ -21034,7 +21033,8 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/trivia/quizz/quizz.service.ts"
+      "../src/core/users/user/user.service.ts",
+      "../src/core/trivia/campaing/campaing.service.ts"
     ]
   },
   "version": "3.7.2"
