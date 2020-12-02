@@ -194,47 +194,67 @@ export class NotificationService {
                         }
                     });
 
-                    let usersToSend;
 
+                    //----
+
+                    let usersToSendArray = [];
+
+                    
                     if (notificationToAllUsers) {
-                        usersToSend = await this.userRepository.find({
+                        let usersToSendTemp = await this.userRepository.find({
                             select: ["id"]
                         });
+                        usersToSendArray.push(usersToSendTemp)
                     } else {
-                        usersToSend = await this.userRepository.find({
-                            select: ["id"],
-                            where: filterQueries
-                        });
+                        //Aquí puede estár el error
+                       await Promise.all( filterQueries.map( async (filterQuery) =>{
+                                let usersToSendTemp = await this.userRepository.find({
+                                        select: ["id"],
+                                        where: filterQuery
+                                        });
+                                        console.log("usersToSendTemp",usersToSendTemp)
+                                        usersToSendArray.push(usersToSendTemp)        
+                                        console.log("usersToSendARRAY",usersToSendArray)
+                        }))
+                        
                     }
 
-                    newNotification.user = usersToSend;
+                    await Promise.all(usersToSendArray.map(async (usersToSend)=>{
+                        newNotification.user = usersToSend;
+                        
+                        console.log("USERS TO SEND: ",usersToSend)    
+                        await this.notificationRepository.save(newNotification);
 
-                    await this.notificationRepository.save(newNotification);
+                        usersToSend.forEach(user => {
+                            userIds.push(user.id);
+                        });
 
-                    usersToSend.forEach(user => {
-                        userIds.push(user.id);
-                    });
+                        console.log("userIds: ", userIds);
 
-                    // console.log("userIds: ", userIds);
+                        const activeSessions = await this.sesionRepository.find({
+                            user: In(userIds)
+                        });
+                        console.log("activeSessions",activeSessions)
 
-                    const activeSessions = await this.sesionRepository.find({
-                        user: In(userIds)
-                    });
+                        activeSessions.forEach(sesion => {
+                            if (sesion.playerId) {
+                                playerIds.push(sesion.playerId);
+                            }
+                        });
+                        console.log("playerIds:",playerIds)
 
-                    activeSessions.forEach(sesion => {
-                        if (sesion.playerId) {
-                            playerIds.push(sesion.playerId);
-                        }
-                    });
+                        const input = new NotificationByDeviceBuilder()
+                            .setIncludePlayerIds(playerIds)
+                            .notification()
+                            .setHeadings({ en: sendRequest.title })
+                            .setContents({ en: sendRequest.content })
+                            .build();
 
-                    const input = new NotificationByDeviceBuilder()
-                        .setIncludePlayerIds(playerIds)
-                        .notification()
-                        .setHeadings({ en: sendRequest.title })
-                        .setContents({ en: sendRequest.content })
-                        .build();
+                        await this.oneSignalService.createNotification(input);
+                    }))
 
-                    await this.oneSignalService.createNotification(input);
+
+
 
                 } else {
                     response = { status: 2 };
