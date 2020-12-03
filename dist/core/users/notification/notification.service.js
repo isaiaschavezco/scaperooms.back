@@ -161,6 +161,7 @@ let NotificationService = class NotificationService {
                             }
                             if (target.initAge !== null) {
                                 tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
+                                console.log("LO QUE DEVUELVE BETWEEN", typeorm_2.Between(target.initAge, target.finalAge));
                             }
                             if (target.gender !== null) {
                                 tempTargetObject['gender'] = target.gender;
@@ -199,6 +200,7 @@ let NotificationService = class NotificationService {
                                 });
                                 console.log("usersToSendTemp", usersToSendTemp);
                                 usersToSendArray.push(usersToSendTemp);
+                                console.log("FILTER:", filterQuery);
                                 console.log("usersToSendARRAY", usersToSendArray);
                             })));
                         }
@@ -226,7 +228,9 @@ let NotificationService = class NotificationService {
                                 .setHeadings({ en: sendRequest.title })
                                 .setContents({ en: sendRequest.content })
                                 .build();
-                            yield this.oneSignalService.createNotification(input);
+                            console.log("INPUT", input);
+                            const ones = yield this.oneSignalService.createNotification(input);
+                            console.log("ONE SIGNAL:", ones);
                         })));
                     }
                     else {

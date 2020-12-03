@@ -163,6 +163,7 @@ export class NotificationService {
                         //Notificaciones por filtro
                         if (target.initAge !== null) {
                             tempTargetObject['age'] = Between(target.initAge, target.finalAge);
+                            // console.log("LO QUE DEVUELVE BETWEEN", Between( target.initAge, target.finalAge))
                         }
 
                         if (target.gender !== null) {
@@ -207,13 +208,14 @@ export class NotificationService {
                         usersToSendArray.push(usersToSendTemp)
                     } else {
                         //Aquí puede estár el error
-                       await Promise.all( filterQueries.map( async (filterQuery) =>{
+                       await Promise.all( filterQueries.map( async (filterQuery) =>{      
                                 let usersToSendTemp = await this.userRepository.find({
                                         select: ["id"],
                                         where: filterQuery
                                         });
                                         console.log("usersToSendTemp",usersToSendTemp)
-                                        usersToSendArray.push(usersToSendTemp)        
+                                        usersToSendArray.push(usersToSendTemp)  
+                                        console.log("FILTER:",filterQuery);      
                                         console.log("usersToSendARRAY",usersToSendArray)
                         }))
                         
@@ -223,7 +225,7 @@ export class NotificationService {
                         newNotification.user = usersToSend;
                         
                         console.log("USERS TO SEND: ",usersToSend)    
-                        await this.notificationRepository.save(newNotification);
+                       await this.notificationRepository.save(newNotification);
 
                         usersToSend.forEach(user => {
                             userIds.push(user.id);
@@ -249,8 +251,9 @@ export class NotificationService {
                             .setHeadings({ en: sendRequest.title })
                             .setContents({ en: sendRequest.content })
                             .build();
-
-                        await this.oneSignalService.createNotification(input);
+                        console.log("INPUT",input);
+                        const ones = await this.oneSignalService.createNotification(input);
+                        console.log("ONE SIGNAL:",ones);
                     }))
 
 

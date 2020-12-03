@@ -1094,7 +1094,7 @@
         "signature": "abec56db8d9e8c0be53354ab0f3e6bc5a888ea005f32e43f9893ae1e49360db7"
       },
       "../src/app.service.ts": {
-        "version": "5d4242d50092a353e5ab1f06663a89dbc714c7d9d70072ea03c83c5b14750f05",
+        "version": "456b7a7261b68933709f6606bcc46ce39881d40b84fda202018689aca23dc3cb",
         "signature": "d8f4cb0109c1b399d657807fd6af504d74a9300325e0fc915abdbf658b464a97"
       },
       "../src/app.controller.ts": {
@@ -4126,7 +4126,7 @@
         "signature": "0a19f58af29e3cb261d9da1c4260025b752f671d475ef5e111abcf6746c35e60"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "29c5c54cdc82d1416468d5da360d29dd8d898c6e6b66812a8aee93481cecfdec",
+        "version": "99c2c946e039383dae3991c487c4212273cd25db16ac58a2d3700c4e72dc7ddb",
         "signature": "13c57d2d9cfa767d33a67485c51e69eead661c5f9279a63f77a0fc85eec7a749"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -10745,6 +10745,9 @@
         "../node_modules/@nestjs/common/decorators/modules/index.d.ts",
         "../node_modules/@nestjs/common/decorators/http/index.d.ts"
       ],
+      "../node_modules/@nestjs/common/cache/decorators/cache-key.decorator.d.ts": [
+        "../node_modules/@nestjs/common/decorators/index.d.ts"
+      ],
       "../node_modules/@nestjs/common/cache/decorators/cache-ttl.decorator.d.ts": [
         "../node_modules/@nestjs/common/decorators/index.d.ts"
       ],
@@ -10925,6 +10928,9 @@
       "../src/app.controller.ts": [
         "../src/app.service.ts"
       ],
+      "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts": [
+        "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts"
+      ],
       "../node_modules/typeorm/metadata-args/tablemetadataargs.d.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../node_modules/typeorm/find-options/orderbycondition.d.ts"
@@ -10938,6 +10944,11 @@
         "../node_modules/typeorm/metadata/columnmetadata.d.ts",
         "../node_modules/typeorm/metadata/entitymetadata.d.ts",
         "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/relationoptions.d.ts": [
+        "../node_modules/typeorm/metadata/types/deferrabletype.d.ts",
+        "../node_modules/typeorm/metadata/types/ondeletetype.d.ts",
+        "../node_modules/typeorm/metadata/types/onupdatetype.d.ts"
       ],
       "../node_modules/typeorm/metadata/relationmetadata.d.ts": [
         "../node_modules/typeorm/metadata/entitymetadata.d.ts",
@@ -10956,6 +10967,18 @@
         "../node_modules/typeorm/metadata/relationmetadata.d.ts",
         "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
         "../node_modules/typeorm/query-builder/alias.d.ts"
+      ],
+      "../node_modules/typeorm/query-builder/relation-id/relationidattribute.d.ts": [
+        "../node_modules/typeorm/metadata/relationmetadata.d.ts",
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
+        "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
+        "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts"
+      ],
+      "../node_modules/typeorm/query-builder/relation-count/relationcountattribute.d.ts": [
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
+        "../node_modules/typeorm/metadata/relationmetadata.d.ts",
+        "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
+        "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts"
       ],
       "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts": [
         "../node_modules/typeorm/query-builder/alias.d.ts",
@@ -10976,6 +10999,9 @@
       "../node_modules/typeorm/query-builder/whereexpression.d.ts": [
         "../node_modules/typeorm/common/objectliteral.d.ts",
         "../node_modules/typeorm/query-builder/brackets.d.ts"
+      ],
+      "../node_modules/typeorm/query-builder/result/updateresult.d.ts": [
+        "../node_modules/typeorm/common/objectliteral.d.ts"
       ],
       "../node_modules/typeorm/query-builder/updatequerybuilder.d.ts": [
         "../node_modules/typeorm/query-builder/querybuilder.d.ts",
@@ -11009,6 +11035,9 @@
         "../node_modules/typeorm/query-builder/whereexpression.d.ts",
         "../node_modules/typeorm/query-builder/brackets.d.ts",
         "../node_modules/typeorm/find-options/orderbycondition.d.ts"
+      ],
+      "../node_modules/typeorm/query-builder/result/insertresult.d.ts": [
+        "../node_modules/typeorm/common/objectliteral.d.ts"
       ],
       "../node_modules/typeorm/query-builder/insertquerybuilder.d.ts": [
         "../node_modules/typeorm/query-builder/querybuilder.d.ts",
@@ -11105,6 +11134,14 @@
         "../node_modules/typeorm/metadata/indexmetadata.d.ts",
         "../node_modules/typeorm/metadata/uniquemetadata.d.ts"
       ],
+      "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts": [
+        "../node_modules/typeorm/decorator/options/valuetransformer.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/columnoptions.d.ts": [
+        "../node_modules/typeorm/driver/types/columntypes.d.ts",
+        "../node_modules/typeorm/decorator/options/valuetransformer.d.ts",
+        "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts"
+      ],
       "../node_modules/typeorm/metadata/columnmetadata.d.ts": [
         "../node_modules/typeorm/metadata/entitymetadata.d.ts",
         "../node_modules/typeorm/metadata/embeddedmetadata.d.ts",
@@ -11144,6 +11181,45 @@
         "../node_modules/typeorm/metadata/columnmetadata.d.ts",
         "../node_modules/typeorm/metadata/embeddedmetadata.d.ts"
       ],
+      "../node_modules/typeorm/schema-builder/table/tableindex.d.ts": [
+        "../node_modules/typeorm/metadata/indexmetadata.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableindexoptions.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts": [
+        "../node_modules/typeorm/metadata/foreignkeymetadata.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableforeignkeyoptions.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/options/tableoptions.d.ts": [
+        "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableindexoptions.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableforeignkeyoptions.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableuniqueoptions.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tablecheckoptions.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableexclusionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/table/tableunique.d.ts": [
+        "../node_modules/typeorm/schema-builder/options/tableuniqueoptions.d.ts",
+        "../node_modules/typeorm/metadata/uniquemetadata.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts": [
+        "../node_modules/typeorm/schema-builder/options/tablecheckoptions.d.ts",
+        "../node_modules/typeorm/metadata/checkmetadata.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts": [
+        "../node_modules/typeorm/schema-builder/options/tableexclusionoptions.d.ts",
+        "../node_modules/typeorm/metadata/exclusionmetadata.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/table/table.d.ts": [
+        "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableindex.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts",
+        "../node_modules/typeorm/driver/driver.d.ts",
+        "../node_modules/typeorm/schema-builder/options/tableoptions.d.ts",
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableunique.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts"
+      ],
       "../node_modules/typeorm/find-options/findconditions.d.ts": [
         "../node_modules/typeorm/find-options/findoperator.d.ts"
       ],
@@ -11154,6 +11230,9 @@
       ],
       "../node_modules/typeorm/find-options/findmanyoptions.d.ts": [
         "../node_modules/typeorm/find-options/findoneoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/mongodb/typings.d.ts": [
+        "../node_modules/typeorm/platform/platformtools.d.ts"
       ],
       "../node_modules/typeorm/repository/repository.d.ts": [
         "../node_modules/typeorm/metadata/entitymetadata.d.ts",
@@ -11169,8 +11248,56 @@
         "../node_modules/typeorm/query-builder/querypartialentity.d.ts",
         "../node_modules/typeorm/find-options/findconditions.d.ts"
       ],
+      "../node_modules/typeorm/schema-builder/options/viewoptions.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/schema-builder/view/view.d.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/typeorm/schema-builder/options/viewoptions.d.ts"
+      ],
       "../node_modules/typeorm/driver/sqlinmemory.d.ts": [
         "../node_modules/typeorm/driver/query.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/transactioncommitevent.d.ts": [
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/transactionrollbackevent.d.ts": [
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/transactionstartevent.d.ts": [
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/updateevent.d.ts": [
+        "../node_modules/typeorm/metadata/columnmetadata.d.ts",
+        "../node_modules/typeorm/metadata/relationmetadata.d.ts",
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/removeevent.d.ts": [
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/insertevent.d.ts": [
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
+      ],
+      "../node_modules/typeorm/subscriber/event/loadevent.d.ts": [
+        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
       ],
       "../node_modules/typeorm/subscriber/broadcaster.d.ts": [
         "../node_modules/typeorm/subscriber/entitysubscriberinterface.d.ts",
@@ -11180,6 +11307,24 @@
         "../node_modules/typeorm/subscriber/broadcasterresult.d.ts",
         "../node_modules/typeorm/metadata/columnmetadata.d.ts",
         "../node_modules/typeorm/metadata/relationmetadata.d.ts"
+      ],
+      "../node_modules/typeorm/driver/mongodb/mongoqueryrunner.d.ts": [
+        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+        "../node_modules/typeorm/common/objectliteral.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
+        "../node_modules/typeorm/schema-builder/table/table.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableindex.d.ts",
+        "../node_modules/typeorm/schema-builder/view/view.d.ts",
+        "../node_modules/typeorm/driver/mongodb/typings.d.ts",
+        "../node_modules/typeorm/connection/connection.d.ts",
+        "../node_modules/typeorm/platform/platformtools.d.ts",
+        "../node_modules/typeorm/entity-manager/mongoentitymanager.d.ts",
+        "../node_modules/typeorm/driver/sqlinmemory.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableunique.d.ts",
+        "../node_modules/typeorm/subscriber/broadcaster.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts",
+        "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts"
       ],
       "../node_modules/typeorm/entity-manager/mongoentitymanager.d.ts": [
         "../node_modules/typeorm/connection/connection.d.ts",
@@ -11206,6 +11351,10 @@
         "../node_modules/typeorm/repository/repository.d.ts",
         "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts"
       ],
+      "../node_modules/typeorm/query-builder/transformer/plainobjecttonewentitytransformer.d.ts": [
+        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
+        "../node_modules/typeorm/common/objectliteral.d.ts"
+      ],
       "../node_modules/typeorm/entity-manager/entitymanager.d.ts": [
         "../node_modules/typeorm/connection/connection.d.ts",
         "../node_modules/typeorm/find-options/findmanyoptions.d.ts",
@@ -11231,8 +11380,14 @@
         "../node_modules/typeorm/driver/sqlinmemory.d.ts",
         "../node_modules/typeorm/subscriber/broadcaster.d.ts"
       ],
+      "../node_modules/typeorm/driver/types/mappedcolumntypes.d.ts": [
+        "../node_modules/typeorm/driver/types/columntypes.d.ts"
+      ],
       "../node_modules/typeorm/schema-builder/schemabuilder.d.ts": [
         "../node_modules/typeorm/driver/sqlinmemory.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/jointablemultiplecolumnsoptions.d.ts": [
+        "../node_modules/typeorm/decorator/options/joincolumnoptions.d.ts"
       ],
       "../node_modules/typeorm/entity-schema/entityschemarelationoptions.d.ts": [
         "../node_modules/typeorm/index.d.ts"
@@ -11278,6 +11433,68 @@
       ],
       "../node_modules/typeorm/migration/migration.d.ts": [
         "../node_modules/typeorm/migration/migrationinterface.d.ts"
+      ],
+      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectioncredentialsoptions.d.ts": [
+        "../node_modules/@types/node/tls.d.ts"
+      ],
+      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/cockroachdb/cockroachconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/mysql/mysqlconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/mysql/mysqlconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts": [
+        "../node_modules/@types/node/tls.d.ts"
+      ],
+      "../node_modules/typeorm/driver/postgres/postgresconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/sqlite/sqliteconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/sqlserver/sqlserverconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/sqlserver/sqlserverconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/oracle/oracleconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/oracle/oracleconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/mongodb/mongoconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/mongodb/typings.d.ts"
+      ],
+      "../node_modules/typeorm/driver/cordova/cordovaconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/sqljs/sqljsconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/react-native/reactnativeconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/nativescript/nativescriptconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/expo/expoconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/sap/sapconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+        "../node_modules/typeorm/driver/sap/sapconnectioncredentialsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/aurora-data-api-pg/auroradataapipostgresconnectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/driver/better-sqlite3/bettersqlite3connectionoptions.d.ts": [
+        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
       ],
       "../node_modules/typeorm/entity-manager/sqljsentitymanager.d.ts": [
         "../node_modules/typeorm/connection/connection.d.ts",
@@ -11349,11 +11566,143 @@
         "../node_modules/typeorm/metadata-args/checkmetadataargs.d.ts",
         "../node_modules/typeorm/metadata-args/exclusionmetadataargs.d.ts"
       ],
+      "../node_modules/typeorm/decorator/columns/column.d.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/typeorm/driver/types/columntypes.d.ts",
+        "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/spatialcolumnoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/columnwithlengthoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/columnnumericoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/columnenumoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/columnembeddedoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/columnhstoreoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/columnwithwidthoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/createdatecolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/deletedatecolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/primarygeneratedcolumnnumericoptions.d.ts": [
+        "../node_modules/typeorm/driver/types/columntypes.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/primarygeneratedcolumn.d.ts": [
+        "../node_modules/typeorm/decorator/options/primarygeneratedcolumnnumericoptions.d.ts",
+        "../node_modules/typeorm/decorator/options/primarygeneratedcolumnuuidoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/primarycolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/updatedatecolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/versioncolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/viewcolumn.d.ts": [
+        "../node_modules/typeorm/decorator/options/viewcolumnoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/columns/objectidcolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/jointableoptions.d.ts": [
+        "../node_modules/typeorm/decorator/options/joincolumnoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/entityoptions.d.ts": [
+        "../node_modules/typeorm/find-options/orderbycondition.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/joincolumn.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/jointable.d.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/typeorm/decorator/options/jointablemultiplecolumnsoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/manytomany.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/manytoone.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/onetomany.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/onetoone.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/relationcount.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/relations/relationid.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/entity/entity.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/entity/tableinheritance.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/viewentityoptions.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/entity-view/viewentity.d.ts": [
+        "../node_modules/typeorm/decorator/options/viewentityoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/options/transactionoptions.d.ts": [
+        "../node_modules/typeorm/driver/types/isolationlevel.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/transaction/transaction.d.ts": [
+        "../node_modules/typeorm/decorator/options/transactionoptions.d.ts"
+      ],
+      "../node_modules/typeorm/decorator/tree/tree.d.ts": [
+        "../node_modules/typeorm/metadata/types/treetypes.d.ts"
+      ],
       "../node_modules/typeorm/decorator/index.d.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
       "../node_modules/typeorm/decorator/entityrepository.d.ts": [
         "../node_modules/typeorm/entity-schema/entityschema.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/any.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/between.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/equal.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/in.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/isnull.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/lessthan.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/lessthanorequal.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/ilike.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/like.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/morethan.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/morethanorequal.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/not.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts"
+      ],
+      "../node_modules/typeorm/find-options/operator/raw.d.ts": [
+        "../node_modules/typeorm/find-options/findoperator.d.ts",
+        "../node_modules/typeorm/common/objectliteral.d.ts"
       ],
       "../node_modules/typeorm/find-options/findoptionsutils.d.ts": [
         "../node_modules/typeorm/find-options/findmanyoptions.d.ts",
@@ -11409,6 +11758,26 @@
       "../node_modules/typeorm/index.d.ts": [
         "../node_modules/reflect-metadata/index.d.ts",
         "../node_modules/typeorm/container.d.ts"
+      ],
+      "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/rxjs/index.d.ts",
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/@nestjs/typeorm/dist/common/index.d.ts": [
+        "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts",
+        "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts"
+      ],
+      "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../node_modules/@nestjs/typeorm/dist/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts"
       ],
       "../node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13890,6 +14259,19 @@
         "../node_modules/aws-sdk/lib/service.d.ts",
         "../node_modules/aws-sdk/lib/error.d.ts"
       ],
+      "../node_modules/multer-sharp-s3/dist/types/types.d.ts": [
+        "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/multer-sharp-s3/dist/types/main.d.ts": [
+        "../node_modules/aws-sdk/lib/s3/managed_upload.d.ts",
+        "../node_modules/@types/multer/index.d.ts",
+        "../node_modules/@types/express/index.d.ts",
+        "../node_modules/aws-sdk/index.d.ts",
+        "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
+        "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
       "../src/upload/upload.service.ts": [
         "../node_modules/@types/express-serve-static-core/index.d.ts",
         "../node_modules/@types/qs/index.d.ts",
@@ -13897,6 +14279,12 @@
       ],
       "../src/upload/upload.controller.ts": [
         "../src/upload/upload.service.ts"
+      ],
+      "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts": [
+        "../node_modules/@nestjs/common/interfaces/index.d.ts"
+      ],
+      "../node_modules/onesignal-api-client-nest/lib/interfaces/index.d.ts": [
+        "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts"
       ],
       "../node_modules/onesignal-api-client-nest/lib/onesignal.module.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -14410,394 +14798,6 @@
       ],
       "../node_modules/@types/supertest/index.d.ts": [
         "../node_modules/@types/superagent/index.d.ts"
-      ],
-      "../node_modules/@nestjs/common/cache/decorators/cache-key.decorator.d.ts": [
-        "../node_modules/@nestjs/common/decorators/index.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/options/tableoptions.d.ts": [
-        "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableindexoptions.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableforeignkeyoptions.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableuniqueoptions.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tablecheckoptions.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableexclusionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/table.d.ts": [
-        "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableindex.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts",
-        "../node_modules/typeorm/driver/driver.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableoptions.d.ts",
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableunique.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts"
-      ],
-      "../node_modules/typeorm/driver/mongodb/mongoqueryrunner.d.ts": [
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
-        "../node_modules/typeorm/common/objectliteral.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
-        "../node_modules/typeorm/schema-builder/table/table.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableindex.d.ts",
-        "../node_modules/typeorm/schema-builder/view/view.d.ts",
-        "../node_modules/typeorm/driver/mongodb/typings.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/platform/platformtools.d.ts",
-        "../node_modules/typeorm/entity-manager/mongoentitymanager.d.ts",
-        "../node_modules/typeorm/driver/sqlinmemory.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableunique.d.ts",
-        "../node_modules/typeorm/subscriber/broadcaster.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts",
-        "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts": [
-        "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/tree/tree.d.ts": [
-        "../node_modules/typeorm/metadata/types/treetypes.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/primarygeneratedcolumnnumericoptions.d.ts": [
-        "../node_modules/typeorm/driver/types/columntypes.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/primarygeneratedcolumn.d.ts": [
-        "../node_modules/typeorm/decorator/options/primarygeneratedcolumnnumericoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/primarygeneratedcolumnuuidoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/column.d.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../node_modules/typeorm/driver/types/columntypes.d.ts",
-        "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/spatialcolumnoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/columnwithlengthoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/columnnumericoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/columnenumoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/columnembeddedoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/columnhstoreoptions.d.ts",
-        "../node_modules/typeorm/decorator/options/columnwithwidthoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/types/mappedcolumntypes.d.ts": [
-        "../node_modules/typeorm/driver/types/columntypes.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/columnoptions.d.ts": [
-        "../node_modules/typeorm/driver/types/columntypes.d.ts",
-        "../node_modules/typeorm/decorator/options/valuetransformer.d.ts",
-        "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/relationoptions.d.ts": [
-        "../node_modules/typeorm/metadata/types/deferrabletype.d.ts",
-        "../node_modules/typeorm/metadata/types/ondeletetype.d.ts",
-        "../node_modules/typeorm/metadata/types/onupdatetype.d.ts"
-      ],
-      "../node_modules/typeorm/query-builder/relation-id/relationidattribute.d.ts": [
-        "../node_modules/typeorm/metadata/relationmetadata.d.ts",
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
-        "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
-        "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts"
-      ],
-      "../node_modules/typeorm/query-builder/relation-count/relationcountattribute.d.ts": [
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
-        "../node_modules/typeorm/metadata/relationmetadata.d.ts",
-        "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
-        "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts"
-      ],
-      "../node_modules/typeorm/query-builder/result/updateresult.d.ts": [
-        "../node_modules/typeorm/common/objectliteral.d.ts"
-      ],
-      "../node_modules/typeorm/query-builder/result/insertresult.d.ts": [
-        "../node_modules/typeorm/common/objectliteral.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts": [
-        "../node_modules/typeorm/decorator/options/valuetransformer.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/tableindex.d.ts": [
-        "../node_modules/typeorm/metadata/indexmetadata.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableindexoptions.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts": [
-        "../node_modules/typeorm/metadata/foreignkeymetadata.d.ts",
-        "../node_modules/typeorm/schema-builder/options/tableforeignkeyoptions.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/tableunique.d.ts": [
-        "../node_modules/typeorm/schema-builder/options/tableuniqueoptions.d.ts",
-        "../node_modules/typeorm/metadata/uniquemetadata.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts": [
-        "../node_modules/typeorm/schema-builder/options/tablecheckoptions.d.ts",
-        "../node_modules/typeorm/metadata/checkmetadata.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts": [
-        "../node_modules/typeorm/schema-builder/options/tableexclusionoptions.d.ts",
-        "../node_modules/typeorm/metadata/exclusionmetadata.d.ts"
-      ],
-      "../node_modules/typeorm/driver/mongodb/typings.d.ts": [
-        "../node_modules/typeorm/platform/platformtools.d.ts"
-      ],
-      "../node_modules/typeorm/driver/mongodb/mongoconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/mongodb/typings.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/options/viewoptions.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/schema-builder/view/view.d.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../node_modules/typeorm/schema-builder/options/viewoptions.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/transactioncommitevent.d.ts": [
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/transactionrollbackevent.d.ts": [
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/transactionstartevent.d.ts": [
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/updateevent.d.ts": [
-        "../node_modules/typeorm/metadata/columnmetadata.d.ts",
-        "../node_modules/typeorm/metadata/relationmetadata.d.ts",
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/removeevent.d.ts": [
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/insertevent.d.ts": [
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
-      ],
-      "../node_modules/typeorm/subscriber/event/loadevent.d.ts": [
-        "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-        "../node_modules/typeorm/connection/connection.d.ts",
-        "../node_modules/typeorm/query-runner/queryrunner.d.ts",
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts"
-      ],
-      "../node_modules/typeorm/query-builder/transformer/plainobjecttonewentitytransformer.d.ts": [
-        "../node_modules/typeorm/metadata/entitymetadata.d.ts",
-        "../node_modules/typeorm/common/objectliteral.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/transactionoptions.d.ts": [
-        "../node_modules/typeorm/driver/types/isolationlevel.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/transaction/transaction.d.ts": [
-        "../node_modules/typeorm/decorator/options/transactionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/jointableoptions.d.ts": [
-        "../node_modules/typeorm/decorator/options/joincolumnoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/jointablemultiplecolumnsoptions.d.ts": [
-        "../node_modules/typeorm/decorator/options/joincolumnoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/jointable.d.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../node_modules/typeorm/decorator/options/jointablemultiplecolumnsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectioncredentialsoptions.d.ts": [
-        "../node_modules/@types/node/tls.d.ts"
-      ],
-      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/cockroachdb/cockroachconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/mysql/mysqlconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/mysql/mysqlconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts": [
-        "../node_modules/@types/node/tls.d.ts"
-      ],
-      "../node_modules/typeorm/driver/postgres/postgresconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/sqlite/sqliteconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/sqlserver/sqlserverconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/sqlserver/sqlserverconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/oracle/oracleconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/oracle/oracleconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/cordova/cordovaconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/sqljs/sqljsconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/react-native/reactnativeconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/nativescript/nativescriptconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/expo/expoconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/sap/sapconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-        "../node_modules/typeorm/driver/sap/sapconnectioncredentialsoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/aurora-data-api-pg/auroradataapipostgresconnectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/driver/better-sqlite3/bettersqlite3connectionoptions.d.ts": [
-        "../node_modules/typeorm/connection/baseconnectionoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/createdatecolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/deletedatecolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/primarycolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/updatedatecolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/versioncolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/viewcolumn.d.ts": [
-        "../node_modules/typeorm/decorator/options/viewcolumnoptions.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/columns/objectidcolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/entityoptions.d.ts": [
-        "../node_modules/typeorm/find-options/orderbycondition.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/joincolumn.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/manytomany.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/manytoone.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/onetomany.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/onetoone.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/relationcount.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/relations/relationid.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/entity/entity.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/entity/tableinheritance.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/options/viewentityoptions.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/typeorm/decorator/entity-view/viewentity.d.ts": [
-        "../node_modules/typeorm/decorator/options/viewentityoptions.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/any.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/between.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/equal.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/in.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/isnull.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/lessthan.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/lessthanorequal.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/ilike.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/like.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/morethan.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/morethanorequal.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/not.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts"
-      ],
-      "../node_modules/typeorm/find-options/operator/raw.d.ts": [
-        "../node_modules/typeorm/find-options/findoperator.d.ts",
-        "../node_modules/typeorm/common/objectliteral.d.ts"
-      ],
-      "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts": [
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/@nestjs/typeorm/dist/common/index.d.ts": [
-        "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts",
-        "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts"
-      ],
-      "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/rxjs/index.d.ts",
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts": [
-        "../node_modules/@nestjs/common/index.d.ts",
-        "../node_modules/@nestjs/common/interfaces/index.d.ts",
-        "../node_modules/typeorm/index.d.ts"
-      ],
-      "../node_modules/@nestjs/typeorm/dist/interfaces/index.d.ts": [
-        "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts"
-      ],
-      "../node_modules/multer-sharp-s3/dist/types/main.d.ts": [
-        "../node_modules/aws-sdk/lib/s3/managed_upload.d.ts",
-        "../node_modules/@types/multer/index.d.ts",
-        "../node_modules/@types/express/index.d.ts",
-        "../node_modules/aws-sdk/index.d.ts",
-        "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
-        "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
-      "../node_modules/multer-sharp-s3/dist/types/types.d.ts": [
-        "../node_modules/aws-sdk/index.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
-      "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts": [
-        "../node_modules/@nestjs/common/interfaces/index.d.ts"
-      ],
-      "../node_modules/onesignal-api-client-nest/lib/interfaces/index.d.ts": [
-        "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -14997,10 +14997,14 @@
       "../node_modules/@nestjs/common/interfaces/before-application-shutdown.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/request-mapping-metadata.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/index.d.ts",
+      "../node_modules/@nestjs/common/cache/interfaces/cache-manager.interface.d.ts",
+      "../node_modules/@nestjs/common/cache/interfaces/cache-module.interface.d.ts",
+      "../node_modules/@nestjs/common/cache/cache.module.d.ts",
       "../node_modules/@nestjs/common/decorators/core/bind.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/catch.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/controller.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/dependencies.decorator.d.ts",
+      "../node_modules/@nestjs/common/decorators/core/exception-filters.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/inject.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/injectable.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/optional.decorator.d.ts",
@@ -15009,17 +15013,27 @@
       "../node_modules/@nestjs/common/decorators/core/use-interceptors.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/use-pipes.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/core/apply-decorators.d.ts",
+      "../node_modules/@nestjs/common/decorators/core/index.d.ts",
       "../node_modules/@nestjs/common/decorators/modules/module.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/modules/single-scope.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/modules/global.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/modules/index.d.ts",
       "../node_modules/@nestjs/common/decorators/http/request-mapping.decorator.d.ts",
+      "../node_modules/@nestjs/common/decorators/http/route-params.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/http/http-code.decorator.d.ts",
+      "../node_modules/@nestjs/common/decorators/http/create-route-param-metadata.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/http/render.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/http/header.decorator.d.ts",
       "../node_modules/@nestjs/common/decorators/http/redirect.decorator.d.ts",
+      "../node_modules/@nestjs/common/decorators/http/index.d.ts",
+      "../node_modules/@nestjs/common/decorators/index.d.ts",
+      "../node_modules/@nestjs/common/cache/decorators/cache-key.decorator.d.ts",
+      "../node_modules/@nestjs/common/cache/decorators/cache-ttl.decorator.d.ts",
+      "../node_modules/@nestjs/common/cache/decorators/index.d.ts",
       "../node_modules/@nestjs/common/cache/interceptors/cache.interceptor.d.ts",
       "../node_modules/@nestjs/common/cache/interceptors/index.d.ts",
+      "../node_modules/@nestjs/common/cache/interfaces/index.d.ts",
+      "../node_modules/@nestjs/common/cache/index.d.ts",
       "../node_modules/@nestjs/common/exceptions/http.exception.d.ts",
       "../node_modules/@nestjs/common/exceptions/bad-request.exception.d.ts",
       "../node_modules/@nestjs/common/exceptions/unauthorized.exception.d.ts",
@@ -15046,28 +15060,103 @@
       "../node_modules/@nestjs/common/http/http.module.d.ts",
       "../node_modules/@nestjs/common/http/http.service.d.ts",
       "../node_modules/@nestjs/common/http/index.d.ts",
+      "../node_modules/@nestjs/common/pipes/parse-int.pipe.d.ts",
+      "../node_modules/@nestjs/common/pipes/parse-uuid.pipe.d.ts",
       "../node_modules/@nestjs/common/interfaces/external/class-transform-options.interface.d.ts",
       "../node_modules/@nestjs/common/interfaces/external/validator-options.interface.d.ts",
+      "../node_modules/@nestjs/common/pipes/validation.pipe.d.ts",
+      "../node_modules/@nestjs/common/pipes/index.d.ts",
       "../node_modules/@nestjs/common/serializer/class-serializer.interceptor.d.ts",
+      "../node_modules/@nestjs/common/serializer/decorators/serialize-options.decorator.d.ts",
+      "../node_modules/@nestjs/common/serializer/decorators/index.d.ts",
+      "../node_modules/@nestjs/common/serializer/index.d.ts",
       "../node_modules/@nestjs/common/services/index.d.ts",
       "../node_modules/@nestjs/common/utils/forward-ref.util.d.ts",
       "../node_modules/@nestjs/common/utils/index.d.ts",
+      "../node_modules/@nestjs/common/index.d.ts",
+      "../src/app.service.ts",
+      "../src/app.controller.ts",
+      "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
       "../node_modules/typeorm/common/objectliteral.d.ts",
       "../node_modules/typeorm/find-options/orderbycondition.d.ts",
+      "../node_modules/typeorm/metadata/types/tabletypes.d.ts",
+      "../node_modules/typeorm/metadata-args/tablemetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/types/treetypes.d.ts",
+      "../node_modules/typeorm/metadata-args/treemetadataargs.d.ts",
+      "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts",
       "../node_modules/typeorm/metadata-args/checkmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/checkmetadata.d.ts",
+      "../node_modules/typeorm/driver/types/columntypes.d.ts",
+      "../node_modules/typeorm/metadata/types/relationtypes.d.ts",
+      "../node_modules/typeorm/metadata/types/deferrabletype.d.ts",
+      "../node_modules/typeorm/metadata/types/ondeletetype.d.ts",
+      "../node_modules/typeorm/metadata/types/onupdatetype.d.ts",
+      "../node_modules/typeorm/metadata/foreignkeymetadata.d.ts",
+      "../node_modules/typeorm/decorator/options/relationoptions.d.ts",
+      "../node_modules/typeorm/metadata/types/propertytypeinfunction.d.ts",
+      "../node_modules/typeorm/metadata/types/relationtypeinfunction.d.ts",
+      "../node_modules/typeorm/metadata-args/relationmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/relationmetadata.d.ts",
       "../node_modules/typeorm/metadata-args/embeddedmetadataargs.d.ts",
+      "../node_modules/typeorm/query-builder/alias.d.ts",
+      "../node_modules/typeorm/query-builder/joinattribute.d.ts",
+      "../node_modules/typeorm/query-builder/relation-id/relationidattribute.d.ts",
+      "../node_modules/typeorm/query-builder/relation-count/relationcountattribute.d.ts",
       "../node_modules/typeorm/query-builder/selectquery.d.ts",
       "../node_modules/typeorm/query-builder/selectquerybuilderoption.d.ts",
+      "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
       "../node_modules/typeorm/query-builder/brackets.d.ts",
       "../node_modules/typeorm/query-builder/whereexpression.d.ts",
+      "../node_modules/typeorm/query-builder/result/updateresult.d.ts",
       "../node_modules/typeorm/query-builder/querypartialentity.d.ts",
+      "../node_modules/typeorm/query-builder/updatequerybuilder.d.ts",
       "../node_modules/typeorm/common/objecttype.d.ts",
+      "../node_modules/typeorm/common/entitytarget.d.ts",
+      "../node_modules/typeorm/query-builder/result/deleteresult.d.ts",
+      "../node_modules/typeorm/query-builder/deletequerybuilder.d.ts",
+      "../node_modules/typeorm/query-builder/softdeletequerybuilder.d.ts",
+      "../node_modules/typeorm/query-builder/result/insertresult.d.ts",
+      "../node_modules/typeorm/query-builder/insertquerybuilder.d.ts",
+      "../node_modules/typeorm/query-builder/relationquerybuilder.d.ts",
       "../node_modules/typeorm/find-options/findoperatortype.d.ts",
       "../node_modules/typeorm/find-options/findoperator.d.ts",
+      "../node_modules/typeorm/query-builder/querybuilder.d.ts",
       "../node_modules/typeorm/platform/platformtools.d.ts",
+      "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts",
+      "../node_modules/typeorm/metadata-args/relationidmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/relationidmetadata.d.ts",
+      "../node_modules/typeorm/metadata-args/relationcountmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/relationcountmetadata.d.ts",
+      "../node_modules/typeorm/metadata/types/eventlistenertypes.d.ts",
+      "../node_modules/typeorm/metadata-args/entitylistenermetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/entitylistenermetadata.d.ts",
       "../node_modules/typeorm/metadata-args/uniquemetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/uniquemetadata.d.ts",
+      "../node_modules/typeorm/metadata/embeddedmetadata.d.ts",
+      "../node_modules/typeorm/decorator/options/valuetransformer.d.ts",
+      "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/columnoptions.d.ts",
+      "../node_modules/typeorm/metadata-args/types/columnmode.d.ts",
+      "../node_modules/typeorm/metadata-args/columnmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/columnmetadata.d.ts",
       "../node_modules/typeorm/metadata-args/exclusionmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/exclusionmetadata.d.ts",
+      "../node_modules/typeorm/metadata/entitymetadata.d.ts",
       "../node_modules/typeorm/metadata-args/indexmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata/indexmetadata.d.ts",
+      "../node_modules/typeorm/schema-builder/options/tableindexoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/table/tableindex.d.ts",
+      "../node_modules/typeorm/schema-builder/options/tableforeignkeyoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts",
+      "../node_modules/typeorm/schema-builder/options/tableuniqueoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/options/tablecheckoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/options/tableexclusionoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/options/tableoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/table/tableunique.d.ts",
+      "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts",
+      "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts",
+      "../node_modules/typeorm/schema-builder/table/table.d.ts",
       "../node_modules/typeorm/find-options/joinoptions.d.ts",
       "../node_modules/typeorm/find-options/findconditions.d.ts",
       "../node_modules/typeorm/find-options/findoneoptions.d.ts",
@@ -15075,50 +15164,294 @@
       "../node_modules/typeorm/common/deeppartial.d.ts",
       "../node_modules/typeorm/repository/removeoptions.d.ts",
       "../node_modules/typeorm/repository/saveoptions.d.ts",
+      "../node_modules/typeorm/driver/mongodb/typings.d.ts",
+      "../node_modules/typeorm/repository/repository.d.ts",
+      "../node_modules/typeorm/schema-builder/options/viewoptions.d.ts",
+      "../node_modules/typeorm/schema-builder/view/view.d.ts",
       "../node_modules/typeorm/driver/query.d.ts",
       "../node_modules/typeorm/driver/sqlinmemory.d.ts",
+      "../node_modules/typeorm/subscriber/event/transactioncommitevent.d.ts",
+      "../node_modules/typeorm/subscriber/event/transactionrollbackevent.d.ts",
+      "../node_modules/typeorm/subscriber/event/transactionstartevent.d.ts",
+      "../node_modules/typeorm/subscriber/event/updateevent.d.ts",
+      "../node_modules/typeorm/subscriber/event/removeevent.d.ts",
+      "../node_modules/typeorm/subscriber/event/insertevent.d.ts",
+      "../node_modules/typeorm/subscriber/event/loadevent.d.ts",
+      "../node_modules/typeorm/subscriber/entitysubscriberinterface.d.ts",
       "../node_modules/typeorm/subscriber/broadcasterresult.d.ts",
+      "../node_modules/typeorm/subscriber/broadcaster.d.ts",
+      "../node_modules/typeorm/driver/mongodb/mongoqueryrunner.d.ts",
+      "../node_modules/typeorm/entity-manager/mongoentitymanager.d.ts",
+      "../node_modules/typeorm/repository/mongorepository.d.ts",
+      "../node_modules/typeorm/repository/treerepository.d.ts",
+      "../node_modules/typeorm/query-builder/transformer/plainobjecttonewentitytransformer.d.ts",
+      "../node_modules/typeorm/driver/types/isolationlevel.d.ts",
+      "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
+      "../node_modules/typeorm/query-runner/queryrunner.d.ts",
+      "../node_modules/typeorm/driver/types/mappedcolumntypes.d.ts",
       "../node_modules/typeorm/schema-builder/schemabuilder.d.ts",
+      "../node_modules/typeorm/driver/types/datatypedefaults.d.ts",
       "../node_modules/typeorm/entity-schema/entityschemaindexoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/spatialcolumnoptions.d.ts",
+      "../node_modules/typeorm/entity-schema/entityschemacolumnoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/joincolumnoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/jointablemultiplecolumnsoptions.d.ts",
+      "../node_modules/typeorm/entity-schema/entityschemarelationoptions.d.ts",
       "../node_modules/typeorm/entity-schema/entityschemauniqueoptions.d.ts",
       "../node_modules/typeorm/entity-schema/entityschemacheckoptions.d.ts",
       "../node_modules/typeorm/entity-schema/entityschemaexclusionoptions.d.ts",
+      "../node_modules/typeorm/entity-schema/entityschemaoptions.d.ts",
+      "../node_modules/typeorm/entity-schema/entityschema.d.ts",
       "../node_modules/typeorm/logger/loggeroptions.d.ts",
+      "../node_modules/typeorm/driver/types/databasetype.d.ts",
+      "../node_modules/typeorm/logger/logger.d.ts",
       "../node_modules/typeorm/cache/queryresultcacheoptions.d.ts",
+      "../node_modules/typeorm/cache/queryresultcache.d.ts",
+      "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/types/replicationmode.d.ts",
+      "../node_modules/typeorm/driver/driver.d.ts",
+      "../node_modules/typeorm/migration/migrationinterface.d.ts",
+      "../node_modules/typeorm/migration/migration.d.ts",
+      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/mysql/mysqlconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/mysql/mysqlconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/postgres/postgresconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/sqlite/sqliteconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/sqlserver/sqlserverconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/sqlserver/sqlserverconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/oracle/oracleconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/oracle/oracleconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/mongodb/mongoconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/cordova/cordovaconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/sqljs/sqljsconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/react-native/reactnativeconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/nativescript/nativescriptconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/expo/expoconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/sap/sapconnectioncredentialsoptions.d.ts",
+      "../node_modules/typeorm/driver/sap/sapconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/aurora-data-api-pg/auroradataapipostgresconnectionoptions.d.ts",
+      "../node_modules/typeorm/driver/better-sqlite3/bettersqlite3connectionoptions.d.ts",
+      "../node_modules/typeorm/connection/connectionoptions.d.ts",
+      "../node_modules/typeorm/entity-manager/sqljsentitymanager.d.ts",
+      "../node_modules/typeorm/query-builder/relationloader.d.ts",
+      "../node_modules/typeorm/query-builder/relationidloader.d.ts",
+      "../node_modules/typeorm/connection/connection.d.ts",
+      "../node_modules/typeorm/connection/connectionmanager.d.ts",
       "../node_modules/typeorm/metadata-args/namingstrategymetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/joincolumnmetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/jointablemetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/entitysubscribermetadataargs.d.ts",
+      "../node_modules/typeorm/metadata-args/inheritancemetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/discriminatorvaluemetadataargs.d.ts",
+      "../node_modules/typeorm/metadata-args/entityrepositorymetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/transactionentitymetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/transactionrepositorymetadataargs.d.ts",
       "../node_modules/typeorm/metadata-args/generatedmetadataargs.d.ts",
+      "../node_modules/typeorm/metadata-args/metadataargsstorage.d.ts",
       "../node_modules/typeorm/container.d.ts",
       "../node_modules/typeorm/error/queryfailederror.d.ts",
+      "../node_modules/typeorm/decorator/options/columnwithlengthoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/columnnumericoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/columnenumoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/columnembeddedoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/columnhstoreoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/columnwithwidthoptions.d.ts",
+      "../node_modules/typeorm/decorator/columns/column.d.ts",
+      "../node_modules/typeorm/decorator/columns/createdatecolumn.d.ts",
+      "../node_modules/typeorm/decorator/columns/deletedatecolumn.d.ts",
+      "../node_modules/typeorm/decorator/options/primarygeneratedcolumnnumericoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/primarygeneratedcolumnuuidoptions.d.ts",
+      "../node_modules/typeorm/decorator/columns/primarygeneratedcolumn.d.ts",
+      "../node_modules/typeorm/decorator/columns/primarycolumn.d.ts",
+      "../node_modules/typeorm/decorator/columns/updatedatecolumn.d.ts",
+      "../node_modules/typeorm/decorator/columns/versioncolumn.d.ts",
+      "../node_modules/typeorm/decorator/options/viewcolumnoptions.d.ts",
+      "../node_modules/typeorm/decorator/columns/viewcolumn.d.ts",
+      "../node_modules/typeorm/decorator/columns/objectidcolumn.d.ts",
+      "../node_modules/typeorm/decorator/listeners/afterinsert.d.ts",
+      "../node_modules/typeorm/decorator/listeners/afterload.d.ts",
+      "../node_modules/typeorm/decorator/listeners/afterremove.d.ts",
+      "../node_modules/typeorm/decorator/listeners/afterupdate.d.ts",
+      "../node_modules/typeorm/decorator/listeners/beforeinsert.d.ts",
+      "../node_modules/typeorm/decorator/listeners/beforeremove.d.ts",
+      "../node_modules/typeorm/decorator/listeners/beforeupdate.d.ts",
+      "../node_modules/typeorm/decorator/listeners/eventsubscriber.d.ts",
+      "../node_modules/typeorm/decorator/options/indexoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/jointableoptions.d.ts",
+      "../node_modules/typeorm/decorator/options/entityoptions.d.ts",
+      "../node_modules/typeorm/decorator/relations/joincolumn.d.ts",
+      "../node_modules/typeorm/decorator/relations/jointable.d.ts",
+      "../node_modules/typeorm/decorator/relations/manytomany.d.ts",
+      "../node_modules/typeorm/decorator/relations/manytoone.d.ts",
+      "../node_modules/typeorm/decorator/relations/onetomany.d.ts",
+      "../node_modules/typeorm/decorator/relations/onetoone.d.ts",
+      "../node_modules/typeorm/decorator/relations/relationcount.d.ts",
+      "../node_modules/typeorm/decorator/relations/relationid.d.ts",
+      "../node_modules/typeorm/decorator/entity/entity.d.ts",
+      "../node_modules/typeorm/decorator/entity/childentity.d.ts",
+      "../node_modules/typeorm/decorator/entity/tableinheritance.d.ts",
+      "../node_modules/typeorm/decorator/options/viewentityoptions.d.ts",
+      "../node_modules/typeorm/decorator/entity-view/viewentity.d.ts",
+      "../node_modules/typeorm/decorator/options/transactionoptions.d.ts",
+      "../node_modules/typeorm/decorator/transaction/transaction.d.ts",
+      "../node_modules/typeorm/decorator/transaction/transactionmanager.d.ts",
+      "../node_modules/typeorm/decorator/transaction/transactionrepository.d.ts",
+      "../node_modules/typeorm/decorator/tree/treelevelcolumn.d.ts",
+      "../node_modules/typeorm/decorator/tree/treeparent.d.ts",
+      "../node_modules/typeorm/decorator/tree/treechildren.d.ts",
+      "../node_modules/typeorm/decorator/tree/tree.d.ts",
+      "../node_modules/typeorm/decorator/index.d.ts",
       "../node_modules/typeorm/decorator/unique.d.ts",
       "../node_modules/typeorm/decorator/check.d.ts",
       "../node_modules/typeorm/decorator/exclusion.d.ts",
       "../node_modules/typeorm/decorator/generated.d.ts",
+      "../node_modules/typeorm/decorator/entityrepository.d.ts",
+      "../node_modules/typeorm/find-options/operator/any.d.ts",
+      "../node_modules/typeorm/find-options/operator/between.d.ts",
+      "../node_modules/typeorm/find-options/operator/equal.d.ts",
+      "../node_modules/typeorm/find-options/operator/in.d.ts",
+      "../node_modules/typeorm/find-options/operator/isnull.d.ts",
+      "../node_modules/typeorm/find-options/operator/lessthan.d.ts",
+      "../node_modules/typeorm/find-options/operator/lessthanorequal.d.ts",
+      "../node_modules/typeorm/find-options/operator/ilike.d.ts",
+      "../node_modules/typeorm/find-options/operator/like.d.ts",
+      "../node_modules/typeorm/find-options/operator/morethan.d.ts",
+      "../node_modules/typeorm/find-options/operator/morethanorequal.d.ts",
+      "../node_modules/typeorm/find-options/operator/not.d.ts",
+      "../node_modules/typeorm/find-options/operator/raw.d.ts",
+      "../node_modules/typeorm/find-options/findoptionsutils.d.ts",
+      "../node_modules/typeorm/logger/advancedconsolelogger.d.ts",
+      "../node_modules/typeorm/logger/simpleconsolelogger.d.ts",
+      "../node_modules/typeorm/logger/filelogger.d.ts",
+      "../node_modules/typeorm/repository/abstractrepository.d.ts",
+      "../node_modules/typeorm/repository/baseentity.d.ts",
+      "../node_modules/typeorm/driver/sqlserver/mssqlparameter.d.ts",
+      "../node_modules/typeorm/connection/connectionoptionsreader.d.ts",
+      "../node_modules/typeorm/migration/migrationexecutor.d.ts",
+      "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts",
+      "../node_modules/typeorm/index.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/common/index.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/interfaces/index.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts",
+      "../node_modules/@nestjs/typeorm/dist/index.d.ts",
+      "../node_modules/@nestjs/typeorm/index.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/interfaces/template-adapter.interface.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/interfaces/mailer-options.interface.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/interfaces/mailer-options-factory.interface.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/interfaces/mailer-async-options.interface.d.ts",
+      "../node_modules/@nestjs-modules/mailer/dist/mailer.module.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/interfaces/send-mail-options.interface.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/mailer.service.d.ts",
+      "../node_modules/@nestjs-modules/mailer/dist/index.d.ts",
+      "../node_modules/@nestjs-modules/mailer/index.d.ts",
       "../node_modules/handlebars/types/index.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/adapters/handlebars.adapter.d.ts",
+      "../src/core/users/token/token.entity.ts",
+      "../src/core/users/colony/colony.entity.ts",
+      "../src/core/users/delegation/delegation.entity.ts",
+      "../src/core/users/city/city.entity.ts",
+      "../src/core/users/position/position.entity.ts",
+      "../src/core/trivia/question-type/question-type.entity.ts",
+      "../src/core/trivia/question/question.entity.ts",
+      "../src/core/trivia/points-type/points-type.entity.ts",
+      "../src/core/content/trade/trade.entity.ts",
+      "../src/core/content/product/product.entity.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
+      "../src/core/trivia/quizz/quizz.entity.ts",
+      "../src/core/trivia/campaing/campaing.entity.ts",
+      "../src/core/users/role/role.entity.ts",
+      "../src/core/trivia/target/target.entity.ts",
+      "../src/core/users/type/type.entity.ts",
+      "../src/core/content/message/message.entity.ts",
+      "../src/core/users/notification/notificacion.entity.ts",
+      "../src/core/users/sesion/sesion.entity.ts",
+      "../src/core/users/user/user.entity.ts",
+      "../src/core/users/chain/chain.entity.ts",
       "../src/core/users/chain/chain.dto.ts",
+      "../src/core/users/chain/chain.service.ts",
+      "../src/core/users/chain/chain.controller.ts",
+      "../src/core/users/chain/chain.module.ts",
+      "../src/core/users/city/city.service.ts",
+      "../src/core/users/city/city.controller.ts",
+      "../src/core/users/city/city.module.ts",
+      "../src/core/users/delegation/delegation.service.ts",
+      "../src/core/users/delegation/delegation.controller.ts",
+      "../src/core/users/delegation/delegation.module.ts",
+      "../src/core/users/colony/colony.service.ts",
+      "../src/core/users/colony/colony.controller.ts",
+      "../src/core/users/colony/colony.module.ts",
+      "../src/core/users/type/type.service.ts",
+      "../src/core/users/type/type.controller.ts",
+      "../src/core/users/type/type.module.ts",
+      "../src/core/users/position/position.service.ts",
+      "../src/core/users/position/position.controller.ts",
+      "../src/core/users/position/position.module.ts",
+      "../src/core/users/token/token.service.ts",
+      "../src/core/users/token/token.controller.ts",
+      "../src/core/users/token/token.module.ts",
+      "../src/core/users/configuration/configuration.entity.ts",
       "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/ts3.1-typings/moment.d.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/core/users/role/role.service.ts",
+      "../src/core/users/role/role.controller.ts",
+      "../src/core/users/role/role.module.ts",
+      "../src/core/content/menu/menu.service.ts",
+      "../src/core/content/menu/menu.controller.ts",
+      "../src/core/content/submenu/submenu.entity.ts",
+      "../src/core/content/menu/menu.entity.ts",
+      "../src/core/content/menu/menu.module.ts",
       "../src/core/content/submenu/submenu.dto.ts",
+      "../src/core/content/submenu/submenu.service.ts",
+      "../src/core/content/submenu/submenu.controller.ts",
+      "../src/core/content/submenu/submenu.module.ts",
       "../src/core/content/product/product.dto.ts",
+      "../src/core/content/product/product.service.ts",
+      "../src/core/content/product/product.controller.ts",
+      "../src/core/content/product/product.module.ts",
+      "../src/core/content/article/article.entity.ts",
+      "../src/core/content/tag/tag.entity.ts",
       "../src/core/content/tag/tag.dto.ts",
+      "../src/core/content/tag/tag.service.ts",
+      "../src/core/content/tag/tag.controller.ts",
+      "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
+      "../src/core/content/article/article.service.ts",
+      "../src/core/content/article/article.controller.ts",
+      "../src/core/content/article/article.module.ts",
+      "../src/core/content/trade/trade.service.ts",
+      "../src/core/content/trade/trade.controller.ts",
+      "../src/core/content/trade/trade.module.ts",
+      "../src/core/trivia/question-type/question-type.service.ts",
+      "../src/core/trivia/question-type/question-type.controller.ts",
+      "../src/core/trivia/question-type/question-type.module.ts",
       "../src/core/trivia/question/question.dto.ts",
+      "../src/core/trivia/question/question.service.ts",
+      "../src/core/trivia/question/question.controller.ts",
+      "../src/core/trivia/question/question.module.ts",
       "../src/core/trivia/target/target.dto.ts",
+      "../src/core/trivia/target/target.service.ts",
+      "../src/core/trivia/target/target.controller.ts",
+      "../src/core/trivia/target/target.module.ts",
       "../src/core/trivia/campaing/campaing.dto.ts",
+      "../src/core/trivia/campaing/campaing.service.ts",
+      "../src/core/trivia/campaing/campaing.controller.ts",
+      "../src/core/trivia/campaing/campaing.module.ts",
       "../src/core/trivia/quizz/quizz.dto.ts",
       "../node_modules/moment-timezone/index.d.ts",
+      "../src/core/trivia/quizz/quizz.service.ts",
+      "../src/core/trivia/quizz/quizz.controller.ts",
+      "../src/core/trivia/quizz/quizz.module.ts",
       "../node_modules/@types/range-parser/index.d.ts",
       "../node_modules/@types/qs/index.d.ts",
       "../node_modules/@types/express-serve-static-core/index.d.ts",
@@ -15419,7 +15752,18 @@
       "../node_modules/aws-sdk/lib/shared-ini/ini-loader.d.ts",
       "../node_modules/aws-sdk/lib/core.d.ts",
       "../node_modules/aws-sdk/index.d.ts",
+      "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
+      "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
+      "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
+      "../node_modules/multer-sharp-s3/index.d.ts",
+      "../src/upload/upload.service.ts",
+      "../src/upload/upload.controller.ts",
+      "../src/upload/upload.module.ts",
+      "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
+      "../node_modules/onesignal-api-client-nest/lib/interfaces/index.d.ts",
+      "../node_modules/onesignal-api-client-nest/lib/onesignal.module.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/onesignal.constants.d.ts",
+      "../node_modules/onesignal-api-client-nest/lib/onesignal.provider.d.ts",
       "../node_modules/onesignal-api-client-core/lib/errors/onesignalerror.d.ts",
       "../node_modules/onesignal-api-client-core/lib/errors/index.d.ts",
       "../node_modules/onesignal-api-client-core/lib/enums/apnsenv.d.ts",
@@ -15485,14 +15829,33 @@
       "../node_modules/onesignal-api-client-core/lib/builders/notification/index.d.ts",
       "../node_modules/onesignal-api-client-core/lib/builders/index.d.ts",
       "../node_modules/onesignal-api-client-core/lib/index.d.ts",
+      "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
+      "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
+      "../src/core/users/notification/notification.controller.ts",
+      "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
+      "../src/core/users/sesion/sesion.service.ts",
+      "../src/core/users/sesion/sesion.controller.ts",
+      "../src/core/users/sesion/sesion.module.ts",
       "../node_modules/dotenv/types/index.d.ts",
+      "../src/config/config.service.ts",
+      "../src/config/config.module.ts",
       "../src/core/users/configuration/configuration.dto.ts",
+      "../src/core/users/configuration/configuration.service.ts",
+      "../src/core/users/configuration/configuration.controller.ts",
+      "../src/core/users/configuration/configuration.module.ts",
       "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.dto.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
+      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
       "../src/core/content/message/message.dto.ts",
+      "../src/core/content/message/message.service.ts",
+      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts",
+      "../node_modules/@nestjs/websockets/adapters/index.d.ts",
       "../node_modules/@nestjs/websockets/decorators/connected-socket.decorator.d.ts",
       "../node_modules/@nestjs/websockets/decorators/gateway-server.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts",
       "../node_modules/@nestjs/websockets/interfaces/gateway-metadata.interface.d.ts",
       "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-connection.interface.d.ts",
       "../node_modules/@nestjs/websockets/interfaces/hooks/on-gateway-disconnect.interface.d.ts",
@@ -15504,404 +15867,22 @@
       "../node_modules/@nestjs/websockets/interfaces/index.d.ts",
       "../node_modules/@nestjs/websockets/decorators/socket-gateway.decorator.d.ts",
       "../node_modules/@nestjs/websockets/decorators/subscribe-message.decorator.d.ts",
+      "../node_modules/@nestjs/websockets/decorators/index.d.ts",
       "../node_modules/@nestjs/websockets/errors/ws-exception.d.ts",
       "../node_modules/@nestjs/websockets/errors/index.d.ts",
+      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts",
+      "../node_modules/@nestjs/websockets/exceptions/index.d.ts",
       "../node_modules/@nestjs/core/metadata-scanner.d.ts",
       "../node_modules/@nestjs/websockets/interfaces/nest-gateway.interface.d.ts",
       "../node_modules/@nestjs/websockets/gateway-metadata-explorer.d.ts",
+      "../node_modules/@nestjs/websockets/index.d.ts",
       "../node_modules/@types/engine.io/index.d.ts",
       "../node_modules/@types/socket.io/index.d.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
-      "../node_modules/@nestjs/core/constants.d.ts",
-      "../node_modules/@nestjs/core/discovery/discovery-module.d.ts",
-      "../node_modules/@nestjs/core/injector/inquirer/inquirer-constants.d.ts",
-      "../node_modules/@nestjs/core/injector/inquirer/index.d.ts",
-      "../node_modules/@nestjs/common/interfaces/microservices/nest-microservice-options.interface.d.ts",
-      "../node_modules/@nestjs/core/router/request/request-constants.d.ts",
-      "../node_modules/@nestjs/core/router/request/index.d.ts",
-      "../node_modules/@nestjs/core/router/index.d.ts",
-      "../node_modules/@types/babel-types/ts3.6/index.d.ts",
-      "../node_modules/@types/babel-types/index.d.ts",
-      "../node_modules/@types/babylon/index.d.ts",
-      "../node_modules/@types/cookiejar/index.d.ts",
-      "../node_modules/@types/ejs/index.d.ts",
-      "../node_modules/@types/jest/index.d.ts",
-      "../node_modules/@types/json5/index.d.ts",
-      "../node_modules/@types/pug/index.d.ts",
-      "../node_modules/@types/superagent/index.d.ts",
-      "../node_modules/@types/supertest/index.d.ts",
-      "../node_modules/@nestjs/common/cache/interfaces/cache-manager.interface.d.ts",
-      "../node_modules/@nestjs/common/cache/interfaces/index.d.ts",
-      "../node_modules/@nestjs/common/cache/interfaces/cache-module.interface.d.ts",
-      "../node_modules/@nestjs/common/cache/decorators/cache-key.decorator.d.ts",
-      "../node_modules/@nestjs/common/cache/decorators/index.d.ts",
-      "../node_modules/@nestjs/common/serializer/decorators/serialize-options.decorator.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tablecolumnoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tableoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/table/tablecolumn.d.ts",
-      "../node_modules/typeorm/metadata/types/tabletypes.d.ts",
-      "../node_modules/typeorm/metadata/types/treetypes.d.ts",
-      "../node_modules/typeorm/decorator/tree/tree.d.ts",
-      "../node_modules/typeorm/metadata-args/treemetadataargs.d.ts",
-      "../node_modules/typeorm/driver/types/columntypes.d.ts",
-      "../node_modules/typeorm/decorator/options/primarygeneratedcolumnnumericoptions.d.ts",
-      "../node_modules/typeorm/decorator/columns/primarygeneratedcolumn.d.ts",
-      "../node_modules/typeorm/entity-schema/entityschemacolumnoptions.d.ts",
-      "../node_modules/typeorm/driver/types/mappedcolumntypes.d.ts",
-      "../node_modules/typeorm/metadata/types/relationtypes.d.ts",
-      "../node_modules/typeorm/metadata/types/deferrabletype.d.ts",
-      "../node_modules/typeorm/decorator/options/relationoptions.d.ts",
-      "../node_modules/typeorm/metadata/types/ondeletetype.d.ts",
-      "../node_modules/typeorm/metadata/types/onupdatetype.d.ts",
-      "../node_modules/typeorm/metadata/types/propertytypeinfunction.d.ts",
-      "../node_modules/typeorm/metadata/types/relationtypeinfunction.d.ts",
-      "../node_modules/typeorm/query-builder/result/updateresult.d.ts",
-      "../node_modules/typeorm/query-builder/result/deleteresult.d.ts",
-      "../node_modules/typeorm/query-builder/result/insertresult.d.ts",
-      "../node_modules/typeorm/metadata/types/eventlistenertypes.d.ts",
-      "../node_modules/typeorm/metadata-args/entitylistenermetadataargs.d.ts",
-      "../node_modules/typeorm/decorator/options/valuetransformer.d.ts",
-      "../node_modules/typeorm/decorator/options/columncommonoptions.d.ts",
-      "../node_modules/typeorm/metadata-args/types/columnmode.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tableindexoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tableforeignkeyoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tableuniqueoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tablecheckoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/options/tableexclusionoptions.d.ts",
-      "../node_modules/typeorm/driver/mongodb/typings.d.ts",
-      "../node_modules/typeorm/driver/types/isolationlevel.d.ts",
-      "../node_modules/typeorm/decorator/options/transactionoptions.d.ts",
-      "../node_modules/typeorm/decorator/transaction/transaction.d.ts",
-      "../node_modules/typeorm/driver/types/datatypedefaults.d.ts",
-      "../node_modules/typeorm/decorator/options/spatialcolumnoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/joincolumnoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/jointableoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/jointablemultiplecolumnsoptions.d.ts",
-      "../node_modules/typeorm/driver/types/databasetype.d.ts",
-      "../node_modules/typeorm/driver/types/replicationmode.d.ts",
-      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/driver/mysql/mysqlconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/driver/postgres/postgresconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/driver/sqlserver/sqlserverconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/driver/oracle/oracleconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/driver/sap/sapconnectioncredentialsoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/columnwithlengthoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/columnnumericoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/columnenumoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/columnembeddedoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/columnhstoreoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/columnwithwidthoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/primarygeneratedcolumnuuidoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/viewcolumnoptions.d.ts",
-      "../node_modules/typeorm/decorator/columns/viewcolumn.d.ts",
-      "../node_modules/typeorm/decorator/listeners/afterinsert.d.ts",
-      "../node_modules/typeorm/decorator/listeners/afterload.d.ts",
-      "../node_modules/typeorm/decorator/listeners/afterremove.d.ts",
-      "../node_modules/typeorm/decorator/listeners/afterupdate.d.ts",
-      "../node_modules/typeorm/decorator/listeners/beforeinsert.d.ts",
-      "../node_modules/typeorm/decorator/listeners/beforeremove.d.ts",
-      "../node_modules/typeorm/decorator/listeners/beforeupdate.d.ts",
-      "../node_modules/typeorm/decorator/listeners/eventsubscriber.d.ts",
-      "../node_modules/typeorm/decorator/options/indexoptions.d.ts",
-      "../node_modules/typeorm/decorator/options/entityoptions.d.ts",
-      "../node_modules/typeorm/decorator/entity/childentity.d.ts",
-      "../node_modules/typeorm/decorator/options/viewentityoptions.d.ts",
-      "../node_modules/typeorm/decorator/entity-view/viewentity.d.ts",
-      "../node_modules/typeorm/decorator/transaction/transactionmanager.d.ts",
-      "../node_modules/typeorm/decorator/transaction/transactionrepository.d.ts",
-      "../node_modules/typeorm/decorator/tree/treelevelcolumn.d.ts",
-      "../node_modules/typeorm/decorator/tree/treeparent.d.ts",
-      "../node_modules/typeorm/decorator/tree/treechildren.d.ts",
-      "../node_modules/typeorm/find-options/operator/any.d.ts",
-      "../node_modules/typeorm/find-options/operator/between.d.ts",
-      "../node_modules/typeorm/find-options/operator/equal.d.ts",
-      "../node_modules/typeorm/find-options/operator/in.d.ts",
-      "../node_modules/typeorm/find-options/operator/isnull.d.ts",
-      "../node_modules/typeorm/find-options/operator/lessthan.d.ts",
-      "../node_modules/typeorm/find-options/operator/lessthanorequal.d.ts",
-      "../node_modules/typeorm/find-options/operator/ilike.d.ts",
-      "../node_modules/typeorm/find-options/operator/like.d.ts",
-      "../node_modules/typeorm/find-options/operator/morethan.d.ts",
-      "../node_modules/typeorm/find-options/operator/morethanorequal.d.ts",
-      "../node_modules/typeorm/find-options/operator/not.d.ts",
-      "../node_modules/typeorm/find-options/operator/raw.d.ts",
-      "../node_modules/typeorm/driver/sqlserver/mssqlparameter.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/common/typeorm.decorators.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/common/index.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/common/typeorm.utils.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/interfaces/typeorm-options.interface.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/interfaces/index.d.ts",
-      "../node_modules/multer-sharp-s3/dist/types/get-filename.d.ts",
-      "../node_modules/multer-sharp-s3/dist/types/main.d.ts",
-      "../node_modules/multer-sharp-s3/dist/types/types.d.ts",
-      "../node_modules/onesignal-api-client-nest/lib/interfaces/onesignal.module.options.d.ts",
-      "../node_modules/onesignal-api-client-nest/lib/interfaces/index.d.ts",
-      "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
-      "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
-      "../node_modules/onesignal-api-client-nest/lib/onesignal.provider.d.ts",
-      "../node_modules/onesignal-api-client-nest/lib/onesignal.module.d.ts",
-      "../node_modules/@nestjs/common/cache/cache.module.d.ts",
-      "../node_modules/@nestjs/common/decorators/core/exception-filters.decorator.d.ts",
-      "../node_modules/@nestjs/common/decorators/core/index.d.ts",
-      "../node_modules/@nestjs/common/decorators/http/route-params.decorator.d.ts",
-      "../node_modules/@nestjs/common/decorators/http/create-route-param-metadata.decorator.d.ts",
-      "../node_modules/@nestjs/common/decorators/http/index.d.ts",
-      "../node_modules/@nestjs/common/decorators/index.d.ts",
-      "../node_modules/@nestjs/common/cache/decorators/cache-ttl.decorator.d.ts",
-      "../node_modules/@nestjs/common/cache/index.d.ts",
-      "../node_modules/@nestjs/common/pipes/parse-int.pipe.d.ts",
-      "../node_modules/@nestjs/common/pipes/parse-uuid.pipe.d.ts",
-      "../node_modules/@nestjs/common/pipes/validation.pipe.d.ts",
-      "../node_modules/@nestjs/common/pipes/index.d.ts",
-      "../node_modules/@nestjs/common/serializer/decorators/index.d.ts",
-      "../node_modules/@nestjs/common/serializer/index.d.ts",
-      "../node_modules/@nestjs/common/index.d.ts",
-      "../src/app.service.ts",
-      "../src/app.controller.ts",
-      "../node_modules/typeorm/metadata-args/tablemetadataargs.d.ts",
-      "../node_modules/typeorm/naming-strategy/namingstrategyinterface.d.ts",
-      "../node_modules/typeorm/metadata/checkmetadata.d.ts",
-      "../node_modules/typeorm/metadata/foreignkeymetadata.d.ts",
-      "../node_modules/typeorm/metadata-args/relationmetadataargs.d.ts",
-      "../node_modules/typeorm/metadata/relationmetadata.d.ts",
-      "../node_modules/typeorm/query-builder/alias.d.ts",
-      "../node_modules/typeorm/query-builder/joinattribute.d.ts",
-      "../node_modules/typeorm/query-builder/relation-id/relationidattribute.d.ts",
-      "../node_modules/typeorm/query-builder/relation-count/relationcountattribute.d.ts",
-      "../node_modules/typeorm/query-builder/queryexpressionmap.d.ts",
-      "../node_modules/typeorm/query-builder/updatequerybuilder.d.ts",
-      "../node_modules/typeorm/common/entitytarget.d.ts",
-      "../node_modules/typeorm/query-builder/deletequerybuilder.d.ts",
-      "../node_modules/typeorm/query-builder/softdeletequerybuilder.d.ts",
-      "../node_modules/typeorm/query-builder/insertquerybuilder.d.ts",
-      "../node_modules/typeorm/query-builder/relationquerybuilder.d.ts",
-      "../node_modules/typeorm/query-builder/querybuilder.d.ts",
-      "../node_modules/typeorm/query-builder/selectquerybuilder.d.ts",
-      "../node_modules/typeorm/metadata-args/relationidmetadataargs.d.ts",
-      "../node_modules/typeorm/metadata/relationidmetadata.d.ts",
-      "../node_modules/typeorm/metadata-args/relationcountmetadataargs.d.ts",
-      "../node_modules/typeorm/metadata/relationcountmetadata.d.ts",
-      "../node_modules/typeorm/metadata/entitylistenermetadata.d.ts",
-      "../node_modules/typeorm/metadata/uniquemetadata.d.ts",
-      "../node_modules/typeorm/metadata/embeddedmetadata.d.ts",
-      "../node_modules/typeorm/decorator/options/columnoptions.d.ts",
-      "../node_modules/typeorm/metadata-args/columnmetadataargs.d.ts",
-      "../node_modules/typeorm/metadata/columnmetadata.d.ts",
-      "../node_modules/typeorm/metadata/exclusionmetadata.d.ts",
-      "../node_modules/typeorm/metadata/entitymetadata.d.ts",
-      "../node_modules/typeorm/metadata/indexmetadata.d.ts",
-      "../node_modules/typeorm/schema-builder/table/tableindex.d.ts",
-      "../node_modules/typeorm/schema-builder/table/tableforeignkey.d.ts",
-      "../node_modules/typeorm/schema-builder/table/tableunique.d.ts",
-      "../node_modules/typeorm/schema-builder/table/tablecheck.d.ts",
-      "../node_modules/typeorm/schema-builder/table/tableexclusion.d.ts",
-      "../node_modules/typeorm/schema-builder/table/table.d.ts",
-      "../node_modules/typeorm/repository/repository.d.ts",
-      "../node_modules/typeorm/schema-builder/options/viewoptions.d.ts",
-      "../node_modules/typeorm/schema-builder/view/view.d.ts",
-      "../node_modules/typeorm/subscriber/event/transactioncommitevent.d.ts",
-      "../node_modules/typeorm/subscriber/event/transactionrollbackevent.d.ts",
-      "../node_modules/typeorm/subscriber/event/transactionstartevent.d.ts",
-      "../node_modules/typeorm/subscriber/event/updateevent.d.ts",
-      "../node_modules/typeorm/subscriber/event/removeevent.d.ts",
-      "../node_modules/typeorm/subscriber/event/insertevent.d.ts",
-      "../node_modules/typeorm/subscriber/event/loadevent.d.ts",
-      "../node_modules/typeorm/subscriber/entitysubscriberinterface.d.ts",
-      "../node_modules/typeorm/subscriber/broadcaster.d.ts",
-      "../node_modules/typeorm/driver/mongodb/mongoqueryrunner.d.ts",
-      "../node_modules/typeorm/entity-manager/mongoentitymanager.d.ts",
-      "../node_modules/typeorm/repository/mongorepository.d.ts",
-      "../node_modules/typeorm/repository/treerepository.d.ts",
-      "../node_modules/typeorm/query-builder/transformer/plainobjecttonewentitytransformer.d.ts",
-      "../node_modules/typeorm/entity-manager/entitymanager.d.ts",
-      "../node_modules/typeorm/query-runner/queryrunner.d.ts",
-      "../node_modules/typeorm/entity-schema/entityschemarelationoptions.d.ts",
-      "../node_modules/typeorm/entity-schema/entityschemaoptions.d.ts",
-      "../node_modules/typeorm/entity-schema/entityschema.d.ts",
-      "../node_modules/typeorm/logger/logger.d.ts",
-      "../node_modules/typeorm/cache/queryresultcache.d.ts",
-      "../node_modules/typeorm/connection/baseconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/driver.d.ts",
-      "../node_modules/typeorm/migration/migrationinterface.d.ts",
-      "../node_modules/typeorm/migration/migration.d.ts",
-      "../node_modules/typeorm/driver/cockroachdb/cockroachconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/mysql/mysqlconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/postgres/postgresconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/sqlite/sqliteconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/sqlserver/sqlserverconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/oracle/oracleconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/mongodb/mongoconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/cordova/cordovaconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/sqljs/sqljsconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/react-native/reactnativeconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/nativescript/nativescriptconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/expo/expoconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/aurora-data-api/auroradataapiconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/sap/sapconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/aurora-data-api-pg/auroradataapipostgresconnectionoptions.d.ts",
-      "../node_modules/typeorm/driver/better-sqlite3/bettersqlite3connectionoptions.d.ts",
-      "../node_modules/typeorm/connection/connectionoptions.d.ts",
-      "../node_modules/typeorm/entity-manager/sqljsentitymanager.d.ts",
-      "../node_modules/typeorm/query-builder/relationloader.d.ts",
-      "../node_modules/typeorm/query-builder/relationidloader.d.ts",
-      "../node_modules/typeorm/connection/connection.d.ts",
-      "../node_modules/typeorm/connection/connectionmanager.d.ts",
-      "../node_modules/typeorm/metadata-args/inheritancemetadataargs.d.ts",
-      "../node_modules/typeorm/metadata-args/entityrepositorymetadataargs.d.ts",
-      "../node_modules/typeorm/metadata-args/metadataargsstorage.d.ts",
-      "../node_modules/typeorm/decorator/columns/column.d.ts",
-      "../node_modules/typeorm/decorator/columns/createdatecolumn.d.ts",
-      "../node_modules/typeorm/decorator/columns/deletedatecolumn.d.ts",
-      "../node_modules/typeorm/decorator/columns/primarycolumn.d.ts",
-      "../node_modules/typeorm/decorator/columns/updatedatecolumn.d.ts",
-      "../node_modules/typeorm/decorator/columns/versioncolumn.d.ts",
-      "../node_modules/typeorm/decorator/columns/objectidcolumn.d.ts",
-      "../node_modules/typeorm/decorator/relations/joincolumn.d.ts",
-      "../node_modules/typeorm/decorator/relations/jointable.d.ts",
-      "../node_modules/typeorm/decorator/relations/manytomany.d.ts",
-      "../node_modules/typeorm/decorator/relations/manytoone.d.ts",
-      "../node_modules/typeorm/decorator/relations/onetomany.d.ts",
-      "../node_modules/typeorm/decorator/relations/onetoone.d.ts",
-      "../node_modules/typeorm/decorator/relations/relationcount.d.ts",
-      "../node_modules/typeorm/decorator/relations/relationid.d.ts",
-      "../node_modules/typeorm/decorator/entity/entity.d.ts",
-      "../node_modules/typeorm/decorator/entity/tableinheritance.d.ts",
-      "../node_modules/typeorm/decorator/index.d.ts",
-      "../node_modules/typeorm/decorator/entityrepository.d.ts",
-      "../node_modules/typeorm/find-options/findoptionsutils.d.ts",
-      "../node_modules/typeorm/logger/advancedconsolelogger.d.ts",
-      "../node_modules/typeorm/logger/simpleconsolelogger.d.ts",
-      "../node_modules/typeorm/logger/filelogger.d.ts",
-      "../node_modules/typeorm/repository/abstractrepository.d.ts",
-      "../node_modules/typeorm/repository/baseentity.d.ts",
-      "../node_modules/typeorm/connection/connectionoptionsreader.d.ts",
-      "../node_modules/typeorm/migration/migrationexecutor.d.ts",
-      "../node_modules/typeorm/naming-strategy/defaultnamingstrategy.d.ts",
-      "../node_modules/typeorm/index.d.ts",
-      "../node_modules/@nestjs/typeorm/dist/index.d.ts",
-      "../node_modules/@nestjs/typeorm/index.d.ts",
-      "../node_modules/@nestjs-modules/mailer/dist/mailer.module.d.ts",
-      "../node_modules/@nestjs-modules/mailer/dist/index.d.ts",
-      "../node_modules/@nestjs-modules/mailer/index.d.ts",
-      "../src/core/users/token/token.entity.ts",
-      "../src/core/users/colony/colony.entity.ts",
-      "../src/core/users/delegation/delegation.entity.ts",
-      "../src/core/users/city/city.entity.ts",
-      "../src/core/users/position/position.entity.ts",
-      "../src/core/trivia/question-type/question-type.entity.ts",
-      "../src/core/trivia/question/question.entity.ts",
-      "../src/core/trivia/points-type/points-type.entity.ts",
-      "../src/core/content/trade/trade.entity.ts",
-      "../src/core/content/product/product.entity.ts",
-      "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.entity.ts",
-      "../src/core/trivia/quizz/quizz.entity.ts",
-      "../src/core/trivia/campaing/campaing.entity.ts",
-      "../src/core/users/role/role.entity.ts",
-      "../src/core/trivia/target/target.entity.ts",
-      "../src/core/users/type/type.entity.ts",
-      "../src/core/content/message/message.entity.ts",
-      "../src/core/users/notification/notificacion.entity.ts",
-      "../src/core/users/sesion/sesion.entity.ts",
-      "../src/core/users/user/user.entity.ts",
-      "../src/core/users/chain/chain.entity.ts",
-      "../src/core/users/chain/chain.service.ts",
-      "../src/core/users/chain/chain.controller.ts",
-      "../src/core/users/chain/chain.module.ts",
-      "../src/core/users/city/city.service.ts",
-      "../src/core/users/city/city.controller.ts",
-      "../src/core/users/city/city.module.ts",
-      "../src/core/users/delegation/delegation.service.ts",
-      "../src/core/users/delegation/delegation.controller.ts",
-      "../src/core/users/delegation/delegation.module.ts",
-      "../src/core/users/colony/colony.service.ts",
-      "../src/core/users/colony/colony.controller.ts",
-      "../src/core/users/colony/colony.module.ts",
-      "../src/core/users/type/type.service.ts",
-      "../src/core/users/type/type.controller.ts",
-      "../src/core/users/type/type.module.ts",
-      "../src/core/users/position/position.service.ts",
-      "../src/core/users/position/position.controller.ts",
-      "../src/core/users/position/position.module.ts",
-      "../src/core/users/token/token.service.ts",
-      "../src/core/users/token/token.controller.ts",
-      "../src/core/users/token/token.module.ts",
-      "../src/core/users/configuration/configuration.entity.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
-      "../src/core/users/role/role.service.ts",
-      "../src/core/users/role/role.controller.ts",
-      "../src/core/users/role/role.module.ts",
-      "../src/core/content/menu/menu.service.ts",
-      "../src/core/content/menu/menu.controller.ts",
-      "../src/core/content/submenu/submenu.entity.ts",
-      "../src/core/content/menu/menu.entity.ts",
-      "../src/core/content/menu/menu.module.ts",
-      "../src/core/content/submenu/submenu.service.ts",
-      "../src/core/content/submenu/submenu.controller.ts",
-      "../src/core/content/submenu/submenu.module.ts",
-      "../src/core/content/product/product.service.ts",
-      "../src/core/content/product/product.controller.ts",
-      "../src/core/content/product/product.module.ts",
-      "../src/core/content/article/article.entity.ts",
-      "../src/core/content/tag/tag.entity.ts",
-      "../src/core/content/tag/tag.service.ts",
-      "../src/core/content/tag/tag.controller.ts",
-      "../src/core/content/tag/tag.module.ts",
-      "../src/core/content/article/article.service.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/core/content/article/article.module.ts",
-      "../src/core/content/trade/trade.service.ts",
-      "../src/core/content/trade/trade.controller.ts",
-      "../src/core/content/trade/trade.module.ts",
-      "../src/core/trivia/question-type/question-type.service.ts",
-      "../src/core/trivia/question-type/question-type.controller.ts",
-      "../src/core/trivia/question-type/question-type.module.ts",
-      "../src/core/trivia/question/question.service.ts",
-      "../src/core/trivia/question/question.controller.ts",
-      "../src/core/trivia/question/question.module.ts",
-      "../src/core/trivia/target/target.service.ts",
-      "../src/core/trivia/target/target.controller.ts",
-      "../src/core/trivia/target/target.module.ts",
-      "../src/core/trivia/campaing/campaing.service.ts",
-      "../src/core/trivia/campaing/campaing.controller.ts",
-      "../src/core/trivia/campaing/campaing.module.ts",
-      "../src/core/trivia/quizz/quizz.service.ts",
-      "../src/core/trivia/quizz/quizz.controller.ts",
-      "../src/core/trivia/quizz/quizz.module.ts",
-      "../node_modules/multer-sharp-s3/index.d.ts",
-      "../src/upload/upload.service.ts",
-      "../src/upload/upload.controller.ts",
-      "../src/upload/upload.module.ts",
-      "../src/core/users/notification/notification.service.ts",
-      "../src/core/users/notification/notification.controller.ts",
-      "../src/core/users/notification/notification.module.ts",
-      "../src/core/users/sesion/sesion.service.ts",
-      "../src/core/users/sesion/sesion.controller.ts",
-      "../src/core/users/sesion/sesion.module.ts",
-      "../src/config/config.service.ts",
-      "../src/config/config.module.ts",
-      "../src/core/users/configuration/configuration.service.ts",
-      "../src/core/users/configuration/configuration.controller.ts",
-      "../src/core/users/configuration/configuration.module.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.service.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.controller.ts",
-      "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
-      "../src/core/content/message/message.service.ts",
-      "../node_modules/@nestjs/websockets/adapters/ws-adapter.d.ts",
-      "../node_modules/@nestjs/websockets/adapters/index.d.ts",
-      "../node_modules/@nestjs/websockets/decorators/message-body.decorator.d.ts",
-      "../node_modules/@nestjs/websockets/decorators/index.d.ts",
-      "../node_modules/@nestjs/websockets/exceptions/base-ws-exception-filter.d.ts",
-      "../node_modules/@nestjs/websockets/exceptions/index.d.ts",
-      "../node_modules/@nestjs/websockets/index.d.ts",
       "../src/core/content/message/message.gateway.ts",
       "../src/core/content/message/message_user.gateway.ts",
       "../src/core/content/message/message.controller.ts",
       "../src/core/content/message/message.module.ts",
+      "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
@@ -15914,6 +15895,8 @@
       "../node_modules/@nestjs/core/injector/module.d.ts",
       "../node_modules/@nestjs/core/injector/instance-wrapper.d.ts",
       "../node_modules/@nestjs/core/application-config.d.ts",
+      "../node_modules/@nestjs/core/constants.d.ts",
+      "../node_modules/@nestjs/core/discovery/discovery-module.d.ts",
       "../node_modules/@nestjs/core/discovery/discovery-service.d.ts",
       "../node_modules/@nestjs/core/discovery/index.d.ts",
       "../node_modules/@nestjs/core/helpers/context-id-factory.d.ts",
@@ -15922,6 +15905,8 @@
       "../node_modules/@nestjs/core/exceptions/base-exception-filter.d.ts",
       "../node_modules/@nestjs/core/exceptions/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-ref.d.ts",
+      "../node_modules/@nestjs/core/injector/inquirer/inquirer-constants.d.ts",
+      "../node_modules/@nestjs/core/injector/inquirer/index.d.ts",
       "../node_modules/@nestjs/core/injector/index.d.ts",
       "../node_modules/@nestjs/core/middleware/routes-mapper.d.ts",
       "../node_modules/@nestjs/core/middleware/builder.d.ts",
@@ -15929,14 +15914,29 @@
       "../node_modules/@nestjs/core/injector/injector.d.ts",
       "../node_modules/@nestjs/core/nest-application-context.d.ts",
       "../node_modules/@nestjs/core/nest-application.d.ts",
+      "../node_modules/@nestjs/common/interfaces/microservices/nest-microservice-options.interface.d.ts",
       "../node_modules/@nestjs/core/nest-factory.d.ts",
+      "../node_modules/@nestjs/core/router/request/request-constants.d.ts",
+      "../node_modules/@nestjs/core/router/request/index.d.ts",
+      "../node_modules/@nestjs/core/router/index.d.ts",
       "../node_modules/@nestjs/core/services/reflector.service.d.ts",
       "../node_modules/@nestjs/core/services/index.d.ts",
       "../node_modules/@nestjs/core/index.d.ts",
       "../src/main.ts",
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
-      "../src/core/trivia/points-type/points-type.module.ts"
+      "../src/core/trivia/points-type/points-type.module.ts",
+      "../node_modules/@types/babel-types/ts3.6/index.d.ts",
+      "../node_modules/@types/babel-types/index.d.ts",
+      "../node_modules/@types/babylon/index.d.ts",
+      "../node_modules/@types/cookiejar/index.d.ts",
+      "../node_modules/@types/ejs/index.d.ts",
+      "../node_modules/@types/jest/index.d.ts",
+      "../node_modules/@types/json5/index.d.ts",
+      "../node_modules/@types/pug/index.d.ts",
+      "../node_modules/@types/superagent/index.d.ts",
+      "../node_modules/@types/supertest/index.d.ts",
+      "../src/core/users/notification/notification.service.ts"
     ]
   },
   "version": "3.7.2"
