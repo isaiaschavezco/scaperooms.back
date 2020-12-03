@@ -11,7 +11,7 @@ module.exports = {
         "max": 25,
         "min": 1
     },
-    "cli"{
+    "cli":{
         "migrationsDir": "src/database/migrations/*{.ts,.js}"
     },
     "synchronize": false,
