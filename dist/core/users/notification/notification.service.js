@@ -184,38 +184,50 @@ let NotificationService = class NotificationService {
                                 filterQueries.push(tempTargetObject);
                             }
                         });
-                        let usersToSend;
+                        let usersToSendArray = [];
                         if (notificationToAllUsers) {
-                            usersToSend = yield this.userRepository.find({
+                            let usersToSendTemp = yield this.userRepository.find({
                                 select: ["id"]
                             });
+                            usersToSendArray.push(usersToSendTemp);
                         }
                         else {
-                            usersToSend = yield this.userRepository.find({
-                                select: ["id"],
-                                where: filterQueries
-                            });
+                            yield Promise.all(filterQueries.map((filterQuery) => __awaiter(this, void 0, void 0, function* () {
+                                let usersToSendTemp = yield this.userRepository.find({
+                                    select: ["id"],
+                                    where: filterQuery
+                                });
+                                console.log("usersToSendTemp", usersToSendTemp);
+                                usersToSendArray.push(usersToSendTemp);
+                                console.log("usersToSendARRAY", usersToSendArray);
+                            })));
                         }
-                        newNotification.user = usersToSend;
-                        yield this.notificationRepository.save(newNotification);
-                        usersToSend.forEach(user => {
-                            userIds.push(user.id);
-                        });
-                        const activeSessions = yield this.sesionRepository.find({
-                            user: typeorm_2.In(userIds)
-                        });
-                        activeSessions.forEach(sesion => {
-                            if (sesion.playerId) {
-                                playerIds.push(sesion.playerId);
-                            }
-                        });
-                        const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
-                            .setIncludePlayerIds(playerIds)
-                            .notification()
-                            .setHeadings({ en: sendRequest.title })
-                            .setContents({ en: sendRequest.content })
-                            .build();
-                        yield this.oneSignalService.createNotification(input);
+                        yield Promise.all(usersToSendArray.map((usersToSend) => __awaiter(this, void 0, void 0, function* () {
+                            newNotification.user = usersToSend;
+                            console.log("USERS TO SEND: ", usersToSend);
+                            yield this.notificationRepository.save(newNotification);
+                            usersToSend.forEach(user => {
+                                userIds.push(user.id);
+                            });
+                            console.log("userIds: ", userIds);
+                            const activeSessions = yield this.sesionRepository.find({
+                                user: typeorm_2.In(userIds)
+                            });
+                            console.log("activeSessions", activeSessions);
+                            activeSessions.forEach(sesion => {
+                                if (sesion.playerId) {
+                                    playerIds.push(sesion.playerId);
+                                }
+                            });
+                            console.log("playerIds:", playerIds);
+                            const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
+                                .setIncludePlayerIds(playerIds)
+                                .notification()
+                                .setHeadings({ en: sendRequest.title })
+                                .setContents({ en: sendRequest.content })
+                                .build();
+                            yield this.oneSignalService.createNotification(input);
+                        })));
                     }
                     else {
                         response = { status: 2 };

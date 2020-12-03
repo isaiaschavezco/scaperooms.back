@@ -1,17 +1,16 @@
 module.exports = {
     "type": "postgres",
     "host": process.env.TYPEORM_HOST,
-    "port": 5432,
+    "port": 5433,
     "username": process.env.TYPEORM_USERNAME,
     "password": process.env.TYPEORM_PASSWORD,
     "database": process.env.TYPEORM_DATABASE,
-    "entities": ["dist/core/**/**/**.entity{.ts,.js}"],
+    "entities": ["src/**/**/*.entity{.ts,.js}"],
     "migrationsTableName": "migrations",
-    "migrations": ["dist/migration/*{.ts,.js}"],
+    "migrations": ["src/database/migrations/*{.ts,.js}"],
     "extra": {
         "max": 25,
         "min": 1
     },
     "synchronize": process.env.TYPEORM_SYNCHRONIZE,
-    "migrationsRun": process.env.TYPEORM_MIGRATIONS_RUN
 }
