@@ -5,12 +5,14 @@ module.exports = {
     "username": process.env.TYPEORM_USERNAME,
     "password": process.env.TYPEORM_PASSWORD,
     "database": process.env.TYPEORM_DATABASE,
-    "entities": ["src/**/**/*.entity{.js}"],
-    "migrationsTableName": "migrations",
+    "entities": ["dist/**/*.entity{.ts,.js}"],
     "migrations": ["src/database/migrations/*{.ts,.js}"],
     "extra": {
         "max": 25,
         "min": 1
     },
-    "synchronize": process.env.TYPEORM_SYNCHRONIZE,
+    "cli"{
+        "migrationsDir": "src/database/migrations/*{.ts,.js}"
+    },
+    "synchronize": false,
 }
