@@ -7,7 +7,7 @@ module.exports = {
     "database": process.env.TYPEORM_DATABASE,
     "entities": [" dist/**/*.entity{.ts,.js} "],
     // "entities": ["src/**/*.entity{.ts,.js}"],
-    "migrations": ["src/database/migrations/*{.ts,.js}"],
+    "migrations": ["dist/database/migrations/*{.js}"],
     "extra": {
         "max": 25,
         "min": 1
