@@ -17,7 +17,7 @@ const position_entity_1 = require("../../users/position/position.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const campaing_entity_1 = require("../campaing/campaing.entity");
 const role_entity_1 = require("../../users/role/role.entity");
-const clinic_entity_1 = require("./../../users/clinic/clinic.entity");
+const clinic_entity_1 = require("../../users/clinic/clinic.entity");
 let Target = class Target {
 };
 __decorate([

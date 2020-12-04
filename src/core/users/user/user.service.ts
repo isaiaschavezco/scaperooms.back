@@ -16,7 +16,7 @@ import { Target } from '../../trivia/target/target.entity';
 import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery,CreateEsthedermUserDTO,UpdateEsthedermUserDTO} from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery,UpdateEsthedermUserDTO,CreateEsthedermUserDTO} from './user.dto';
 // import { MailerService } from '@nest-modules/mailer';
 import { MailerService } from '@nestjs-modules/mailer';
 import * as jwt from "jsonwebtoken";
@@ -498,17 +498,16 @@ export class UserService {
 
             } else {
 
-                // const jwtDecoded = await jwt.verify(createEsthedermUserDTO.userToken, "Bi0d3rmaTokenJWT.");
+                const jwtDecoded = await jwt.verify(createEsthedermUserDTO.userToken, "Bi0d3rmaTokenJWT.");
 
-                // const tokenExist = await this.tokenRepository.findOne(jwtDecoded.token);
+                const tokenExist = await this.tokenRepository.findOne(jwtDecoded.token);
 
                 response = { status: 13 };
 
-                // if (tokenExist) {
-                if (true) {
+                if (tokenExist) {
+                // if (true) {
                         // console.log(tokenExist.email.trim(),"LO RARO")
-                    // if (tokenExist.email.trim() === createEsthedermUserDTO.email.trim() || tokenExist.email.trim() == 'drugstore@general.com') {
-                    if (true) {
+                     if (tokenExist.email.trim() === createEsthedermUserDTO.email.trim() || tokenExist.email.trim() == 'drugstore@general.com') {
 
                         const userPassword = await bcrypt.hash(createEsthedermUserDTO.password, 12);
                         const userAge = this.getAge(createEsthedermUserDTO.birthDate);
@@ -578,10 +577,9 @@ export class UserService {
                         newUser.quizz = quizzesFilteredByTarget;
                         await this.userRepository.save(newUser);
 
-                        // if (tokenExist.email.trim() != 'drugstore@general.com') {
-                        // if (true) {
-                        //     await this.tokenRepository.remove(tokenExist);
-                        // }
+                         if (tokenExist.email.trim() != 'drugstore@general.com') {
+                             await this.tokenRepository.remove(tokenExist);
+                         }
 
                         response = { status: 0 }
                     }
@@ -599,146 +597,6 @@ export class UserService {
             }, 500);
         }
     }
-
-    // ---
-
-    async updateEsthederm(updateEsthedermUserDTO: UpdateEsthedermUserDTO): Promise<any> {
-        try {
-            let response = null;
-
-            console.log("UpdateEsthedermUserDTO:  ", updateEsthedermUserDTO);
-
-            let userExist = await this.userRepository.findOne({
-                relations: ["city", "delegation", "clinic"],
-                where: { email: updateEsthedermUserDTO.userId }
-            });
-
-            if (!userExist) {
-
-                response = { status: 1 };
-
-            } else {
-
-                if (updateEsthedermUserDTO.name) {
-                    userExist.name = updateEsthedermUserDTO.name;
-                }
-
-                if (updateEsthedermUserDTO.lastName) {
-                    userExist.lastName = updateEsthedermUserDTO.lastName;
-                }
-
-                if (updateEsthedermUserDTO.photo) {
-                    userExist.photo = updateEsthedermUserDTO.photo;
-                }
-
-                if (updateEsthedermUserDTO.nickname) {
-                    userExist.nickname = updateEsthedermUserDTO.nickname;
-                }
-
-                if (updateEsthedermUserDTO.birthDate) {
-                    const userAge = this.getAge(updateEsthedermUserDTO.birthDate);
-                    userExist.birthDate = new Date(updateEsthedermUserDTO.birthDate);
-                    userExist.age = isNaN(userAge) ? 0 : userAge;
-                }
-
-                if (typeof updateEsthedermUserDTO.gender !== "undefined") {
-                    userExist.gender = updateEsthedermUserDTO.gender;
-                }
-
-                if (updateEsthedermUserDTO.phone) {
-                    userExist.phone = updateEsthedermUserDTO.phone;
-                }
-
-                if (updateEsthedermUserDTO.postalCode) {
-                    userExist.postalCode = updateEsthedermUserDTO.postalCode;
-                }
-
-                if (updateEsthedermUserDTO.clinic) {
-                    const userClinic = await this.clinicRepository.findOne(updateEsthedermUserDTO.clinic);
-                    userExist.clinic = userClinic;
-                }
-
-                if (updateEsthedermUserDTO.state) {
-                    const userState = await this.stateRepository.findOne(updateEsthedermUserDTO.state);
-                    userExist.city = userState;
-                }
-
-                if (updateEsthedermUserDTO.city) {
-                    const userCity = await this.cityRepository.findOne(updateEsthedermUserDTO.city);
-                    userExist.delegation = userCity;
-                }
-
-
-                if (updateEsthedermUserDTO.town) {
-                    userExist.town = updateEsthedermUserDTO.town;
-                }
-
-                if (updateEsthedermUserDTO.charge) {
-                    userExist.charge = updateEsthedermUserDTO.charge;
-                }
-
-                if (updateEsthedermUserDTO.mayoralty) {
-                    userExist.mayoralty = updateEsthedermUserDTO.mayoralty;
-                }
-
-                userExist.isActive = true;
-
-                await this.userRepository.save(userExist);
-
-                const userToReturn = await this.userRepository.findOne({
-                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
-                    where: { email: userExist.email }
-                });
-
-                const loggedUser = await this.sesionRepository.findOne({
-                    where: { user: userToReturn }
-                });
-
-                const generalConfiguration = await this.configurationRepository.findOne(1);
-
-                response = {
-
-                    user: {
-                        token: loggedUser.id,
-                        name: userToReturn.name,
-                        lastName: userToReturn.lastName,
-                        nickname: userToReturn.nickname,
-                        gender: userToReturn.gender,
-                        image: userToReturn.photo,
-                        birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
-                        phonenumber: userToReturn.phone,
-                        email: userToReturn.email,
-                        type: userToReturn.type.id,
-                        totalPoints: userToReturn.points,
-                        address: {
-                            state: userToReturn.city,
-                            city: userToReturn.delegation,
-                            mayoralty: userToReturn.mayoralty,
-                            suburb: userToReturn.town
-                        },
-                        workPosition: userToReturn.position,
-                        statusCart: generalConfiguration.isClubBiodermaActive,
-                        branchClinic: userToReturn.chain,
-                        postalCode: userToReturn.postalCode,
-                        charge: userToReturn.charge,
-                        isActiveCart: userToReturn.type.id === 1 ? false : true,
-                        countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
-                    }
-                };
-
-            }
-
-            return response;
-        } catch (err) {
-            console.log("UserService - updateEsthederm: ", err);
-
-            throw new HttpException({
-                status: HttpStatus.INTERNAL_SERVER_ERROR,
-                error: 'Error updating Esthederm user',
-            }, 500);
-        }
-    }
-
 
 
     private getAge(dateString) {
@@ -1012,6 +870,142 @@ export class UserService {
             throw new HttpException({
                 status: HttpStatus.INTERNAL_SERVER_ERROR,
                 error: 'Error updating Drugstore user',
+            }, 500);
+        }
+    }
+     async updateEsthederm(updateEsthedermUserDTO: UpdateEsthedermUserDTO): Promise<any> {
+        try {
+            let response = null;
+
+            console.log("UpdateEsthedermUserDTO:  ", updateEsthedermUserDTO);
+
+            let userExist = await this.userRepository.findOne({
+                relations: ["city", "delegation", "clinic"],
+                where: { email: updateEsthedermUserDTO.userId }
+            });
+
+            if (!userExist) {
+
+                response = { status: 1 };
+
+            } else {
+
+                if (updateEsthedermUserDTO.name) {
+                    userExist.name = updateEsthedermUserDTO.name;
+                }
+
+                if (updateEsthedermUserDTO.lastName) {
+                    userExist.lastName = updateEsthedermUserDTO.lastName;
+                }
+
+                if (updateEsthedermUserDTO.photo) {
+                    userExist.photo = updateEsthedermUserDTO.photo;
+                }
+
+                if (updateEsthedermUserDTO.nickname) {
+                    userExist.nickname = updateEsthedermUserDTO.nickname;
+                }
+
+                if (updateEsthedermUserDTO.birthDate) {
+                    const userAge = this.getAge(updateEsthedermUserDTO.birthDate);
+                    userExist.birthDate = new Date(updateEsthedermUserDTO.birthDate);
+                    userExist.age = isNaN(userAge) ? 0 : userAge;
+                }
+
+                if (typeof updateEsthedermUserDTO.gender !== "undefined") {
+                    userExist.gender = updateEsthedermUserDTO.gender;
+                }
+
+                if (updateEsthedermUserDTO.phone) {
+                    userExist.phone = updateEsthedermUserDTO.phone;
+                }
+
+                if (updateEsthedermUserDTO.postalCode) {
+                    userExist.postalCode = updateEsthedermUserDTO.postalCode;
+                }
+
+                if (updateEsthedermUserDTO.clinic) {
+                    const userClinic = await this.clinicRepository.findOne(updateEsthedermUserDTO.clinic);
+                    userExist.clinic = userClinic;
+                }
+
+                if (updateEsthedermUserDTO.state) {
+                    const userState = await this.stateRepository.findOne(updateEsthedermUserDTO.state);
+                    userExist.city = userState;
+                }
+
+                if (updateEsthedermUserDTO.city) {
+                    const userCity = await this.cityRepository.findOne(updateEsthedermUserDTO.city);
+                    userExist.delegation = userCity;
+                }
+
+
+                if (updateEsthedermUserDTO.town) {
+                    userExist.town = updateEsthedermUserDTO.town;
+                }
+
+                if (updateEsthedermUserDTO.charge) {
+                    userExist.charge = updateEsthedermUserDTO.charge;
+                }
+
+                if (updateEsthedermUserDTO.mayoralty) {
+                    userExist.mayoralty = updateEsthedermUserDTO.mayoralty;
+                }
+
+                userExist.isActive = true;
+
+                await this.userRepository.save(userExist);
+
+                const userToReturn = await this.userRepository.findOne({
+                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                    where: { email: userExist.email }
+                });
+
+                const loggedUser = await this.sesionRepository.findOne({
+                    where: { user: userToReturn }
+                });
+
+                const generalConfiguration = await this.configurationRepository.findOne(1);
+
+                response = {
+
+                    user: {
+                        token: loggedUser.id,
+                        name: userToReturn.name,
+                        lastName: userToReturn.lastName,
+                        nickname: userToReturn.nickname,
+                        gender: userToReturn.gender,
+                        image: userToReturn.photo,
+                        birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                        phonenumber: userToReturn.phone,
+                        email: userToReturn.email,
+                        type: userToReturn.type.id,
+                        totalPoints: userToReturn.points,
+                        address: {
+                            state: userToReturn.city,
+                            city: userToReturn.delegation,
+                            mayoralty: userToReturn.mayoralty,
+                            suburb: userToReturn.town
+                        },
+                        workPosition: userToReturn.position,
+                        statusCart: generalConfiguration.isClubBiodermaActive,
+                        branchClinic: userToReturn.chain,
+                        postalCode: userToReturn.postalCode,
+                        charge: userToReturn.charge,
+                        isActiveCart: userToReturn.type.id === 1 ? false : true,
+                        countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                    }
+                };
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - updateEsthederm: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error updating Esthederm user',
             }, 500);
         }
     }

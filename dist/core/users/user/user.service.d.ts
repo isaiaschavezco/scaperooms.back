@@ -13,7 +13,7 @@ import { Target } from '../../trivia/target/target.entity';
 import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery, CreateEsthedermUserDTO, UpdateEsthedermUserDTO } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery, UpdateEsthedermUserDTO, CreateEsthedermUserDTO } from './user.dto';
 import { MailerService } from '@nestjs-modules/mailer';
 export declare class UserService {
     private userRepository;
@@ -40,10 +40,10 @@ export declare class UserService {
     createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any>;
     createDrugStore(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any>;
     createEsthederm(createEsthedermUserDTO: CreateEsthedermUserDTO): Promise<any>;
-    updateEsthederm(updateEsthedermUserDTO: UpdateEsthedermUserDTO): Promise<any>;
     private getAge;
     updateNAOS(updateNAOSUserDTO: UpdateNAOSUserDTO): Promise<any>;
     updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any>;
+    updateEsthederm(updateEsthedermUserDTO: UpdateEsthedermUserDTO): Promise<any>;
     deleteUser(requestEmail: string): Promise<any>;
     resetUserPoints(): Promise<any>;
     requestPasswordReset(requestEmail: string): Promise<any>;
