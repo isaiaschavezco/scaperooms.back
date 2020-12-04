@@ -122,7 +122,7 @@ export class UserService {
         try {
             const usersList = await this.userRepository.find({
                 select: ["id", "name", "email", "points"],
-                relations: ["position", "type", "chain"],
+                relations: ["position", "type", "chain","clinic"],
                 where: { isActive: true }
             });
             return { users: usersList };
