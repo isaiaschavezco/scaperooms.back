@@ -514,7 +514,7 @@ export class UserService {
 
                         const userState = await this.stateRepository.findOne(createEsthedermUserDTO.state);
                         const userCity = await this.cityRepository.findOne(createEsthedermUserDTO.city);
-                        const userType = await this.typeRepository.findOne(2);
+                        const userType = await this.typeRepository.findOne(3);
                         const userClinic = await this.clinicRepository.findOne(createEsthedermUserDTO.clinic);
                         const userRole = await this.roleRepository.findOne(2);
 
