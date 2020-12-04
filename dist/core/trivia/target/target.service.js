@@ -31,11 +31,13 @@ const chain_entity_1 = require("../../users/chain/chain.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const position_entity_1 = require("../../users/position/position.entity");
 const role_entity_1 = require("../../users/role/role.entity");
+const clinic_entity_1 = require("./../../users/clinic/clinic.entity");
 let TargetService = class TargetService {
-    constructor(targetRepository, cityRepository, chainRepository, typeRepository, positionRepository, roleRepository, delegationRepository) {
+    constructor(targetRepository, cityRepository, chainRepository, clinicRepository, typeRepository, positionRepository, roleRepository, delegationRepository) {
         this.targetRepository = targetRepository;
         this.cityRepository = cityRepository;
         this.chainRepository = chainRepository;
+        this.clinicRepository = clinicRepository;
         this.typeRepository = typeRepository;
         this.positionRepository = positionRepository;
         this.roleRepository = roleRepository;
@@ -71,6 +73,10 @@ let TargetService = class TargetService {
                 if (createDTO.chain !== -1) {
                     chainTargetData = yield this.chainRepository.findOne(createDTO.chain);
                 }
+                let clinicTargetData = null;
+                if (createDTO.clinic !== -1) {
+                    clinicTargetData = yield this.clinicRepository.findOne(createDTO.clinic);
+                }
                 let userTypeTargetData = null;
                 let userIsAdmin = null;
                 if (createDTO.userType !== -1) {
@@ -97,6 +103,7 @@ let TargetService = class TargetService {
                     city: stateTargetData,
                     delegation: cityTargetData,
                     chain: chainTargetData,
+                    clinic: clinicTargetData,
                     position: naosPositionTargetData,
                     type: userTypeTargetData,
                     role: userIsAdmin
@@ -111,6 +118,7 @@ let TargetService = class TargetService {
                         city: targetCreated.city ? targetCreated.city.name : null,
                         delegation: targetCreated.delegation ? targetCreated.delegation.name : null,
                         chain: targetCreated.chain ? targetCreated.chain.name : null,
+                        clinic: targetCreated.clinic ? targetCreated.clinic.name : null,
                         position: targetCreated.position ? targetCreated.position.name : null,
                         type: targetCreated.type ? targetCreated.type.name : null,
                         allUsers: targetCreated.allUsers,
@@ -149,11 +157,13 @@ TargetService = __decorate([
     __param(0, typeorm_1.InjectRepository(target_entity_1.Target)),
     __param(1, typeorm_1.InjectRepository(city_entity_1.City)),
     __param(2, typeorm_1.InjectRepository(chain_entity_1.Chain)),
-    __param(3, typeorm_1.InjectRepository(type_entity_1.Type)),
-    __param(4, typeorm_1.InjectRepository(position_entity_1.Position)),
-    __param(5, typeorm_1.InjectRepository(role_entity_1.Role)),
-    __param(6, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
+    __param(3, typeorm_1.InjectRepository(clinic_entity_1.Clinic)),
+    __param(4, typeorm_1.InjectRepository(type_entity_1.Type)),
+    __param(5, typeorm_1.InjectRepository(position_entity_1.Position)),
+    __param(6, typeorm_1.InjectRepository(role_entity_1.Role)),
+    __param(7, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

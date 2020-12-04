@@ -5,6 +5,9 @@ import { Delegation } from '../delegation/delegation.entity';
 import { Colony } from '../colony/colony.entity';
 import { Position } from '../position/position.entity';
 import { Chain } from '../chain/chain.entity';
+//
+import { Clinic } from '../clinic/clinic.entity';
+//
 import { Role } from '../role/role.entity';
 import { Trade } from '../../content/trade/trade.entity';
 import { Quizz } from '../../trivia/quizz/quizz.entity';
@@ -13,6 +16,7 @@ import { Answerbyuserquizz } from '../../trivia/answerbyuserquizz/answerbyuserqu
 import { Message } from '../../content/message/message.entity';
 import { Notificacion } from '../notification/notificacion.entity';
 import { Sesion } from '../sesion/sesion.entity';
+
 
 @Entity({ schema: 'Users' })
 export class User {
@@ -94,7 +98,10 @@ export class User {
 
     @ManyToOne(type => Chain, chain => chain.user)
     chain: Chain;
-
+    //
+    @ManyToOne(type => Clinic, clinic => clinic.user)
+    clinic: Clinic;
+//
     @ManyToOne(type => Role, role => role.user)
     role: Role;
 

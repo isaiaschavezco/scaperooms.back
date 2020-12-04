@@ -1,3 +1,5 @@
+import { Clinic } from './../clinic/clinic.entity';
+
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, In } from 'typeorm';
@@ -14,7 +16,7 @@ import { Target } from '../../trivia/target/target.entity';
 import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery,CreateEsthedermUserDTO,UpdateEsthedermUserDTO} from './user.dto';
 // import { MailerService } from '@nest-modules/mailer';
 import { MailerService } from '@nestjs-modules/mailer';
 import * as jwt from "jsonwebtoken";
@@ -32,6 +34,8 @@ export class UserService {
         @InjectRepository(Token) private tokenRepository: Repository<Token>,
         @InjectRepository(Type) private typeRepository: Repository<Type>,
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
+        //
+        @InjectRepository(Clinic) private clinicRepository: Repository<Clinic>,
         @InjectRepository(Position) private positionRepository: Repository<Position>,
         @InjectRepository(City) private stateRepository: Repository<City>,
         @InjectRepository(Delegation) private cityRepository: Repository<Delegation>,
@@ -214,6 +218,8 @@ export class UserService {
             const userAge = this.getAge(createUserDTO.birthDate);
 
             const userChain = await this.chainRepository.findOne(createUserDTO.chain);
+            //No estoy seguro de esta linea
+            const userClinic = await this.clinicRepository.findOne(createUserDTO.clinic);
 
             let newUser = await this.userRepository.create({
                 name: createUserDTO.name,
@@ -228,6 +234,7 @@ export class UserService {
                 postalCode: createUserDTO.drugStore,
                 password: userPassword,
                 chain: userChain,
+                clinic: userClinic,
                 isActive: true,
                 points: 0,
                 age: userAge
@@ -471,6 +478,268 @@ export class UserService {
             }, 500);
         }
     }
+
+
+
+    // ----
+
+        async createEsthederm(createEsthedermUserDTO: CreateEsthedermUserDTO): Promise<any> {
+        try {
+
+            let response = null;
+
+            const userExist = await this.userRepository.findOne({
+                where: { email: createEsthedermUserDTO.email }
+            });
+
+            if (userExist) {
+
+                response = { status: 5 };
+
+            } else {
+
+                // const jwtDecoded = await jwt.verify(createEsthedermUserDTO.userToken, "Bi0d3rmaTokenJWT.");
+
+                // const tokenExist = await this.tokenRepository.findOne(jwtDecoded.token);
+
+                response = { status: 13 };
+
+                // if (tokenExist) {
+                if (true) {
+                        // console.log(tokenExist.email.trim(),"LO RARO")
+                    // if (tokenExist.email.trim() === createEsthedermUserDTO.email.trim() || tokenExist.email.trim() == 'drugstore@general.com') {
+                    if (true) {
+
+                        const userPassword = await bcrypt.hash(createEsthedermUserDTO.password, 12);
+                        const userAge = this.getAge(createEsthedermUserDTO.birthDate);
+
+                        const userState = await this.stateRepository.findOne(createEsthedermUserDTO.state);
+                        const userCity = await this.cityRepository.findOne(createEsthedermUserDTO.city);
+                        const userType = await this.typeRepository.findOne(2);
+                        const userClinic = await this.clinicRepository.findOne(createEsthedermUserDTO.clinic);
+                        const userRole = await this.roleRepository.findOne(2);
+
+                        let newUser = this.userRepository.create({ // <-------
+                            name: createEsthedermUserDTO.name,
+                            lastName: createEsthedermUserDTO.lastName,
+                            nickname: createEsthedermUserDTO.nickName,
+                            photo: createEsthedermUserDTO.photo,
+                            birthDate: createEsthedermUserDTO.birthDate,
+                            gender: createEsthedermUserDTO.gender,
+                            phone: createEsthedermUserDTO.phone,
+                            email: createEsthedermUserDTO.email,
+                            postalCode: createEsthedermUserDTO.postalCode,
+                            // drugstore: createEsthedermUserDTO.drugStore,
+                            clinic: userClinic,
+                            password: userPassword,
+                            isActive: true,
+                            city: userState,
+                            delegation: userCity,
+                            points: 0,
+                            age: isNaN(userAge) ? 0 : userAge,
+                            type: userType,
+                            town: createEsthedermUserDTO.town,
+                            charge: createEsthedermUserDTO.charge,
+                            mayoralty: createEsthedermUserDTO.mayoralty,
+                            role: userRole
+                        });
+
+                        //Se asignan las trivias correspondientes al nuevo usuario
+                        const targetsToFilter = await this.targetRepository.find({
+                            relations: ["city", "clinic", "position", "type", "role", "delegation"],
+                            where: [{ type: userType, role: null }, { allUsers: true, role: null }]
+                        });
+
+                        let filteredTargets = [];
+
+                        for (let index = 0; index < targetsToFilter.length; index++) {
+                            const tempTarget = targetsToFilter[index];
+
+                            const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
+                            const genderFilter = (tempTarget.gender == createEsthedermUserDTO.gender) || (tempTarget.gender == null);
+                            const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userState.id);
+                            const delegationFilter = tempTarget.delegation == null ? true : (tempTarget.delegation.id == userCity.id);
+                            const clinicFilter = tempTarget.clinic == null ? true : (tempTarget.clinic.id == userClinic.id);
+                            const positionFilter = tempTarget.position == null;
+
+                            if (ageFilter && genderFilter && cityFilter && clinicFilter && positionFilter && delegationFilter) {
+                                filteredTargets.push(tempTarget.id);
+                            }
+
+                        }
+
+                        const quizzesFilteredByTarget = await this.campaingRepository.createQueryBuilder("cmp")
+                            .select("qz.id", "id")
+                            .innerJoin("cmp.target", "tg")
+                            .leftJoin("cmp.quizz", "qz")
+                            .where("tg.id IN (:...targetsIds) AND qz.isSend = true", { targetsIds: filteredTargets })
+                            .getRawMany()
+
+                        newUser.quizz = quizzesFilteredByTarget;
+                        await this.userRepository.save(newUser);
+
+                        // if (tokenExist.email.trim() != 'drugstore@general.com') {
+                        // if (true) {
+                        //     await this.tokenRepository.remove(tokenExist);
+                        // }
+
+                        response = { status: 0 }
+                    }
+                }
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - createEsthederm: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error creating Esthederm user',
+            }, 500);
+        }
+    }
+
+    // ---
+
+    async updateEsthederm(updateEsthedermUserDTO: UpdateEsthedermUserDTO): Promise<any> {
+        try {
+            let response = null;
+
+            console.log("UpdateEsthedermUserDTO:  ", updateEsthedermUserDTO);
+
+            let userExist = await this.userRepository.findOne({
+                relations: ["city", "delegation", "clinic"],
+                where: { email: updateEsthedermUserDTO.userId }
+            });
+
+            if (!userExist) {
+
+                response = { status: 1 };
+
+            } else {
+
+                if (updateEsthedermUserDTO.name) {
+                    userExist.name = updateEsthedermUserDTO.name;
+                }
+
+                if (updateEsthedermUserDTO.lastName) {
+                    userExist.lastName = updateEsthedermUserDTO.lastName;
+                }
+
+                if (updateEsthedermUserDTO.photo) {
+                    userExist.photo = updateEsthedermUserDTO.photo;
+                }
+
+                if (updateEsthedermUserDTO.nickname) {
+                    userExist.nickname = updateEsthedermUserDTO.nickname;
+                }
+
+                if (updateEsthedermUserDTO.birthDate) {
+                    const userAge = this.getAge(updateEsthedermUserDTO.birthDate);
+                    userExist.birthDate = new Date(updateEsthedermUserDTO.birthDate);
+                    userExist.age = isNaN(userAge) ? 0 : userAge;
+                }
+
+                if (typeof updateEsthedermUserDTO.gender !== "undefined") {
+                    userExist.gender = updateEsthedermUserDTO.gender;
+                }
+
+                if (updateEsthedermUserDTO.phone) {
+                    userExist.phone = updateEsthedermUserDTO.phone;
+                }
+
+                if (updateEsthedermUserDTO.postalCode) {
+                    userExist.postalCode = updateEsthedermUserDTO.postalCode;
+                }
+
+                if (updateEsthedermUserDTO.clinic) {
+                    const userClinic = await this.clinicRepository.findOne(updateEsthedermUserDTO.clinic);
+                    userExist.clinic = userClinic;
+                }
+
+                if (updateEsthedermUserDTO.state) {
+                    const userState = await this.stateRepository.findOne(updateEsthedermUserDTO.state);
+                    userExist.city = userState;
+                }
+
+                if (updateEsthedermUserDTO.city) {
+                    const userCity = await this.cityRepository.findOne(updateEsthedermUserDTO.city);
+                    userExist.delegation = userCity;
+                }
+
+
+                if (updateEsthedermUserDTO.town) {
+                    userExist.town = updateEsthedermUserDTO.town;
+                }
+
+                if (updateEsthedermUserDTO.charge) {
+                    userExist.charge = updateEsthedermUserDTO.charge;
+                }
+
+                if (updateEsthedermUserDTO.mayoralty) {
+                    userExist.mayoralty = updateEsthedermUserDTO.mayoralty;
+                }
+
+                userExist.isActive = true;
+
+                await this.userRepository.save(userExist);
+
+                const userToReturn = await this.userRepository.findOne({
+                    relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                    where: { email: userExist.email }
+                });
+
+                const loggedUser = await this.sesionRepository.findOne({
+                    where: { user: userToReturn }
+                });
+
+                const generalConfiguration = await this.configurationRepository.findOne(1);
+
+                response = {
+
+                    user: {
+                        token: loggedUser.id,
+                        name: userToReturn.name,
+                        lastName: userToReturn.lastName,
+                        nickname: userToReturn.nickname,
+                        gender: userToReturn.gender,
+                        image: userToReturn.photo,
+                        birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                        phonenumber: userToReturn.phone,
+                        email: userToReturn.email,
+                        type: userToReturn.type.id,
+                        totalPoints: userToReturn.points,
+                        address: {
+                            state: userToReturn.city,
+                            city: userToReturn.delegation,
+                            mayoralty: userToReturn.mayoralty,
+                            suburb: userToReturn.town
+                        },
+                        workPosition: userToReturn.position,
+                        statusCart: generalConfiguration.isClubBiodermaActive,
+                        branchClinic: userToReturn.chain,
+                        postalCode: userToReturn.postalCode,
+                        charge: userToReturn.charge,
+                        isActiveCart: userToReturn.type.id === 1 ? false : true,
+                        countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                    }
+                };
+
+            }
+
+            return response;
+        } catch (err) {
+            console.log("UserService - updateEsthederm: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error updating Esthederm user',
+            }, 500);
+        }
+    }
+
+
 
     private getAge(dateString) {
         var today = new Date();

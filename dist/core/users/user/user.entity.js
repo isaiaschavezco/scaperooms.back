@@ -16,6 +16,7 @@ const delegation_entity_1 = require("../delegation/delegation.entity");
 const colony_entity_1 = require("../colony/colony.entity");
 const position_entity_1 = require("../position/position.entity");
 const chain_entity_1 = require("../chain/chain.entity");
+const clinic_entity_1 = require("../clinic/clinic.entity");
 const role_entity_1 = require("../role/role.entity");
 const trade_entity_1 = require("../../content/trade/trade.entity");
 const quizz_entity_1 = require("../../trivia/quizz/quizz.entity");
@@ -130,6 +131,10 @@ __decorate([
     typeorm_1.ManyToOne(type => chain_entity_1.Chain, chain => chain.user),
     __metadata("design:type", chain_entity_1.Chain)
 ], User.prototype, "chain", void 0);
+__decorate([
+    typeorm_1.ManyToOne(type => clinic_entity_1.Clinic, clinic => clinic.user),
+    __metadata("design:type", clinic_entity_1.Clinic)
+], User.prototype, "clinic", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => role_entity_1.Role, role => role.user),
     __metadata("design:type", role_entity_1.Role)

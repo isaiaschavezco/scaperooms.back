@@ -6,6 +6,9 @@ import { User } from './user.entity';
 import { Token } from '../token/token.entity';
 import { Type } from '../type/type.entity';
 import { Chain } from '../chain/chain.entity';
+//
+import { Clinic } from './../clinic/clinic.entity';
+//
 import { Position } from '../position/position.entity';
 import { City } from '../city/city.entity';
 import { Delegation } from '../delegation/delegation.entity';
@@ -25,6 +28,9 @@ import { Target } from '../../trivia/target/target.entity';
     TypeOrmModule.forFeature([Token]),
     TypeOrmModule.forFeature([Type]),
     TypeOrmModule.forFeature([Chain]),
+    //             
+    TypeOrmModule.forFeature([Clinic]),
+    //
     TypeOrmModule.forFeature([Position]),
     TypeOrmModule.forFeature([City]),
     TypeOrmModule.forFeature([Delegation]),

@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { Clinic } from './../../users/clinic/clinic.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TargetService } from './target.service';
 import { TargetController } from './target.controller';
@@ -15,6 +16,8 @@ import { Role } from '../../users/role/role.entity';
     TypeOrmModule.forFeature([Target]),
     TypeOrmModule.forFeature([City]),
     TypeOrmModule.forFeature([Chain]),
+    TypeOrmModule.forFeature([Clinic]),
+
     TypeOrmModule.forFeature([Type]),
     TypeOrmModule.forFeature([Position]),
     TypeOrmModule.forFeature([Role]),

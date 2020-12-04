@@ -4,6 +4,7 @@ import { Delegation } from '../delegation/delegation.entity';
 import { Colony } from '../colony/colony.entity';
 import { Position } from '../position/position.entity';
 import { Chain } from '../chain/chain.entity';
+import { Clinic } from '../clinic/clinic.entity';
 import { Role } from '../role/role.entity';
 import { Trade } from '../../content/trade/trade.entity';
 import { Quizz } from '../../trivia/quizz/quizz.entity';
@@ -39,6 +40,7 @@ export declare class User {
     type: Type;
     position: Position;
     chain: Chain;
+    clinic: Clinic;
     role: Role;
     trade: Trade[];
     quizz: Quizz[];

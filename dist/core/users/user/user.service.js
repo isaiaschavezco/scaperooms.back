@@ -21,6 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const clinic_entity_1 = require("./../clinic/clinic.entity");
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
@@ -42,7 +43,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const moment = require("moment");
 let UserService = class UserService {
-    constructor(userRepository, mailerService, campaingRepository, quizzRepository, targetRepository, tokenRepository, typeRepository, chainRepository, positionRepository, stateRepository, cityRepository, roleRepository, sesionRepository, configurationRepository) {
+    constructor(userRepository, mailerService, campaingRepository, quizzRepository, targetRepository, tokenRepository, typeRepository, chainRepository, clinicRepository, positionRepository, stateRepository, cityRepository, roleRepository, sesionRepository, configurationRepository) {
         this.userRepository = userRepository;
         this.mailerService = mailerService;
         this.campaingRepository = campaingRepository;
@@ -51,6 +52,7 @@ let UserService = class UserService {
         this.tokenRepository = tokenRepository;
         this.typeRepository = typeRepository;
         this.chainRepository = chainRepository;
+        this.clinicRepository = clinicRepository;
         this.positionRepository = positionRepository;
         this.stateRepository = stateRepository;
         this.cityRepository = cityRepository;
@@ -212,6 +214,7 @@ let UserService = class UserService {
                 const userPassword = yield bcrypt.hash(createUserDTO.password, 12);
                 const userAge = this.getAge(createUserDTO.birthDate);
                 const userChain = yield this.chainRepository.findOne(createUserDTO.chain);
+                const userClinic = yield this.clinicRepository.findOne(createUserDTO.clinic);
                 let newUser = yield this.userRepository.create({
                     name: createUserDTO.name,
                     lastName: createUserDTO.lastName,
@@ -225,6 +228,7 @@ let UserService = class UserService {
                     postalCode: createUserDTO.drugStore,
                     password: userPassword,
                     chain: userChain,
+                    clinic: userClinic,
                     isActive: true,
                     points: 0,
                     age: userAge
@@ -414,6 +418,200 @@ let UserService = class UserService {
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
                     error: 'Error creating Drugstore user',
+                }, 500);
+            }
+        });
+    }
+    createEsthederm(createEsthedermUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                const userExist = yield this.userRepository.findOne({
+                    where: { email: createEsthedermUserDTO.email }
+                });
+                if (userExist) {
+                    response = { status: 5 };
+                }
+                else {
+                    response = { status: 13 };
+                    if (true) {
+                        if (true) {
+                            const userPassword = yield bcrypt.hash(createEsthedermUserDTO.password, 12);
+                            const userAge = this.getAge(createEsthedermUserDTO.birthDate);
+                            const userState = yield this.stateRepository.findOne(createEsthedermUserDTO.state);
+                            const userCity = yield this.cityRepository.findOne(createEsthedermUserDTO.city);
+                            const userType = yield this.typeRepository.findOne(2);
+                            const userClinic = yield this.clinicRepository.findOne(createEsthedermUserDTO.clinic);
+                            const userRole = yield this.roleRepository.findOne(2);
+                            let newUser = this.userRepository.create({
+                                name: createEsthedermUserDTO.name,
+                                lastName: createEsthedermUserDTO.lastName,
+                                nickname: createEsthedermUserDTO.nickName,
+                                photo: createEsthedermUserDTO.photo,
+                                birthDate: createEsthedermUserDTO.birthDate,
+                                gender: createEsthedermUserDTO.gender,
+                                phone: createEsthedermUserDTO.phone,
+                                email: createEsthedermUserDTO.email,
+                                postalCode: createEsthedermUserDTO.postalCode,
+                                clinic: userClinic,
+                                password: userPassword,
+                                isActive: true,
+                                city: userState,
+                                delegation: userCity,
+                                points: 0,
+                                age: isNaN(userAge) ? 0 : userAge,
+                                type: userType,
+                                town: createEsthedermUserDTO.town,
+                                charge: createEsthedermUserDTO.charge,
+                                mayoralty: createEsthedermUserDTO.mayoralty,
+                                role: userRole
+                            });
+                            const targetsToFilter = yield this.targetRepository.find({
+                                relations: ["city", "clinic", "position", "type", "role", "delegation"],
+                                where: [{ type: userType, role: null }, { allUsers: true, role: null }]
+                            });
+                            let filteredTargets = [];
+                            for (let index = 0; index < targetsToFilter.length; index++) {
+                                const tempTarget = targetsToFilter[index];
+                                const ageFilter = (tempTarget.initAge <= userAge && userAge <= tempTarget.finalAge) || (tempTarget.initAge == null && tempTarget.finalAge == null);
+                                const genderFilter = (tempTarget.gender == createEsthedermUserDTO.gender) || (tempTarget.gender == null);
+                                const cityFilter = tempTarget.city == null ? true : (tempTarget.city.id == userState.id);
+                                const delegationFilter = tempTarget.delegation == null ? true : (tempTarget.delegation.id == userCity.id);
+                                const clinicFilter = tempTarget.clinic == null ? true : (tempTarget.clinic.id == userClinic.id);
+                                const positionFilter = tempTarget.position == null;
+                                if (ageFilter && genderFilter && cityFilter && clinicFilter && positionFilter && delegationFilter) {
+                                    filteredTargets.push(tempTarget.id);
+                                }
+                            }
+                            const quizzesFilteredByTarget = yield this.campaingRepository.createQueryBuilder("cmp")
+                                .select("qz.id", "id")
+                                .innerJoin("cmp.target", "tg")
+                                .leftJoin("cmp.quizz", "qz")
+                                .where("tg.id IN (:...targetsIds) AND qz.isSend = true", { targetsIds: filteredTargets })
+                                .getRawMany();
+                            newUser.quizz = quizzesFilteredByTarget;
+                            yield this.userRepository.save(newUser);
+                            response = { status: 0 };
+                        }
+                    }
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - createEsthederm: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error creating Esthederm user',
+                }, 500);
+            }
+        });
+    }
+    updateEsthederm(updateEsthedermUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                let response = null;
+                console.log("UpdateEsthedermUserDTO:  ", updateEsthedermUserDTO);
+                let userExist = yield this.userRepository.findOne({
+                    relations: ["city", "delegation", "clinic"],
+                    where: { email: updateEsthedermUserDTO.userId }
+                });
+                if (!userExist) {
+                    response = { status: 1 };
+                }
+                else {
+                    if (updateEsthedermUserDTO.name) {
+                        userExist.name = updateEsthedermUserDTO.name;
+                    }
+                    if (updateEsthedermUserDTO.lastName) {
+                        userExist.lastName = updateEsthedermUserDTO.lastName;
+                    }
+                    if (updateEsthedermUserDTO.photo) {
+                        userExist.photo = updateEsthedermUserDTO.photo;
+                    }
+                    if (updateEsthedermUserDTO.nickname) {
+                        userExist.nickname = updateEsthedermUserDTO.nickname;
+                    }
+                    if (updateEsthedermUserDTO.birthDate) {
+                        const userAge = this.getAge(updateEsthedermUserDTO.birthDate);
+                        userExist.birthDate = new Date(updateEsthedermUserDTO.birthDate);
+                        userExist.age = isNaN(userAge) ? 0 : userAge;
+                    }
+                    if (typeof updateEsthedermUserDTO.gender !== "undefined") {
+                        userExist.gender = updateEsthedermUserDTO.gender;
+                    }
+                    if (updateEsthedermUserDTO.phone) {
+                        userExist.phone = updateEsthedermUserDTO.phone;
+                    }
+                    if (updateEsthedermUserDTO.postalCode) {
+                        userExist.postalCode = updateEsthedermUserDTO.postalCode;
+                    }
+                    if (updateEsthedermUserDTO.clinic) {
+                        const userClinic = yield this.clinicRepository.findOne(updateEsthedermUserDTO.clinic);
+                        userExist.clinic = userClinic;
+                    }
+                    if (updateEsthedermUserDTO.state) {
+                        const userState = yield this.stateRepository.findOne(updateEsthedermUserDTO.state);
+                        userExist.city = userState;
+                    }
+                    if (updateEsthedermUserDTO.city) {
+                        const userCity = yield this.cityRepository.findOne(updateEsthedermUserDTO.city);
+                        userExist.delegation = userCity;
+                    }
+                    if (updateEsthedermUserDTO.town) {
+                        userExist.town = updateEsthedermUserDTO.town;
+                    }
+                    if (updateEsthedermUserDTO.charge) {
+                        userExist.charge = updateEsthedermUserDTO.charge;
+                    }
+                    if (updateEsthedermUserDTO.mayoralty) {
+                        userExist.mayoralty = updateEsthedermUserDTO.mayoralty;
+                    }
+                    userExist.isActive = true;
+                    yield this.userRepository.save(userExist);
+                    const userToReturn = yield this.userRepository.findOne({
+                        relations: ["type", "chain", "city", "delegation", "position", "notificacion"],
+                        where: { email: userExist.email }
+                    });
+                    const loggedUser = yield this.sesionRepository.findOne({
+                        where: { user: userToReturn }
+                    });
+                    const generalConfiguration = yield this.configurationRepository.findOne(1);
+                    response = {
+                        user: {
+                            token: loggedUser.id,
+                            name: userToReturn.name,
+                            lastName: userToReturn.lastName,
+                            nickname: userToReturn.nickname,
+                            gender: userToReturn.gender,
+                            image: userToReturn.photo,
+                            birthday: moment(new Date(userToReturn.birthDate)).format('DD-MM-YYYY'),
+                            phonenumber: userToReturn.phone,
+                            email: userToReturn.email,
+                            type: userToReturn.type.id,
+                            totalPoints: userToReturn.points,
+                            address: {
+                                state: userToReturn.city,
+                                city: userToReturn.delegation,
+                                mayoralty: userToReturn.mayoralty,
+                                suburb: userToReturn.town
+                            },
+                            workPosition: userToReturn.position,
+                            statusCart: generalConfiguration.isClubBiodermaActive,
+                            branchClinic: userToReturn.chain,
+                            postalCode: userToReturn.postalCode,
+                            charge: userToReturn.charge,
+                            isActiveCart: userToReturn.type.id === 1 ? false : true,
+                            countNotifications: userToReturn.notificacion ? userToReturn.notificacion.length : 0,
+                        }
+                    };
+                }
+                return response;
+            }
+            catch (err) {
+                console.log("UserService - updateEsthederm: ", err);
+                throw new common_1.HttpException({
+                    status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
+                    error: 'Error updating Esthederm user',
                 }, 500);
             }
         });
@@ -819,14 +1017,16 @@ UserService = __decorate([
     __param(5, typeorm_1.InjectRepository(token_entity_1.Token)),
     __param(6, typeorm_1.InjectRepository(type_entity_1.Type)),
     __param(7, typeorm_1.InjectRepository(chain_entity_1.Chain)),
-    __param(8, typeorm_1.InjectRepository(position_entity_1.Position)),
-    __param(9, typeorm_1.InjectRepository(city_entity_1.City)),
-    __param(10, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
-    __param(11, typeorm_1.InjectRepository(role_entity_1.Role)),
-    __param(12, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
-    __param(13, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
+    __param(8, typeorm_1.InjectRepository(clinic_entity_1.Clinic)),
+    __param(9, typeorm_1.InjectRepository(position_entity_1.Position)),
+    __param(10, typeorm_1.InjectRepository(city_entity_1.City)),
+    __param(11, typeorm_1.InjectRepository(delegation_entity_1.Delegation)),
+    __param(12, typeorm_1.InjectRepository(role_entity_1.Role)),
+    __param(13, typeorm_1.InjectRepository(sesion_entity_1.Sesion)),
+    __param(14, typeorm_1.InjectRepository(configuration_entity_1.Configuration)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
         mailer_1.MailerService,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,

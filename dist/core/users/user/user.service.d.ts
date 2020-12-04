@@ -1,3 +1,4 @@
+import { Clinic } from './../clinic/clinic.entity';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { Token } from '../token/token.entity';
@@ -12,7 +13,7 @@ import { Target } from '../../trivia/target/target.entity';
 import { Campaing } from '../../trivia/campaing/campaing.entity';
 import { Sesion } from '../sesion/sesion.entity';
 import { Configuration } from '../configuration/configuration.entity';
-import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery } from './user.dto';
+import { InviteUserDTO, CreateUserDTO, CreateNAOSUserDTO, CreateDrugStoreUserDTO, UpdateNAOSUserDTO, UpdateDrugStoreUserDTO, ConfirmUserPassword, PasswordRecovery, CreateEsthedermUserDTO, UpdateEsthedermUserDTO } from './user.dto';
 import { MailerService } from '@nestjs-modules/mailer';
 export declare class UserService {
     private userRepository;
@@ -23,13 +24,14 @@ export declare class UserService {
     private tokenRepository;
     private typeRepository;
     private chainRepository;
+    private clinicRepository;
     private positionRepository;
     private stateRepository;
     private cityRepository;
     private roleRepository;
     private sesionRepository;
     private configurationRepository;
-    constructor(userRepository: Repository<User>, mailerService: MailerService, campaingRepository: Repository<Campaing>, quizzRepository: Repository<Quizz>, targetRepository: Repository<Target>, tokenRepository: Repository<Token>, typeRepository: Repository<Type>, chainRepository: Repository<Chain>, positionRepository: Repository<Position>, stateRepository: Repository<City>, cityRepository: Repository<Delegation>, roleRepository: Repository<Role>, sesionRepository: Repository<Sesion>, configurationRepository: Repository<Configuration>);
+    constructor(userRepository: Repository<User>, mailerService: MailerService, campaingRepository: Repository<Campaing>, quizzRepository: Repository<Quizz>, targetRepository: Repository<Target>, tokenRepository: Repository<Token>, typeRepository: Repository<Type>, chainRepository: Repository<Chain>, clinicRepository: Repository<Clinic>, positionRepository: Repository<Position>, stateRepository: Repository<City>, cityRepository: Repository<Delegation>, roleRepository: Repository<Role>, sesionRepository: Repository<Sesion>, configurationRepository: Repository<Configuration>);
     invite(request: InviteUserDTO): Promise<number>;
     findAll(): Promise<any>;
     confirmPassword(requestDTO: ConfirmUserPassword): Promise<any>;
@@ -37,6 +39,8 @@ export declare class UserService {
     create(createUserDTO: CreateUserDTO): Promise<any>;
     createNAOS(createNAOSUserDTO: CreateNAOSUserDTO): Promise<any>;
     createDrugStore(createDrugStoreUserDTO: CreateDrugStoreUserDTO): Promise<any>;
+    createEsthederm(createEsthedermUserDTO: CreateEsthedermUserDTO): Promise<any>;
+    updateEsthederm(updateEsthedermUserDTO: UpdateEsthedermUserDTO): Promise<any>;
     private getAge;
     updateNAOS(updateNAOSUserDTO: UpdateNAOSUserDTO): Promise<any>;
     updateDrugStore(updateDrugStoreUserDTO: UpdateDrugStoreUserDTO): Promise<any>;

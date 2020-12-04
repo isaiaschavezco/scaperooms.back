@@ -6,6 +6,7 @@ import { Position } from '../../users/position/position.entity';
 import { Type } from '../../users/type/type.entity';
 import { Campaing } from '../campaing/campaing.entity';
 import { Role } from '../../users/role/role.entity';
+import { Clinic } from './../../users/clinic/clinic.entity';
 
 @Entity({ schema: 'Trivia' })
 export class Target {
@@ -31,6 +32,9 @@ export class Target {
     @ManyToOne(type => Chain, chain => chain.target)
     chain: Chain;
 
+    @ManyToOne(type => Clinic, clinic => clinic.target)
+    clinic: Clinic;
+    
     @ManyToOne(type => Position, position => position.target)
     position: Position;
 

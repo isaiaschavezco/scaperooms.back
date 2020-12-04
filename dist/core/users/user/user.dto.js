@@ -27,4 +27,10 @@ exports.ConfirmUserPassword = ConfirmUserPassword;
 class PasswordRecovery {
 }
 exports.PasswordRecovery = PasswordRecovery;
+class CreateEsthedermUserDTO {
+}
+exports.CreateEsthedermUserDTO = CreateEsthedermUserDTO;
+class UpdateEsthedermUserDTO {
+}
+exports.UpdateEsthedermUserDTO = UpdateEsthedermUserDTO;
 //# sourceMappingURL=user.dto.js.map

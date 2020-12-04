@@ -17,6 +17,7 @@ const position_entity_1 = require("../../users/position/position.entity");
 const type_entity_1 = require("../../users/type/type.entity");
 const campaing_entity_1 = require("../campaing/campaing.entity");
 const role_entity_1 = require("../../users/role/role.entity");
+const clinic_entity_1 = require("./../../users/clinic/clinic.entity");
 let Target = class Target {
 };
 __decorate([
@@ -47,6 +48,10 @@ __decorate([
     typeorm_1.ManyToOne(type => chain_entity_1.Chain, chain => chain.target),
     __metadata("design:type", chain_entity_1.Chain)
 ], Target.prototype, "chain", void 0);
+__decorate([
+    typeorm_1.ManyToOne(type => clinic_entity_1.Clinic, clinic => clinic.target),
+    __metadata("design:type", clinic_entity_1.Clinic)
+], Target.prototype, "clinic", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => position_entity_1.Position, position => position.target),
     __metadata("design:type", position_entity_1.Position)

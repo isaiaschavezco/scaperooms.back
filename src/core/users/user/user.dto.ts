@@ -3,6 +3,8 @@ export class InviteUserDTO {
     readonly type: number;
 }
 
+
+
 export class CreateUserDTO {
     readonly name: string;
     readonly lastName: string;
@@ -18,6 +20,8 @@ export class CreateUserDTO {
     readonly city: number;
     readonly mayoralty: number;
     readonly chain: number;
+    readonly clinic: number;
+
 }
 
 export class CreateNAOSUserDTO {
@@ -104,3 +108,50 @@ export class PasswordRecovery {
     readonly password: string;
     readonly token: string;
 }
+// -------
+
+
+export class CreateEsthedermUserDTO {
+    readonly name: string;
+    readonly lastName: string;
+    readonly nickName: string;
+    readonly photo: string;
+    readonly birthDate: string;
+    readonly gender: boolean;
+    readonly phone: string;
+    readonly email: string;
+    readonly password: string;
+    readonly postalCode: string;
+    readonly state: number;
+    readonly city: number;
+    readonly clinic: number;
+    readonly town: string;
+    readonly mayoralty: string;
+    readonly charge: string;
+    readonly userToken: string;
+}
+
+
+// ----
+
+// -----------
+
+export class UpdateEsthedermUserDTO {
+    readonly userId: number;
+    readonly name: string;
+    readonly lastName: string;
+    readonly nickname: string;
+    readonly photo: string;
+    readonly birthDate: string;
+    readonly gender: boolean;
+    readonly phone: string;
+    readonly postalCode: string;
+    readonly state: number;
+    readonly city: number;
+    readonly clinic: number;
+    readonly town: string;
+    readonly mayoralty: string;
+    readonly charge: string;
+}
+// -----------
+

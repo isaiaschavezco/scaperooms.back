@@ -103,6 +103,16 @@ let UserController = class UserController {
             return yield this.userService.passwordRecovery(passwordRecovery);
         });
     }
+    createEsthedermUser(createEsthedermUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.createEsthederm(createEsthedermUserDTO);
+        });
+    }
+    updateEsthedermUser(updateEsthedermUserDTO) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.userService.updateEsthederm(updateEsthedermUserDTO);
+        });
+    }
 };
 __decorate([
     common_1.Post('invite'),
@@ -207,6 +217,20 @@ __decorate([
     __metadata("design:paramtypes", [user_dto_1.PasswordRecovery]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "recoveryPassword", null);
+__decorate([
+    common_1.Post('esthederm'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.CreateEsthedermUserDTO]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "createEsthedermUser", null);
+__decorate([
+    common_1.Put('esthederm'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_dto_1.UpdateEsthedermUserDTO]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "updateEsthedermUser", null);
 UserController = __decorate([
     common_1.Controller('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

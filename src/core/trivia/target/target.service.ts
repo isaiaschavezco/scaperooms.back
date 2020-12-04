@@ -9,6 +9,7 @@ import { Type } from '../../users/type/type.entity';
 import { Position } from '../../users/position/position.entity';
 import { Role } from '../../users/role/role.entity';
 import { CreateTargetDTO, DeleteTargetDTO } from './target.dto';
+import { Clinic } from './../../users/clinic/clinic.entity';
 
 @Injectable()
 export class TargetService {
@@ -16,6 +17,8 @@ export class TargetService {
     constructor(@InjectRepository(Target) private targetRepository: Repository<Target>,
         @InjectRepository(City) private cityRepository: Repository<City>,
         @InjectRepository(Chain) private chainRepository: Repository<Chain>,
+        @InjectRepository(Clinic) private clinicRepository: Repository<Clinic>,
+
         @InjectRepository(Type) private typeRepository: Repository<Type>,
         @InjectRepository(Position) private positionRepository: Repository<Position>,
         @InjectRepository(Role) private roleRepository: Repository<Role>,
@@ -52,6 +55,10 @@ export class TargetService {
             if (createDTO.chain !== -1) {
                 chainTargetData = await this.chainRepository.findOne(createDTO.chain);
             }
+            let clinicTargetData = null;
+            if (createDTO.clinic !== -1) {
+                clinicTargetData = await this.clinicRepository.findOne(createDTO.clinic);
+            }
 
             let userTypeTargetData = null;
             let userIsAdmin = null;
@@ -81,6 +88,7 @@ export class TargetService {
                 city: stateTargetData,
                 delegation: cityTargetData,
                 chain: chainTargetData,
+                clinic: clinicTargetData,
                 position: naosPositionTargetData,
                 type: userTypeTargetData,
                 role: userIsAdmin
@@ -96,6 +104,7 @@ export class TargetService {
                     city: targetCreated.city ? targetCreated.city.name : null,
                     delegation: targetCreated.delegation ? targetCreated.delegation.name : null,
                     chain: targetCreated.chain ? targetCreated.chain.name : null,
+                    clinic: targetCreated.clinic ? targetCreated.clinic.name : null,
                     position: targetCreated.position ? targetCreated.position.name : null,
                     type: targetCreated.type ? targetCreated.type.name : null,
                     allUsers: targetCreated.allUsers,

@@ -161,7 +161,6 @@ let NotificationService = class NotificationService {
                             }
                             if (target.initAge !== null) {
                                 tempTargetObject['age'] = typeorm_2.Between(target.initAge, target.finalAge);
-                                console.log("LO QUE DEVUELVE BETWEEN", typeorm_2.Between(target.initAge, target.finalAge));
                             }
                             if (target.gender !== null) {
                                 tempTargetObject['gender'] = target.gender;

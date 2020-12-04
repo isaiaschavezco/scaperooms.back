@@ -2269,9 +2269,13 @@
         "version": "417ff9ac37e483258a2545689d1720a4345878fd9e19397949c46e5140e50c64",
         "signature": "2bc85d631eced99621292c5d7c74391de74a5430859fc649f1fef122c5e475b2"
       },
+      "../src/core/users/clinic/clinic.entity.ts": {
+        "version": "bf72cb3902ea647b8fb2738065b3aac9983ed00133f9fb654d120c120dee2168",
+        "signature": "53fc7b1d2ee28676f92313083c6c80f42cfb7a68eb41c4dc237a1a725341af7e"
+      },
       "../src/core/trivia/target/target.entity.ts": {
-        "version": "bf68699c9baf7a278c6c87d45f46eb7cac1cf65ae00eaaaa1d783d3854497f07",
-        "signature": "20e9ad8548a91a4d383e89b37fd77b41cb3004160b32f044f9dc29e34d0e3fed"
+        "version": "c4d86b01dc9b00c8f7979d35e466f813cec73b49771cedb81e7270fb95156834",
+        "signature": "6638756e69ce556dbc7ff35365834a848a28868dd1e03baabba47ab6f9af8ea4"
       },
       "../src/core/users/type/type.entity.ts": {
         "version": "f54a04a7f46cfe5c434aa844a29f791af95f53bc20427b96d4d236f2180f221e",
@@ -2290,8 +2294,8 @@
         "signature": "c60299a92958a98896a7286ad4a8d9cafbdddee99d4ca615371680c59cd33e8c"
       },
       "../src/core/users/user/user.entity.ts": {
-        "version": "63d59004dbda7b84dbfbacb05d3e574a3eeb28b383cc69d397146eef9b6d3edb",
-        "signature": "fbd3fed09f8bdd6890e7e6ea20a7af286a8ead5a9ef5141222edf89a973ed448"
+        "version": "ed5862feeab7fee5a6fd77a204783fc70de7c167e9faf11cd0ea1665557e28ba",
+        "signature": "f08d66b82e11b01f191c0b0fe2c17ffa28cb092e6bfe54c1abb3b9a538c5434f"
       },
       "../src/core/users/chain/chain.entity.ts": {
         "version": "58e22efaa7bbc564ff6c84731180f456526d568d4641f461555b943cf4fa7e28",
@@ -2390,23 +2394,23 @@
         "signature": "7c7085ecf13fdfc5106a61f9d1a551399138cb243b3fbbf23ab2855d70f3033f"
       },
       "../src/core/users/user/user.dto.ts": {
-        "version": "a472f60032a8c5a54a6398f6fdc3d0ec9f323ea93128d882d9951e1912301f92",
-        "signature": "84d7fb38691b7b591e71ce591bfca4e6d3b2ba49b814c7dfd070395511584338"
+        "version": "9c3127411c4a1f9b4ed174c79b65a22044dd9addc58fccb6e0f35dba49210904",
+        "signature": "2f509cdf41d5d60da68a6e3ecd3798bfec3acb81f398b764ee9f78bb4a828089"
       },
       "../node_modules/moment/ts3.1-typings/moment.d.ts": {
         "version": "f97edc4d3b4dd0b32766e9633086497565c37657fb591cc84a35864db4bc2fc5",
         "signature": "f97edc4d3b4dd0b32766e9633086497565c37657fb591cc84a35864db4bc2fc5"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "53fec44ad1d77d7c87d8e17aae090984f67a8fd0279b1974110b56e29cd8581c",
-        "signature": "2c8d4ec1a0567263ed47602995497ad4d28dfe3c4989d47d5e765734b813356d"
+        "version": "22b6e9212f54c4b2fccf343e67916b9f2992547192cb62d68bcb6f9c930e1039",
+        "signature": "e2d606dfa719bf4543bdb4ca6ed9111c1bbf4221c36077da3cf612b6d4e5a237"
       },
       "../src/core/users/user/user.controller.ts": {
-        "version": "b8c2bc5a3199e6060628f4698fc7c9fffc0391f1e89eb21b05cf5b35a9289fe7",
-        "signature": "98e7c983e9d988460ec89488cd356459053afb13353a697f4dff6c6f7ab8ae04"
+        "version": "0474011525076a9dc3718b3a0de4be2a9bb6f1d6d9df3f6f8399fa10e05f463c",
+        "signature": "bd3e176d2d7495fcdbd3c9c3d0b98806c805147e96661871a9112b66c4e904d3"
       },
       "../src/core/users/user/user.module.ts": {
-        "version": "fa19231c030fced938e62e4468cef08844af67824e79070321b93897f6f82afd",
+        "version": "d0af70c28966907e8d023fc08dd94139b7b794c5cb4a43e2da992a2f7b8f3a66",
         "signature": "9e36626cb39f17790cf2403e2e54d8a74542da63e2a49aba7061133a1af26dcd"
       },
       "../src/core/users/role/role.service.ts": {
@@ -2554,19 +2558,19 @@
         "signature": "1b867860095e230758cbe5acf3e680b526d348bbe7581eaac1b68464d115c003"
       },
       "../src/core/trivia/target/target.dto.ts": {
-        "version": "208dfc74ea0eee1bada89e626cf10047c7c2e4babdadb53b2d7c2993f52de3ea",
-        "signature": "93dbc1fdb49f26d71fbd194291805b151672b0f6ec13f5056e08461cb56146ed"
+        "version": "d275b24adc013700e9aaaa6622fef1ca9ca19ca97027de1b775507c1306f7d2d",
+        "signature": "8498e4f2b2e79e7e04ad4b0646a6730a448303845f3f7bdec386ef4ce2288142"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "588c0748b270e81cea2a0e1a41ead784d6f25f06e4ba722d5a01b77b8116d6c3",
-        "signature": "c876b16fa2c62938a4e1c71d5a2333541e8190b9d87ac0328f0f830cf8cf3d7d"
+        "version": "bc789d65373cf70b4f12b7f3f07e4988ef8057f1c20bc4ff925f34d249bc32dd",
+        "signature": "31fb235865b6d5641136d5258b1eee25fa18038ca91603a585020f85a468a289"
       },
       "../src/core/trivia/target/target.controller.ts": {
         "version": "e1988d9900da0d158c67e747eb78aa44075626ec7e8f01436cfc403f047c0f45",
         "signature": "ade657d99be9eb7348a289d345349a2d0668ab7c7d5e5e92375f17eed8f41aba"
       },
       "../src/core/trivia/target/target.module.ts": {
-        "version": "92a0c7cf3d297fd1cec3267d282868b644aa6c701ca18894a2b8b5ff4ddaaff8",
+        "version": "c65a7b7fe5025b7a2c4955d3cadab1a7714b5f5cbdecdff5c29c1c1be3c565e0",
         "signature": "a9f1e3527e4d5289a2f6bfd9f48fd6cbcb0596a819c548db428607b70c4c3979"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
@@ -4126,7 +4130,7 @@
         "signature": "0a19f58af29e3cb261d9da1c4260025b752f671d475ef5e111abcf6746c35e60"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "99c2c946e039383dae3991c487c4212273cd25db16ac58a2d3700c4e72dc7ddb",
+        "version": "aa1cd8dcbc987ccbb70b9c968f19e4a7bc0bdf098e9c78aeaf7ba8b239fe99ca",
         "signature": "13c57d2d9cfa767d33a67485c51e69eead661c5f9279a63f77a0fc85eec7a749"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -4345,8 +4349,24 @@
         "version": "6cf653142c60749f6906a712f5441ca643172071325527e25a8fe5137da42ec1",
         "signature": "0ff1daa6364a376bcd0f636b56c8454aa266fb6cac8087e86effdb6daa0296f6"
       },
+      "../src/core/users/clinic/clinic.dto.ts": {
+        "version": "a94e7169cd5d88e3b7ebbedb288aeb2ad2f37b0b0f1279e278cab5569f356ccb",
+        "signature": "84ebe53d006c19d60b24f4343479ee838bf27afb6964f95e45f10df65b073429"
+      },
+      "../src/core/users/clinic/clinic.service.ts": {
+        "version": "c1bc9e3b311a5fff3a7d9105455cde2a31b36a7613a438b1576b6a8ed1b096b3",
+        "signature": "7d41f598384645885eaa98f884eabcd39f4ca0e9e60de44ef2f815427beeb481"
+      },
+      "../src/core/users/clinic/clinic.controller.ts": {
+        "version": "1acdb09a5949e72dfb633e5c205e9621c276a9ee9d6e7d293674676a75aa495e",
+        "signature": "8fde672626c2429b106d362e0a096ac6639bfd8b35a67341c053bfccd9313418"
+      },
+      "../src/core/users/clinic/clinic.module.ts": {
+        "version": "3f7b3982cf3b2ea8749da5ff02085f7100da55a8759f40a56c5811c8bdca6881",
+        "signature": "020b618d69e8b1e9bba30f11f19f14b39a9dccf634ab6f8812b6df85acdab38e"
+      },
       "../src/app.module.ts": {
-        "version": "3b028442ecf179ee29b1add3dc27b97e2cee3398212dc10a0d92b77e1e145438",
+        "version": "41c29250524ee03b0979c222fc6b4fca2cddd826a4fc3d3927933370ec948a71",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -4504,6 +4524,10 @@
       "../src/core/trivia/points-type/points-type.module.ts": {
         "version": "26ff1f109882df73684df7ded890dda295a41f82d0282b6829173ae3d8388922",
         "signature": "4b054e2f994b8f035efb5a734a4c2a8b4a87ea42805ebbb912f07d3c3ba997b6"
+      },
+      "../src/core/users/clinic/clinic.controller copy.ts": {
+        "version": "7cc16d4356f17f9d908dcbb5625704381793704574d79984104efc5e59b55d8c",
+        "signature": "8fde672626c2429b106d362e0a096ac6639bfd8b35a67341c053bfccd9313418"
       },
       "../node_modules/@types/babel-types/ts3.6/index.d.ts": {
         "version": "b5151c566c80e1f636333b9cc7d8004b6152449768179fc73055692e1d9cbe52",
@@ -6668,6 +6692,11 @@
         "../src/core/users/user/user.entity.ts",
         "../src/core/trivia/target/target.entity.ts"
       ],
+      "../src/core/users/clinic/clinic.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/target/target.entity.ts"
+      ],
       "../src/core/trivia/target/target.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/city/city.entity.ts",
@@ -6676,7 +6705,8 @@
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/trivia/campaing/campaing.entity.ts",
-        "../src/core/users/role/role.entity.ts"
+        "../src/core/users/role/role.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts"
       ],
       "../src/core/users/type/type.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
@@ -6704,6 +6734,7 @@
         "../src/core/users/colony/colony.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/role/role.entity.ts",
         "../src/core/content/trade/trade.entity.ts",
         "../src/core/trivia/quizz/quizz.entity.ts",
@@ -6835,6 +6866,7 @@
         "../node_modules/typeorm/index.d.ts"
       ],
       "../src/core/users/user/user.service.ts": [
+        "../src/core/users/clinic/clinic.entity.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
@@ -6870,6 +6902,7 @@
         "../src/core/users/token/token.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
@@ -7072,7 +7105,8 @@
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/role/role.entity.ts",
-        "../src/core/trivia/target/target.dto.ts"
+        "../src/core/trivia/target/target.dto.ts",
+        "../src/core/users/clinic/clinic.entity.ts"
       ],
       "../src/core/trivia/target/target.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -7082,6 +7116,7 @@
       ],
       "../src/core/trivia/target/target.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/core/trivia/target/target.service.ts",
         "../src/core/trivia/target/target.controller.ts",
@@ -9830,6 +9865,26 @@
         "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts"
       ],
+      "../src/core/users/clinic/clinic.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
+        "../src/core/users/clinic/clinic.dto.ts"
+      ],
+      "../src/core/users/clinic/clinic.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/users/clinic/clinic.service.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
+        "../src/core/users/clinic/clinic.dto.ts"
+      ],
+      "../src/core/users/clinic/clinic.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../src/core/users/clinic/clinic.controller.ts",
+        "../src/core/users/clinic/clinic.service.ts",
+        "../src/core/users/clinic/clinic.entity.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -9864,7 +9919,8 @@
         "../src/core/users/configuration/configuration.module.ts",
         "../src/core/trivia/answerbyuserquizz/answerbyuserquizz.module.ts",
         "../src/core/content/message/message.module.ts",
-        "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts"
+        "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
+        "../src/core/users/clinic/clinic.module.ts"
       ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -10047,6 +10103,12 @@
         "../src/core/trivia/points-type/points-type.service.ts",
         "../src/core/trivia/points-type/points-type.controller.ts",
         "../src/core/trivia/points-type/points-type.entity.ts"
+      ],
+      "../src/core/users/clinic/clinic.controller copy.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/core/users/clinic/clinic.service.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
+        "../src/core/users/clinic/clinic.dto.ts"
       ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/babel-types/ts3.6/index.d.ts"
@@ -11880,9 +11942,14 @@
         "../src/core/users/user/user.entity.ts",
         "../src/core/trivia/target/target.entity.ts"
       ],
+      "../src/core/users/clinic/clinic.entity.ts": [
+        "../src/core/users/user/user.entity.ts",
+        "../src/core/trivia/target/target.entity.ts"
+      ],
       "../src/core/trivia/target/target.entity.ts": [
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/role/role.entity.ts",
@@ -11910,6 +11977,7 @@
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/role/role.entity.ts",
         "../src/core/content/trade/trade.entity.ts",
         "../src/core/trivia/quizz/quizz.entity.ts",
@@ -11963,6 +12031,7 @@
         "../src/core/users/token/token.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
@@ -12046,6 +12115,7 @@
         "../src/core/trivia/target/target.entity.ts",
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/chain/chain.entity.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/position/position.entity.ts",
         "../src/core/users/role/role.entity.ts",
@@ -14620,6 +14690,15 @@
         "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
         "../src/core/trivia/pointsbyuser/pointsbyuser.dto.ts"
       ],
+      "../src/core/users/clinic/clinic.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/users/clinic/clinic.entity.ts",
+        "../src/core/users/clinic/clinic.dto.ts"
+      ],
+      "../src/core/users/clinic/clinic.controller.ts": [
+        "../src/core/users/clinic/clinic.service.ts",
+        "../src/core/users/clinic/clinic.dto.ts"
+      ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/common/interfaces/index.d.ts",
@@ -14782,6 +14861,10 @@
         "../node_modules/@nestjs/core/nest-factory.d.ts",
         "../node_modules/@nestjs/core/router/index.d.ts",
         "../node_modules/@nestjs/core/services/index.d.ts"
+      ],
+      "../src/core/users/clinic/clinic.controller copy.ts": [
+        "../src/core/users/clinic/clinic.service.ts",
+        "../src/core/users/clinic/clinic.dto.ts"
       ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/babel-types/ts3.6/index.d.ts"
@@ -15368,6 +15451,7 @@
       "../src/core/trivia/quizz/quizz.entity.ts",
       "../src/core/trivia/campaing/campaing.entity.ts",
       "../src/core/users/role/role.entity.ts",
+      "../src/core/users/clinic/clinic.entity.ts",
       "../src/core/trivia/target/target.entity.ts",
       "../src/core/users/type/type.entity.ts",
       "../src/core/content/message/message.entity.ts",
@@ -15398,11 +15482,7 @@
       "../src/core/users/token/token.controller.ts",
       "../src/core/users/token/token.module.ts",
       "../src/core/users/configuration/configuration.entity.ts",
-      "../src/core/users/user/user.dto.ts",
       "../node_modules/moment/ts3.1-typings/moment.d.ts",
-      "../src/core/users/user/user.service.ts",
-      "../src/core/users/user/user.controller.ts",
-      "../src/core/users/user/user.module.ts",
       "../src/core/users/role/role.service.ts",
       "../src/core/users/role/role.controller.ts",
       "../src/core/users/role/role.module.ts",
@@ -15832,6 +15912,7 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
+      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
@@ -15886,7 +15967,10 @@
       "../src/core/trivia/pointsbyuser/pointsbyuser.service.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.controller.ts",
       "../src/core/trivia/pointsbyuser/pointsbyuser.module.ts",
-      "../src/app.module.ts",
+      "../src/core/users/clinic/clinic.dto.ts",
+      "../src/core/users/clinic/clinic.service.ts",
+      "../src/core/users/clinic/clinic.controller.ts",
+      "../src/core/users/clinic/clinic.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
@@ -15926,6 +16010,7 @@
       "../src/core/trivia/points-type/points-type.controller.ts",
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
+      "../src/core/users/clinic/clinic.controller copy.ts",
       "../node_modules/@types/babel-types/ts3.6/index.d.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
@@ -15936,7 +16021,11 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/notification/notification.service.ts"
+      "../src/core/users/user/user.dto.ts",
+      "../src/core/users/user/user.controller.ts",
+      "../src/core/users/user/user.service.ts",
+      "../src/core/users/user/user.module.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

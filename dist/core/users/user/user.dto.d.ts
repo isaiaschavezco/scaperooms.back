@@ -17,6 +17,7 @@ export declare class CreateUserDTO {
     readonly city: number;
     readonly mayoralty: number;
     readonly chain: number;
+    readonly clinic: number;
 }
 export declare class CreateNAOSUserDTO {
     readonly name: string;
@@ -95,4 +96,40 @@ export declare class PasswordRecovery {
     readonly email: string;
     readonly password: string;
     readonly token: string;
+}
+export declare class CreateEsthedermUserDTO {
+    readonly name: string;
+    readonly lastName: string;
+    readonly nickName: string;
+    readonly photo: string;
+    readonly birthDate: string;
+    readonly gender: boolean;
+    readonly phone: string;
+    readonly email: string;
+    readonly password: string;
+    readonly postalCode: string;
+    readonly state: number;
+    readonly city: number;
+    readonly clinic: number;
+    readonly town: string;
+    readonly mayoralty: string;
+    readonly charge: string;
+    readonly userToken: string;
+}
+export declare class UpdateEsthedermUserDTO {
+    readonly userId: number;
+    readonly name: string;
+    readonly lastName: string;
+    readonly nickname: string;
+    readonly photo: string;
+    readonly birthDate: string;
+    readonly gender: boolean;
+    readonly phone: string;
+    readonly postalCode: string;
+    readonly state: number;
+    readonly city: number;
+    readonly clinic: number;
+    readonly town: string;
+    readonly mayoralty: string;
+    readonly charge: string;
 }

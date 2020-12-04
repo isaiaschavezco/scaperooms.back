@@ -4,6 +4,7 @@ export class CreateTargetDTO {
     readonly state: number;
     readonly city: number;
     readonly chain: number;
+    readonly clinic: number;
     readonly naosPosition: number;
     readonly initAge: number;
     readonly finalAge: number;
