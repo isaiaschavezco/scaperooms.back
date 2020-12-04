@@ -200,7 +200,7 @@ export class NotificationService {
 
                     let usersToSendArray = [];
 
-                    
+                        console.log("notificationToAllUsers? :",notificationToAllUsers)
                     if (notificationToAllUsers) {
                         let usersToSendTemp = await this.userRepository.find({
                             select: ["id"]
@@ -231,19 +231,19 @@ export class NotificationService {
                             userIds.push(user.id);
                         });
 
-                        console.log("userIds: ", userIds);
+                        console.log("userIds: ", userIds," ",userIds.length );
 
                         const activeSessions = await this.sesionRepository.find({
                             user: In(userIds)
                         });
-                        console.log("activeSessions",activeSessions)
+                        console.log("activeSessions",activeSessions," ",activeSessions.length)
 
                         activeSessions.forEach(sesion => {
                             if (sesion.playerId) {
                                 playerIds.push(sesion.playerId);
                             }
                         });
-                        console.log("playerIds:",playerIds)
+                        console.log("playerIds:",playerIds," ",playerIds.length)
 
                         const input = new NotificationByDeviceBuilder()
                             .setIncludePlayerIds(playerIds)

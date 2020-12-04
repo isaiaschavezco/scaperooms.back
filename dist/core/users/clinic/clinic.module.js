@@ -16,8 +16,8 @@ let ClinicModule = class ClinicModule {
 ClinicModule = __decorate([
     common_1.Module({
         imports: [typeorm_1.TypeOrmModule.forFeature([clinic_entity_1.Clinic])],
-        controllers: [clinic_controller_1.ClinicController],
         providers: [clinic_service_1.ClinicService],
+        controllers: [clinic_controller_1.ClinicController],
         exports: []
     })
 ], ClinicModule);

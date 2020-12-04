@@ -4130,7 +4130,7 @@
         "signature": "0a19f58af29e3cb261d9da1c4260025b752f671d475ef5e111abcf6746c35e60"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "aa1cd8dcbc987ccbb70b9c968f19e4a7bc0bdf098e9c78aeaf7ba8b239fe99ca",
+        "version": "cbc7e96a41fa467b42d7b37949983c57a4300578e4b791c5f144b7bbe031b8f4",
         "signature": "13c57d2d9cfa767d33a67485c51e69eead661c5f9279a63f77a0fc85eec7a749"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -4362,7 +4362,7 @@
         "signature": "8fde672626c2429b106d362e0a096ac6639bfd8b35a67341c053bfccd9313418"
       },
       "../src/core/users/clinic/clinic.module.ts": {
-        "version": "3f7b3982cf3b2ea8749da5ff02085f7100da55a8759f40a56c5811c8bdca6881",
+        "version": "5308742cac85ec7dcde32f5155bef83872b5507fc817aebfa8d1572ea8f0bf9c",
         "signature": "020b618d69e8b1e9bba30f11f19f14b39a9dccf634ab6f8812b6df85acdab38e"
       },
       "../src/app.module.ts": {
@@ -4585,6 +4585,7 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
+      "watch": true,
       "project": "../tsconfig.build.json",
       "configFilePath": "../tsconfig.build.json"
     },
@@ -14872,6 +14873,9 @@
         "../src/core/users/clinic/clinic.service.ts",
         "../src/core/users/clinic/clinic.dto.ts"
       ],
+      "../src/database/migrations/1607045836636-deploy.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../node_modules/@types/babel-types/index.d.ts": [
         "../node_modules/@types/babel-types/ts3.6/index.d.ts"
       ],
@@ -14887,9 +14891,6 @@
       ],
       "../node_modules/@types/supertest/index.d.ts": [
         "../node_modules/@types/superagent/index.d.ts"
-      ],
-      "../src/database/migrations/1607045836636-deploy.ts": [
-        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -15983,7 +15984,6 @@
       "../src/core/users/clinic/clinic.dto.ts",
       "../src/core/users/clinic/clinic.service.ts",
       "../src/core/users/clinic/clinic.controller.ts",
-      "../src/core/users/clinic/clinic.module.ts",
       "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
@@ -16025,6 +16025,7 @@
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
       "../src/core/users/clinic/clinic.controller copy.ts",
+      "../src/database/migrations/1607045836636-deploy.ts",
       "../node_modules/@types/babel-types/ts3.6/index.d.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
@@ -16035,7 +16036,7 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/database/migrations/1607045836636-deploy.ts"
+      "../src/core/users/clinic/clinic.module.ts"
     ]
   },
   "version": "3.7.2"

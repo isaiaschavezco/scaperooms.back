@@ -185,6 +185,7 @@ let NotificationService = class NotificationService {
                             }
                         });
                         let usersToSendArray = [];
+                        console.log("notificationToAllUsers? :", notificationToAllUsers);
                         if (notificationToAllUsers) {
                             let usersToSendTemp = yield this.userRepository.find({
                                 select: ["id"]
@@ -210,17 +211,17 @@ let NotificationService = class NotificationService {
                             usersToSend.forEach(user => {
                                 userIds.push(user.id);
                             });
-                            console.log("userIds: ", userIds);
+                            console.log("userIds: ", userIds, " ", userIds.length);
                             const activeSessions = yield this.sesionRepository.find({
                                 user: typeorm_2.In(userIds)
                             });
-                            console.log("activeSessions", activeSessions);
+                            console.log("activeSessions", activeSessions, " ", activeSessions.length);
                             activeSessions.forEach(sesion => {
                                 if (sesion.playerId) {
                                     playerIds.push(sesion.playerId);
                                 }
                             });
-                            console.log("playerIds:", playerIds);
+                            console.log("playerIds:", playerIds, " ", playerIds.length);
                             const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
                                 .setIncludePlayerIds(playerIds)
                                 .notification()
