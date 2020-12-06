@@ -9,12 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class prueba1607232902598 {
+class esthederm1607202231582 {
     constructor() {
-        this.name = 'prueba1607232902598';
+        this.name = 'esthederm1607202231582';
     }
     up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.query(`ALTER TABLE "Content"."article" ADD "isBlogEsthederm" boolean`);
             yield queryRunner.query(`COMMENT ON COLUMN "Content"."article"."createdAt" IS NULL`);
             yield queryRunner.query(`COMMENT ON COLUMN "Content"."submenu"."createdAt" IS NULL`);
             yield queryRunner.query(`COMMENT ON COLUMN "Trivia"."question"."createdAt" IS NULL`);
@@ -41,8 +42,9 @@ class prueba1607232902598 {
             yield queryRunner.query(`COMMENT ON COLUMN "Trivia"."question"."createdAt" IS NULL`);
             yield queryRunner.query(`COMMENT ON COLUMN "Content"."submenu"."createdAt" IS NULL`);
             yield queryRunner.query(`COMMENT ON COLUMN "Content"."article"."createdAt" IS NULL`);
+            yield queryRunner.query(`ALTER TABLE "Content"."article" DROP COLUMN "isBlogEsthederm"`);
         });
     }
 }
-exports.prueba1607232902598 = prueba1607232902598;
-//# sourceMappingURL=1607232902598-prueba.js.map
+exports.esthederm1607202231582 = esthederm1607202231582;
+//# sourceMappingURL=1607202231582-esthederm.js.map

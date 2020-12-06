@@ -1,5 +1,5 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
-export declare class prueba1607232902598 implements MigrationInterface {
+export declare class esthederm1607202231582 implements MigrationInterface {
     name: string;
     up(queryRunner: QueryRunner): Promise<void>;
     down(queryRunner: QueryRunner): Promise<void>;
