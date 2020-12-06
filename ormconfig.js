@@ -9,7 +9,7 @@ module.exports = {
     // "entities": [ "src/**/*.entity{.ts,.js}" ],
     migrationTableName:"migrations",
     // "migrations": ["src/database/migrations/*{.ts.js}"],
-    "migrations": ["dist/database/migrations/*{.js}"],
+    "migrations": ["dist/database/migrations/*{.ts,.js}"],
     "extra": {
         "max": 25,
         "min": 1
