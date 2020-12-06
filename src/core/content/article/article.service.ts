@@ -66,10 +66,14 @@ export class ArticleService {
     async findListArticles(requestDTO: GetArticlesList): Promise<any> {
         try {
             let listToReturn = [];
-
+            console.log(requestDTO)
             const articlesList = await this.articleRepository.find({
                 relations: ["tag"],
-                where: { isBiodermaGame: requestDTO.isBiodermaGame, isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos },
+                where: { 
+                isBiodermaGame: requestDTO.isBiodermaGame,
+                isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos,
+                isBlogEsthederm: requestDTO.isBiodermaGame ? null : requestDTO.isBlogEsthederm
+                 },
                 order: {
                     createdAt: "DESC"
                 }
@@ -110,7 +114,8 @@ export class ArticleService {
                 galery: createDTO.galery,
                 isBiodermaGame: createDTO.isBiodermaGame,
                 tag: articleTags,
-                isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos
+                isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos,
+                isBlogEsthederm: createDTO.isBiodermaGame ? null : createDTO.isBlogEsthederm
             });
 
             await this.articleRepository.save(newArticle);

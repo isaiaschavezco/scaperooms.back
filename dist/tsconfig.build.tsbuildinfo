@@ -2402,7 +2402,7 @@
         "signature": "f97edc4d3b4dd0b32766e9633086497565c37657fb591cc84a35864db4bc2fc5"
       },
       "../src/core/users/user/user.service.ts": {
-        "version": "9d9e200cbace2a039372bc7a2f0db8af55d9fc1bbd601ab5021236209b7d4389",
+        "version": "439cdf6ae84fdd503ba983c665e3c398feddb12763051073cd67ee56a75ac5ea",
         "signature": "4dc56bc4e8f8df736a2e9dcab39262bd5d63fe2348a3c421100fd0a4c41516e0"
       },
       "../src/core/users/user/user.controller.ts": {
@@ -2478,8 +2478,8 @@
         "signature": "775682a30e63deb0ec3da028a66cf4cd3ae032d1b7d009697c8b9329465ef7f5"
       },
       "../src/core/content/article/article.entity.ts": {
-        "version": "6c017cb480195b5663e5203562b2d74936ede5c514fb20669fa338cfcc791364",
-        "signature": "0ead5a0caae297efacecd36c177c7da5f5012e2ddc552958f4ed6708ac6bde90"
+        "version": "6851b1eca2f9f5f045e0fd0988ff4e179b0afde15586d4a6cb6996beb5fa2077",
+        "signature": "aa4ef18ad0e83c839439d41cb36b0e9db949b4dce68e472172797cceca9d24b1"
       },
       "../src/core/content/tag/tag.entity.ts": {
         "version": "edc88fa7945698c87bba91e56670e41f6a761913d3a8bf9eb04c2648e8d4bba0",
@@ -2502,11 +2502,11 @@
         "signature": "939e943ce3d8cf82a54357c11e747dcd05345f70a18a5f549d83e4b8a0bd91f4"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "316de6e67426adc40f01013b0841672e28c5c504f086b262e59125c7ff6267ab",
-        "signature": "2287523501e5b12c4ca84746760cb55066eacb8fc0166c21b1040e7bded6e615"
+        "version": "b93a81053a1d3552a203314d87641011ae927f4ef51e5d5b34c1a089d2d540a5",
+        "signature": "eb74b11ed85f3c2cf8c59564ce13d6e2f307c1f9c4d53f8b7a146e25d1780788"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "58527d891d153b7094efce86d1ab216cc879f6e911b429f4436575164e745702",
+        "version": "83d589603bd33b5d4aaf93409921069447de9996dfc6c9487d341e71a4296dfc",
         "signature": "88fc81dcecb1293f4e715f6d5afa440d0c9b16e592fcd392e72e30f28bb2c3e9"
       },
       "../src/core/content/article/article.controller.ts": {
@@ -4529,9 +4529,13 @@
         "version": "7cc16d4356f17f9d908dcbb5625704381793704574d79984104efc5e59b55d8c",
         "signature": "8fde672626c2429b106d362e0a096ac6639bfd8b35a67341c053bfccd9313418"
       },
-      "../src/database/migrations/1607045836636-deploy.ts": {
-        "version": "0028e79befdf4433f9832ac589dd113916bf456979151a13309e1b32ce3055d3",
-        "signature": "b5528931193bf15c430cd0bc5151758d607001b823625d909b791d2939a76387"
+      "../src/database/migrations/1607202231582-esthederm.ts": {
+        "version": "82483c42a5aaf875a0ec82bc0afecdb9dbe8c81f83f87125ef41b2564ffed8d4",
+        "signature": "55b80298187542878afe577cdfcc04e8e904e172b31aaa446b5ba07195f6df2d"
+      },
+      "../src/database/migrations/1607232902598-prueba.ts": {
+        "version": "acf1a79711b95bd734f9c2755a4bc0b8b76ff89bded57ab8b63ea3e4beb816ea",
+        "signature": "a4fbff06638e6678a8690c4254a48b7020a02886124f1c83c07ce3198e9e6a75"
       },
       "../node_modules/@types/babel-types/ts3.6/index.d.ts": {
         "version": "b5151c566c80e1f636333b9cc7d8004b6152449768179fc73055692e1d9cbe52",
@@ -10114,7 +10118,10 @@
         "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/clinic/clinic.dto.ts"
       ],
-      "../src/database/migrations/1607045836636-deploy.ts": [
+      "../src/database/migrations/1607202231582-esthederm.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../src/database/migrations/1607232902598-prueba.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
       "../node_modules/@types/babel-types/index.d.ts": [
@@ -14873,7 +14880,7 @@
         "../src/core/users/clinic/clinic.service.ts",
         "../src/core/users/clinic/clinic.dto.ts"
       ],
-      "../src/database/migrations/1607045836636-deploy.ts": [
+      "../src/database/migrations/1607202231582-esthederm.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
       "../node_modules/@types/babel-types/index.d.ts": [
@@ -14891,6 +14898,9 @@
       ],
       "../node_modules/@types/supertest/index.d.ts": [
         "../node_modules/@types/superagent/index.d.ts"
+      ],
+      "../src/database/migrations/1607232902598-prueba.ts": [
+        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -15984,6 +15994,7 @@
       "../src/core/users/clinic/clinic.dto.ts",
       "../src/core/users/clinic/clinic.service.ts",
       "../src/core/users/clinic/clinic.controller.ts",
+      "../src/core/users/clinic/clinic.module.ts",
       "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
@@ -16025,7 +16036,7 @@
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
       "../src/core/users/clinic/clinic.controller copy.ts",
-      "../src/database/migrations/1607045836636-deploy.ts",
+      "../src/database/migrations/1607202231582-esthederm.ts",
       "../node_modules/@types/babel-types/ts3.6/index.d.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
@@ -16036,7 +16047,7 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/users/clinic/clinic.module.ts"
+      "../src/database/migrations/1607232902598-prueba.ts"
     ]
   },
   "version": "3.7.2"

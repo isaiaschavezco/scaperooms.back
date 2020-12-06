@@ -46,6 +46,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Article.prototype, "isBlogNaos", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", Boolean)
+], Article.prototype, "isBlogEsthederm", void 0);
+__decorate([
     typeorm_1.Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" }),
     __metadata("design:type", Date)
 ], Article.prototype, "createdAt", void 0);

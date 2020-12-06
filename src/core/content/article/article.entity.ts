@@ -28,6 +28,9 @@ export class Article {
     @Column({ nullable: true })
     isBlogNaos: boolean;
 
+    @Column({ nullable: true })
+    isBlogEsthederm: boolean;
+
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;
 

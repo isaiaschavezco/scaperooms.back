@@ -7,6 +7,8 @@ export class CreateArticleDTO {
     readonly isBiodermaGame: boolean;
     readonly tags: number[];
     readonly isBlogNaos: boolean;
+    readonly isBlogEsthederm: boolean;
+    
 }
 
 export class GetArticleList {
@@ -19,6 +21,7 @@ export class GetArticleList {
 export class GetArticlesList {
     readonly isBiodermaGame: boolean;
     readonly isBlogNaos: boolean;
+    readonly isBlogEsthederm: boolean;
 }
 
 export class UpdateArticleDTO {

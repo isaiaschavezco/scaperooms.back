@@ -7,6 +7,7 @@ export declare class CreateArticleDTO {
     readonly isBiodermaGame: boolean;
     readonly tags: number[];
     readonly isBlogNaos: boolean;
+    readonly isBlogEsthederm: boolean;
 }
 export declare class GetArticleList {
     readonly isBiodermaGame: boolean;
@@ -17,6 +18,7 @@ export declare class GetArticleList {
 export declare class GetArticlesList {
     readonly isBiodermaGame: boolean;
     readonly isBlogNaos: boolean;
+    readonly isBlogEsthederm: boolean;
 }
 export declare class UpdateArticleDTO {
     readonly id: number;

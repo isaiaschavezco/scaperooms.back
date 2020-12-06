@@ -122,7 +122,7 @@ let UserService = class UserService {
             try {
                 const usersList = yield this.userRepository.find({
                     select: ["id", "name", "email", "points"],
-                    relations: ["position", "type", "chain"],
+                    relations: ["position", "type", "chain", "clinic"],
                     where: { isActive: true }
                 });
                 return { users: usersList };
@@ -442,7 +442,7 @@ let UserService = class UserService {
                             const userAge = this.getAge(createEsthedermUserDTO.birthDate);
                             const userState = yield this.stateRepository.findOne(createEsthedermUserDTO.state);
                             const userCity = yield this.cityRepository.findOne(createEsthedermUserDTO.city);
-                            const userType = yield this.typeRepository.findOne(2);
+                            const userType = yield this.typeRepository.findOne(3);
                             const userClinic = yield this.clinicRepository.findOne(createEsthedermUserDTO.clinic);
                             const userRole = yield this.roleRepository.findOne(2);
                             let newUser = this.userRepository.create({
@@ -987,6 +987,7 @@ let UserService = class UserService {
                     .addSelect("user.email", "EMAIL")
                     .addSelect("type.name", "TIPO")
                     .addSelect("chain.name", "CADENA")
+                    .addSelect("clinic.name", "CLINICA")
                     .addSelect("user.drugstore", "SUCURSAL")
                     .addSelect("city.name", "ESTADO")
                     .addSelect("pobyus.points", "PUNTOS")
@@ -997,6 +998,7 @@ let UserService = class UserService {
                     .innerJoin("user.type", "type")
                     .innerJoin("user.city", "city")
                     .leftJoin("user.chain", "chain")
+                    .leftJoin("user.clinic", "clinic")
                     .leftJoin("user.pointsbyuser", "pobyus", "pobyus.quizz = quizz.id")
                     .where("user.type = :userType AND user.isActive = true", { userType: parseInt(userType) })
                     .orderBy("user.email", "ASC")

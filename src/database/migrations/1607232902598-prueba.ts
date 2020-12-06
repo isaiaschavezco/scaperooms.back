@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class deploy1607045836636 implements MigrationInterface {
-    name = 'deploy1607045836636'
+export class prueba1607232902598 implements MigrationInterface {
+    name = 'prueba1607232902598'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`COMMENT ON COLUMN "Content"."article"."createdAt" IS NULL`);

@@ -9,9 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class deploy1607045836636 {
+class prueba1607232902598 {
     constructor() {
-        this.name = 'deploy1607045836636';
+        this.name = 'prueba1607232902598';
     }
     up(queryRunner) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -44,5 +44,5 @@ class deploy1607045836636 {
         });
     }
 }
-exports.deploy1607045836636 = deploy1607045836636;
-//# sourceMappingURL=1607045836636-deploy.js.map
+exports.prueba1607232902598 = prueba1607232902598;
+//# sourceMappingURL=1607232902598-prueba.js.map

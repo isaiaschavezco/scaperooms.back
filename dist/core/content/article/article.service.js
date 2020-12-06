@@ -85,9 +85,14 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let listToReturn = [];
+                console.log(requestDTO);
                 const articlesList = yield this.articleRepository.find({
                     relations: ["tag"],
-                    where: { isBiodermaGame: requestDTO.isBiodermaGame, isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos },
+                    where: {
+                        isBiodermaGame: requestDTO.isBiodermaGame,
+                        isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos,
+                        isBlogEsthederm: requestDTO.isBiodermaGame ? null : requestDTO.isBlogEsthederm
+                    },
                     order: {
                         createdAt: "DESC"
                     }
@@ -123,7 +128,8 @@ let ArticleService = class ArticleService {
                     galery: createDTO.galery,
                     isBiodermaGame: createDTO.isBiodermaGame,
                     tag: articleTags,
-                    isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos
+                    isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos,
+                    isBlogEsthederm: createDTO.isBiodermaGame ? null : createDTO.isBlogEsthederm
                 });
                 yield this.articleRepository.save(newArticle);
                 return { status: 0 };
