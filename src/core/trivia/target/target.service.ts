@@ -65,7 +65,9 @@ export class TargetService {
             if (createDTO.userType !== -1) {
                 if (createDTO.userType == 3) {
                     userIsAdmin = await this.roleRepository.findOne(1);
-                } else {
+                } else if (createDTO.userType == 4) {
+                    userTypeTargetData = await this.typeRepository.findOne(3);
+                else{
                     userTypeTargetData = await this.typeRepository.findOne(createDTO.userType);
                 }
             }
