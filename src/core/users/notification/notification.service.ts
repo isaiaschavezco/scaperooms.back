@@ -239,21 +239,22 @@ export class NotificationService {
                         console.log("activeSessions",activeSessions," ",activeSessions.length)
 
                         activeSessions.forEach(sesion => {
+                            
                             if (sesion.playerId) {
                                 playerIds.push(sesion.playerId);
                             }
                         });
                         console.log("playerIds:",playerIds," ",playerIds.length)
 
-                        const input = new NotificationByDeviceBuilder()
-                            .setIncludePlayerIds(playerIds)
-                            .notification()
-                            .setHeadings({ en: sendRequest.title })
-                            .setContents({ en: sendRequest.content })
-                            .build();
-                        console.log("INPUT",input);
-                        const ones = await this.oneSignalService.createNotification(input);
-                        console.log("ONE SIGNAL:",ones);
+                        // const input = new NotificationByDeviceBuilder()
+                        //     .setIncludePlayerIds(playerIds)
+                        //     .notification()
+                        //     .setHeadings({ en: sendRequest.title })
+                        //     .setContents({ en: sendRequest.content })
+                        //     .build();
+                        // console.log("INPUT",input);
+                        // const ones = await this.oneSignalService.createNotification(input);
+                        // console.log("ONE SIGNAL:",ones);
                     }))
 
 
