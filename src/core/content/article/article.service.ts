@@ -158,7 +158,7 @@ export class ArticleService {
             if (getArticleList.isBiodermaGame) {
                 whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
             } else {
-                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) AND (target.city  :cityFilter) AND (target.clinic :clinicFilter) AND (target.chain :chainFilter) AND (target.position :positionFilter)";
+                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) AND (target.city = :cityFilter) AND (target.clinic = :clinicFilter) AND (target.chain = :chainFilter) AND (target.position = :positionFilter)";
             }
             
             const articleList2 = await this.articleRepository.createQueryBuilder("art")
