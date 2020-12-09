@@ -89,7 +89,7 @@ export class SesionService {
                             branchOffice: user.drugstore,
                             postalCode: user.postalCode,
                             charge: user.charge,
-                            isActiveCart: user.type.id === 1 ? false : true,
+                            isActiveCart: (user.type.id === 1 || user.type.id === 3) ? false : true,
                             countNotifications: userNotifications.length,
                             totalBiodermaGames: user.biodermaGamePoints ? user.biodermaGamePoints : 0
                         }
