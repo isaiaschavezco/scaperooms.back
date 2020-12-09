@@ -1,3 +1,4 @@
+import { Target } from './../../trivia/target/target.entity';
 import { Tag } from '../tag/tag.entity';
 export declare class Article {
     id: number;
@@ -9,6 +10,8 @@ export declare class Article {
     isBiodermaGame: boolean;
     isBlogNaos: boolean;
     isBlogEsthederm: boolean;
+    isAll: boolean;
     createdAt: Date;
     tag: Tag[];
+    target: Target[];
 }

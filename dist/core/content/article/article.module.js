@@ -12,13 +12,15 @@ const article_service_1 = require("./article.service");
 const article_controller_1 = require("./article.controller");
 const article_entity_1 = require("./article.entity");
 const tag_entity_1 = require("../tag/tag.entity");
+const target_entity_1 = require("../../trivia/target/target.entity");
 let ArticleModule = class ArticleModule {
 };
 ArticleModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([article_entity_1.Article]),
-            typeorm_1.TypeOrmModule.forFeature([tag_entity_1.Tag])
+            typeorm_1.TypeOrmModule.forFeature([tag_entity_1.Tag]),
+            typeorm_1.TypeOrmModule.forFeature([target_entity_1.Target])
         ],
         providers: [article_service_1.ArticleService],
         controllers: [article_controller_1.ArticleController]

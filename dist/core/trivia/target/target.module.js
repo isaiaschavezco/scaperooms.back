@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const article_entity_1 = require("./../../content/article/article.entity");
 const common_1 = require("@nestjs/common");
 const clinic_entity_1 = require("./../../users/clinic/clinic.entity");
 const typeorm_1 = require("@nestjs/typeorm");
@@ -27,6 +28,7 @@ TargetModule = __decorate([
             typeorm_1.TypeOrmModule.forFeature([city_entity_1.City]),
             typeorm_1.TypeOrmModule.forFeature([chain_entity_1.Chain]),
             typeorm_1.TypeOrmModule.forFeature([clinic_entity_1.Clinic]),
+            typeorm_1.TypeOrmModule.forFeature([article_entity_1.Article]),
             typeorm_1.TypeOrmModule.forFeature([type_entity_1.Type]),
             typeorm_1.TypeOrmModule.forFeature([position_entity_1.Position]),
             typeorm_1.TypeOrmModule.forFeature([role_entity_1.Role]),

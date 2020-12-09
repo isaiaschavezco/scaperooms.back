@@ -12,13 +12,14 @@ export class ArticleService {
 
     constructor(
         @InjectRepository(Article) private articleRepository: Repository<Article>,
-        @InjectRepository(Tag) private tagRepository: Repository<Tag>
+        @InjectRepository(Tag) private tagRepository: Repository<Tag>,
         @InjectRepository(Target) private targetRepository: Repository<Target>) { }
          
 
     async findAll(): Promise<any> {
         try {
             const articlesList = await this.articleRepository.find({
+                relations: ["target", "target.city", "target.chain","target.clinic", "target.position", "target.type"],
                 order: {
                     createdAt: "DESC"
                 }
@@ -40,8 +41,9 @@ export class ArticleService {
             let response = {};
 
             const articleToReturn = await this.articleRepository.findOne(articleId, {
-                relations: ["tag","target"]
+                relations: ["tag","target","target.city", "target.chain","target.clinic", "target.position", "target.type"]
             });
+            console.log("articleToReturn: ",articleToReturn);
 
             if (articleToReturn) {
                 response = {
@@ -73,7 +75,7 @@ export class ArticleService {
             let listToReturn = [];
             console.log(requestDTO)
             const articlesList = await this.articleRepository.find({
-                relations: ["tag","target"],
+                relations: ["tag","target","target.city", "target.chain","target.clinic", "target.position", "target.type"],
                 where: { 
                 isBiodermaGame: requestDTO.isBiodermaGame,
                 isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos,
@@ -194,7 +196,7 @@ export class ArticleService {
         try {
 
             const articleToDelete = await this.articleRepository.findOne(articleId, {
-                relations: ["tag"]
+                relations: ["tag","target"]
             });
 
             await this.articleRepository.remove(articleToDelete);
@@ -214,6 +216,9 @@ export class ArticleService {
         try {
 
             const articleTags = await this.tagRepository.findByIds(updateDTO.tags);
+            const articleTargets = await this.targetRepository.findByIds(updateDTO.targets , {
+                        relations: ["clinic","chain", "position", "type", "delegation"] //<----probablemente sea city
+                    });
 
             let articleToUpdate = await this.articleRepository.findOne(updateDTO.id);
 
@@ -221,6 +226,7 @@ export class ArticleService {
             articleToUpdate.subtitle = updateDTO.subtitle;
             articleToUpdate.content = updateDTO.content;
             articleToUpdate.tag = articleTags;
+            articleToUpdate.target = articleTargets;
 
             await this.articleRepository.save(articleToUpdate);
 

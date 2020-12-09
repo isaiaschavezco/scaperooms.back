@@ -2213,6 +2213,14 @@
         "version": "49cf2075d3602f678e047325cd27eaf1b29bd2dd4b6e72954fdc2d905a42e676",
         "signature": "f43e48dadb2c6ad84414533fcbf7dab40b7dacd7189cb7d5980eabef600583f3"
       },
+      "../src/core/content/tag/tag.entity.ts": {
+        "version": "edc88fa7945698c87bba91e56670e41f6a761913d3a8bf9eb04c2648e8d4bba0",
+        "signature": "70a4f5bfad21c4135db2295aa507a33ce952b77e660941d882891d258b3e9ab4"
+      },
+      "../src/core/content/article/article.entity.ts": {
+        "version": "28af0712983a7ff4db29636064d73db237a20c8af0990edd6bc2c171101a5be2",
+        "signature": "49e626ae36c5e6c1756aae244c70d6dc5fa952842de2cf4ade3df0487bdaa136"
+      },
       "../src/core/users/colony/colony.entity.ts": {
         "version": "cf0a84760b907e73b89a683012d0f4a6589fea9bf40e28c5987e4a18b61b0701",
         "signature": "8653231c0cba8bfb904880fe0424cc1150f81b9a8550a7d819f87b08952ee8b0"
@@ -2274,8 +2282,8 @@
         "signature": "53fc7b1d2ee28676f92313083c6c80f42cfb7a68eb41c4dc237a1a725341af7e"
       },
       "../src/core/trivia/target/target.entity.ts": {
-        "version": "603e2e68c1ee229de1856e19eb82c976a272f2269ad4584bd43619a5b6287ea0",
-        "signature": "c49201a9bc3a76a5b3a968947ddaa0b2a6473bf71400ca60b0851d1708672849"
+        "version": "d528d2e9edc095f8c880233226d569c48b112617c8835884867090056748c383",
+        "signature": "7c146ff29eb7b57b7a7326dae1f6cedb6b85706631e6c3b2a6b4e2b6039f4a68"
       },
       "../src/core/users/type/type.entity.ts": {
         "version": "f54a04a7f46cfe5c434aa844a29f791af95f53bc20427b96d4d236f2180f221e",
@@ -2477,14 +2485,6 @@
         "version": "0c238f63bfd660c758c4926e1b35e5204fd5741cdb5d0181595b783b84405cbe",
         "signature": "775682a30e63deb0ec3da028a66cf4cd3ae032d1b7d009697c8b9329465ef7f5"
       },
-      "../src/core/content/article/article.entity.ts": {
-        "version": "6851b1eca2f9f5f045e0fd0988ff4e179b0afde15586d4a6cb6996beb5fa2077",
-        "signature": "aa4ef18ad0e83c839439d41cb36b0e9db949b4dce68e472172797cceca9d24b1"
-      },
-      "../src/core/content/tag/tag.entity.ts": {
-        "version": "edc88fa7945698c87bba91e56670e41f6a761913d3a8bf9eb04c2648e8d4bba0",
-        "signature": "70a4f5bfad21c4135db2295aa507a33ce952b77e660941d882891d258b3e9ab4"
-      },
       "../src/core/content/tag/tag.dto.ts": {
         "version": "803dcd9dbcc52fd844dbe39afdacfbc039e6a49eeb8332f7de9e527c2ca301e9",
         "signature": "679cf5f8bb1a41439743bef1e32476ab5e911221783de1beb654b1c29651b7d5"
@@ -2502,19 +2502,19 @@
         "signature": "939e943ce3d8cf82a54357c11e747dcd05345f70a18a5f549d83e4b8a0bd91f4"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "b93a81053a1d3552a203314d87641011ae927f4ef51e5d5b34c1a089d2d540a5",
-        "signature": "eb74b11ed85f3c2cf8c59564ce13d6e2f307c1f9c4d53f8b7a146e25d1780788"
+        "version": "d4e8f78b1a8af565e9a6df6c0f6a931998668ebd860354dc07549d89685070c6",
+        "signature": "bf741f59e203bdfdb359aae5fa86333817d245886e53e6000199203916398e4d"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "83d589603bd33b5d4aaf93409921069447de9996dfc6c9487d341e71a4296dfc",
-        "signature": "88fc81dcecb1293f4e715f6d5afa440d0c9b16e592fcd392e72e30f28bb2c3e9"
+        "version": "ab440be6b088ad308c21eb8237b0ee1ac93fcd9c52473993fbf263820d0eb403",
+        "signature": "82c1a570b6742fc6674e966b833addf28eaf772b94f06eab04cf08a06e66c72a"
       },
       "../src/core/content/article/article.controller.ts": {
         "version": "408bb30de2c4de2e9da8e40bd4d2e5d55486f5d66d3e07687891c690324befca",
         "signature": "77d47aeb4f9370923f1e04a1c40d50d81bf1ae5f549c8f349dd8bcebf51d4ad2"
       },
       "../src/core/content/article/article.module.ts": {
-        "version": "4bcb89a4d4b730315565299554a67fff78b7948f30a6a8188b3cbfa2b4f9a2b7",
+        "version": "8305ecb8dfd7b743bc19a815d973af884191a062c8b0e895b8df4ace8ab99251",
         "signature": "4aa8966c963f643b5b1e874d7ac9eea6ec59070fe9f61c49bdb09a587121514c"
       },
       "../src/core/content/trade/trade.service.ts": {
@@ -2562,7 +2562,7 @@
         "signature": "8498e4f2b2e79e7e04ad4b0646a6730a448303845f3f7bdec386ef4ce2288142"
       },
       "../src/core/trivia/target/target.service.ts": {
-        "version": "bc789d65373cf70b4f12b7f3f07e4988ef8057f1c20bc4ff925f34d249bc32dd",
+        "version": "558518efdd520f8eeaa74857b3484cabb55ecf8525f458edceb72fc27ef63a30",
         "signature": "31fb235865b6d5641136d5258b1eee25fa18038ca91603a585020f85a468a289"
       },
       "../src/core/trivia/target/target.controller.ts": {
@@ -2570,7 +2570,7 @@
         "signature": "ade657d99be9eb7348a289d345349a2d0668ab7c7d5e5e92375f17eed8f41aba"
       },
       "../src/core/trivia/target/target.module.ts": {
-        "version": "c65a7b7fe5025b7a2c4955d3cadab1a7714b5f5cbdecdff5c29c1c1be3c565e0",
+        "version": "b8b329ba80dbede2bfbb7e9c4cc135c7a45bd42c6536252dd75ccff56aee8173",
         "signature": "a9f1e3527e4d5289a2f6bfd9f48fd6cbcb0596a819c548db428607b70c4c3979"
       },
       "../src/core/trivia/campaing/campaing.dto.ts": {
@@ -4130,7 +4130,7 @@
         "signature": "0a19f58af29e3cb261d9da1c4260025b752f671d475ef5e111abcf6746c35e60"
       },
       "../src/core/users/notification/notification.service.ts": {
-        "version": "cbc7e96a41fa467b42d7b37949983c57a4300578e4b791c5f144b7bbe031b8f4",
+        "version": "c1f5aaec5f53a8405dbc7c8c1eca22754c458d24e121456f9d54838371b2e301",
         "signature": "13c57d2d9cfa767d33a67485c51e69eead661c5f9279a63f77a0fc85eec7a749"
       },
       "../src/core/users/notification/notification.controller.ts": {
@@ -4529,13 +4529,13 @@
         "version": "7cc16d4356f17f9d908dcbb5625704381793704574d79984104efc5e59b55d8c",
         "signature": "8fde672626c2429b106d362e0a096ac6639bfd8b35a67341c053bfccd9313418"
       },
-      "../src/database/migrations/1607202231582-esthederm.ts": {
-        "version": "82483c42a5aaf875a0ec82bc0afecdb9dbe8c81f83f87125ef41b2564ffed8d4",
-        "signature": "55b80298187542878afe577cdfcc04e8e904e172b31aaa446b5ba07195f6df2d"
+      "../src/database/migrations/1607525783592-article.ts": {
+        "version": "15a6dfbeebd5ae0431761e13bb22a071f2df4982aef52fbd65b3782f99bbf6ca",
+        "signature": "b123d3ff144aab702ffa8b75a58fe39c21c177301f32b3fa3387ac1c356b825a"
       },
-      "../src/database/migrations/1607232902598-prueba.ts": {
-        "version": "acf1a79711b95bd734f9c2755a4bc0b8b76ff89bded57ab8b63ea3e4beb816ea",
-        "signature": "a4fbff06638e6678a8690c4254a48b7020a02886124f1c83c07ce3198e9e6a75"
+      "../src/database/migrations/1607526917984-principal.ts": {
+        "version": "bead37d792116993d7a4ee967768adccdc1f680d401f34f7be7e4f42a232c3f8",
+        "signature": "4275c15c3dfb5aa1fe4eeb2088f17ef40a17c7f074964807771e34bc957970ad"
       },
       "../node_modules/@types/babel-types/ts3.6/index.d.ts": {
         "version": "b5151c566c80e1f636333b9cc7d8004b6152449768179fc73055692e1d9cbe52",
@@ -4589,7 +4589,6 @@
       "outDir": "./",
       "baseUrl": "..",
       "incremental": true,
-      "watch": true,
       "project": "../tsconfig.build.json",
       "configFilePath": "../tsconfig.build.json"
     },
@@ -6624,6 +6623,15 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/type/type.entity.ts"
       ],
+      "../src/core/content/tag/tag.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/article/article.entity.ts"
+      ],
+      "../src/core/content/article/article.entity.ts": [
+        "../src/core/trivia/target/target.entity.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../src/core/content/tag/tag.entity.ts"
+      ],
       "../src/core/users/colony/colony.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/delegation/delegation.entity.ts",
@@ -6706,6 +6714,7 @@
         "../src/core/trivia/target/target.entity.ts"
       ],
       "../src/core/trivia/target/target.entity.ts": [
+        "../src/core/content/article/article.entity.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/core/users/city/city.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts",
@@ -7002,14 +7011,6 @@
         "../src/core/trivia/pointsbyuser/pointsbyuser.entity.ts",
         "../src/core/trivia/points-type/points-type.entity.ts"
       ],
-      "../src/core/content/article/article.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/core/content/tag/tag.entity.ts"
-      ],
-      "../src/core/content/tag/tag.entity.ts": [
-        "../node_modules/typeorm/index.d.ts",
-        "../src/core/content/article/article.entity.ts"
-      ],
       "../src/core/content/tag/tag.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -7030,6 +7031,7 @@
         "../src/core/content/tag/tag.entity.ts"
       ],
       "../src/core/content/article/article.service.ts": [
+        "../src/core/trivia/target/target.entity.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
@@ -7050,7 +7052,8 @@
         "../src/core/content/article/article.service.ts",
         "../src/core/content/article/article.controller.ts",
         "../src/core/content/article/article.entity.ts",
-        "../src/core/content/tag/tag.entity.ts"
+        "../src/core/content/tag/tag.entity.ts",
+        "../src/core/trivia/target/target.entity.ts"
       ],
       "../src/core/content/trade/trade.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
@@ -7123,6 +7126,7 @@
         "../src/core/trivia/target/target.dto.ts"
       ],
       "../src/core/trivia/target/target.module.ts": [
+        "../src/core/content/article/article.entity.ts",
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/core/users/clinic/clinic.entity.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
@@ -10118,10 +10122,10 @@
         "../src/core/users/clinic/clinic.entity.ts",
         "../src/core/users/clinic/clinic.dto.ts"
       ],
-      "../src/database/migrations/1607202231582-esthederm.ts": [
+      "../src/database/migrations/1607525783592-article.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
-      "../src/database/migrations/1607232902598-prueba.ts": [
+      "../src/database/migrations/1607526917984-principal.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
       "../node_modules/@types/babel-types/index.d.ts": [
@@ -11894,6 +11898,13 @@
       "../src/core/users/token/token.entity.ts": [
         "../src/core/users/type/type.entity.ts"
       ],
+      "../src/core/content/tag/tag.entity.ts": [
+        "../src/core/content/article/article.entity.ts"
+      ],
+      "../src/core/content/article/article.entity.ts": [
+        "../src/core/content/tag/tag.entity.ts",
+        "../src/core/trivia/target/target.entity.ts"
+      ],
       "../src/core/users/colony/colony.entity.ts": [
         "../src/core/users/delegation/delegation.entity.ts",
         "../src/core/users/user/user.entity.ts"
@@ -11968,6 +11979,7 @@
         "../src/core/users/type/type.entity.ts",
         "../src/core/users/role/role.entity.ts",
         "../src/core/trivia/campaing/campaing.entity.ts",
+        "../src/core/content/article/article.entity.ts",
         "../src/core/users/delegation/delegation.entity.ts"
       ],
       "../src/core/users/type/type.entity.ts": [
@@ -12087,12 +12099,6 @@
         "../src/core/content/product/product.service.ts",
         "../src/core/content/product/product.dto.ts"
       ],
-      "../src/core/content/article/article.entity.ts": [
-        "../src/core/content/tag/tag.entity.ts"
-      ],
-      "../src/core/content/tag/tag.entity.ts": [
-        "../src/core/content/article/article.entity.ts"
-      ],
       "../src/core/content/tag/tag.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/tag/tag.entity.ts",
@@ -12106,6 +12112,7 @@
         "../node_modules/typeorm/index.d.ts",
         "../src/core/content/article/article.entity.ts",
         "../src/core/content/tag/tag.entity.ts",
+        "../src/core/trivia/target/target.entity.ts",
         "../src/core/content/article/article.dto.ts"
       ],
       "../src/core/content/article/article.controller.ts": [
@@ -14880,7 +14887,10 @@
         "../src/core/users/clinic/clinic.service.ts",
         "../src/core/users/clinic/clinic.dto.ts"
       ],
-      "../src/database/migrations/1607202231582-esthederm.ts": [
+      "../src/database/migrations/1607525783592-article.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
+      "../src/database/migrations/1607526917984-principal.ts": [
         "../node_modules/typeorm/index.d.ts"
       ],
       "../node_modules/@types/babel-types/index.d.ts": [
@@ -14898,9 +14908,6 @@
       ],
       "../node_modules/@types/supertest/index.d.ts": [
         "../node_modules/@types/superagent/index.d.ts"
-      ],
-      "../src/database/migrations/1607232902598-prueba.ts": [
-        "../node_modules/typeorm/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -15457,6 +15464,8 @@
       "../node_modules/handlebars/types/index.d.ts",
       "../node_modules/@nestjs-modules/mailer/dist/adapters/handlebars.adapter.d.ts",
       "../src/core/users/token/token.entity.ts",
+      "../src/core/content/tag/tag.entity.ts",
+      "../src/core/content/article/article.entity.ts",
       "../src/core/users/colony/colony.entity.ts",
       "../src/core/users/delegation/delegation.entity.ts",
       "../src/core/users/city/city.entity.ts",
@@ -15523,14 +15532,11 @@
       "../src/core/content/product/product.service.ts",
       "../src/core/content/product/product.controller.ts",
       "../src/core/content/product/product.module.ts",
-      "../src/core/content/article/article.entity.ts",
-      "../src/core/content/tag/tag.entity.ts",
       "../src/core/content/tag/tag.dto.ts",
       "../src/core/content/tag/tag.service.ts",
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.service.ts",
       "../src/core/content/article/article.controller.ts",
       "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
@@ -16036,7 +16042,8 @@
       "../src/core/trivia/points-type/points-type.service.ts",
       "../src/core/trivia/points-type/points-type.module.ts",
       "../src/core/users/clinic/clinic.controller copy.ts",
-      "../src/database/migrations/1607202231582-esthederm.ts",
+      "../src/database/migrations/1607525783592-article.ts",
+      "../src/database/migrations/1607526917984-principal.ts",
       "../node_modules/@types/babel-types/ts3.6/index.d.ts",
       "../node_modules/@types/babel-types/index.d.ts",
       "../node_modules/@types/babylon/index.d.ts",
@@ -16047,7 +16054,7 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/database/migrations/1607232902598-prueba.ts"
+      "../src/core/content/article/article.service.ts"
     ]
   },
   "version": "3.7.2"

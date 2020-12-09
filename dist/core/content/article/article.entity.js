@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const target_entity_1 = require("./../../trivia/target/target.entity");
 const typeorm_1 = require("typeorm");
 const tag_entity_1 = require("../tag/tag.entity");
 let Article = class Article {
@@ -50,6 +51,10 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Article.prototype, "isBlogEsthederm", void 0);
 __decorate([
+    typeorm_1.Column({ nullable: true }),
+    __metadata("design:type", Boolean)
+], Article.prototype, "isAll", void 0);
+__decorate([
     typeorm_1.Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" }),
     __metadata("design:type", Date)
 ], Article.prototype, "createdAt", void 0);
@@ -58,6 +63,11 @@ __decorate([
     typeorm_1.JoinTable({ name: "articlesByTag" }),
     __metadata("design:type", Array)
 ], Article.prototype, "tag", void 0);
+__decorate([
+    typeorm_1.ManyToMany(type => target_entity_1.Target, target => target.article),
+    typeorm_1.JoinTable({ name: "targetsByArticle" }),
+    __metadata("design:type", Array)
+], Article.prototype, "target", void 0);
 Article = __decorate([
     typeorm_1.Entity({ schema: 'Content' })
 ], Article);

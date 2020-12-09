@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const article_entity_1 = require("./../../content/article/article.entity");
 const typeorm_1 = require("typeorm");
 const city_entity_1 = require("../../users/city/city.entity");
 const delegation_entity_1 = require("../../users/delegation/delegation.entity");
@@ -68,6 +69,10 @@ __decorate([
     typeorm_1.ManyToMany(type => campaing_entity_1.Campaing, campaing => campaing.target),
     __metadata("design:type", Array)
 ], Target.prototype, "campaing", void 0);
+__decorate([
+    typeorm_1.ManyToMany(type => article_entity_1.Article, article => article.target),
+    __metadata("design:type", Array)
+], Target.prototype, "article", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => delegation_entity_1.Delegation, delegation => delegation.target),
     __metadata("design:type", delegation_entity_1.Delegation)

@@ -67,6 +67,7 @@ export class TargetService {
                     userIsAdmin = await this.roleRepository.findOne(1);
                 } else if (createDTO.userType == 4) {
                     userTypeTargetData = await this.typeRepository.findOne(3);
+                }
                 else{
                     userTypeTargetData = await this.typeRepository.findOne(createDTO.userType);
                 }
@@ -114,7 +115,7 @@ export class TargetService {
                 }
             };
 
-        } catch (err) {
+        }catch(err){
             console.log("TargetService - create: ", err);
 
             throw new HttpException({
@@ -126,7 +127,6 @@ export class TargetService {
 
     async delete(deleteDTO: DeleteTargetDTO): Promise<any> {
         try {
-
             const targetToDelete = await this.targetRepository.findOne(deleteDTO.targetId);
             await this.targetRepository.remove(targetToDelete);
 

@@ -21,6 +21,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const target_entity_1 = require("./../../trivia/target/target.entity");
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
@@ -28,14 +29,16 @@ const article_entity_1 = require("./article.entity");
 const tag_entity_1 = require("../tag/tag.entity");
 const moment = require("moment");
 let ArticleService = class ArticleService {
-    constructor(articleRepository, tagRepository) {
+    constructor(articleRepository, tagRepository, targetRepository) {
         this.articleRepository = articleRepository;
         this.tagRepository = tagRepository;
+        this.targetRepository = targetRepository;
     }
     findAll() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const articlesList = yield this.articleRepository.find({
+                    relations: ["target", "target.city", "target.chain", "target.clinic", "target.position", "target.type"],
                     order: {
                         createdAt: "DESC"
                     }
@@ -56,8 +59,9 @@ let ArticleService = class ArticleService {
             try {
                 let response = {};
                 const articleToReturn = yield this.articleRepository.findOne(articleId, {
-                    relations: ["tag"]
+                    relations: ["tag", "target", "target.city", "target.chain", "target.clinic", "target.position", "target.type"]
                 });
+                console.log("articleToReturn: ", articleToReturn);
                 if (articleToReturn) {
                     response = {
                         title: articleToReturn.title,
@@ -65,7 +69,8 @@ let ArticleService = class ArticleService {
                         date: moment(articleToReturn.createdAt).format('DD/MM/YYYY'),
                         tags: articleToReturn.tag,
                         images: JSON.parse(articleToReturn.galery),
-                        description: articleToReturn.content
+                        description: articleToReturn.content,
+                        targets: articleToReturn.target
                     };
                 }
                 return {
@@ -87,11 +92,12 @@ let ArticleService = class ArticleService {
                 let listToReturn = [];
                 console.log(requestDTO);
                 const articlesList = yield this.articleRepository.find({
-                    relations: ["tag"],
+                    relations: ["tag", "target", "target.city", "target.chain", "target.clinic", "target.position", "target.type"],
                     where: {
                         isBiodermaGame: requestDTO.isBiodermaGame,
                         isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos,
-                        isBlogEsthederm: requestDTO.isBiodermaGame ? null : requestDTO.isBlogEsthederm
+                        isBlogEsthederm: requestDTO.isBiodermaGame ? null : requestDTO.isBlogEsthederm,
+                        isAll: requestDTO.isBiodermaGame ? null : requestDTO.isAll
                     },
                     order: {
                         createdAt: "DESC"
@@ -102,7 +108,8 @@ let ArticleService = class ArticleService {
                         id: article.id,
                         title: article.title,
                         createdAt: moment(article.createdAt).format('DD/MM/YYYY'),
-                        tags: article.tag
+                        tags: article.tag,
+                        targets: article.target
                     });
                 });
                 return { blogs: listToReturn };
@@ -120,6 +127,9 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const articleTags = yield this.tagRepository.findByIds(createDTO.tags);
+                const articleTargets = yield this.targetRepository.findByIds(createDTO.targets, {
+                    relations: ["clinic", "chain", "position", "type", "delegation"]
+                });
                 let newArticle = this.articleRepository.create({
                     title: createDTO.title,
                     image: createDTO.image,
@@ -129,7 +139,9 @@ let ArticleService = class ArticleService {
                     isBiodermaGame: createDTO.isBiodermaGame,
                     tag: articleTags,
                     isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos,
-                    isBlogEsthederm: createDTO.isBiodermaGame ? null : createDTO.isBlogEsthederm
+                    isBlogEsthederm: createDTO.isBiodermaGame ? null : createDTO.isBlogEsthederm,
+                    isAll: createDTO.isAll,
+                    target: articleTargets
                 });
                 yield this.articleRepository.save(newArticle);
                 return { status: 0 };
@@ -188,7 +200,7 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const articleToDelete = yield this.articleRepository.findOne(articleId, {
-                    relations: ["tag"]
+                    relations: ["tag", "target"]
                 });
                 yield this.articleRepository.remove(articleToDelete);
                 return { status: 0 };
@@ -206,11 +218,15 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const articleTags = yield this.tagRepository.findByIds(updateDTO.tags);
+                const articleTargets = yield this.targetRepository.findByIds(updateDTO.targets, {
+                    relations: ["clinic", "chain", "position", "type", "delegation"]
+                });
                 let articleToUpdate = yield this.articleRepository.findOne(updateDTO.id);
                 articleToUpdate.galery = updateDTO.galery;
                 articleToUpdate.subtitle = updateDTO.subtitle;
                 articleToUpdate.content = updateDTO.content;
                 articleToUpdate.tag = articleTags;
+                articleToUpdate.target = articleTargets;
                 yield this.articleRepository.save(articleToUpdate);
                 return { status: 0 };
             }
@@ -228,7 +244,9 @@ ArticleService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(article_entity_1.Article)),
     __param(1, typeorm_1.InjectRepository(tag_entity_1.Tag)),
+    __param(2, typeorm_1.InjectRepository(target_entity_1.Target)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository])
 ], ArticleService);
 exports.ArticleService = ArticleService;

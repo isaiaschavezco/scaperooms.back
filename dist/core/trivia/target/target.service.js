@@ -83,6 +83,9 @@ let TargetService = class TargetService {
                     if (createDTO.userType == 3) {
                         userIsAdmin = yield this.roleRepository.findOne(1);
                     }
+                    else if (createDTO.userType == 4) {
+                        userTypeTargetData = yield this.typeRepository.findOne(3);
+                    }
                     else {
                         userTypeTargetData = yield this.typeRepository.findOne(createDTO.userType);
                     }

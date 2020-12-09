@@ -1,3 +1,4 @@
+import { Target } from './../../trivia/target/target.entity';
 import { Repository } from 'typeorm';
 import { Article } from './article.entity';
 import { Tag } from '../tag/tag.entity';
@@ -5,7 +6,8 @@ import { CreateArticleDTO, GetArticleList, GetArticlesList, UpdateArticleDTO } f
 export declare class ArticleService {
     private articleRepository;
     private tagRepository;
-    constructor(articleRepository: Repository<Article>, tagRepository: Repository<Tag>);
+    private targetRepository;
+    constructor(articleRepository: Repository<Article>, tagRepository: Repository<Tag>, targetRepository: Repository<Target>);
     findAll(): Promise<any>;
     findById(articleId: number): Promise<any>;
     findListArticles(requestDTO: GetArticlesList): Promise<any>;
