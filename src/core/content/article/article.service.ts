@@ -154,13 +154,13 @@ export class ArticleService {
             let listToReturn = [];
 
             let whereString = "";
-
+            console.log(getArticleList)
             if (getArticleList.isBiodermaGame) {
                 whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
             } else {
-                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) AND (target.city  :cityFilter) AND (target.clinic :clinicFilter) AND       (target.chain :chainFilter) AND (target.position :positionFilter)";
+                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) AND (target.city  :cityFilter) AND (target.clinic :clinicFilter) AND (target.chain :chainFilter) AND (target.position :positionFilter)";
             }
-
+            
             const articleList2 = await this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
                 .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
@@ -174,14 +174,18 @@ export class ArticleService {
                     isBlogEsthederm: getArticleList.type == 3 ? true : false,
                     isAll: false,
                     cityFilter: getArticleList.userState,
-                    clinicFilter: getArticleList.userChain,
-                    chainFilter: getArticleList.userClinic,
+                    clinicFilter: getArticleList.userClinic,
+                    chainFilter: getArticleList.userChain,
                     positionFilter: getArticleList.userPosition
                 })
                 .skip(getArticleList.page * 10)
                 .take(10)
                 .orderBy("art.createdAt", "DESC")
                 .getMany();
+
+
+            console.log(articleList2)
+
 
             articleList2.forEach(article => {
                 listToReturn.push({
