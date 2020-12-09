@@ -1,3 +1,4 @@
+import { Article } from './../../content/article/article.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany } from 'typeorm';
 import { City } from '../../users/city/city.entity';
 import { Delegation } from '../../users/delegation/delegation.entity';
@@ -46,6 +47,9 @@ export class Target {
 
     @ManyToMany(type => Campaing, campaing => campaing.target)
     campaing: Campaing[];
+
+    @ManyToMany(type => Article, article => article.target)
+    article: Article[];
 
     @ManyToOne(type => Delegation, delegation => delegation.target)
     delegation: Delegation;

@@ -246,15 +246,15 @@ export class NotificationService {
                         });
                         console.log("playerIds:",playerIds," ",playerIds.length)
 
-                        // const input = new NotificationByDeviceBuilder()
-                        //     .setIncludePlayerIds(playerIds)
-                        //     .notification()
-                        //     .setHeadings({ en: sendRequest.title })
-                        //     .setContents({ en: sendRequest.content })
-                        //     .build();
-                        // console.log("INPUT",input);
-                        // const ones = await this.oneSignalService.createNotification(input);
-                        // console.log("ONE SIGNAL:",ones);
+                        const input = new NotificationByDeviceBuilder()
+                            .setIncludePlayerIds(playerIds)
+                            .notification()
+                            .setHeadings({ en: sendRequest.title })
+                            .setContents({ en: sendRequest.content })
+                            .build();
+                        console.log("INPUT",input);
+                        const ones = await this.oneSignalService.createNotification(input);
+                        console.log("ONE SIGNAL:",ones);
                     }))
 
 

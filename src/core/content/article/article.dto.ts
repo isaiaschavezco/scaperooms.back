@@ -8,7 +8,16 @@ export class CreateArticleDTO {
     readonly tags: number[];
     readonly isBlogNaos: boolean;
     readonly isBlogEsthederm: boolean;
-    
+    readonly isAll: boolean;
+    readonly targets: number[];       
+}
+export class UpdateArticleDTO {
+    readonly id: number;
+    readonly galery: string;
+    readonly subtitle: string;
+    readonly content: string;
+    readonly tags: number[];
+    readonly targets: number[];
 }
 
 export class GetArticleList {
@@ -22,12 +31,6 @@ export class GetArticlesList {
     readonly isBiodermaGame: boolean;
     readonly isBlogNaos: boolean;
     readonly isBlogEsthederm: boolean;
+    readonly isAll: boolean;
 }
 
-export class UpdateArticleDTO {
-    readonly id: number;
-    readonly galery: string;
-    readonly subtitle: string;
-    readonly content: string;
-    readonly tags: number[];
-}

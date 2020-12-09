@@ -1,3 +1,4 @@
+import { Target } from './../../trivia/target/target.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
 import { Tag } from '../tag/tag.entity';
 
@@ -31,11 +32,18 @@ export class Article {
     @Column({ nullable: true })
     isBlogEsthederm: boolean;
 
+    @Column({ nullable: true })
+    isAll: boolean;
+
     @Column({ type: "timestamp without time zone", default: () => "CURRENT_TIMESTAMP" })
     createdAt: Date;
 
     @ManyToMany(type => Tag, tag => tag.article)
     @JoinTable({ name: "articlesByTag" })
     tag: Tag[];
+
+    @ManyToMany(type => Target, target => target.article)
+    @JoinTable({ name: "targetsByArticle" })
+    target: Target[];
 
 }
