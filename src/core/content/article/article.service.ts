@@ -153,55 +153,50 @@ export class ArticleService {
         try {
             let listToReturn = [];
 
-            let whereString = "";
-            console.log(getArticleList)
-            if (getArticleList.isBiodermaGame) {
-                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
-            } else {
+            // let whereString = "";
+            // console.log(getArticleList)
+            // if (getArticleList.isBiodermaGame) {
+            //     whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+            // } else {
 
-                const stateQuery =  getArticleList.userState ? `AND (target.city = ${getArticleList.userState.id})` :""
-                const clinicQuery =  getArticleList.userClinic ? `AND (target.clinic = getArticleList.userClinic.id)` :""
-                const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain.id})` :""
-                const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition.id})` :""
-
-
+            //     const stateQuery =  getArticleList.userState ? `AND (target.city = ${getArticleList.userState.id})` :""
+            //     const clinicQuery =  getArticleList.userClinic ? `AND (target.clinic = getArticleList.userClinic.id)` :""
+            //     const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain.id})` :""
+            //     const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition.id})` :""
 
 
-                whereString = `(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) ${stateQuery} ${clinicQuery} ${chainQuery} ${positionQuery}`;
-            }
+
+
+            //     whereString = `(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) ${stateQuery} ${clinicQuery} ${chainQuery} ${positionQuery}`;
+            // }
             
-            const articleList2 = await this.articleRepository.createQueryBuilder("art")
-                .distinct(true)
-                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
-                .leftJoinAndSelect("art.tag", "tag")
-                .leftJoinAndSelect("art.target", "target")
-                .where(whereString, 
-                { 
-                    isBiodermaGame: getArticleList.isBiodermaGame,
-                    filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%',
-                    isBlogNaos: getArticleList.type == 1 ? true : false,
-                    isBlogEsthederm: getArticleList.type == 3 ? true : false,
-                    isAll: false
-                })
-                .skip(getArticleList.page * 10)
-                .take(10)
-                .orderBy("art.createdAt", "DESC")
-                .getMany();
-
-
-            console.log(articleList2)
-
-
-            articleList2.forEach(article => {
-                listToReturn.push({
-                    id: article.id,
-                    title: article.title,
-                    subtitle: article.subtitle,
-                    date: moment(article.createdAt).format('DD/MM/YYYY'),
-                    imageURL: article.image,
-                    tags: article.tag
-                });
-            });
+            // const articleList2 = await this.articleRepository.createQueryBuilder("art")
+            //     .distinct(true)
+            //     .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
+            //     .leftJoinAndSelect("art.tag", "tag")
+            //     .leftJoinAndSelect("art.target", "target")
+            //     .where(whereString, 
+            //     { 
+            //         isBiodermaGame: getArticleList.isBiodermaGame,
+            //         filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%',
+            //         isBlogNaos: getArticleList.type == 1 ? true : false,
+            //         isBlogEsthederm: getArticleList.type == 3 ? true : false,
+            //         isAll: false
+            //     })
+            //     .skip(getArticleList.page * 10)
+            //     .take(10)
+            //     .orderBy("art.createdAt", "DESC")
+            //     .getMany();
+            // articleList2.forEach(article => {
+            //     listToReturn.push({
+            //         id: article.id,
+            //         title: article.title,
+            //         subtitle: article.subtitle,
+            //         date: moment(article.createdAt).format('DD/MM/YYYY'),
+            //         imageURL: article.image,
+            //         tags: article.tag
+            //     });
+            // });
 
             return { blogs: listToReturn };
         } catch (err) {

@@ -25,10 +25,10 @@ export class GetArticleList {
     readonly page: number;
     readonly filter: string;
     readonly type: number;
-    readonly userState: object;
+    readonly userState: number;
     readonly userPosition: number;
-    readonly userChain: object;
-    readonly userClinic: object;
+    readonly userChain: number;
+    readonly userClinic: number;
     
 }
 
