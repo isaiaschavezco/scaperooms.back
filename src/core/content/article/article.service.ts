@@ -158,7 +158,16 @@ export class ArticleService {
             if (getArticleList.isBiodermaGame) {
                 whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
             } else {
-                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) AND (target.city = :cityFilter) AND (target.clinic = :clinicFilter) AND (target.chain = :chainFilter) AND (target.position = :positionFilter)";
+
+                const stateQuery =  getArticleList.userState ? `AND (target.city = ${getArticleList.userState.id})` :""
+                const clinicQuery =  getArticleList.userClinic ? `AND (target.clinic = getArticleList.userClinic.id)` :""
+                const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain.id})` :""
+                const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition.id})` :""
+
+
+
+
+                whereString = `(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) ${stateQuery} ${clinicQuery} ${chainQuery} ${positionQuery}`;
             }
             
             const articleList2 = await this.articleRepository.createQueryBuilder("art")
@@ -172,11 +181,7 @@ export class ArticleService {
                     filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%',
                     isBlogNaos: getArticleList.type == 1 ? true : false,
                     isBlogEsthederm: getArticleList.type == 3 ? true : false,
-                    isAll: false,
-                    cityFilter: getArticleList.userState,
-                    clinicFilter: getArticleList.userClinic,
-                    chainFilter: getArticleList.userChain,
-                    positionFilter: getArticleList.userPosition
+                    isAll: false
                 })
                 .skip(getArticleList.page * 10)
                 .take(10)
