@@ -25,6 +25,11 @@ export class GetArticleList {
     readonly page: number;
     readonly filter: string;
     readonly type: number;
+    readonly userState: number;
+    readonly userPosition: number;
+    readonly userChain: number;
+    readonly userClinic: number;
+    
 }
 
 export class GetArticlesList {

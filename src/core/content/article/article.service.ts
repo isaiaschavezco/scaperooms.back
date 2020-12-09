@@ -149,6 +149,7 @@ export class ArticleService {
     }
 
     async searchForArticlesList(getArticleList: GetArticleList): Promise<any> {
+
         try {
             let listToReturn = [];
 
@@ -157,14 +158,26 @@ export class ArticleService {
             if (getArticleList.isBiodermaGame) {
                 whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
             } else {
-                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos)";
+                whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) AND (target.city  :cityFilter) AND (target.clinic :clinicFilter) AND       (target.chain :chainFilter) AND (target.position :positionFilter)";
             }
 
             const articleList2 = await this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
                 .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
                 .leftJoinAndSelect("art.tag", "tag")
-                .where(whereString, { isBiodermaGame: getArticleList.isBiodermaGame, filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%', isBlogNaos: getArticleList.type == 1 ? true : false })
+                .leftJoinAndSelect("art.target", "target")
+                .where(whereString, 
+                { 
+                    isBiodermaGame: getArticleList.isBiodermaGame,
+                    filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%',
+                    isBlogNaos: getArticleList.type == 1 ? true : false,
+                    isBlogEsthederm: getArticleList.type == 3 ? true : false,
+                    isAll: false,
+                    cityFilter: getArticleList.userState,
+                    clinicFilter: getArticleList.userChain,
+                    chainFilter: getArticleList.userClinic,
+                    positionFilter: getArticleList.userPosition
+                })
                 .skip(getArticleList.page * 10)
                 .take(10)
                 .orderBy("art.createdAt", "DESC")
