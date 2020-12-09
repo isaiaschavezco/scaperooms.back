@@ -22,7 +22,7 @@ export class SesionService {
 
             let response = null;
             let user = await this.userRepository.findOne({
-                relations: ["type", "chain", "city", "delegation", "position"],
+                relations: ["type", "chain","clinic", "city", "delegation", "position"],
                 where: { email: requestDTO.email, isActive: true }
             });
 
@@ -85,7 +85,10 @@ export class SesionService {
                             },
                             workPosition: user.position,
                             statusCart: generalConfiguration.isClubBiodermaActive,
+                            //ultimos cambios
                             branchChain: user.chain,
+                            branchClinic:user.clinic,
+                            //
                             branchOffice: user.drugstore,
                             postalCode: user.postalCode,
                             charge: user.charge,
