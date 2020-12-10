@@ -215,10 +215,10 @@ export class ArticleService {
                                             else if (target.position && target.city) 
                                                 if(target.city.id === userState && target.position.id === userPosition)
                                                      ArticlesToSend.push(article)
-                                            else if (target.city && !target.position) 
+                                            else if (target.city && target.position === null) 
                                                 if(target.city.id === userState)
                                                    ArticlesToSend.push(article)
-                                            else if (target.position && !target.city) 
+                                            else if (target.position && target.city === null) 
                                                 if(target.position.id === userPosition)
                                                    ArticlesToSend.push(article)
                                         });
