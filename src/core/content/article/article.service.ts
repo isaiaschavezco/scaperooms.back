@@ -209,7 +209,6 @@ export class ArticleService {
                                     relations: ["city", "chain", "position", "type", "delegation"]
                                 });
                                 console.log("articleTargets: ",articleTargets)
-                                console.log(object);
                                 articleTargets.forEach(target => {
                                     console.log("target: ",target)
                                             if (target.allUsers) 
@@ -219,13 +218,13 @@ export class ArticleService {
                                                     ArticlesToSend.push(article)
                                                 }
                                             }  
-                                            else if (target.city !== null && target.position === null) {
+                                            else if (target.city !== null) {
                                                 console.log("EXISTE CIUDAD");
                                                 if(target.city.id === userState){
                                                     ArticlesToSend.push(article)
                                                 }
                                             }
-                                            else if (target.position !== null && target.city === null){
+                                            else if (target.position !== null){
                                                 if(target.position.id === userPosition){
                                                     ArticlesToSend.push(article)
                                                 }
