@@ -192,7 +192,7 @@ export class ArticleService {
                     whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                 }
                 if(getArticleList.type === 2){
-                    let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false)"
+                    let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
                     whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
                     whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
                     whereSecondary = ` ${mainStr}${mainPharmaStr} ${mainPharmaStr} ${stateQueryNull} ${chainQuery}`;
@@ -205,7 +205,11 @@ export class ArticleService {
                     whereSecondary = `${mainStr} ${mainEstheStr} ${mainEstheStr} ${stateQueryNull} ${clinicQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                 }
-                
+                console.log("whereStr",whereStr)
+                console.log("whereState",whereState)
+                console.log("whereSecondary",whereSecondary)
+                console.log("whereAllUsersSpecific",whereAllUsersSpecific)
+                console.log("whereAllUsers",whereAllUsers)
                 const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
                 const articlesWhereState = await this.searchDB(whereState,pagesSkip,stringFilter)
                 const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
