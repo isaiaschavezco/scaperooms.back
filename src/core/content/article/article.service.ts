@@ -195,14 +195,14 @@ export class ArticleService {
                     let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
                     whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
                     whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
-                    whereSecondary = ` ${mainStr}${mainPharmaStr} ${mainPharmaStr} ${stateQueryNull} ${chainQuery}`;
+                    whereSecondary = ` ${mainStr}${mainPharmaStr} ${userTypeQuery} ${stateQueryNull} ${chainQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                 }
                 if(getArticleList.type === 3){
                     let mainEstheStr = "AND (art.isBlogEsthederm = true)"
                     whereStr = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQuery}`;
                     whereState = ` ${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQueryNull}`;
-                    whereSecondary = `${mainStr} ${mainEstheStr} ${mainEstheStr} ${stateQueryNull} ${clinicQuery}`;
+                    whereSecondary = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQueryNull} ${clinicQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                 }
                 console.log("whereStr",whereStr)
