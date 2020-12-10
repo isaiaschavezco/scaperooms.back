@@ -2502,12 +2502,12 @@
         "signature": "939e943ce3d8cf82a54357c11e747dcd05345f70a18a5f549d83e4b8a0bd91f4"
       },
       "../src/core/content/article/article.dto.ts": {
-        "version": "d4e8f78b1a8af565e9a6df6c0f6a931998668ebd860354dc07549d89685070c6",
-        "signature": "bf741f59e203bdfdb359aae5fa86333817d245886e53e6000199203916398e4d"
+        "version": "9f88abdacc36f139146a43b34d1c2e77e31543bb6a3a0f9ea67d8c20669f9735",
+        "signature": "5efbf5f7fb08ee746bda366571e4c1056c988d17c49c971972df4583798f6672"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "ab440be6b088ad308c21eb8237b0ee1ac93fcd9c52473993fbf263820d0eb403",
-        "signature": "82c1a570b6742fc6674e966b833addf28eaf772b94f06eab04cf08a06e66c72a"
+        "version": "605196e5a1f62c21e757665991e157d7d63a723f7758389f97712e15e2a5c9cf",
+        "signature": "bf9c89c17aeb7c19de176b52b14a79ffdd5a3463feddd2bc0204f1243fe510ed"
       },
       "../src/core/content/article/article.controller.ts": {
         "version": "408bb30de2c4de2e9da8e40bd4d2e5d55486f5d66d3e07687891c690324befca",
@@ -4146,7 +4146,7 @@
         "signature": "d998618322d4dc03b11bce039b3441d4a83c4f7eea456f5cced035101f0224b1"
       },
       "../src/core/users/sesion/sesion.service.ts": {
-        "version": "ab26f80cbb73b0c8d3df5dbac7e739aa6211cb5ada0ec337117e2f61eb90dc81",
+        "version": "eabb3f167c64520750bbce1ea0abe7bbfc66be4164ae314d0b4481004c18a574",
         "signature": "f3ac6160e560cade6d43e3f799074a66d536a6d2eb159536c4b1f217bb990cc4"
       },
       "../src/core/users/sesion/sesion.controller.ts": {

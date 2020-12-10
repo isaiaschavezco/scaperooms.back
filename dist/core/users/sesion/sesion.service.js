@@ -42,7 +42,7 @@ let SesionService = class SesionService {
             try {
                 let response = null;
                 let user = yield this.userRepository.findOne({
-                    relations: ["type", "chain", "city", "delegation", "position"],
+                    relations: ["type", "chain", "clinic", "city", "delegation", "position"],
                     where: { email: requestDTO.email, isActive: true }
                 });
                 if (user) {
@@ -91,10 +91,11 @@ let SesionService = class SesionService {
                                 workPosition: user.position,
                                 statusCart: generalConfiguration.isClubBiodermaActive,
                                 branchChain: user.chain,
+                                branchClinic: user.clinic,
                                 branchOffice: user.drugstore,
                                 postalCode: user.postalCode,
                                 charge: user.charge,
-                                isActiveCart: user.type.id === 1 ? false : true,
+                                isActiveCart: (user.type.id === 1 || user.type.id === 3) ? false : true,
                                 countNotifications: userNotifications.length,
                                 totalBiodermaGames: user.biodermaGamePoints ? user.biodermaGamePoints : 0
                             }
