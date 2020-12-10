@@ -2506,7 +2506,7 @@
         "signature": "5efbf5f7fb08ee746bda366571e4c1056c988d17c49c971972df4583798f6672"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "15a5576774c9ab916279e5d1feb87da0b00cc21ab6e03a1b4c8d5043aa32d099",
+        "version": "1a07572eaebcfeddf315a9071c982a8e269ba5720a4ff0e0d6a0e3a11cc08514",
         "signature": "bf9c89c17aeb7c19de176b52b14a79ffdd5a3463feddd2bc0204f1243fe510ed"
       },
       "../src/core/content/article/article.controller.ts": {
@@ -15942,6 +15942,7 @@
       "../node_modules/onesignal-api-client-nest/lib/onesignal.service.d.ts",
       "../node_modules/onesignal-api-client-nest/lib/index.d.ts",
       "../src/core/users/notification/notification.dto.ts",
+      "../src/core/users/notification/notification.service.ts",
       "../src/core/users/notification/notification.controller.ts",
       "../src/core/users/notification/notification.module.ts",
       "../src/core/users/sesion/sesion.dto.ts",
@@ -16053,8 +16054,7 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.service.ts",
-      "../src/core/users/notification/notification.service.ts"
+      "../src/core/content/article/article.service.ts"
     ]
   },
   "version": "3.7.2"

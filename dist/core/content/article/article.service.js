@@ -269,7 +269,7 @@ let ArticleService = class ArticleService {
             let listToReturn = [];
             const Articles = yield this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
-                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt", "art.isAll"])
+                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt", "art.isAll", "art.isBlogNaos", "art.isBlogEsthederm"])
                 .leftJoinAndSelect("art.tag", "tag")
                 .leftJoinAndSelect("art.target", "target")
                 .where(whereString, {
@@ -284,6 +284,9 @@ let ArticleService = class ArticleService {
             Articles.forEach(article => {
                 listToReturn.push({
                     id: article.id,
+                    isAll: article.isAll,
+                    isBlogNaos: article.isBlogNaos,
+                    isBlogEsthederm: article.isBlogEsthederm,
                     title: article.title,
                     subtitle: article.subtitle,
                     date: moment(article.createdAt).format('DD/MM/YYYY'),
