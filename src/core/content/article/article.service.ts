@@ -166,19 +166,17 @@ export class ArticleService {
 
         // const allUsersSpecificQuery = `AND (target.allUsers = true)`
 
-        let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)"
-        let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )"
+       
 
         let whereStr = ""
         let whereState = ""
         let whereSecondary = ""
         let whereAllUsersSpecific = ""
         let restOfUsers = ""
-        let listToReturn = [];
-        let listAllToReturn = [];
         const pagesSkip = getArticleList.page
         const stringFilter = getArticleList.filter
-
+        let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)"
+        let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )"
         try {
 
             if (getArticleList.isBiodermaGame) {
@@ -193,7 +191,6 @@ export class ArticleService {
                     whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
                     whereState = ` ${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQueryNull}`;
                     whereSecondary = `${mainStr}${mainNaosStr} ${userTypeQuery} ${stateQueryNull} ${positionQuery}`;
-                    whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                     whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                     restOfUsers = `${mainStr} ${mainNaosStr} ${targetNull}`
                 }
@@ -218,6 +215,7 @@ export class ArticleService {
                 console.log("whereSecondary",whereSecondary)
                 console.log("whereAllUsersSpecific",whereAllUsersSpecific)
                 console.log("whereAllUsers",whereAllUsers)
+                console.log("restOfUsers",restOfUsers)
                 const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
                 const articlesWhereState = await this.searchDB(whereState,pagesSkip,stringFilter)
                 const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
