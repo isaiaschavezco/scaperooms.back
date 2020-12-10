@@ -279,7 +279,8 @@ export class ArticleService {
                         subtitle: article.subtitle,
                         date: moment(article.createdAt).format('DD/MM/YYYY'),
                         imageURL: article.image,
-                        tags: article.tag
+                        tags: article.tag,
+                        targets: article.target
                     });
                 });
             return listToReturn
