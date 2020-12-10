@@ -152,23 +152,50 @@ export class ArticleService {
 
         try {
             let listToReturn = [];
+            let listAllToReturn = [];
 
             let whereString = "";
-            console.log(getArticleList)
+            console.log("CONSULTA: ",getArticleList)
             if (getArticleList.isBiodermaGame) {
                 whereString = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
             } else {
-
                 const stateQuery =  getArticleList.userState ? `AND (target.city = ${getArticleList.userState})` :""
                 const clinicQuery =  getArticleList.userClinic ? `AND (target.clinic = ${getArticleList.userClinic})` :""
                 const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` :""
                 const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` :""
-
-
                 whereString = `(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) ${stateQuery} ${clinicQuery} ${chainQuery} ${positionQuery}`;
             }
             
-            const articleList2 = await this.articleRepository.createQueryBuilder("art")
+            const whereAllBlogs = `(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )`
+            const ArticlesToAll = await this.articleRepository.createQueryBuilder("art")
+            .distinct(true)
+                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
+                .leftJoinAndSelect("art.tag", "tag")
+                .leftJoinAndSelect("art.target", "target")
+                .where(whereAllBlogs, 
+                    { 
+                        filter: '%' + getArticleList.filter + '%',
+                        tagFilter: '%' + getArticleList.filter.toUpperCase() + '%'
+                    })
+                .skip(getArticleList.page * 10)
+                .take(10)
+                .orderBy("art.createdAt", "DESC")
+                .getMany();
+
+                
+                ArticlesToAll.forEach(article => {
+                    listAllToReturn.push({
+                        id: article.id,
+                        title: article.title,
+                        subtitle: article.subtitle,
+                        date: moment(article.createdAt).format('DD/MM/YYYY'),
+                        imageURL: article.image,
+                        tags: article.tag
+                    });
+                });
+                console.log("ARTICLE ALL LIST:",listAllToReturn)
+                    
+            const articleList = await this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
                 .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
                 .leftJoinAndSelect("art.tag", "tag")
@@ -176,7 +203,8 @@ export class ArticleService {
                 .where(whereString, 
                 { 
                     isBiodermaGame: getArticleList.isBiodermaGame,
-                    filter: '%' + getArticleList.filter + '%', tagFilter: '%' + getArticleList.filter.toUpperCase() + '%',
+                    filter: '%' + getArticleList.filter + '%',
+                    tagFilter: '%' + getArticleList.filter.toUpperCase() + '%',
                     isBlogNaos: getArticleList.type == 1 ? true : false,
                     isBlogEsthederm: getArticleList.type == 3 ? true : false,
                     isAll: false
@@ -185,7 +213,10 @@ export class ArticleService {
                 .take(10)
                 .orderBy("art.createdAt", "DESC")
                 .getMany();
-            articleList2.forEach(article => {
+
+                console.log("ARTICLE LIST:",articleList)
+
+                articleList.forEach(article => {
                 listToReturn.push({
                     id: article.id,
                     title: article.title,
