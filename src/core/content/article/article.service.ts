@@ -150,6 +150,8 @@ export class ArticleService {
 
     async searchForArticlesList(getArticleList: GetArticleList): Promise<any> {
 
+        console.log(" getArticleList: ",getArticleList)
+
         const userTypeQuery =  getArticleList.type ? `AND (target.type = ${getArticleList.type})` :"";
         const stateQuery =  getArticleList.userState ? `AND (target.city = ${getArticleList.userState})` :"";
         const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` :"";
@@ -176,7 +178,7 @@ export class ArticleService {
         try {
 
             if (getArticleList.isBiodermaGame) {
-                whereStr = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+                whereStr = "(art.isBiodermaGame = true ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
 
                 const allBioderma = await this.searchDB(whereStr,pagesSkip,stringFilter)
                 return { blogs: [...allBioderma]};
