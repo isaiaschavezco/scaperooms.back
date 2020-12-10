@@ -212,13 +212,14 @@ export class ArticleService {
                                     console.log("target: ",target)
                                             if (target.allUsers) 
                                                 ArticlesToSend.push(article)
-                                            else if (target.position && target.city) 
+                                            else if (target.position !== null && target.city !== null) 
                                                 if(target.city.id === userState && target.position.id === userPosition)
                                                      ArticlesToSend.push(article)
-                                            else if (target.city && target.position === null) 
+                                            else if (target.city !== null && target.position === null) 
+                                                console.log("EXISTE CIUDAD");
                                                 if(target.city.id === userState)
                                                    ArticlesToSend.push(article)
-                                            else if (target.position && target.city === null) 
+                                            else if (target.position !== null && target.city === null) 
                                                 if(target.position.id === userPosition)
                                                    ArticlesToSend.push(article)
                                         });
