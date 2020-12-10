@@ -197,39 +197,30 @@ export class ArticleService {
                     const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
                     console.log("articlesWhereStr",articlesWhereStr)
 
-                    articlesWhereStr.map(article =>{
+                    await Promise.all(articlesWhereStr.map( async (article) =>{
                         if(article.isAll) 
                             ArticlesToSend.push(article)
                         else if(article.targets.length === 0)
                             ArticlesToSend.push(article)
-                            else{
-                                console.log("article.targets",article.targets);
-                                console.log("article.targets[0]",article.targets[0]);
-                                console.log("article.targets[0][0",article.targets[0][0]);
-
-                                let target = article.targets[0] 
-
-                                if(target.isAll)
-                                ArticlesToSend.push(article)
-                                else if(target.city && target.position)
-                                {
-                                    if(target.city.id === userState && target.position.id === userPosition)
-                                        ArticlesToSend.push(article)
-                                    }
-                                else if(target.city && !target.position){
-                                    if(target.city.id === userState)
-                                        ArticlesToSend.push(article)
-                                    }
-                                    else if(!target.city && target.position)
-                                    if(target.position.id === userPosition)
-                                        ArticlesToSend.push(article)
-                        }
-
-                        
-                    })
-
-                    
-
+                        else{
+                                 const articleTargets = await this.targetRepository.findByIds(article.targets, {
+                                          relations: ["city", "chain", "position", "type", "delegation"]
+                                    });
+                                articleTargets.forEach(target => {
+                                            if (target.allUsers) 
+                                                ArticlesToSend.push(article)
+                                            else if (target.position && target.city) 
+                                                if(target.city.id === userState && target.position.id === userPosition)
+                                                     ArticlesToSend.push(article)
+                                            else if (target.city && !target.position) 
+                                                if(target.city.id === userState)
+                                                   ArticlesToSend.push(article)
+                                            else if (target.position && !target.city) 
+                                                if(target.position.id === userPosition)
+                                                   ArticlesToSend.push(article)
+                                        });
+                              }
+                }))
                 }
                 // if(getArticleList.type === 2){
 

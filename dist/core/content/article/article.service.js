@@ -192,31 +192,30 @@ let ArticleService = class ArticleService {
                         whereStr = `${mainStr} ${mainNaosStr} `;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                         console.log("articlesWhereStr", articlesWhereStr);
-                        articlesWhereStr.map(article => {
+                        yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
                             if (article.isAll)
                                 ArticlesToSend.push(article);
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
-                                console.log("article.targets", article.targets);
-                                console.log("article.targets[0]", article.targets[0]);
-                                console.log("article.targets[0][0", article.targets[0][0]);
-                                let target = article.targets[0];
-                                if (target.isAll)
-                                    ArticlesToSend.push(article);
-                                else if (target.city && target.position) {
-                                    if (target.city.id === userState && target.position.id === userPosition)
+                                const articleTargets = yield this.targetRepository.findByIds(article.targets, {
+                                    relations: ["city", "chain", "position", "type", "delegation"]
+                                });
+                                articleTargets.forEach(target => {
+                                    if (target.allUsers)
                                         ArticlesToSend.push(article);
-                                }
-                                else if (target.city && !target.position) {
-                                    if (target.city.id === userState)
-                                        ArticlesToSend.push(article);
-                                }
-                                else if (!target.city && target.position)
-                                    if (target.position.id === userPosition)
-                                        ArticlesToSend.push(article);
+                                    else if (target.position && target.city)
+                                        if (target.city.id === userState && target.position.id === userPosition)
+                                            ArticlesToSend.push(article);
+                                        else if (target.city && !target.position)
+                                            if (target.city.id === userState)
+                                                ArticlesToSend.push(article);
+                                            else if (target.position && !target.city)
+                                                if (target.position.id === userPosition)
+                                                    ArticlesToSend.push(article);
+                                });
                             }
-                        });
+                        })));
                     }
                     return { blogs: [...ArticlesToSend]
                     };
