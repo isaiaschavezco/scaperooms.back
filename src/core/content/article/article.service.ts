@@ -157,6 +157,9 @@ export class ArticleService {
         const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` :"";
         const clinicQuery =  getArticleList.userClinic ? `AND (target.clinic = ${getArticleList.userClinic})` :"";
         const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` :""
+
+        const {type,userState,userChain,userClinic,userPosition} = getArticleList
+
         const positionQueryNull =  `AND (target.position = null)`
         const stateQueryNull = `AND (target.city = null)`
         const chainQueryNull = `AND (target.chain = null)`
@@ -190,10 +193,38 @@ export class ArticleService {
                     let mainNaosStr = "AND (art.isBlogNaos = true)"
                     // whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
                     whereStr = `${mainStr} ${mainNaosStr} `;
-                    whereState = ` ${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQueryNull}`;
-                    whereSecondary = `${mainStr}${mainNaosStr} ${userTypeQuery} ${stateQueryNull} ${positionQuery}`;
-                    whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
-                    restOfUsers = `${mainStr} ${mainNaosStr} ${targetNull}`
+                    const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
+                    const tempArticlesSend = []
+
+                    articlesWhereStr.map(article =>{
+                        if(article.isAll) 
+                            tempArticlesSend.push(article)
+                        else if(article.targets.length === 0)
+                            tempArticlesSend.push(article)
+                            else{
+                                let target = article.targets[0][0] 
+                                if(target.isAll)
+                                tempArticlesSend.push(article)
+                                else if(target.city && target.position)
+                                {
+                                    if(target.city.id === userState && target.position.id === userPosition)
+                                        tempArticlesSend.push(article)
+                                    }
+                                else if(target.city && !target.position){
+                                    if(target.city.id === userState)
+                                        tempArticlesSend.push(article)
+                                    }
+                                    else if(!target.city && target.position)
+                                    if(target.position.id === userPosition)
+                                        tempArticlesSend.push(article)
+                        }
+
+                        return { blogs: [...tempArticlesSend]
+                        };
+                    })
+
+
+
                 }
                 if(getArticleList.type === 2){
 
@@ -212,12 +243,7 @@ export class ArticleService {
                     whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
                     restOfUsers = `${mainStr} ${mainEstheStr} ${targetNull}`
                 }
-                console.log("whereStr",whereStr)
-                console.log("whereState",whereState)
-                console.log("whereSecondary",whereSecondary)
-                console.log("whereAllUsersSpecific",whereAllUsersSpecific)
-                console.log("whereAllUsers",whereAllUsers)
-                console.log("restOfUsers",restOfUsers)
+               
                 const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
                 const articlesWhereState = await this.searchDB(whereState,pagesSkip,stringFilter)
                 const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
@@ -258,7 +284,7 @@ export class ArticleService {
 
         const Articles = await this.articleRepository.createQueryBuilder("art")
             .distinct(true)
-                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
+                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt","art.isAll"])
                 .leftJoinAndSelect("art.tag", "tag")
                 .leftJoinAndSelect("art.target", "target")
                 .where(whereString, 

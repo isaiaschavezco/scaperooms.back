@@ -143,8 +143,6 @@ let NotificationService = class NotificationService {
                     const match = yield bcrypt.compare(sendRequest.password, userExist.password);
                     if (match) {
                         let filterQueries = [];
-                        let userIds = [];
-                        let playerIds = [];
                         let notificationToAllUsers = false;
                         let newNotification = yield this.notificationRepository.create({
                             content: sendRequest.content,
@@ -185,7 +183,6 @@ let NotificationService = class NotificationService {
                             }
                         });
                         let usersToSendArray = [];
-                        console.log("notificationToAllUsers? :", notificationToAllUsers);
                         if (notificationToAllUsers) {
                             let usersToSendTemp = yield this.userRepository.find({
                                 select: ["id"]
@@ -200,37 +197,36 @@ let NotificationService = class NotificationService {
                                 });
                                 console.log("usersToSendTemp", usersToSendTemp);
                                 usersToSendArray.push(usersToSendTemp);
-                                console.log("FILTER:", filterQuery);
                                 console.log("usersToSendARRAY", usersToSendArray);
                             })));
                         }
                         yield Promise.all(usersToSendArray.map((usersToSend) => __awaiter(this, void 0, void 0, function* () {
+                            let userIds = [];
+                            let playerIds = [];
                             newNotification.user = usersToSend;
                             console.log("USERS TO SEND: ", usersToSend);
                             yield this.notificationRepository.save(newNotification);
                             usersToSend.forEach(user => {
                                 userIds.push(user.id);
                             });
-                            console.log("userIds: ", userIds, " ", userIds.length);
+                            console.log("userIds: ", userIds);
                             const activeSessions = yield this.sesionRepository.find({
                                 user: typeorm_2.In(userIds)
                             });
-                            console.log("activeSessions", activeSessions, " ", activeSessions.length);
+                            console.log("activeSessions", activeSessions);
                             activeSessions.forEach(sesion => {
                                 if (sesion.playerId) {
                                     playerIds.push(sesion.playerId);
                                 }
                             });
-                            console.log("playerIds:", playerIds, " ", playerIds.length);
+                            console.log("playerIds:", playerIds);
                             const input = new onesignal_api_client_core_1.NotificationByDeviceBuilder()
                                 .setIncludePlayerIds(playerIds)
                                 .notification()
                                 .setHeadings({ en: sendRequest.title })
                                 .setContents({ en: sendRequest.content })
                                 .build();
-                            console.log("INPUT", input);
-                            const ones = yield this.oneSignalService.createNotification(input);
-                            console.log("ONE SIGNAL:", ones);
+                            yield this.oneSignalService.createNotification(input);
                         })));
                     }
                     else {

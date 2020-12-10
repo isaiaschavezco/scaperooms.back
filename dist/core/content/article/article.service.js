@@ -157,65 +157,100 @@ let ArticleService = class ArticleService {
     }
     searchForArticlesList(getArticleList) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(" getArticleList: ", getArticleList);
             const userTypeQuery = getArticleList.type ? `AND (target.type = ${getArticleList.type})` : "";
             const stateQuery = getArticleList.userState ? `AND (target.city = ${getArticleList.userState})` : "";
             const chainQuery = getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` : "";
             const clinicQuery = getArticleList.userClinic ? `AND (target.clinic = ${getArticleList.userClinic})` : "";
             const positionQuery = getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` : "";
+            const { type, userState, userChain, userClinic, userPosition } = getArticleList;
             const positionQueryNull = `AND (target.position = null)`;
             const stateQueryNull = `AND (target.city = null)`;
             const chainQueryNull = `AND (target.chain = null)`;
             const clinicQueryNull = `AND (target.clinic = null)`;
             const allUsersSpecificQuery = `AND (target.allUsers = true)`;
-            let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)";
-            let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+            const targetNull = `AND (target = null)`;
             let whereStr = "";
             let whereState = "";
             let whereSecondary = "";
             let whereAllUsersSpecific = "";
-            let listToReturn = [];
-            let listAllToReturn = [];
+            let restOfUsers = "";
             const pagesSkip = getArticleList.page;
             const stringFilter = getArticleList.filter;
+            let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)";
+            let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
             try {
                 if (getArticleList.isBiodermaGame) {
-                    whereStr = "(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+                    whereStr = "(art.isBiodermaGame = true ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
                     const allBioderma = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                     return { blogs: [...allBioderma] };
                 }
                 else {
                     if (getArticleList.type === 1) {
                         let mainNaosStr = "AND (art.isBlogNaos = true)";
-                        whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
-                        whereState = ` ${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQueryNull}`;
-                        whereSecondary = `${mainStr}${mainNaosStr} ${userTypeQuery} ${stateQueryNull} ${positionQuery}`;
-                        whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`;
+                        whereStr = `${mainStr} ${mainNaosStr} `;
+                        const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
+                        const tempArticlesSend = [];
+                        articlesWhereStr.map(article => {
+                            if (article.isAll)
+                                tempArticlesSend.push(article);
+                            else if (article.targets.length === 0)
+                                tempArticlesSend.push(article);
+                            else {
+                                let target = article.targets[0][0];
+                                if (target.isAll)
+                                    tempArticlesSend.push(article);
+                                else if (target.city && target.position) {
+                                    if (target.city.id === userState && target.position.id === userPosition)
+                                        tempArticlesSend.push(article);
+                                }
+                                else if (target.city && !target.position) {
+                                    if (target.city.id === userState)
+                                        tempArticlesSend.push(article);
+                                }
+                                else if (!target.city && target.position)
+                                    if (target.position.id === userPosition)
+                                        tempArticlesSend.push(article);
+                            }
+                            return { blogs: [...tempArticlesSend]
+                            };
+                        });
                     }
                     if (getArticleList.type === 2) {
-                        let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false)";
+                        let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)";
                         whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
                         whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
-                        whereSecondary = ` ${mainStr}${mainPharmaStr} ${mainPharmaStr} ${stateQueryNull} ${chainQuery}`;
+                        whereSecondary = ` ${mainStr}${mainPharmaStr} ${userTypeQuery} ${stateQueryNull} ${chainQuery}`;
                         whereAllUsersSpecific = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${allUsersSpecificQuery}`;
+                        restOfUsers = `${mainStr} ${mainPharmaStr} ${targetNull}`;
                     }
                     if (getArticleList.type === 3) {
                         let mainEstheStr = "AND (art.isBlogEsthederm = true)";
                         whereStr = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQuery}`;
                         whereState = ` ${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQueryNull}`;
-                        whereSecondary = `${mainStr} ${mainEstheStr} ${mainEstheStr} ${stateQueryNull} ${clinicQuery}`;
+                        whereSecondary = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQueryNull} ${clinicQuery}`;
                         whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`;
+                        restOfUsers = `${mainStr} ${mainEstheStr} ${targetNull}`;
                     }
                     const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                     const articlesWhereState = yield this.searchDB(whereState, pagesSkip, stringFilter);
                     const articlesWhereSecondary = yield this.searchDB(whereSecondary, pagesSkip, stringFilter);
                     const articlesWhereAllUsersSpecific = yield this.searchDB(whereAllUsersSpecific, pagesSkip, stringFilter);
                     const articlesToAAAllUsers = yield this.searchDB(whereAllUsers, pagesSkip, stringFilter);
+                    const articlesToRestOfUsers = yield this.searchDB(restOfUsers, pagesSkip, stringFilter);
+                    console.log("articlesWhereStr", articlesWhereStr);
+                    console.log("articlesWhereState", articlesWhereState);
+                    console.log("articlesWhereSecondary", articlesWhereSecondary);
+                    console.log("articlesWhereAllUsersSpecific", articlesWhereAllUsersSpecific);
+                    console.log("articlesToAAAllUsers", articlesToAAAllUsers);
+                    console.log("articlesToRestOfUsers", articlesToRestOfUsers);
                     return { blogs: [
                             ...articlesWhereStr,
                             ...articlesWhereState,
                             ...articlesWhereSecondary,
                             ...articlesWhereAllUsersSpecific,
-                            ...articlesToAAAllUsers
+                            ...articlesToAAAllUsers,
+                            ...articlesToRestOfUsers
                         ]
                     };
                 }
@@ -234,13 +269,14 @@ let ArticleService = class ArticleService {
             let listToReturn = [];
             const Articles = yield this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
-                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
+                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt", "art.isAll"])
                 .leftJoinAndSelect("art.tag", "tag")
                 .leftJoinAndSelect("art.target", "target")
                 .where(whereString, {
                 filter: '%' + filter + '%',
                 tagFilter: '%' + filter.toUpperCase() + '%'
             })
+                .printSql()
                 .skip(pages * 10)
                 .take(10)
                 .orderBy("art.createdAt", "DESC")
@@ -252,7 +288,8 @@ let ArticleService = class ArticleService {
                     subtitle: article.subtitle,
                     date: moment(article.createdAt).format('DD/MM/YYYY'),
                     imageURL: article.image,
-                    tags: article.tag
+                    tags: article.tag,
+                    targets: article.target
                 });
             });
             return listToReturn;
