@@ -137,8 +137,7 @@ export class NotificationService {
 
                 if (match) {
                     let filterQueries = [];
-                    let userIds = [];
-                    let playerIds = [];
+                   
                     let notificationToAllUsers = false;
 
                     let newNotification = await this.notificationRepository.create({
@@ -220,6 +219,8 @@ export class NotificationService {
                     }
 
                     await Promise.all(usersToSendArray.map(async (usersToSend)=>{
+                         let userIds = [];
+                         let playerIds = [];
                         newNotification.user = usersToSend;
                         
                         console.log("USERS TO SEND: ",usersToSend)    
