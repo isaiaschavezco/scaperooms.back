@@ -164,9 +164,11 @@ export class ArticleService {
                 const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` :""
                 const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` :""
                 whereString = `(art.isBiodermaGame = :isBiodermaGame ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter ) AND (art.isBlogNaos = :isBlogNaos) AND (art.isBlogEsthederm = :isBlogEsthederm) AND (art.isAll = :isAll) OR (art.isAll = null) AND (art.isAll = :isAll) OR (art.isAll = null) ${stateQuery} ${clinicQuery} ${chainQuery} ${positionQuery}`;
+                console.log("whereString: ",whereString)
             }
             
             const whereAllBlogs = `(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )`
+            console.log("whereAllBlogs: ",whereAllBlogs)
             const ArticlesToAll = await this.articleRepository.createQueryBuilder("art")
             .distinct(true)
                 .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt"])
@@ -194,6 +196,7 @@ export class ArticleService {
                     });
                 });
                 console.log("ARTICLE ALL LIST:",listAllToReturn)
+
                     
             const articleList = await this.articleRepository.createQueryBuilder("art")
                 .distinct(true)
@@ -214,20 +217,20 @@ export class ArticleService {
                 .orderBy("art.createdAt", "DESC")
                 .getMany();
 
-                console.log("ARTICLE LIST:",articleList)
-
+                
                 articleList.forEach(article => {
-                listToReturn.push({
-                    id: article.id,
-                    title: article.title,
-                    subtitle: article.subtitle,
-                    date: moment(article.createdAt).format('DD/MM/YYYY'),
-                    imageURL: article.image,
-                    tags: article.tag
+                    listToReturn.push({
+                        id: article.id,
+                        title: article.title,
+                        subtitle: article.subtitle,
+                        date: moment(article.createdAt).format('DD/MM/YYYY'),
+                        imageURL: article.image,
+                        tags: article.tag
+                    });
                 });
-            });
+                console.log("ARTICLE LIST:",listToReturn)
 
-            return { blogs: listToReturn };
+            return { blogs: [...listToReturn,...listAllToReturn]  };
         } catch (err) {
             console.log("ArticleService - searchForArticlesList: ", err);
 
