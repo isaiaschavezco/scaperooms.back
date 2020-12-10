@@ -168,6 +168,7 @@ export class ArticleService {
         const targetNull = `AND (target = null)`
 
         // const allUsersSpecificQuery = `AND (target.allUsers = true)`
+        const ArticlesToSend = []
 
        
 
@@ -195,13 +196,12 @@ export class ArticleService {
                     whereStr = `${mainStr} ${mainNaosStr} `;
                     const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
                     console.log("articlesWhereStr",articlesWhereStr)
-                    const tempArticlesSend = []
 
                     articlesWhereStr.map(article =>{
                         if(article.isAll) 
-                            tempArticlesSend.push(article)
+                            ArticlesToSend.push(article)
                         else if(article.targets.length === 0)
-                            tempArticlesSend.push(article)
+                            ArticlesToSend.push(article)
                             else{
                                 console.log("article.targets",article.targets);
                                 console.log("article.targets[0]",article.targets[0]);
@@ -210,68 +210,60 @@ export class ArticleService {
                                 let target = article.targets[0] 
 
                                 if(target.isAll)
-                                tempArticlesSend.push(article)
+                                ArticlesToSend.push(article)
                                 else if(target.city && target.position)
                                 {
                                     if(target.city.id === userState && target.position.id === userPosition)
-                                        tempArticlesSend.push(article)
+                                        ArticlesToSend.push(article)
                                     }
                                 else if(target.city && !target.position){
                                     if(target.city.id === userState)
-                                        tempArticlesSend.push(article)
+                                        ArticlesToSend.push(article)
                                     }
                                     else if(!target.city && target.position)
                                     if(target.position.id === userPosition)
-                                        tempArticlesSend.push(article)
+                                        ArticlesToSend.push(article)
                         }
 
-                        return { blogs: [...tempArticlesSend]
-                        };
+                        
                     })
 
-
+                    
 
                 }
-                if(getArticleList.type === 2){
+                // if(getArticleList.type === 2){
 
-                    let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
-                    whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
-                    whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
-                    whereSecondary = ` ${mainStr}${mainPharmaStr} ${userTypeQuery} ${stateQueryNull} ${chainQuery}`;
-                    whereAllUsersSpecific = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${allUsersSpecificQuery}`
-                    restOfUsers = `${mainStr} ${mainPharmaStr} ${targetNull}`
-                }
-                if(getArticleList.type === 3){
-                    let mainEstheStr = "AND (art.isBlogEsthederm = true)"
-                    whereStr = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQuery}`;
-                    whereState = ` ${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQueryNull}`;
-                    whereSecondary = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQueryNull} ${clinicQuery}`;
-                    whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
-                    restOfUsers = `${mainStr} ${mainEstheStr} ${targetNull}`
-                }
+                //     let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
+                //     whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
+                //     whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
+                //     whereSecondary = ` ${mainStr}${mainPharmaStr} ${userTypeQuery} ${stateQueryNull} ${chainQuery}`;
+                //     whereAllUsersSpecific = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${allUsersSpecificQuery}`
+                //     restOfUsers = `${mainStr} ${mainPharmaStr} ${targetNull}`
+                // }
+                // if(getArticleList.type === 3){
+                //     let mainEstheStr = "AND (art.isBlogEsthederm = true)"
+                //     whereStr = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQuery}`;
+                //     whereState = ` ${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQueryNull}`;
+                //     whereSecondary = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQueryNull} ${clinicQuery}`;
+                //     whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
+                //     restOfUsers = `${mainStr} ${mainEstheStr} ${targetNull}`
+                // }
                
-                const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
-                const articlesWhereState = await this.searchDB(whereState,pagesSkip,stringFilter)
-                const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
-                const articlesWhereAllUsersSpecific = await this.searchDB(whereAllUsersSpecific,pagesSkip,stringFilter)
-                const articlesToAAAllUsers = await this.searchDB(whereAllUsers,pagesSkip,stringFilter)
-                const articlesToRestOfUsers = await this.searchDB(restOfUsers,pagesSkip,stringFilter)
-                console.log("articlesWhereStr",articlesWhereStr)
-                console.log("articlesWhereState",articlesWhereState)
-                console.log("articlesWhereSecondary",articlesWhereSecondary)
-                console.log("articlesWhereAllUsersSpecific",articlesWhereAllUsersSpecific)
-                console.log("articlesToAAAllUsers",articlesToAAAllUsers)
-                console.log("articlesToRestOfUsers",articlesToRestOfUsers)
+                // const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
+                // const articlesWhereState = await this.searchDB(whereState,pagesSkip,stringFilter)
+                // const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
+                // const articlesWhereAllUsersSpecific = await this.searchDB(whereAllUsersSpecific,pagesSkip,stringFilter)
+                // const articlesToAAAllUsers = await this.searchDB(whereAllUsers,pagesSkip,stringFilter)
+                // const articlesToRestOfUsers = await this.searchDB(restOfUsers,pagesSkip,stringFilter)
+                // console.log("articlesWhereStr",articlesWhereStr)
+                // console.log("articlesWhereState",articlesWhereState)
+                // console.log("articlesWhereSecondary",articlesWhereSecondary)
+                // console.log("articlesWhereAllUsersSpecific",articlesWhereAllUsersSpecific)
+                // console.log("articlesToAAAllUsers",articlesToAAAllUsers)
+                // console.log("articlesToRestOfUsers",articlesToRestOfUsers)
 
 
-                return { blogs: [
-                                ...articlesWhereStr,
-                                ...articlesWhereState,
-                                ...articlesWhereSecondary,
-                                ...articlesWhereAllUsersSpecific,
-                                ...articlesToAAAllUsers,
-                                ...articlesToRestOfUsers
-                                ]
+                return { blogs: [...ArticlesToSend]
                         };
                 }
         } catch (err) {

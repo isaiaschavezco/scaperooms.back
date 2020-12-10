@@ -2506,7 +2506,7 @@
         "signature": "5efbf5f7fb08ee746bda366571e4c1056c988d17c49c971972df4583798f6672"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "1a07572eaebcfeddf315a9071c982a8e269ba5720a4ff0e0d6a0e3a11cc08514",
+        "version": "1dd295a7d8498389c52042b0373dd4badd5b27803617dd83900765a21e9226b9",
         "signature": "bf9c89c17aeb7c19de176b52b14a79ffdd5a3463feddd2bc0204f1243fe510ed"
       },
       "../src/core/content/article/article.controller.ts": {
