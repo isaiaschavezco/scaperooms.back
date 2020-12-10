@@ -189,7 +189,7 @@ export class ArticleService {
                 if(getArticleList.type === 1){
                     let mainNaosStr = "AND (art.isBlogNaos = true)"
                     // whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
-                    whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
+                    whereStr = `${mainStr} ${mainNaosStr} `;
                     whereState = ` ${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQueryNull}`;
                     whereSecondary = `${mainStr}${mainNaosStr} ${userTypeQuery} ${stateQueryNull} ${positionQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
