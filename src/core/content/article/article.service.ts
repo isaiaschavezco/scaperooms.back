@@ -194,6 +194,7 @@ export class ArticleService {
                     // whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
                     whereStr = `${mainStr} ${mainNaosStr} `;
                     const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
+                    console.log("articlesWhereStr",articlesWhereStr)
                     const tempArticlesSend = []
 
                     articlesWhereStr.map(article =>{
