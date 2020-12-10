@@ -203,8 +203,12 @@ export class ArticleService {
                         else if(article.targets.length === 0)
                             tempArticlesSend.push(article)
                             else{
-                                let target = article.targets[0][0] 
-                                console.log(target,target[0],target[0][0])
+                                console.log("article.targets",article.targets);
+                                console.log("article.targets[0]",article.targets[0]);
+                                console.log("article.targets[0][0",article.targets[0][0]);
+
+                                let target = article.targets[0] 
+
                                 if(target.isAll)
                                 tempArticlesSend.push(article)
                                 else if(target.city && target.position)
