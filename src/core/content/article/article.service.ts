@@ -203,10 +203,12 @@ export class ArticleService {
                         else if(article.targets.length === 0)
                             ArticlesToSend.push(article)
                         else{
+                                console.log("article.targets",article.targets)
                                  const articleTargets = await this.targetRepository.findByIds(article.targets, {
                                           relations: ["city", "chain", "position", "type", "delegation"]
                                     });
                                 articleTargets.forEach(target => {
+                                    console.log("target: ",target)
                                             if (target.allUsers) 
                                                 ArticlesToSend.push(article)
                                             else if (target.position && target.city) 
