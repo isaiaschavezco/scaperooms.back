@@ -159,6 +159,7 @@ export class ArticleService {
         const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` :""
 
         const {type,userState,userChain,userClinic,userPosition} = getArticleList
+        console.log("type,userState,userChain,userClinic,userPosition",type,userState,userChain,userClinic,userPosition);
 
         const positionQueryNull =  `AND (target.position = null)`
         const stateQueryNull = `AND (target.city = null)`
@@ -208,22 +209,27 @@ export class ArticleService {
                                     relations: ["city", "chain", "position", "type", "delegation"]
                                 });
                                 console.log("articleTargets: ",articleTargets)
+                                console.log(object);
                                 articleTargets.forEach(target => {
                                     console.log("target: ",target)
                                             if (target.allUsers) 
                                                 ArticlesToSend.push(article)
-                                            else if (target.position !== null && target.city !== null) 
-                                                if(target.city.id === userState && target.position.id === userPosition)
-                                                     ArticlesToSend.push(article)
+                                            else if (target.position !== null && target.city !== null){
+                                                if(target.city.id === userState && target.position.id === userPosition){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            }  
                                             else if (target.city !== null && target.position === null) {
-
                                                 console.log("EXISTE CIUDAD");
-                                                if(target.city.id === userState)
-                                                     ArticlesToSend.push(article)
+                                                if(target.city.id === userState){
+                                                    ArticlesToSend.push(article)
+                                                }
                                             }
-                                            else if (target.position !== null && target.city === null) 
-                                                if(target.position.id === userPosition)
-                                                   ArticlesToSend.push(article)
+                                            else if (target.position !== null && target.city === null){
+                                                if(target.position.id === userPosition){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            } 
                                         });
                               }
                 }))
