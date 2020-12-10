@@ -162,6 +162,9 @@ export class ArticleService {
         const chainQueryNull = `AND (target.chain = null)`
         const clinicQueryNull = `AND (target.clinic = null)`
         const allUsersSpecificQuery = `AND (target.allUsers = true)`
+        const targetNull = `AND (target = null)`
+
+        // const allUsersSpecificQuery = `AND (target.allUsers = true)`
 
         let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)"
         let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )"
@@ -170,6 +173,7 @@ export class ArticleService {
         let whereState = ""
         let whereSecondary = ""
         let whereAllUsersSpecific = ""
+        let restOfUsers = ""
         let listToReturn = [];
         let listAllToReturn = [];
         const pagesSkip = getArticleList.page
@@ -190,6 +194,8 @@ export class ArticleService {
                     whereState = ` ${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQueryNull}`;
                     whereSecondary = `${mainStr}${mainNaosStr} ${userTypeQuery} ${stateQueryNull} ${positionQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
+                    whereAllUsersSpecific = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${allUsersSpecificQuery}`
+                    restOfUsers = `${mainStr} ${mainNaosStr} ${targetNull}`
                 }
                 if(getArticleList.type === 2){
                     let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
@@ -197,6 +203,7 @@ export class ArticleService {
                     whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
                     whereSecondary = ` ${mainStr}${mainPharmaStr} ${userTypeQuery} ${stateQueryNull} ${chainQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${allUsersSpecificQuery}`
+                    restOfUsers = `${mainStr} ${mainPharmaStr} ${targetNull}`
                 }
                 if(getArticleList.type === 3){
                     let mainEstheStr = "AND (art.isBlogEsthederm = true)"
@@ -204,6 +211,7 @@ export class ArticleService {
                     whereState = ` ${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQueryNull}`;
                     whereSecondary = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQueryNull} ${clinicQuery}`;
                     whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
+                    restOfUsers = `${mainStr} ${mainEstheStr} ${targetNull}`
                 }
                 console.log("whereStr",whereStr)
                 console.log("whereState",whereState)
@@ -215,12 +223,22 @@ export class ArticleService {
                 const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
                 const articlesWhereAllUsersSpecific = await this.searchDB(whereAllUsersSpecific,pagesSkip,stringFilter)
                 const articlesToAAAllUsers = await this.searchDB(whereAllUsers,pagesSkip,stringFilter)
+                const articlesToRestOfUsers = await this.searchDB(restOfUsers,pagesSkip,stringFilter)
+                console.log("articlesWhereStr",articlesWhereStr)
+                console.log("articlesWhereState",articlesWhereState)
+                console.log("articlesWhereSecondary",articlesWhereSecondary)
+                console.log("articlesWhereAllUsersSpecific",articlesWhereAllUsersSpecific)
+                console.log("articlesToAAAllUsers",articlesToAAAllUsers)
+                console.log("articlesToRestOfUsers",articlesToRestOfUsers)
+
+
                 return { blogs: [
                                 ...articlesWhereStr,
                                 ...articlesWhereState,
                                 ...articlesWhereSecondary,
                                 ...articlesWhereAllUsersSpecific,
-                                ...articlesToAAAllUsers
+                                ...articlesToAAAllUsers,
+                                ...articlesToRestOfUsers
                                 ]
                         };
                 }
