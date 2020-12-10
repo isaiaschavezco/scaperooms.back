@@ -188,6 +188,7 @@ export class ArticleService {
             } else{
                 if(getArticleList.type === 1){
                     let mainNaosStr = "AND (art.isBlogNaos = true)"
+                    // whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
                     whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
                     whereState = ` ${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQueryNull}`;
                     whereSecondary = `${mainStr}${mainNaosStr} ${userTypeQuery} ${stateQueryNull} ${positionQuery}`;
@@ -195,6 +196,7 @@ export class ArticleService {
                     restOfUsers = `${mainStr} ${mainNaosStr} ${targetNull}`
                 }
                 if(getArticleList.type === 2){
+
                     let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
                     whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
                     whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
@@ -251,7 +253,7 @@ export class ArticleService {
     }
 
 
-    async searchDB(whereString,pages,filter){
+    async searchDB(whereString, pages, filter){
         let listToReturn = [];
 
         const Articles = await this.articleRepository.createQueryBuilder("art")
@@ -264,6 +266,7 @@ export class ArticleService {
                         filter: '%' + filter + '%',
                         tagFilter: '%' + filter.toUpperCase() + '%'
                     })
+                .printSql()
                    //getArticleList.page 
                 .skip(pages * 10)
                 .take(10)
