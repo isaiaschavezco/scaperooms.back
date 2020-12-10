@@ -158,24 +158,9 @@ let ArticleService = class ArticleService {
     searchForArticlesList(getArticleList) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(" getArticleList: ", getArticleList);
-            const userTypeQuery = getArticleList.type ? `AND (target.type = ${getArticleList.type})` : "";
-            const stateQuery = getArticleList.userState ? `AND (target.city = ${getArticleList.userState})` : "";
-            const chainQuery = getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` : "";
-            const clinicQuery = getArticleList.userClinic ? `AND (target.clinic = ${getArticleList.userClinic})` : "";
-            const positionQuery = getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` : "";
             const { type, userState, userChain, userClinic, userPosition } = getArticleList;
-            const positionQueryNull = `AND (target.position = null)`;
-            const stateQueryNull = `AND (target.city = null)`;
-            const chainQueryNull = `AND (target.chain = null)`;
-            const clinicQueryNull = `AND (target.clinic = null)`;
-            const allUsersSpecificQuery = `AND (target.allUsers = true)`;
-            const targetNull = `AND (target = null)`;
             const ArticlesToSend = [];
             let whereStr = "";
-            let whereState = "";
-            let whereSecondary = "";
-            let whereAllUsersSpecific = "";
-            let restOfUsers = "";
             const pagesSkip = getArticleList.page;
             const stringFilter = getArticleList.filter;
             let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)";
@@ -187,37 +172,125 @@ let ArticleService = class ArticleService {
                     return { blogs: [...allBioderma] };
                 }
                 else {
-                    if (getArticleList.type === 1) {
+                    if (type === 1) {
                         let mainNaosStr = "AND (art.isBlogNaos = true)";
                         whereStr = `${mainStr} ${mainNaosStr} `;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
-                        console.log("articlesWhereStr", articlesWhereStr);
                         yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
                             if (article.isAll)
                                 ArticlesToSend.push(article);
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
+                                console.log("article.targets", article.targets);
                                 const articleTargets = yield this.targetRepository.findByIds(article.targets, {
                                     relations: ["city", "chain", "position", "type", "delegation"]
                                 });
+                                console.log("articleTargets: ", articleTargets);
                                 articleTargets.forEach(target => {
+                                    console.log("target: ", target);
                                     if (target.allUsers)
                                         ArticlesToSend.push(article);
-                                    else if (target.position && target.city)
-                                        if (target.city.id === userState && target.position.id === userPosition)
+                                    else if (target.position !== null && target.city !== null) {
+                                        if (target.city.id === userState && target.position.id === userPosition) {
                                             ArticlesToSend.push(article);
-                                        else if (target.city && !target.position)
-                                            if (target.city.id === userState)
-                                                ArticlesToSend.push(article);
-                                            else if (target.position && !target.city)
-                                                if (target.position.id === userPosition)
-                                                    ArticlesToSend.push(article);
+                                        }
+                                    }
+                                    else if (target.city !== null) {
+                                        console.log("EXISTE CIUDAD");
+                                        if (target.city.id === userState) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                    else if (target.position !== null) {
+                                        if (target.position.id === userPosition) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
                                 });
                             }
                         })));
                     }
-                    return { blogs: [...ArticlesToSend]
+                    if (type === 2) {
+                        let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)";
+                        whereStr = `${mainStr} ${mainPharmaStr}`;
+                        const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
+                        yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
+                            if (article.isAll)
+                                ArticlesToSend.push(article);
+                            else if (article.targets.length === 0)
+                                ArticlesToSend.push(article);
+                            else {
+                                console.log("article.targets", article.targets);
+                                const articleTargets = yield this.targetRepository.findByIds(article.targets, {
+                                    relations: ["city", "chain", "clinic", "position", "type", "delegation"]
+                                });
+                                console.log("articleTargets: ", articleTargets);
+                                articleTargets.forEach(target => {
+                                    console.log("target: ", target);
+                                    if (target.allUsers)
+                                        ArticlesToSend.push(article);
+                                    else if (target.chain !== null && target.city !== null) {
+                                        if (target.city.id === userState && target.chain.id === userChain) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                    else if (target.city !== null) {
+                                        console.log("EXISTE CIUDAD");
+                                        if (target.city.id === userState) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                    else if (target.chain !== null) {
+                                        if (target.chain.id === userChain) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                });
+                            }
+                        })));
+                    }
+                    if (type === 3) {
+                        let mainEstheStr = "AND (art.isBlogEsthederm = true)";
+                        whereStr = `${mainStr} ${mainEstheStr}`;
+                        const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
+                        yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
+                            if (article.isAll)
+                                ArticlesToSend.push(article);
+                            else if (article.targets.length === 0)
+                                ArticlesToSend.push(article);
+                            else {
+                                console.log("article.targets", article.targets);
+                                const articleTargets = yield this.targetRepository.findByIds(article.targets, {
+                                    relations: ["city", "chain", "clinic", "position", "type", "delegation"]
+                                });
+                                console.log("articleTargets: ", articleTargets);
+                                articleTargets.forEach(target => {
+                                    console.log("target: ", target);
+                                    if (target.allUsers)
+                                        ArticlesToSend.push(article);
+                                    else if (target.clinic !== null && target.city !== null) {
+                                        if (target.city.id === userState && target.clinic.id === userClinic) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                    else if (target.city !== null) {
+                                        console.log("EXISTE CIUDAD");
+                                        if (target.city.id === userState) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                    else if (target.clinic !== null) {
+                                        if (target.clinic.id === userClinic) {
+                                            ArticlesToSend.push(article);
+                                        }
+                                    }
+                                });
+                            }
+                        })));
+                    }
+                    const articlesToAAAllUsers = yield this.searchDB(whereAllUsers, pagesSkip, stringFilter);
+                    return { blogs: [...ArticlesToSend, ...articlesToAAAllUsers]
                     };
                 }
             }

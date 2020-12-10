@@ -149,39 +149,17 @@ export class ArticleService {
     }
 
     async searchForArticlesList(getArticleList: GetArticleList): Promise<any> {
-
         console.log(" getArticleList: ",getArticleList)
-
-        const userTypeQuery =  getArticleList.type ? `AND (target.type = ${getArticleList.type})` :"";
-        const stateQuery =  getArticleList.userState ? `AND (target.city = ${getArticleList.userState})` :"";
-        const chainQuery =  getArticleList.userChain ? `AND (target.chain = ${getArticleList.userChain})` :"";
-        const clinicQuery =  getArticleList.userClinic ? `AND (target.clinic = ${getArticleList.userClinic})` :"";
-        const positionQuery =  getArticleList.userPosition ? `AND (target.position = ${getArticleList.userPosition})` :""
-
         const {type,userState,userChain,userClinic,userPosition} = getArticleList
-        console.log("type,userState,userChain,userClinic,userPosition",type,userState,userChain,userClinic,userPosition);
+        // console.log("type,userState,userChain,userClinic,userPosition",type,userState,userChain,userClinic,userPosition);
 
-        const positionQueryNull =  `AND (target.position = null)`
-        const stateQueryNull = `AND (target.city = null)`
-        const chainQueryNull = `AND (target.chain = null)`
-        const clinicQueryNull = `AND (target.clinic = null)`
-        const allUsersSpecificQuery = `AND (target.allUsers = true)`
-        const targetNull = `AND (target = null)`
-
-        // const allUsersSpecificQuery = `AND (target.allUsers = true)`
         const ArticlesToSend = []
-
-       
-
         let whereStr = ""
-        let whereState = ""
-        let whereSecondary = ""
-        let whereAllUsersSpecific = ""
-        let restOfUsers = ""
         const pagesSkip = getArticleList.page
         const stringFilter = getArticleList.filter
         let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)"
         let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )"
+
         try {
 
             if (getArticleList.isBiodermaGame) {
@@ -191,13 +169,11 @@ export class ArticleService {
                 return { blogs: [...allBioderma]};
 
             } else{
-                if(getArticleList.type === 1){
+                if(type === 1){
                     let mainNaosStr = "AND (art.isBlogNaos = true)"
                     // whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
                     whereStr = `${mainStr} ${mainNaosStr} `;
                     const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
-                    console.log("articlesWhereStr",articlesWhereStr)
-
                     await Promise.all(articlesWhereStr.map( async (article) =>{
                         if(article.isAll) 
                             ArticlesToSend.push(article)
@@ -233,39 +209,90 @@ export class ArticleService {
                               }
                 }))
                 }
-                // if(getArticleList.type === 2){
+                if(type === 2){
+                    let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
+                    whereStr = `${mainStr} ${mainPharmaStr}`;
 
-                //     let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)"
-                //     whereStr = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQuery}`;
-                //     whereState = ` ${mainStr} ${mainPharmaStr} ${userTypeQuery} ${stateQuery} ${chainQueryNull}`;
-                //     whereSecondary = ` ${mainStr}${mainPharmaStr} ${userTypeQuery} ${stateQueryNull} ${chainQuery}`;
-                //     whereAllUsersSpecific = `${mainStr} ${mainPharmaStr} ${userTypeQuery} ${allUsersSpecificQuery}`
-                //     restOfUsers = `${mainStr} ${mainPharmaStr} ${targetNull}`
-                // }
-                // if(getArticleList.type === 3){
-                //     let mainEstheStr = "AND (art.isBlogEsthederm = true)"
-                //     whereStr = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQuery}`;
-                //     whereState = ` ${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQuery} ${clinicQueryNull}`;
-                //     whereSecondary = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${stateQueryNull} ${clinicQuery}`;
-                //     whereAllUsersSpecific = `${mainStr} ${mainEstheStr} ${userTypeQuery} ${allUsersSpecificQuery}`
-                //     restOfUsers = `${mainStr} ${mainEstheStr} ${targetNull}`
-                // }
-               
-                // const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
-                // const articlesWhereState = await this.searchDB(whereState,pagesSkip,stringFilter)
-                // const articlesWhereSecondary = await this.searchDB(whereSecondary,pagesSkip,stringFilter)
-                // const articlesWhereAllUsersSpecific = await this.searchDB(whereAllUsersSpecific,pagesSkip,stringFilter)
-                // const articlesToAAAllUsers = await this.searchDB(whereAllUsers,pagesSkip,stringFilter)
-                // const articlesToRestOfUsers = await this.searchDB(restOfUsers,pagesSkip,stringFilter)
-                // console.log("articlesWhereStr",articlesWhereStr)
-                // console.log("articlesWhereState",articlesWhereState)
-                // console.log("articlesWhereSecondary",articlesWhereSecondary)
-                // console.log("articlesWhereAllUsersSpecific",articlesWhereAllUsersSpecific)
-                // console.log("articlesToAAAllUsers",articlesToAAAllUsers)
-                // console.log("articlesToRestOfUsers",articlesToRestOfUsers)
+                    const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
+                    await Promise.all(articlesWhereStr.map( async (article) =>{
+                        if(article.isAll) 
+                            ArticlesToSend.push(article)
+                        else if(article.targets.length === 0)
+                            ArticlesToSend.push(article)
+                        else{
+                                console.log("article.targets",article.targets)
+                                const articleTargets = await this.targetRepository.findByIds(article.targets, {
+                                    relations: ["city", "chain","clinic", "position", "type", "delegation"]
+                                });
+                                console.log("articleTargets: ",articleTargets)
+                                articleTargets.forEach(target => {
+                                    console.log("target: ",target)
+                                            if (target.allUsers) 
+                                                ArticlesToSend.push(article)
+                                            else if (target.chain !== null && target.city !== null){
+                                                if(target.city.id === userState && target.chain.id === userChain){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            }  
+                                            else if (target.city !== null) {
+                                                console.log("EXISTE CIUDAD");
+                                                if(target.city.id === userState){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            }
+                                            else if (target.chain !== null){
+                                                if(target.chain.id === userChain){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            } 
+                                        });
+                              }
+                        }))
+                }
+                if(type === 3){
+                    let mainEstheStr = "AND (art.isBlogEsthederm = true)"
+                    whereStr = `${mainStr} ${mainEstheStr}`;
 
+                    const articlesWhereStr = await this.searchDB(whereStr,pagesSkip,stringFilter)
+                    await Promise.all(articlesWhereStr.map( async (article) =>{
+                        if(article.isAll) 
+                            ArticlesToSend.push(article)
+                        else if(article.targets.length === 0)
+                            ArticlesToSend.push(article)
+                        else{
+                                console.log("article.targets",article.targets)
+                                const articleTargets = await this.targetRepository.findByIds(article.targets, {
+                                    relations: ["city", "chain","clinic", "position", "type", "delegation"]
+                                });
+                                console.log("articleTargets: ",articleTargets)
+                                articleTargets.forEach(target => {
+                                    console.log("target: ",target)
+                                            if (target.allUsers) 
+                                                ArticlesToSend.push(article)
+                                            else if (target.clinic !== null && target.city !== null){
+                                                if(target.city.id === userState && target.clinic.id === userClinic){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            }  
+                                            else if (target.city !== null) {
+                                                console.log("EXISTE CIUDAD");
+                                                if(target.city.id === userState){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            }
+                                            else if (target.clinic !== null){
+                                                if(target.clinic.id === userClinic){
+                                                    ArticlesToSend.push(article)
+                                                }
+                                            } 
+                                        });
+                              }
+                        }))
 
-                return { blogs: [...ArticlesToSend]
+                }
+
+                const articlesToAAAllUsers = await this.searchDB(whereAllUsers,pagesSkip,stringFilter)               
+                return { blogs: [...ArticlesToSend,...articlesToAAAllUsers]
                         };
                 }
         } catch (err) {
@@ -314,6 +341,12 @@ export class ArticleService {
                 });
             return listToReturn
     }
+    async filterArticles(whereString, pages, filter){
+
+    }
+
+
+
 
     async deleteArticle(articleId: number): Promise<any> {
         try {
