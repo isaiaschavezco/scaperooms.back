@@ -2506,8 +2506,8 @@
         "signature": "5efbf5f7fb08ee746bda366571e4c1056c988d17c49c971972df4583798f6672"
       },
       "../src/core/content/article/article.service.ts": {
-        "version": "364737c6adb0ac7afe2179390657d6c4bff23099a72d00766f832e316baa4ca7",
-        "signature": "bf9c89c17aeb7c19de176b52b14a79ffdd5a3463feddd2bc0204f1243fe510ed"
+        "version": "bdfc4b3ed9352af61a371fe3a64d61d9cd6220936ed48e20f177281dc996f3a3",
+        "signature": "c7303db16541326445b005293eb475a6b61cf4f38b76fc026249d2309d963fb3"
       },
       "../src/core/content/article/article.controller.ts": {
         "version": "408bb30de2c4de2e9da8e40bd4d2e5d55486f5d66d3e07687891c690324befca",
@@ -15537,8 +15537,6 @@
       "../src/core/content/tag/tag.controller.ts",
       "../src/core/content/tag/tag.module.ts",
       "../src/core/content/article/article.dto.ts",
-      "../src/core/content/article/article.controller.ts",
-      "../src/core/content/article/article.module.ts",
       "../src/core/content/trade/trade.service.ts",
       "../src/core/content/trade/trade.controller.ts",
       "../src/core/content/trade/trade.module.ts",
@@ -16001,7 +15999,6 @@
       "../src/core/users/clinic/clinic.service.ts",
       "../src/core/users/clinic/clinic.controller.ts",
       "../src/core/users/clinic/clinic.module.ts",
-      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
@@ -16054,7 +16051,10 @@
       "../node_modules/@types/pug/index.d.ts",
       "../node_modules/@types/superagent/index.d.ts",
       "../node_modules/@types/supertest/index.d.ts",
-      "../src/core/content/article/article.service.ts"
+      "../src/core/content/article/article.service.ts",
+      "../src/core/content/article/article.module.ts",
+      "../src/core/content/article/article.controller.ts",
+      "../src/app.module.ts"
     ]
   },
   "version": "3.7.2"

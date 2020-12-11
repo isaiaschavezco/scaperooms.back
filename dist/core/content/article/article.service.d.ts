@@ -14,6 +14,7 @@ export declare class ArticleService {
     createArticle(createDTO: CreateArticleDTO): Promise<any>;
     searchForArticlesList(getArticleList: GetArticleList): Promise<any>;
     searchDB(whereString: any, pages: any, filter: any): Promise<any[]>;
+    searchOnFilter(target: any, specialField: any, compare: any, article: any, userState: any): Promise<any[]>;
     deleteArticle(articleId: number): Promise<any>;
     update(updateDTO: UpdateArticleDTO): Promise<any>;
 }

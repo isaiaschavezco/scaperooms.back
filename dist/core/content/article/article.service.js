@@ -38,18 +38,25 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const articlesList = yield this.articleRepository.find({
-                    relations: ["target", "target.city", "target.chain", "target.clinic", "target.position", "target.type"],
+                    relations: [
+                        'target',
+                        'target.city',
+                        'target.chain',
+                        'target.clinic',
+                        'target.position',
+                        'target.type'
+                    ],
                     order: {
-                        createdAt: "DESC"
+                        createdAt: 'DESC'
                     }
                 });
                 return { blogs: articlesList };
             }
             catch (err) {
-                console.log("ArticleService - findAll: ", err);
+                console.log('ArticleService - findAll: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting articles',
+                    error: 'Error getting articles'
                 }, 500);
             }
         });
@@ -59,9 +66,17 @@ let ArticleService = class ArticleService {
             try {
                 let response = {};
                 const articleToReturn = yield this.articleRepository.findOne(articleId, {
-                    relations: ["tag", "target", "target.city", "target.chain", "target.clinic", "target.position", "target.type"]
+                    relations: [
+                        'tag',
+                        'target',
+                        'target.city',
+                        'target.chain',
+                        'target.clinic',
+                        'target.position',
+                        'target.type'
+                    ]
                 });
-                console.log("articleToReturn: ", articleToReturn);
+                console.log('articleToReturn: ', articleToReturn);
                 if (articleToReturn) {
                     response = {
                         title: articleToReturn.title,
@@ -78,10 +93,10 @@ let ArticleService = class ArticleService {
                 };
             }
             catch (err) {
-                console.log("ArticleService - findById: ", err);
+                console.log('ArticleService - findById: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting articles',
+                    error: 'Error getting articles'
                 }, 500);
             }
         });
@@ -92,15 +107,25 @@ let ArticleService = class ArticleService {
                 let listToReturn = [];
                 console.log(requestDTO);
                 const articlesList = yield this.articleRepository.find({
-                    relations: ["tag", "target", "target.city", "target.chain", "target.clinic", "target.position", "target.type"],
+                    relations: [
+                        'tag',
+                        'target',
+                        'target.city',
+                        'target.chain',
+                        'target.clinic',
+                        'target.position',
+                        'target.type'
+                    ],
                     where: {
                         isBiodermaGame: requestDTO.isBiodermaGame,
                         isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos,
-                        isBlogEsthederm: requestDTO.isBiodermaGame ? null : requestDTO.isBlogEsthederm,
+                        isBlogEsthederm: requestDTO.isBiodermaGame
+                            ? null
+                            : requestDTO.isBlogEsthederm,
                         isAll: requestDTO.isBiodermaGame ? null : requestDTO.isAll
                     },
                     order: {
-                        createdAt: "DESC"
+                        createdAt: 'DESC'
                     }
                 });
                 articlesList.forEach(article => {
@@ -115,10 +140,10 @@ let ArticleService = class ArticleService {
                 return { blogs: listToReturn };
             }
             catch (err) {
-                console.log("ArticleService - findListArticles: ", err);
+                console.log('ArticleService - findListArticles: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting articles',
+                    error: 'Error getting articles'
                 }, 500);
             }
         });
@@ -128,7 +153,7 @@ let ArticleService = class ArticleService {
             try {
                 const articleTags = yield this.tagRepository.findByIds(createDTO.tags);
                 const articleTargets = yield this.targetRepository.findByIds(createDTO.targets, {
-                    relations: ["clinic", "chain", "position", "type", "delegation"]
+                    relations: ['clinic', 'chain', 'position', 'type', 'delegation']
                 });
                 let newArticle = this.articleRepository.create({
                     title: createDTO.title,
@@ -139,7 +164,9 @@ let ArticleService = class ArticleService {
                     isBiodermaGame: createDTO.isBiodermaGame,
                     tag: articleTags,
                     isBlogNaos: createDTO.isBiodermaGame ? null : createDTO.isBlogNaos,
-                    isBlogEsthederm: createDTO.isBiodermaGame ? null : createDTO.isBlogEsthederm,
+                    isBlogEsthederm: createDTO.isBiodermaGame
+                        ? null
+                        : createDTO.isBlogEsthederm,
                     isAll: createDTO.isAll,
                     target: articleTargets
                 });
@@ -147,33 +174,34 @@ let ArticleService = class ArticleService {
                 return { status: 0 };
             }
             catch (err) {
-                console.log("ArticleService - createArticle: ", err);
+                console.log('ArticleService - createArticle: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error creating articles',
+                    error: 'Error creating articles'
                 }, 500);
             }
         });
     }
     searchForArticlesList(getArticleList) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(" getArticleList: ", getArticleList);
+            console.log(' getArticleList: ', getArticleList);
             const { type, userState, userChain, userClinic, userPosition } = getArticleList;
             const ArticlesToSend = [];
-            let whereStr = "";
+            let whereStr = '';
             const pagesSkip = getArticleList.page;
             const stringFilter = getArticleList.filter;
-            let mainStr = "(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)";
-            let whereAllUsers = "(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+            let mainStr = '(art.title LIKE :filter OR tag.name LIKE :tagFilter) AND (art.isBiodermaGame = false)';
+            let whereAllUsers = '(art.isAll = true) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )';
             try {
                 if (getArticleList.isBiodermaGame) {
-                    whereStr = "(art.isBiodermaGame = true ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )";
+                    whereStr =
+                        '(art.isBiodermaGame = true ) AND ( art.title LIKE :filter OR tag.name LIKE :tagFilter )';
                     const allBioderma = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                     return { blogs: [...allBioderma] };
                 }
                 else {
                     if (type === 1) {
-                        let mainNaosStr = "AND (art.isBlogNaos = true)";
+                        let mainNaosStr = 'AND (art.isBlogNaos = true)';
                         whereStr = `${mainStr} ${mainNaosStr} `;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                         yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
@@ -182,22 +210,25 @@ let ArticleService = class ArticleService {
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
-                                console.log("article.targets", article.targets);
                                 const articleTargets = yield this.targetRepository.findByIds(article.targets, {
-                                    relations: ["city", "chain", "position", "type", "delegation"]
+                                    relations: [
+                                        'city',
+                                        'chain',
+                                        'position',
+                                        'type',
+                                        'delegation'
+                                    ]
                                 });
-                                console.log("articleTargets: ", articleTargets);
                                 articleTargets.forEach(target => {
-                                    console.log("target: ", target);
                                     if (target.allUsers)
                                         ArticlesToSend.push(article);
                                     else if (target.position !== null && target.city !== null) {
-                                        if (target.city.id === userState && target.position.id === userPosition) {
+                                        if (target.city.id === userState &&
+                                            target.position.id === userPosition) {
                                             ArticlesToSend.push(article);
                                         }
                                     }
                                     else if (target.city !== null) {
-                                        console.log("EXISTE CIUDAD");
                                         if (target.city.id === userState) {
                                             ArticlesToSend.push(article);
                                         }
@@ -212,7 +243,7 @@ let ArticleService = class ArticleService {
                         })));
                     }
                     if (type === 2) {
-                        let mainPharmaStr = "AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)";
+                        let mainPharmaStr = 'AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)';
                         whereStr = `${mainStr} ${mainPharmaStr}`;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                         yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
@@ -221,22 +252,27 @@ let ArticleService = class ArticleService {
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
-                                console.log("article.targets", article.targets);
+                                console.log('article.targets', article.targets);
                                 const articleTargets = yield this.targetRepository.findByIds(article.targets, {
-                                    relations: ["city", "chain", "clinic", "position", "type", "delegation"]
+                                    relations: [
+                                        'city',
+                                        'chain',
+                                        'clinic',
+                                        'position',
+                                        'type',
+                                        'delegation'
+                                    ]
                                 });
-                                console.log("articleTargets: ", articleTargets);
                                 articleTargets.forEach(target => {
-                                    console.log("target: ", target);
                                     if (target.allUsers)
                                         ArticlesToSend.push(article);
                                     else if (target.chain !== null && target.city !== null) {
-                                        if (target.city.id === userState && target.chain.id === userChain) {
+                                        if (target.city.id === userState &&
+                                            target.chain.id === userChain) {
                                             ArticlesToSend.push(article);
                                         }
                                     }
                                     else if (target.city !== null) {
-                                        console.log("EXISTE CIUDAD");
                                         if (target.city.id === userState) {
                                             ArticlesToSend.push(article);
                                         }
@@ -251,7 +287,7 @@ let ArticleService = class ArticleService {
                         })));
                     }
                     if (type === 3) {
-                        let mainEstheStr = "AND (art.isBlogEsthederm = true)";
+                        let mainEstheStr = 'AND (art.isBlogEsthederm = true)';
                         whereStr = `${mainStr} ${mainEstheStr}`;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                         yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
@@ -260,45 +296,44 @@ let ArticleService = class ArticleService {
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
-                                console.log("article.targets", article.targets);
                                 const articleTargets = yield this.targetRepository.findByIds(article.targets, {
-                                    relations: ["city", "chain", "clinic", "position", "type", "delegation"]
+                                    relations: [
+                                        'city',
+                                        'chain',
+                                        'clinic',
+                                        'position',
+                                        'type',
+                                        'delegation'
+                                    ]
                                 });
-                                console.log("articleTargets: ", articleTargets);
                                 articleTargets.forEach(target => {
-                                    console.log("target: ", target);
                                     if (target.allUsers)
                                         ArticlesToSend.push(article);
                                     else if (target.clinic !== null && target.city !== null) {
-                                        if (target.city.id === userState && target.clinic.id === userClinic) {
+                                        if (target.city.id === userState &&
+                                            target.clinic.id === userClinic) {
                                             ArticlesToSend.push(article);
                                         }
                                     }
-                                    else if (target.city !== null) {
-                                        console.log("EXISTE CIUDAD");
-                                        if (target.city.id === userState) {
-                                            ArticlesToSend.push(article);
-                                        }
+                                    else if (target.city !== null && target.city.id === userState) {
+                                        ArticlesToSend.push(article);
                                     }
-                                    else if (target.clinic !== null) {
-                                        if (target.clinic.id === userClinic) {
-                                            ArticlesToSend.push(article);
-                                        }
+                                    else if (target.clinic !== null && target.clinic.id === userClinic) {
+                                        ArticlesToSend.push(article);
                                     }
                                 });
                             }
                         })));
                     }
                     const articlesToAAAllUsers = yield this.searchDB(whereAllUsers, pagesSkip, stringFilter);
-                    return { blogs: [...ArticlesToSend, ...articlesToAAAllUsers]
-                    };
+                    return { blogs: [...ArticlesToSend, ...articlesToAAAllUsers] };
                 }
             }
             catch (err) {
-                console.log("ArticleService - searchForArticlesList: ", err);
+                console.log('ArticleService - searchForArticlesList: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error getting articles',
+                    error: 'Error getting articles'
                 }, 500);
             }
         });
@@ -306,11 +341,21 @@ let ArticleService = class ArticleService {
     searchDB(whereString, pages, filter) {
         return __awaiter(this, void 0, void 0, function* () {
             let listToReturn = [];
-            const Articles = yield this.articleRepository.createQueryBuilder("art")
+            const Articles = yield this.articleRepository
+                .createQueryBuilder('art')
                 .distinct(true)
-                .select(["art.id", "art.title", "art.subtitle", "art.image", "art.createdAt", "art.isAll", "art.isBlogNaos", "art.isBlogEsthederm"])
-                .leftJoinAndSelect("art.tag", "tag")
-                .leftJoinAndSelect("art.target", "target")
+                .select([
+                'art.id',
+                'art.title',
+                'art.subtitle',
+                'art.image',
+                'art.createdAt',
+                'art.isAll',
+                'art.isBlogNaos',
+                'art.isBlogEsthederm'
+            ])
+                .leftJoinAndSelect('art.tag', 'tag')
+                .leftJoinAndSelect('art.target', 'target')
                 .where(whereString, {
                 filter: '%' + filter + '%',
                 tagFilter: '%' + filter.toUpperCase() + '%'
@@ -318,7 +363,7 @@ let ArticleService = class ArticleService {
                 .printSql()
                 .skip(pages * 10)
                 .take(10)
-                .orderBy("art.createdAt", "DESC")
+                .orderBy('art.createdAt', 'DESC')
                 .getMany();
             Articles.forEach(article => {
                 listToReturn.push({
@@ -337,20 +382,39 @@ let ArticleService = class ArticleService {
             return listToReturn;
         });
     }
+    searchOnFilter(target, specialField, compare, article, userState) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const ArticlesToSend = [];
+            if (target.allUsers)
+                ArticlesToSend.push(article);
+            else if (specialField !== null && target.city !== null) {
+                if (target.city.id === userState && specialField.id === compare) {
+                    ArticlesToSend.push(article);
+                }
+            }
+            else if (target.city !== null && target.city.id === userState) {
+                ArticlesToSend.push(article);
+            }
+            else if (specialField !== null && specialField.id === compare) {
+                ArticlesToSend.push(article);
+            }
+            return ArticlesToSend;
+        });
+    }
     deleteArticle(articleId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const articleToDelete = yield this.articleRepository.findOne(articleId, {
-                    relations: ["tag", "target"]
+                    relations: ['tag', 'target']
                 });
                 yield this.articleRepository.remove(articleToDelete);
                 return { status: 0 };
             }
             catch (err) {
-                console.log("ArticleService - deleteArticle: ", err);
+                console.log('ArticleService - deleteArticle: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error removing article',
+                    error: 'Error removing article'
                 }, 500);
             }
         });
@@ -360,7 +424,7 @@ let ArticleService = class ArticleService {
             try {
                 const articleTags = yield this.tagRepository.findByIds(updateDTO.tags);
                 const articleTargets = yield this.targetRepository.findByIds(updateDTO.targets, {
-                    relations: ["clinic", "chain", "position", "type", "delegation"]
+                    relations: ['clinic', 'chain', 'position', 'type', 'delegation']
                 });
                 let articleToUpdate = yield this.articleRepository.findOne(updateDTO.id);
                 articleToUpdate.galery = updateDTO.galery;
@@ -372,10 +436,10 @@ let ArticleService = class ArticleService {
                 return { status: 0 };
             }
             catch (err) {
-                console.log("ArticleService - update: ", err);
+                console.log('ArticleService - update: ', err);
                 throw new common_1.HttpException({
                     status: common_1.HttpStatus.INTERNAL_SERVER_ERROR,
-                    error: 'Error updating article',
+                    error: 'Error updating article'
                 }, 500);
             }
         });
