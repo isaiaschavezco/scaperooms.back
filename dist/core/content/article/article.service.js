@@ -186,6 +186,7 @@ let ArticleService = class ArticleService {
         return __awaiter(this, void 0, void 0, function* () {
             console.log(' getArticleList: ', getArticleList);
             const { type, userState, userChain, userClinic, userPosition } = getArticleList;
+            const relations = ['city', 'chain', 'position', 'type', 'delegation'];
             const ArticlesToSend = [];
             let whereStr = '';
             const pagesSkip = getArticleList.page;
@@ -201,7 +202,7 @@ let ArticleService = class ArticleService {
                 }
                 else {
                     if (type === 1) {
-                        let mainNaosStr = 'AND (art.isBlogNaos = true)';
+                        const mainNaosStr = 'AND (art.isBlogNaos = true)';
                         whereStr = `${mainStr} ${mainNaosStr} `;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                         yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
@@ -210,15 +211,7 @@ let ArticleService = class ArticleService {
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
-                                const articleTargets = yield this.targetRepository.findByIds(article.targets, {
-                                    relations: [
-                                        'city',
-                                        'chain',
-                                        'position',
-                                        'type',
-                                        'delegation'
-                                    ]
-                                });
+                                const articleTargets = yield this.targetRepository.findByIds(article.targets, { relations });
                                 articleTargets.forEach(target => {
                                     if (target.allUsers)
                                         ArticlesToSend.push(article);
@@ -243,7 +236,7 @@ let ArticleService = class ArticleService {
                         })));
                     }
                     if (type === 2) {
-                        let mainPharmaStr = 'AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)';
+                        const mainPharmaStr = 'AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)';
                         whereStr = `${mainStr} ${mainPharmaStr}`;
                         const articlesWhereStr = yield this.searchDB(whereStr, pagesSkip, stringFilter);
                         yield Promise.all(articlesWhereStr.map((article) => __awaiter(this, void 0, void 0, function* () {
@@ -252,35 +245,23 @@ let ArticleService = class ArticleService {
                             else if (article.targets.length === 0)
                                 ArticlesToSend.push(article);
                             else {
-                                console.log('article.targets', article.targets);
                                 const articleTargets = yield this.targetRepository.findByIds(article.targets, {
-                                    relations: [
-                                        'city',
-                                        'chain',
-                                        'clinic',
-                                        'position',
-                                        'type',
-                                        'delegation'
-                                    ]
+                                    relations
                                 });
                                 articleTargets.forEach(target => {
-                                    if (target.allUsers)
+                                    const { allUsers, chain, city } = target;
+                                    if (allUsers)
                                         ArticlesToSend.push(article);
-                                    else if (target.chain !== null && target.city !== null) {
-                                        if (target.city.id === userState &&
-                                            target.chain.id === userChain) {
+                                    else if (chain !== null && city !== null) {
+                                        if (city.id === userState && chain.id === userChain) {
                                             ArticlesToSend.push(article);
                                         }
                                     }
-                                    else if (target.city !== null) {
-                                        if (target.city.id === userState) {
-                                            ArticlesToSend.push(article);
-                                        }
+                                    else if (city !== null && city.id === userState) {
+                                        ArticlesToSend.push(article);
                                     }
-                                    else if (target.chain !== null) {
-                                        if (target.chain.id === userChain) {
-                                            ArticlesToSend.push(article);
-                                        }
+                                    else if (chain !== null && chain.id === userChain) {
+                                        ArticlesToSend.push(article);
                                     }
                                 });
                             }
@@ -315,10 +296,12 @@ let ArticleService = class ArticleService {
                                             ArticlesToSend.push(article);
                                         }
                                     }
-                                    else if (target.city !== null && target.city.id === userState) {
+                                    else if (target.city !== null &&
+                                        target.city.id === userState) {
                                         ArticlesToSend.push(article);
                                     }
-                                    else if (target.clinic !== null && target.clinic.id === userClinic) {
+                                    else if (target.clinic !== null &&
+                                        target.clinic.id === userClinic) {
                                         ArticlesToSend.push(article);
                                     }
                                 });

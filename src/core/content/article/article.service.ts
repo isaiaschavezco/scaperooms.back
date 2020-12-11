@@ -201,6 +201,8 @@ export class ArticleService {
     } = getArticleList
     // console.log("type,userState,userChain,userClinic,userPosition",type,userState,userChain,userClinic,userPosition);
 
+    const relations = ['city', 'chain', 'position', 'type', 'delegation']
+
     const ArticlesToSend = []
     let whereStr = ''
     const pagesSkip = getArticleList.page
@@ -223,8 +225,7 @@ export class ArticleService {
         return { blogs: [...allBioderma] }
       } else {
         if (type === 1) {
-          let mainNaosStr = 'AND (art.isBlogNaos = true)'
-          // whereStr = `${mainStr} ${mainNaosStr} ${userTypeQuery} ${stateQuery} ${positionQuery}`;
+          const mainNaosStr = 'AND (art.isBlogNaos = true)'
           whereStr = `${mainStr} ${mainNaosStr} `
           const articlesWhereStr = await this.searchDB(
             whereStr,
@@ -239,16 +240,9 @@ export class ArticleService {
               else {
                 const articleTargets = await this.targetRepository.findByIds(
                   article.targets,
-                  {
-                    relations: [
-                      'city',
-                      'chain',
-                      'position',
-                      'type',
-                      'delegation'
-                    ]
-                  }
+                  { relations }
                 )
+
                 articleTargets.forEach(target => {
                   if (target.allUsers) ArticlesToSend.push(article)
                   else if (target.position !== null && target.city !== null) {
@@ -273,7 +267,7 @@ export class ArticleService {
           )
         }
         if (type === 2) {
-          let mainPharmaStr =
+          const mainPharmaStr =
             'AND (art.isBlogNaos = false) AND (art.isBlogEsthederm = false) AND (art.isAll = false)'
           whereStr = `${mainStr} ${mainPharmaStr}`
 
@@ -288,37 +282,24 @@ export class ArticleService {
               else if (article.targets.length === 0)
                 ArticlesToSend.push(article)
               else {
-                console.log('article.targets', article.targets)
                 const articleTargets = await this.targetRepository.findByIds(
                   article.targets,
                   {
-                    relations: [
-                      'city',
-                      'chain',
-                      'clinic',
-                      'position',
-                      'type',
-                      'delegation'
-                    ]
+                    relations
                   }
                 )
                 articleTargets.forEach(target => {
-                  if (target.allUsers) ArticlesToSend.push(article)
-                  else if (target.chain !== null && target.city !== null) {
-                    if (
-                      target.city.id === userState &&
-                      target.chain.id === userChain
-                    ) {
+                  const { allUsers, chain, city } = target
+
+                  if (allUsers) ArticlesToSend.push(article)
+                  else if (chain !== null && city !== null) {
+                    if (city.id === userState && chain.id === userChain) {
                       ArticlesToSend.push(article)
                     }
-                  } else if (target.city !== null) {
-                    if (target.city.id === userState) {
-                      ArticlesToSend.push(article)
-                    }
-                  } else if (target.chain !== null) {
-                    if (target.chain.id === userChain) {
-                      ArticlesToSend.push(article)
-                    }
+                  } else if (city !== null && city.id === userState) {
+                    ArticlesToSend.push(article)
+                  } else if (chain !== null && chain.id === userChain) {
+                    ArticlesToSend.push(article)
                   }
                 })
               }
@@ -362,10 +343,16 @@ export class ArticleService {
                     ) {
                       ArticlesToSend.push(article)
                     }
-                  } else if (target.city !== null && target.city.id === userState) {
-                      ArticlesToSend.push(article)
-                  } else if (target.clinic !== null && target.clinic.id === userClinic) {
-                      ArticlesToSend.push(article)
+                  } else if (
+                    target.city !== null &&
+                    target.city.id === userState
+                  ) {
+                    ArticlesToSend.push(article)
+                  } else if (
+                    target.clinic !== null &&
+                    target.clinic.id === userClinic
+                  ) {
+                    ArticlesToSend.push(article)
                   }
                 })
               }
@@ -438,17 +425,17 @@ export class ArticleService {
     return listToReturn
   }
 
-  async searchOnFilter (target,specialField,compare,article,userState) {
-      const ArticlesToSend = []
+  async searchOnFilter (target, specialField, compare, article, userState) {
+    const ArticlesToSend = []
     if (target.allUsers) ArticlesToSend.push(article)
     else if (specialField !== null && target.city !== null) {
       if (target.city.id === userState && specialField.id === compare) {
         ArticlesToSend.push(article)
       }
     } else if (target.city !== null && target.city.id === userState) {
-        ArticlesToSend.push(article)
+      ArticlesToSend.push(article)
     } else if (specialField !== null && specialField.id === compare) {
-        ArticlesToSend.push(article)
+      ArticlesToSend.push(article)
     }
     return ArticlesToSend
   }
