@@ -18,5 +18,5 @@ module.exports = {
         "migrationsDir": "dist/database/migrations"
         // "migrationsDir": "src/database/migrations" //crealas en local y después haces el build para dejarla en dist
     },
-    "synchronize": false,
+    "synchronize": true,
 }
