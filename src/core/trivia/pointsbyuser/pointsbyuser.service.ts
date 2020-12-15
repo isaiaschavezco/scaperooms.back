@@ -67,6 +67,7 @@ export class PointsbyuserService {
                 .innerJoin("quizz.campaing", "cm", "cm.id = :campaingId", { campaingId: campaingId })
                 .groupBy("user.id")
                 .getRawMany();
+            console.log("pointsByUserList: ",pointsByUserList)
 
             pointsByUserList.sort(function (a, b) {
                 return b.totalPoints - a.totalPoints;
