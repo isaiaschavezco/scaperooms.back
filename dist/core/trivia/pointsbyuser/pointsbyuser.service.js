@@ -72,12 +72,17 @@ let PointsbyuserService = class PointsbyuserService {
                     .select("user.id", "id")
                     .addSelect("user.name", "name")
                     .addSelect("user.lastName", "lastName")
+                    .addSelect("user.photo", "photo")
+                    .addSelect("user.nickname", "nickname")
+                    .addSelect("user.gender", "gender")
+                    .addSelect("user.email", "email")
                     .addSelect("SUM(pobyus.points)", "totalPoints")
                     .innerJoin("pobyus.user", "user")
                     .leftJoin("pobyus.quizz", "quizz")
                     .innerJoin("quizz.campaing", "cm", "cm.id = :campaingId", { campaingId: campaingId })
                     .groupBy("user.id")
                     .getRawMany();
+                console.log("pointsByUserList: ", pointsByUserList);
                 pointsByUserList.sort(function (a, b) {
                     return b.totalPoints - a.totalPoints;
                 });

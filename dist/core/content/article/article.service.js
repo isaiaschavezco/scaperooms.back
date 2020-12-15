@@ -118,11 +118,11 @@ let ArticleService = class ArticleService {
                     ],
                     where: {
                         isBiodermaGame: requestDTO.isBiodermaGame,
-                        isBlogNaos: requestDTO.isBiodermaGame ? null : requestDTO.isBlogNaos,
+                        isBlogNaos: requestDTO.isBiodermaGame ? false : requestDTO.isBlogNaos,
                         isBlogEsthederm: requestDTO.isBiodermaGame
-                            ? null
+                            ? false
                             : requestDTO.isBlogEsthederm,
-                        isAll: requestDTO.isBiodermaGame ? null : requestDTO.isAll
+                        isAll: requestDTO.isBiodermaGame ? false : requestDTO.isAll
                     },
                     order: {
                         createdAt: 'DESC'

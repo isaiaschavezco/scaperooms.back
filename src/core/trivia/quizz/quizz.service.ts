@@ -221,8 +221,10 @@ export class QuizzService {
                 .getMany();
 
             let quizzListToReturn = [];
-
+            
+            console.log("response:",response)
             response.forEach(tempQuizz => {
+                console.log("tempQuizz:",tempQuizz);
                 let quizzFormat = {};
                 quizzFormat["id"] = tempQuizz.id;
                 quizzFormat["name"] = tempQuizz.name;
@@ -231,9 +233,14 @@ export class QuizzService {
                 quizzFormat["quizzPoints"] = tempQuizz.points;
                 quizzFormat["userPoints"] = tempQuizz.answerbyuserquizz.length > 0 ? tempQuizz.answerbyuserquizz[0].points : 0;
                 quizzFormat["canBeAnswered"] = tempQuizz.answerbyuserquizz.length > 0 ? false : (!moment(actualDate).isAfter(moment(tempQuizz.finishedAt).format()));
+                console.log("moment(actualDate):",moment(actualDate))
+                console.log("moment(tempQuizz.finishedAt).format():",moment(tempQuizz.finishedAt).format())
+                console.log("!moment(actualDate).isAfter(moment(tempQuizz.finishedAt).format()): ", !moment(actualDate).isAfter(moment(tempQuizz.finishedAt).format()))
+                console.log("=============================");
+
                 quizzListToReturn.push(quizzFormat);
             });
-
+            console.log("quizzListToReturn,: ",quizzListToReturn)
             return { campaing: campaingSelected, quizzes: quizzListToReturn };
         } catch (err) {
             console.log("QuizzService - findQuizzesByUserCampaing: ", err);
