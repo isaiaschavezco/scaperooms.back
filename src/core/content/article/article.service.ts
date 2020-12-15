@@ -102,7 +102,7 @@ export class ArticleService {
         relations: [
           'tag',
           'target',
-          'target.city',
+          'target.city',  
           'target.chain',
           'target.clinic',
           'target.position',
