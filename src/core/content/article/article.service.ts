@@ -244,21 +244,21 @@ export class ArticleService {
                 )
 
                 articleTargets.forEach(target => {
-                  if (target.allUsers) ArticlesToSend.push(article)
+                  if (target.allUsers) ArticlesToSend.unshift(article)
                   else if (target.position !== null && target.city !== null) {
                     if (
                       target.city.id === userState &&
                       target.position.id === userPosition
                     ) {
-                      ArticlesToSend.push(article)
+                      ArticlesToSend.unshift(article)
                     }
                   } else if (target.city !== null) {
                     if (target.city.id === userState) {
-                      ArticlesToSend.push(article)
+                      ArticlesToSend.unshift(article)
                     }
                   } else if (target.position !== null) {
                     if (target.position.id === userPosition) {
-                      ArticlesToSend.push(article)
+                      ArticlesToSend.unshift(article)
                     }
                   }
                 })
@@ -278,9 +278,9 @@ export class ArticleService {
           )
           await Promise.all(
             articlesWhereStr.map(async article => {
-              if (article.isAll) ArticlesToSend.push(article)
+              if (article.isAll) ArticlesToSend.unshift(article)
               else if (article.targets.length === 0)
-                ArticlesToSend.push(article)
+                ArticlesToSend.unshift(article)
               else {
                 const articleTargets = await this.targetRepository.findByIds(
                   article.targets,
@@ -291,15 +291,15 @@ export class ArticleService {
                 articleTargets.forEach(target => {
                   const { allUsers, chain, city } = target
 
-                  if (allUsers) ArticlesToSend.push(article)
+                  if (allUsers) ArticlesToSend.unshift(article)
                   else if (chain !== null && city !== null) {
                     if (city.id === userState && chain.id === userChain) {
-                      ArticlesToSend.push(article)
+                      ArticlesToSend.unshift(article)
                     }
                   } else if (city !== null && city.id === userState) {
-                    ArticlesToSend.push(article)
+                    ArticlesToSend.unshift(article)
                   } else if (chain !== null && chain.id === userChain) {
-                    ArticlesToSend.push(article)
+                    ArticlesToSend.unshift(article)
                   }
                 })
               }
@@ -317,21 +317,14 @@ export class ArticleService {
           )
           await Promise.all(
             articlesWhereStr.map(async article => {
-              if (article.isAll) ArticlesToSend.push(article)
+              if (article.isAll) ArticlesToSend.unshift(article)
               else if (article.targets.length === 0)
-                ArticlesToSend.push(article)
+                ArticlesToSend.unshift(article)
               else {
                 const articleTargets = await this.targetRepository.findByIds(
                   article.targets,
                   {
-                    relations: [
-                      'city',
-                      'chain',
-                      'clinic',
-                      'position',
-                      'type',
-                      'delegation'
-                    ]
+                    relations
                   }
                 )
                 articleTargets.forEach(target => {
@@ -341,18 +334,18 @@ export class ArticleService {
                       target.city.id === userState &&
                       target.clinic.id === userClinic
                     ) {
-                      ArticlesToSend.push(article)
+                      ArticlesToSend.unshift(article)
                     }
                   } else if (
                     target.city !== null &&
                     target.city.id === userState
                   ) {
-                    ArticlesToSend.push(article)
+                    ArticlesToSend.unshift(article)
                   } else if (
                     target.clinic !== null &&
                     target.clinic.id === userClinic
                   ) {
-                    ArticlesToSend.push(article)
+                    ArticlesToSend.unshift(article)
                   }
                 })
               }
