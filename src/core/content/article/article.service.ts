@@ -280,7 +280,7 @@ export class ArticleService {
             articlesWhereStr.map(async article => {
               if (article.isAll) ArticlesToSend.unshift(article)
               else if (article.targets.length === 0)
-                ArticlesToSend.unshift(article)
+                ArticlesToSend.push(article)
               else {
                 const articleTargets = await this.targetRepository.findByIds(
                   article.targets,
@@ -319,7 +319,7 @@ export class ArticleService {
             articlesWhereStr.map(async article => {
               if (article.isAll) ArticlesToSend.unshift(article)
               else if (article.targets.length === 0)
-                ArticlesToSend.unshift(article)
+                ArticlesToSend.push(article)
               else {
                 const articleTargets = await this.targetRepository.findByIds(
                   article.targets,
