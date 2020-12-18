@@ -359,9 +359,14 @@ export class ArticleService {
           stringFilter
         )
         console.log(articlesToAAAllUsers,ArticlesToSend)
+        const allBlogs = [...articlesToAAAllUsers,...ArticlesToSend]
+        const allBlogsOrd = allBlogs.sort(function(a,b){
+          if(a.id > b.id) return -1
+          if(a.id < b.id) return 1
+        })
 
 
-        return { blogs: [...ArticlesToSend, ...articlesToAAAllUsers] }
+        return { blogs:allBlogsOrd }
       }
     } catch (err) {
       console.log('ArticleService - searchForArticlesList: ', err)
