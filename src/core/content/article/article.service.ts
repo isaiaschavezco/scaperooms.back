@@ -358,6 +358,9 @@ export class ArticleService {
           pagesSkip,
           stringFilter
         )
+        console.log(articlesToAAAllUsers,ArticlesToSend)
+
+
         return { blogs: [...ArticlesToSend, ...articlesToAAAllUsers] }
       }
     } catch (err) {
