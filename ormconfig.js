@@ -14,6 +14,9 @@ module.exports = {
         "max": 25,
         "min": 1
     },
+    "extra": {
+    "ssl": "true"
+  },
     "cli":{
         "migrationsDir": "dist/database/migrations"
         // "migrationsDir": "src/database/migrations" //crealas en local y después haces el build para dejarla en dist
