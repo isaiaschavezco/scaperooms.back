@@ -12,7 +12,8 @@ module.exports = {
     "migrations": ["dist/database/migrations/*{.ts,.js}"], //aquí buscará la migración en produccion
     "extra": {
         "max": 25,
-        "min": 1
+        "min": 1,
+        "ssl": true
     },
     "cli":{
         "migrationsDir": "dist/database/migrations"
