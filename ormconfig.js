@@ -10,9 +10,13 @@ module.exports = {
     migrationTableName:"migrations",
     // "migrations": ["src/database/migrations/*{.ts.js}"],
     "migrations": ["dist/database/migrations/*{.ts,.js}"], //aquí buscará la migración en produccion
+    "ssl": true,
     "extra": {
         "max": 25,
-        "min": 1
+        "min": 1,
+        "ssl": {
+            "rejectUnauthorized": false
+          }
     },
     "cli":{
         "migrationsDir": "dist/database/migrations"
