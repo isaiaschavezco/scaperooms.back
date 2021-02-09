@@ -9,7 +9,7 @@ module.exports = {
     // "entities": [ "src/**/*.entity{.ts,.js}" ], //usar esta para crear la migración desde local
     migrationTableName:"migrations",
     // "migrations": ["src/database/migrations/*{.ts.js}"],
-    "migrations": ["dist/database/migrations/*{.ts,.js}"], //aquí buscará la migración en produccion
+    "migrations": ["dist/database/migrations/*{.ts,.js}"], //aquí buscará la migración en produccion.
     "ssl": true,
     "extra": {
         "max": 25,
