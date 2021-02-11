@@ -347,6 +347,7 @@ export class QuizzService {
     async deleteQuizzUser(removeQuizzUserDTO: RemoveQuizzUserDTO): Promise<any> {
         try {
             let response = { status: 0 };
+            console.log("removeQuizzUserDTO",removeQuizzUserDTO)
 
             //const userExist = await this.userRepository.findOne({
                 //    where: { id: removeQuizzUserDTO.id },
@@ -365,7 +366,7 @@ export class QuizzService {
                        .leftJoin('pobyus.quizz', 'quizz')
                        .leftJoinAndSelect('pobyus.pointsType', 'poty')
                        .leftJoin('pobyus.user', 'user')
-                       .where('quizz.id = :quizzId AND user.id = :userId', { quizzId: removeQuizzUserDTO.quizzId,userId:removeQuizzUserDTO.id })
+                       .where('quizz.id = :quizzId', { quizzId: removeQuizzUserDTO.quizzId })
                        .getMany();
                        
                        console.log("pointsByUserToRemove:",pointsByUserToRemove)
