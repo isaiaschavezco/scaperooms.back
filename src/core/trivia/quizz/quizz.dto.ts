@@ -32,3 +32,10 @@ export class RemoveQuizzDTO {
     readonly password: string;
     readonly quizzId: number;
 }
+
+export class RemoveQuizzUserDTO {
+    readonly id: number;
+    readonly email: string;
+    readonly password: string;
+    readonly quizzId: number;
+}

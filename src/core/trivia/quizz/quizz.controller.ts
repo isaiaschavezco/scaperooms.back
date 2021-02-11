@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { QuizzService } from './quizz.service';
 import { Quizz } from './quizz.entity';
-import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO } from './quizz.dto';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO ,RemoveQuizzUserDTO} from './quizz.dto';
 
 @Controller('quizz')
 export class QuizzController {
@@ -41,6 +41,10 @@ export class QuizzController {
     @Put('remove')
     async deleteQuizz(@Body() removeQuizzDTO: RemoveQuizzDTO): Promise<any> {
         return await this.quizzService.delete(removeQuizzDTO);
+    }
+    @Put('user/remove')
+    async deleteQuizzUser(@Body() removeQuizzUserDTO: RemoveQuizzUserDTO): Promise<any> {
+        return await this.quizzService.deleteQuizzUser(removeQuizzUserDTO);
     }
 
 }
