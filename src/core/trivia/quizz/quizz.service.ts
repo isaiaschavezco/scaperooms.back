@@ -397,7 +397,8 @@ export class QuizzService {
                         }
 
                     }
-                    let answerByUserToRemove = await this.answerByUserRepository.find({
+                    let answerByUserToRemove = await this.answerByUserRepository
+                    .find({
                         where: { quizz: removeQuizzUserDTO.quizzId,user:removeQuizzUserDTO.id }
                     });
                     console.log("=================")
