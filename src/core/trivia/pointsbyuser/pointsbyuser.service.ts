@@ -30,6 +30,7 @@ export class PointsbyuserService {
             pointsByUserList.forEach(points => {
                 pointsByUserToReturn.push({
                     id: points.id,
+                    quizz_id: points.quizz,
                     points: points.isAdded ? '+' + points.points : '-' + points.points,
                     createdAt: moment(points.createdAt).format('DD/MM/YYYY'),
                     pointsType: points.pointsType.name,
