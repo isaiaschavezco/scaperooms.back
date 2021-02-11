@@ -366,13 +366,13 @@ export class QuizzService {
                        .leftJoin('pobyus.quizz', 'quizz')
                        .leftJoinAndSelect('pobyus.pointsType', 'poty')
                        .leftJoin('pobyus.user', 'user')
-                       .where('quizz.id = :quizzId', { quizzId: removeQuizzUserDTO.quizzId })
+                       .where('id = :quizzId', { quizzId: removeQuizzUserDTO.quizzId })
                        .getMany();
                        
                        console.log("pointsByUserToRemove:",pointsByUserToRemove)
                     for (let index = 0; index < pointsByUserToRemove.length; index++) {
                         const tempPointsByUser = pointsByUserToRemove[index];
-
+                        console.log("tempPointsByUser",tempPointsByUser)
                         if (tempPointsByUser.points > 0) {
                             let userToChange = await this.userRepository.findOne(removeQuizzUserDTO.id, {
                                 select: ["id", "points", "biodermaGamePoints"]
