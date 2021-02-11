@@ -349,25 +349,26 @@ export class QuizzService {
             let response = { status: 0 };
 
             //const userExist = await this.userRepository.findOne({
-            //    where: { id: removeQuizzUserDTO.id },
-             //   select: ["id", "name", "email", "points", "password"]
-            //});
-
-            if (true) {
-/*                 const match = await bcrypt.compare(removeQuizzUserDTO.password, userExist.password);
- */
+                //    where: { id: removeQuizzUserDTO.id },
+                //   select: ["id", "name", "email", "points", "password"]
+                //});
+                
                 if (true) {
-
-                    let pointsByUserToRemove = await this.pointsByUserRepository
-                    .createQueryBuilder("pobyus")
-                    .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt", "pobyus.isDeleted"])
-                    .addSelect("user.id")
-                    .leftJoin('pobyus.quizz', 'quizz')
-                    .leftJoinAndSelect('pobyus.pointsType', 'poty')
-                    .leftJoin('pobyus.user', 'user')
-                    .where('quizz.id = :quizzId AND user.id = :userId', { quizzId: removeQuizzUserDTO.quizzId,userId:removeQuizzUserDTO.id })
-                    .getMany();
-
+                    /*                 const match = await bcrypt.compare(removeQuizzUserDTO.password, userExist.password);
+                    */
+                   if (true) {
+                       
+                       let pointsByUserToRemove = await this.pointsByUserRepository
+                       .createQueryBuilder("pobyus")
+                       .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt", "pobyus.isDeleted"])
+                       .addSelect("user.id")
+                       .leftJoin('pobyus.quizz', 'quizz')
+                       .leftJoinAndSelect('pobyus.pointsType', 'poty')
+                       .leftJoin('pobyus.user', 'user')
+                       .where('quizz.id = :quizzId AND user.id = :userId', { quizzId: removeQuizzUserDTO.quizzId,userId:removeQuizzUserDTO.id })
+                       .getMany();
+                       
+                       console.log("pointsByUserToRemove:",pointsByUserToRemove)
                     for (let index = 0; index < pointsByUserToRemove.length; index++) {
                         const tempPointsByUser = pointsByUserToRemove[index];
 
@@ -396,7 +397,7 @@ export class QuizzService {
 
                     }
                     let answerByUserToRemove = await this.answerByUserRepository.find({
-                        where: { quizz: removeQuizzUserDTO.quizzId,userId:removeQuizzUserDTO.id }
+                        where: { quizz: removeQuizzUserDTO.quizzId,user:removeQuizzUserDTO.id }
                     });
                     console.log("=================")
                     console.log("answerByUserToRemove:",answerByUserToRemove)
