@@ -477,7 +477,7 @@ export class ArticleService {
       console.log("articleToUpdate",articleToUpdate)
       if (updateDTO.repost) {
       articleToUpdate.createdAt= moment().format('DD/MM/YYYY')        
-      console.log("articleToUpdate.createdAt",articleToUpdate.createdAt)
+      console.log("articleToUpdate.createdAtttt",articleToUpdate.createdAt)
       }
 
       await this.articleRepository.save(articleToUpdate)
