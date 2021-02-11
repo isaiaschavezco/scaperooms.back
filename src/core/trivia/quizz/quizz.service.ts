@@ -366,7 +366,7 @@ export class QuizzService {
                        .leftJoin('pobyus.quizz', 'quizz')
                        .leftJoinAndSelect('pobyus.pointsType', 'poty')
                        .leftJoin('pobyus.user', 'user')
-                       .where('id = :quizzId', { quizzId: removeQuizzUserDTO.quizzId })
+                       .where('pobyus.id = :quizzId', { quizzId: removeQuizzUserDTO.quizzId })
                        .getMany();
                        
                        console.log("pointsByUserToRemove:",pointsByUserToRemove)
