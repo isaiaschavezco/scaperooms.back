@@ -475,9 +475,10 @@ export class ArticleService {
       articleToUpdate.content = updateDTO.content
       articleToUpdate.tag = articleTags
       console.log("articleToUpdate",articleToUpdate)
-  /*     if (updateDTO.repost) {
+      if (updateDTO.repost) {
+        console.log("updateDTO.repost",updateDTO.repost)
       articleToUpdate.createdAt= new Date(moment().format('DD/MM/YYYY'))        
-    } */
+    } 
     console.log("articleToUpdate.createdAtttt",articleToUpdate.createdAt)
 
       await this.articleRepository.save(articleToUpdate)
