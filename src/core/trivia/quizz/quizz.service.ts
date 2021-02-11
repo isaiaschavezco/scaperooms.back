@@ -348,12 +348,12 @@ export class QuizzService {
         try {
             let response = { status: 0 };
 
-            const userExist = await this.userRepository.findOne({
-                where: { id: removeQuizzUserDTO.id },
-                select: ["id", "name", "email", "points", "password"]
-            });
+            //const userExist = await this.userRepository.findOne({
+            //    where: { id: removeQuizzUserDTO.id },
+             //   select: ["id", "name", "email", "points", "password"]
+            //});
 
-            if (userExist) {
+            if (true) {
 /*                 const match = await bcrypt.compare(removeQuizzUserDTO.password, userExist.password);
  */
                 if (true) {
