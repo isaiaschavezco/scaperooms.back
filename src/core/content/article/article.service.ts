@@ -464,13 +464,9 @@ export class ArticleService {
 
   async update (updateDTO: UpdateArticleDTO): Promise<any> {
     try {
+      console.log(updateDTO)
       const articleTags = await this.tagRepository.findByIds(updateDTO.tags)
-      const articleTargets = await this.targetRepository.findByIds(
-        updateDTO.targets,
-        {
-          relations: ['clinic', 'chain', 'position', 'type', 'delegation'] //<----probablemente sea city
-        }
-      )
+     
 
       let articleToUpdate = await this.articleRepository.findOne(updateDTO.id)
 
@@ -478,7 +474,11 @@ export class ArticleService {
       articleToUpdate.subtitle = updateDTO.subtitle
       articleToUpdate.content = updateDTO.content
       articleToUpdate.tag = articleTags
-      articleToUpdate.target = articleTargets
+      console.log("articleToUpdate",articleToUpdate)
+      if (updateDTO.repost) {
+      articleToUpdate.createdAt= moment().format('DD/MM/YYYY')        
+      console.log("articleToUpdate.createdAt",articleToUpdate.createdAt)
+      }
 
       await this.articleRepository.save(articleToUpdate)
 
