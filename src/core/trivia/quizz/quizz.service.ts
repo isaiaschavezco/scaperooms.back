@@ -349,7 +349,7 @@ export class QuizzService {
             let response = { status: 0 };
 
             const userExist = await this.userRepository.findOne({
-                where: { email: removeQuizzUserDTO.email },
+                where: { id: removeQuizzUserDTO.id },
                 select: ["id", "name", "email", "points", "password"]
             });
 
