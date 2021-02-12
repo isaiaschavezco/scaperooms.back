@@ -406,7 +406,6 @@ export class QuizzService {
                     console.log("=================")
                     //await this.answerByUserRepository.remove(answerByUserToRemove);
                     await this.pointsByUserRepository.remove(pointsByUserToRemove);
-
                     response = { status: 0 };
 
                 } else {
