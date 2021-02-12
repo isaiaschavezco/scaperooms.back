@@ -404,7 +404,7 @@ export class QuizzService {
                     console.log("answerByUserToRemove:",answerByUserToRemove)
                     console.log("pointsByUserToRemove:",pointsByUserToRemove)
                     console.log("=================")
-                    //await this.answerByUserRepository.remove(answerByUserToRemove);
+                    await this.answerByUserRepository.remove(answerByUserToRemove);
                     await this.pointsByUserRepository.remove(pointsByUserToRemove);
                     response = { status: 0 };
 
