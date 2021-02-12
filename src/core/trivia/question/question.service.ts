@@ -94,6 +94,10 @@ export class QuestionService {
                         tempQuestion['questions'] = questionContent.questions;
                         tempQuestion['responses'] = answerContent.responses;
                         break;
+                    case 6:
+                        tempQuestion['questions'] = questionContent.questions;
+                        tempQuestion['responses'] = answerContent.responses;
+                        break;
                     default:
                         console.log("Pregunta extraña");
                         break;
