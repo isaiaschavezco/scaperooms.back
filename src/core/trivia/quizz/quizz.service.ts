@@ -397,17 +397,15 @@ export class QuizzService {
                         }
 
                     }
-                    let answerByUserToRemove = await this.answerByUserRepository
-                    .find({
-                        where: { quizz: removeQuizzUserDTO.quizzId,user:removeQuizzUserDTO.id }
+                    let answerByUserToRemove = await this.answerByUserRepository.find({
+                        where: { quizz: removeQuizzUserDTO.quizz,user:removeQuizzUserDTO.id }
                     });
                     console.log("=================")
                     console.log("answerByUserToRemove:",answerByUserToRemove)
                     console.log("pointsByUserToRemove:",pointsByUserToRemove)
                     console.log("=================")
-                    //await this.answerByUserRepository.remove(answerByUserToRemove);
-                    //await this.pointsByUserRepository.remove(pointsByUserToRemove);
-
+                    await this.answerByUserRepository.remove(answerByUserToRemove);
+                    await this.pointsByUserRepository.remove(pointsByUserToRemove);
                     response = { status: 0 };
 
                 } else {
