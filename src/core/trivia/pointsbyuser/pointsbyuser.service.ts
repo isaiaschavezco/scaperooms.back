@@ -34,7 +34,6 @@ export class PointsbyuserService {
                     points: points.isAdded ? '+' + points.points : '-' + points.points,
                     createdAt: moment(points.createdAt).format('DD/MM/YYYY'),
                     pointsType: points.pointsType.name,
-                    quizzid:points.quizz.id
                     name: points.pointsType.id !== 4 ? (points.quizz ? points.quizz.name : points.product.title) : 'ADMINISTRACIÓN'
                 });
             });
