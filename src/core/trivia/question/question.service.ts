@@ -70,18 +70,8 @@ export class QuestionService {
         relations: ['question_type'],
         order: { createdAt: 'DESC' }
       })
-      console.log('=============questionList============')
-      console.log('=========================')
-      console.log('questionList', questionList)
-      console.log('=========================')
-      console.log('=========================')
 
       questionList.forEach(actualQuestion => {
-        console.log('°°°°°°°°°°°°°°questionList°°°°°°°°°°°°°')
-        console.log('°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°')
-        console.log('questionList', actualQuestion)
-        console.log('°°°°°°°°°°°°°°°°°°°°°°°°°°°')
-        console.log('°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°')
         let tempQuestion = {}
         tempQuestion['id'] = actualQuestion.id
         tempQuestion['type'] = actualQuestion.question_type.id
@@ -91,10 +81,6 @@ export class QuestionService {
 
         const questionContent = JSON.parse(actualQuestion.content)
         const answerContent = JSON.parse(actualQuestion.answer)
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$')
-        console.log(answerContent)
-        console.log(questionContent)
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$')
 
         switch (actualQuestion.question_type.id) {
           case 1:
@@ -133,7 +119,7 @@ export class QuestionService {
             console.log('Pregunta extraña')
             break
         }
-
+        
         questionListToReturn.push(tempQuestion)
       })
 
