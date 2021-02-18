@@ -18,6 +18,8 @@ export class UpdateArticleDTO {
     readonly content: string;
     readonly tags: number[];
     readonly targets: number[];
+    readonly repost: boolean;
+
 }
 
 export class GetArticleList {

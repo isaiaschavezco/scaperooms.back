@@ -7,7 +7,7 @@ import { User } from '../../users/user/user.entity';
 import { Pointsbyuser } from '../pointsbyuser/pointsbyuser.entity';
 import { Question } from '../question/question.entity';
 import { Answerbyuserquizz } from '../answerbyuserquizz/answerbyuserquizz.entity';
-import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO } from './quizz.dto';
+import { CreateQuizzDTO, SendQuizzDTO, QuizzListDTO, GetQuizzesByUserCampaingDTO, RemoveQuizzDTO,RemoveQuizzUserDTO} from './quizz.dto';
 import * as moment from 'moment-timezone';
 import * as bcrypt from 'bcrypt';
 
@@ -342,6 +342,91 @@ export class QuizzService {
             }, 500);
         }
     }
+
+
+    async deleteQuizzUser(removeQuizzUserDTO: RemoveQuizzUserDTO): Promise<any> {
+        try {
+            let response = { status: 0 };
+            console.log("removeQuizzUserDTO",removeQuizzUserDTO)
+
+            //const userExist = await this.userRepository.findOne({
+                //    where: { id: removeQuizzUserDTO.id },
+                //   select: ["id", "name", "email", "points", "password"]
+                //});
+                
+                if (true) {
+                    /*                 const match = await bcrypt.compare(removeQuizzUserDTO.password, userExist.password);
+                    */
+                   if (true) {
+                       
+                       let pointsByUserToRemove = await this.pointsByUserRepository
+                       .createQueryBuilder("pobyus")
+                       .select(["pobyus.id", "pobyus.points", "pobyus.isAdded", "pobyus.createdAt", "pobyus.isDeleted"])
+                       .addSelect("user.id")
+                       .leftJoin('pobyus.quizz', 'quizz')
+                       .leftJoinAndSelect('pobyus.pointsType', 'poty')
+                       .leftJoin('pobyus.user', 'user')
+                       .where('pobyus.id = :quizzId', { quizzId: removeQuizzUserDTO.quizzId })
+                       .getMany();
+                       
+                       console.log("pointsByUserToRemove:",pointsByUserToRemove)
+                    for (let index = 0; index < pointsByUserToRemove.length; index++) {
+                        const tempPointsByUser = pointsByUserToRemove[index];
+                        console.log("tempPointsByUser",tempPointsByUser)
+                        if (tempPointsByUser.points > 0) {
+                            let userToChange = await this.userRepository.findOne(removeQuizzUserDTO.id, {
+                                select: ["id", "points", "biodermaGamePoints"]
+                            });
+
+                            if (userToChange) {
+
+                                if (tempPointsByUser.pointsType.id == 2) {
+
+                                    userToChange.biodermaGamePoints -= tempPointsByUser.points;
+                                    if (userToChange.biodermaGamePoints <= 0) {
+                                        userToChange.biodermaGamePoints = 0;
+                                    }
+                                } else {
+                                    userToChange.points -= tempPointsByUser.points;
+                                    if (userToChange.points <= 0) {
+                                        userToChange.points = 0;
+                                    }
+                                }
+                            }
+                            await this.userRepository.save(userToChange);
+                        }
+
+                    }
+                    let answerByUserToRemove = await this.answerByUserRepository.find({
+                        where: { quizz: removeQuizzUserDTO.quizz,user:removeQuizzUserDTO.id }
+                    });
+                    console.log("=================")
+                    console.log("answerByUserToRemove:",answerByUserToRemove)
+                    console.log("pointsByUserToRemove:",pointsByUserToRemove)
+                    console.log("=================")
+                    await this.answerByUserRepository.remove(answerByUserToRemove);
+                    await this.pointsByUserRepository.remove(pointsByUserToRemove);
+                    response = { status: 0 };
+
+                } else {
+                    response = { status: 2 };
+                }
+
+            } else {
+                response = { status: 1 };
+            }
+
+            return response;
+        } catch (err) {
+            console.log("QuizzService - delete: ", err);
+
+            throw new HttpException({
+                status: HttpStatus.INTERNAL_SERVER_ERROR,
+                error: 'Error deleting quizzes',
+            }, 500);
+        }
+    }
+
 
     async generateQuizzReport(quizzId: string): Promise<any> {
         try {

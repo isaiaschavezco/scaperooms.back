@@ -52,7 +52,7 @@
     "ts-node": "8.1.0",
     "typeorm": "^0.2.18",
     "typescript": "3.7.2",
-     "@nestjs/testing": "^6.0.0",
+    "@nestjs/testing": "^6.0.0",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.13",
@@ -64,7 +64,6 @@
     "node": ">=10.12.18 <=10.16.0"
   },
   "devDependencies": {
-   
     "concurrently": "^5.3.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
